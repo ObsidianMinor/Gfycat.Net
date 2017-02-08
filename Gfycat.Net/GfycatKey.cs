@@ -12,5 +12,7 @@ namespace Gfycat
         public string Secret { get; set; }
         [JsonProperty("uploadType")]
         public string UploadType { get; set; }
+        [JsonProperty("fetchUrl")]
+        public string FetchUrl { get; set; }
     }
 }
