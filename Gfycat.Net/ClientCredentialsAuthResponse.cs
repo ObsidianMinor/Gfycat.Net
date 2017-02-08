@@ -5,18 +5,18 @@ namespace Gfycat
     /// <summary>
     /// Represents an authentication response using client credentials
     /// </summary>
-    public class SimpleClientAuthResponse
+    public class ClientCredentialsAuthResponse
     {
         [JsonProperty("token_type")]
-        string TokenType { get; set; }
+        public string TokenType { get; set; }
 
         [JsonProperty("scope")]
-        string Scope { get; set; }
+        public string Scope { get; set; }
 
         [JsonProperty("expires_in")]
-        int ExpiresIn { get; set; }
+        public int ExpiresIn { get; set; }
 
         [JsonProperty("access_token")]
-        string AccessToken { get; set; }
+        public string AccessToken { get; set; }
     }
 }
