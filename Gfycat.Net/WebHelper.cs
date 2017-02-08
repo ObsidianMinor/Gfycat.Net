@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -7,22 +6,13 @@ using System.Threading.Tasks;
 
 namespace Gfycat
 {
-    internal class WebWrapper : IDisposable
+    internal static class WebHelper
     {
-        HttpClient _client;
-        const string _startEndpoint = "https://api.gfycat.com/v1/";
-        bool _recievedUnauthorized;
-
-        internal WebWrapper()
-        {
-            _client = new HttpClient() { BaseAddress = new Uri(_startEndpoint) };
-        }
-
-        internal async Task<T> SendJsonAsync<T>(string method, string endpoint, object json, string accessToken = null)
+        internal static async Task<T> SendJsonAsync<T>(this HttpClient client, string method, string endpoint, object json, string accessToken = null)
         {
             HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
             AddJsonContent(message, json);
-            HttpResponseMessage result = await _client.SendAsync(message);
+            HttpResponseMessage result = await client.SendAsync(message);
 
             if (!result.IsSuccessStatusCode)
                 throw await GetExceptionFromResponse(result);
@@ -30,20 +20,20 @@ namespace Gfycat
             return await GetJsonFromResponse<T>(result);
         }
 
-        internal async Task SendJsonAsync(string method, string endpoint, object json, string accessToken = null)
+        internal static async Task SendJsonAsync(this HttpClient client, string method, string endpoint, object json, string accessToken = null)
         {
             HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
             AddJsonContent(message, json);
-            HttpResponseMessage result = await _client.SendAsync(message);
+            HttpResponseMessage result = await client.SendAsync(message);
 
             if (!result.IsSuccessStatusCode)
                 throw await GetExceptionFromResponse(result);
         }
 
-        internal async Task<T> SendRequestAsync<T>(string method, string endpoint, string accessToken = null)
+        internal static async Task<T> SendRequestAsync<T>(this HttpClient client, string method, string endpoint, string accessToken = null)
         {
             HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
-            HttpResponseMessage result = await _client.SendAsync(message);
+            HttpResponseMessage result = await client.SendAsync(message);
 
             if (!result.IsSuccessStatusCode)
                 throw await GetExceptionFromResponse(result);
@@ -51,10 +41,10 @@ namespace Gfycat
             return await GetJsonFromResponse<T>(result);
         }
 
-        internal async Task<HttpStatusCode> SendRequestForStatusAsync(string method, string endpoint, string accessToken = null, bool throwIf401 = false)
+        internal static async Task<HttpStatusCode> SendRequestForStatusAsync(this HttpClient client, string method, string endpoint, string accessToken = null, bool throwIf401 = false)
         {
             HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
-            HttpResponseMessage result = await _client.SendAsync(message);
+            HttpResponseMessage result = await client.SendAsync(message);
 
             if (throwIf401 && result.StatusCode == HttpStatusCode.Unauthorized)
                 throw await GetExceptionFromResponse(result);
@@ -62,11 +52,11 @@ namespace Gfycat
             return result.StatusCode;
         }
 
-        internal async Task<HttpStatusCode> SendJsonForStatusAsync(string method, string endpoint, object json, string accessToken = null, bool throwIf401 = false)
+        internal static async Task<HttpStatusCode> SendJsonForStatusAsync(this HttpClient client, string method, string endpoint, object json, string accessToken = null, bool throwIf401 = false)
         {
             HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
             AddJsonContent(message, json);
-            HttpResponseMessage result = await _client.SendAsync(message);
+            HttpResponseMessage result = await client.SendAsync(message);
 
             if (throwIf401 && result.StatusCode == HttpStatusCode.Unauthorized)
                 throw await GetExceptionFromResponse(result);
@@ -74,30 +64,30 @@ namespace Gfycat
             return result.StatusCode;
         }
 
-        private async Task<T> GetJsonFromResponse<T>(HttpResponseMessage message)
+        private static async Task<T> GetJsonFromResponse<T>(HttpResponseMessage message)
         {
             string result = await message.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<T>(result);
         }
 
-        private Task<GfycatException> GetExceptionFromResponse(HttpResponseMessage message) => GetJsonFromResponse<GfycatException>(message);
+        private static async Task<GfycatException> GetExceptionFromResponse(HttpResponseMessage message)
+        {
+            GfycatException exception = await GetJsonFromResponse<GfycatException>(message);
+            exception.HttpCode = message.StatusCode;
+            return exception;
+        }
 
-        private void AddJsonContent(HttpRequestMessage message, object json)
+        private static void AddJsonContent(HttpRequestMessage message, object json)
         {
             message.Content = new StringContent(JsonConvert.SerializeObject(json), System.Text.Encoding.UTF8, "application/json");
         }
 
-        private HttpRequestMessage CreateMessage(HttpMethod method, string endpoint, string accessToken)
+        private static HttpRequestMessage CreateMessage(HttpMethod method, string endpoint, string accessToken)
         {
-            HttpRequestMessage message = new HttpRequestMessage(method, _startEndpoint + endpoint);
+            HttpRequestMessage message = new HttpRequestMessage(method, endpoint);
             if (!string.IsNullOrWhiteSpace(accessToken))
                 message.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             return message;
-        }
-
-        public void Dispose()
-        {
-            ((IDisposable)_client).Dispose();
         }
     }
 }

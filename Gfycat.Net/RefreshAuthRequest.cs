@@ -1,8 +1,8 @@
 ﻿namespace Gfycat
 {
-    public class RefreshAuthRequest : ClientCredentialsAuthRequest
+    internal class RefreshAuthRequest : ClientCredentialsAuthRequest
     {
         [Newtonsoft.Json.JsonProperty("refresh_token")]
-        public string RefreshToken { get; set; }
+        internal string RefreshToken { get; set; }
     }
 }

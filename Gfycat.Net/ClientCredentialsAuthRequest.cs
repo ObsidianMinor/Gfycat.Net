@@ -2,15 +2,15 @@
 
 namespace Gfycat
 {
-    public class ClientCredentialsAuthRequest
+    internal class ClientCredentialsAuthRequest
     {   
         [JsonProperty("grant_type")]
-        public string GrantType { get; set; }
+        internal string GrantType { get; set; }
 
         [JsonProperty("client_id")]
-        public string ClientId { get; set; }
+        internal string ClientId { get; set; }
 
         [JsonProperty("client_secret")]
-        public string ClientSecret { get; set; }
+        internal string ClientSecret { get; set; }
     }
 }

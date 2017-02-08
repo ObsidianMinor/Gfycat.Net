@@ -2,11 +2,11 @@
 
 namespace Gfycat
 {
-    public class ClientAccountAuthRequest : ClientCredentialsAuthRequest
+    internal class ClientAccountAuthRequest : ClientCredentialsAuthRequest
     {
         [JsonProperty("username")]
-        public string Username { get; set; }
+        internal string Username { get; set; }
         [JsonProperty("password")]
-        public string Password { get; set; }
+        internal string Password { get; set; }
     }
 }

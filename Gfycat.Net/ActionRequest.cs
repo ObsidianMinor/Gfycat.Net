@@ -2,12 +2,11 @@
 
 namespace Gfycat
 {
-    public class ActionRequest
+    internal class ActionRequest
     {
         [JsonProperty("value")]
-        public string Value { get; set; }
-
+        internal string Value { get; set; }
         [JsonProperty("action")]
-        public string Action { get; set; }
+        internal string Action { get; set; }
     }
 }

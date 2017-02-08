@@ -4,6 +4,6 @@
     {
         Encoding,
         Complete,
-        NotFoundo // I'm so serious
+        NotFoundo // I'm so serious, that's how it's spelled...
     }
 }

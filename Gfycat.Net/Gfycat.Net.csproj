@@ -1,11 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
+    <TargetFramework>netstandard1.1</TargetFramework>
     <RootNamespace>Gfycat</RootNamespace>
+    <Authors>ObsidianMinor</Authors>
+    <Company>ObsidianMinor</Company>
+    <Description>A CLS compliant .NET Standard 1.1 library that wraps around the Gfycat API</Description>
+    <Copyright>ObsidianMinor</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageTags>gfycat, netstandard1_1</PackageTags>
+    <PackageReleaseNotes>Initial release. Supports all non-testing endpoints.</PackageReleaseNotes>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>False</Optimize>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="System.Net.Http" Version="4.3.0" />
-    <PackageReference Include="System.ValueTuple" Version="4.3.0" />
   </ItemGroup>
 </Project>

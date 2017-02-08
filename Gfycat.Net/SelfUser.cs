@@ -2,13 +2,13 @@
 
 namespace Gfycat
 {
-    public interface ISelfUser : IUser
+    public class SelfUser : User
     {
         [JsonProperty("geoWhitelist")]
-        string GeoWhitelist { get; }
+        string GeoWhitelist { get; set; }
         [JsonProperty("domainWhitelist")]
-        string DomainWhitelist { get; }
+        string DomainWhitelist { get; set; }
         [JsonProperty("email")]
-        string Email { get; }
+        string Email { get; set; }
     }
 }

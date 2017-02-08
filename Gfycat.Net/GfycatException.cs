@@ -14,5 +14,17 @@ namespace Gfycat
 
         [JsonProperty("description")]
         public string Description { get; set; }
+        
+        public override string Message { get => !string.IsNullOrWhiteSpace(base.Message) ? $"The server responded with \"{base.Message}\"" : $"The server responded with \"{this}\""; }
+
+        public override string ToString()
+        {
+            return $"{(int)HttpCode} {Code}: {Description}";
+        }
+
+        public GfycatException() : base() { }
+
+        [JsonConstructor]
+        public GfycatException([JsonProperty("message")] string message) : base(message) { }
     }
 }
