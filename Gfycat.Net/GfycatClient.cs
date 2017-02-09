@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -20,7 +19,7 @@ namespace Gfycat
 
         private string _refreshToken;
         
-        public SelfUser CurrentUser { get; set; }
+        public SelfUser CurrentUser { get; private set; }
 
         public GfycatClient(string clientId, string clientSecret)
         {
@@ -140,20 +139,21 @@ namespace Gfycat
 
         #endregion
 
-        public Task<GfyStatus> CheckGfyUploadStatus(string gfycat)
+        public async Task<GfyStatus> CheckGfyUploadStatus(string gfycat)
         {
-            Debug.WriteLine($"Asking API for status of {gfycat}");
-            return _web.SendRequestAsync<GfyStatus>("GET", $"gfycats/fetch/status/{gfycat}");
+            return await _web.SendRequestAsync<GfyStatus>("GET", $"gfycats/fetch/status/{gfycat}");
         }
 
-        public Task<Gfy> GetGfy(string gfycat)
+        public async Task<Gfy> GetGfy(string gfycat)
         {
-            return _web.SendRequestAsync<Gfy>("GET", $"gfycats/{gfycat}", _accessToken);
+            await CheckAuthorization($"gfycats/{gfycat}");
+            return await _web.SendRequestAsync<Gfy>("GET", $"gfycats/{gfycat}", _accessToken);
         }
 
-        public Task<User> GetUser(string userId)
+        public async Task<User> GetUser(string userId)
         {
-            return _web.SendRequestAsync<User>("GET", $"users/{userId}", _accessToken);
+            await CheckAuthorization($"users/{userId}");
+            return await _web.SendRequestAsync<User>("GET", $"users/{userId}", _accessToken);
         }
 
         public Task CreateAccount()
@@ -161,9 +161,9 @@ namespace Gfycat
             throw new NotImplementedException();
         }
 
-        public async Task<string> CreateGfycat(Stream file, GfyCreationParameters parameters = null)
+        public async Task<string> CreateGfycat(Stream data, GfyCreationParameters parameters = null)
         {
-            GfyKey uploadKey = await _web.SendJsonAsync<GfyKey>("POST", "gfycats", parameters ?? new object(), _accessToken);
+            //GfyKey uploadKey = await _web.SendJsonAsync<GfyKey>("POST", "gfycats", parameters ?? new object(), _accessToken);
             throw new NotImplementedException();
         }
 
@@ -185,19 +185,19 @@ namespace Gfycat
             ((IDisposable)_web).Dispose();
         }
 
-        public Task<IEnumerable<Gfy>> GetUserGfycatFeed(string userId)
+        public Task<GfycatFeed> GetUserGfycatFeed(string userId)
         {
-            throw new NotImplementedException();
+            return _web.SendRequestAsync<GfycatFeed>("GET", "users/{userId}/gfycats", _accessToken);
         }
 
-        public Task<IEnumerable<Gfy>> GetUserGfycatFeed(string userId, int count)
+        public Task<GfycatFeed> GetUserGfycatFeed(string userId, int count)
         {
-            throw new NotImplementedException();
+            return _web.SendJsonAsync<GfycatFeed>("GET", $"users/{userId}/gfycats", new { count }, _accessToken);
         }
 
-        public Task<IEnumerable<Gfy>> GetUserGfycatFeed(string userId, int count, string cursor)
+        public Task<GfycatFeed> GetUserGfycatFeed(string userId, int count, string cursor)
         {
-            throw new NotImplementedException();
+            return _web.SendJsonAsync<GfycatFeed>("GET", $"users/{userId}/gfycats", new { count, cursor }, _accessToken);
         }
 
         public Task SendPasswordResetEmailAsync(string usernameOrEmail)
@@ -212,8 +212,7 @@ namespace Gfycat
 
         public async Task<bool> UsernameIsValidAsync(string username)
         {
-            var statusCode = await _web.SendRequestForStatusAsync("HEAD", $"users/{username}", _accessToken, true);
-            return statusCode == HttpStatusCode.NotFound;
+            return await _web.SendRequestForStatusAsync("HEAD", $"users/{username}", _accessToken, true) == HttpStatusCode.NotFound;
         }
     }
 }
