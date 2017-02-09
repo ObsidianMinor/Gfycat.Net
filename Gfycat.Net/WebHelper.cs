@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -11,7 +12,7 @@ namespace Gfycat
         internal static async Task<T> SendJsonAsync<T>(this HttpClient client, string method, string endpoint, object json, string accessToken = null)
         {
             HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
-            AddJsonContent(message, json);
+            message.AddJsonContent(json);
             HttpResponseMessage result = await client.SendAsync(message);
 
             if (!result.IsSuccessStatusCode)
@@ -23,11 +24,23 @@ namespace Gfycat
         internal static async Task SendJsonAsync(this HttpClient client, string method, string endpoint, object json, string accessToken = null)
         {
             HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
-            AddJsonContent(message, json);
+            message.AddJsonContent(json);
             HttpResponseMessage result = await client.SendAsync(message);
 
             if (!result.IsSuccessStatusCode)
                 throw await GetExceptionFromResponse(result);
+        }
+
+        internal static async Task<HttpStatusCode> SendStreamAsync<T>(this HttpClient client, string method, string endpoint, Stream stream, string accessToken = null, bool throwIf401 = false)
+        {
+            HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
+            message.AddStreamContent(stream);
+            HttpResponseMessage result = await client.SendAsync(message);
+
+            if (throwIf401 && result.StatusCode == HttpStatusCode.Unauthorized)
+                throw await GetExceptionFromResponse(result);
+
+            return result.StatusCode;
         }
 
         internal static async Task<T> SendRequestAsync<T>(this HttpClient client, string method, string endpoint, string accessToken = null)
@@ -40,7 +53,7 @@ namespace Gfycat
 
             return await GetJsonFromResponse<T>(result);
         }
-
+        
         internal static async Task<HttpStatusCode> SendRequestForStatusAsync(this HttpClient client, string method, string endpoint, string accessToken = null, bool throwIf401 = false)
         {
             HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
@@ -77,9 +90,14 @@ namespace Gfycat
             return exception;
         }
 
-        private static void AddJsonContent(HttpRequestMessage message, object json)
+        private static void AddJsonContent(this HttpRequestMessage message, object json)
         {
             message.Content = new StringContent(JsonConvert.SerializeObject(json), System.Text.Encoding.UTF8, "application/json");
+        }
+
+        private static void AddStreamContent(this HttpRequestMessage message, Stream stream)
+        {
+            message.Content = new StreamContent(stream);
         }
 
         private static HttpRequestMessage CreateMessage(HttpMethod method, string endpoint, string accessToken)

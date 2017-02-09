@@ -5,7 +5,7 @@ namespace Gfycat
 {
     public class GfycatFeed
     {
-        [JsonProperty("contents")]
+        [JsonProperty("gfycats")]
         IEnumerable<Gfy> Gfycats { get; set; }
 
         [JsonProperty("cursor")]

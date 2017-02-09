@@ -11,12 +11,15 @@
     <PackageReleaseNotes>Initial release. Supports all non-testing endpoints.</PackageReleaseNotes>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>False</Optimize>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Auth\**" />
+    <EmbeddedResource Remove="Auth\**" />
+    <None Remove="Auth\**" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="System.Net.Http" Version="4.3.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Auth\" />
   </ItemGroup>
 </Project>

@@ -24,7 +24,7 @@ class Program
             string url = Console.ReadLine();
             try
             {
-                gfycatId = await client.CreateGfycat(url);
+                gfycatId = await client.CreateGfycatAsync(url);
                 Console.WriteLine($"Success! Your gyfcat will have the Id {gfycatId}");
                 break;
             }
@@ -39,14 +39,14 @@ class Program
         GfyStatus status;
         do
         {
-            status = await client.CheckGfyUploadStatus(gfycatId);
+            status = await client.CheckGfyUploadStatusAsync(gfycatId);
             await Task.Delay(TimeSpan.FromSeconds(status.Time));
         }
         while (status.Task == Status.Encoding);
         gfycatId = status.GfyName; // if an equal MD5 hash of the upload file is detected, gfycat will send us back the already existing gfycat name
         
         // get the gfycat data
-        Gfy resultGfycat = await client.GetGfy(gfycatId);
+        Gfy resultGfycat = await client.GetGfyAsync(gfycatId);
 
         // do whatever you want with it, as an example we'll download the webm file
         Console.WriteLine("Downloading gfycat as webm...");

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -19,8 +20,6 @@ namespace Gfycat
 
         private string _refreshToken;
         
-        public SelfUser CurrentUser { get; private set; }
-
         public GfycatClient(string clientId, string clientSecret)
         {
             _web = new HttpClient() { BaseAddress = new Uri(_startEndpoint) };
@@ -32,10 +31,10 @@ namespace Gfycat
 
         #region Authentication
 
-        public async Task RefreshToken()
+        public async Task RefreshTokenAsync()
         {
             Debug.WriteLine("Refreshing token...");
-            ClientAccountAuthResponse response = await _web.SendJsonAsync<ClientAccountAuthResponse>(
+            var auth = await _web.SendJsonAsync<ClientAccountAuthResponse>(
                 "POST",
                 "oauth/token",
                 new RefreshAuthRequest()
@@ -46,11 +45,11 @@ namespace Gfycat
                     RefreshToken = _refreshToken
                 });
 
-            Debug.WriteLine($"Logged in as {response.ResourceOwner}");
-            Debug.WriteLine($"Recieved access token {response.AccessToken}");
+            Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
+            Debug.WriteLine($"Recieved access token {auth.AccessToken}");
 
-            _refreshToken = response.RefreshToken;
-            _accessToken = response.AccessToken;
+            _refreshToken = auth.RefreshToken;
+            _accessToken = auth.AccessToken;
             await FinishAuth();
         }
 
@@ -100,6 +99,90 @@ namespace Gfycat
             await FinishAuth();
         }
 
+        public async Task AuthenticateFacebookCodeAsync(string authCode)
+        {
+            Debug.WriteLine($"Performing account authentication using Facebook...");
+            var auth = await _web.SendJsonAsync<ClientAccountAuthResponse>(
+                "POST", 
+                "oauth/token", 
+                new FacebookAuthCodeRequest()
+                {
+                    ClientId = _clientId,
+                    ClientSecret = _clientSecret,
+                    GrantType = "convert_code",
+                    Provider = "facebook",
+                    AuthCode = authCode
+                });
+
+            Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
+            Debug.WriteLine($"Recieved access token {auth.AccessToken}");
+
+            _accessToken = auth.AccessToken;
+            _refreshToken = auth.RefreshToken;
+            await FinishAuth();
+        }
+
+        public async Task AuthenticateFacebookTokenAsync(string token)
+        {
+            Debug.WriteLine("Performing account authentication using Facebook...");
+            var auth = await _web.SendJsonAsync<ClientAccountAuthResponse>(
+                "POST",
+                "oauth/token",
+                new FacebookAuthCodeRequest()
+                {
+                    ClientId = _clientId,
+                    ClientSecret = _clientSecret,
+                    GrantType = "convert_code",
+                    Provider = "facebook",
+                    Token = token
+                });
+
+            Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
+            Debug.WriteLine($"Recieved access token {auth.AccessToken}");
+
+            _accessToken = auth.AccessToken;
+            _refreshToken = auth.RefreshToken;
+            await FinishAuth();
+        }
+
+        public async Task<string> GetTwitterRequestTokenAsync()
+        {
+            Debug.WriteLine("Getting Twitter request token...");
+            var token = await _web.SendJsonAsync<TwitterRequestTokenResponse>(
+                "POST", 
+                "oauth/token", 
+                new
+                {
+                    grant_type = "request_token",
+                    provider = "twitter"
+                });
+            return token.RequestToken;
+        }
+
+        public async Task AuthenticateTwitterTokenAsync(string requestToken, string verifier)
+        {
+            Debug.WriteLine("Performing account authentication using Twitter...");
+            var auth = await _web.SendJsonAsync<ClientAccountAuthResponse>(
+                "POST",
+                "oauth/token",
+                new TwitterAuthCodeRequest()
+                {
+                    GrantType = "convert_request_token",
+                    Provider = "twitter",
+                    ClientId = _clientId,
+                    ClientSecret = _clientSecret,
+                    Token = requestToken,
+                    Verifier = verifier
+                });
+
+            Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
+            Debug.WriteLine($"Recieved access token {auth.AccessToken}");
+
+            _accessToken = auth.AccessToken;
+            _refreshToken = auth.RefreshToken;
+            await FinishAuth();
+        }
+
         public async void Authenticate(string accessToken, string refreshToken)
         {
             Debug.WriteLine($"Recieved access token {accessToken}");
@@ -108,23 +191,13 @@ namespace Gfycat
             await FinishAuth();
         }
 
-        private async Task FinishAuth()
-        {
-            if(await _web.SendRequestForStatusAsync("HEAD", "me", _accessToken) != HttpStatusCode.Unauthorized)
-                await UpdateCurrentUser();
-        }
-
-        public async Task UpdateCurrentUser()
-        {
-            Debug.WriteLine("Updating current user...");
-            CurrentUser = await _web.SendRequestAsync<SelfUser>("GET", "me", _accessToken);
-        }
-
+        public string GetBrowserAuthUrl(string state, string redirectUri) => $"https://gfycat.com/oauth/authorize?client_id={_clientId}&scope=all&state={state}&response_type=token&redirect_uri={redirectUri}";
+        
         internal async Task CheckAuthorization(string endpoint)
         {
             if (await _web.SendRequestForStatusAsync("HEAD", endpoint, _accessToken) == HttpStatusCode.Unauthorized)
             {
-                await RefreshToken();
+                await RefreshTokenAsync();
                 if (await _web.SendRequestForStatusAsync("HEAD", endpoint, _accessToken) == HttpStatusCode.Unauthorized)
                     throw new GfycatException()
                     {
@@ -135,69 +208,19 @@ namespace Gfycat
             }
         }
 
-        public string GetBrowserAuthUrl(string state, string redirectUri) => $"https://gfycat.com/oauth/authorize?client_id={_clientId}&scope=all&state={state}&response_type=token&redirect_uri={redirectUri}";
+        private async Task FinishAuth()
+        {
+            if (await _web.SendRequestForStatusAsync("HEAD", "me", _accessToken) != HttpStatusCode.Unauthorized)
+                await UpdateCurrentUserAsync();
+        }
 
         #endregion
 
-        public async Task<GfyStatus> CheckGfyUploadStatus(string gfycat)
-        {
-            return await _web.SendRequestAsync<GfyStatus>("GET", $"gfycats/fetch/status/{gfycat}");
-        }
+        #region Users
 
-        public async Task<Gfy> GetGfy(string gfycat)
+        public async Task<bool> UsernameIsValidAsync(string username)
         {
-            await CheckAuthorization($"gfycats/{gfycat}");
-            return await _web.SendRequestAsync<Gfy>("GET", $"gfycats/{gfycat}", _accessToken);
-        }
-
-        public async Task<User> GetUser(string userId)
-        {
-            await CheckAuthorization($"users/{userId}");
-            return await _web.SendRequestAsync<User>("GET", $"users/{userId}", _accessToken);
-        }
-
-        public Task CreateAccount()
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<string> CreateGfycat(Stream data, GfyCreationParameters parameters = null)
-        {
-            //GfyKey uploadKey = await _web.SendJsonAsync<GfyKey>("POST", "gfycats", parameters ?? new object(), _accessToken);
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Creates a Gfycat using a remote url and returns the Gfy name
-        /// </summary>
-        /// <param name="remoteUrl"></param>
-        /// <param name="parameters"></param>
-        /// <returns></returns>
-        public async Task<string> CreateGfycat(string remoteUrl, GfyCreationParameters parameters = null)
-        {
-            parameters = parameters ?? new GfyCreationParameters();
-            parameters.FetchUrl = remoteUrl;
-            return (await _web.SendJsonAsync<GfyKey>("POST", "gfycats", parameters, _accessToken)).Gfycat;
-        }
-
-        public void Dispose()
-        {
-            ((IDisposable)_web).Dispose();
-        }
-
-        public Task<GfycatFeed> GetUserGfycatFeed(string userId)
-        {
-            return _web.SendRequestAsync<GfycatFeed>("GET", "users/{userId}/gfycats", _accessToken);
-        }
-
-        public Task<GfycatFeed> GetUserGfycatFeed(string userId, int count)
-        {
-            return _web.SendJsonAsync<GfycatFeed>("GET", $"users/{userId}/gfycats", new { count }, _accessToken);
-        }
-
-        public Task<GfycatFeed> GetUserGfycatFeed(string userId, int count, string cursor)
-        {
-            return _web.SendJsonAsync<GfycatFeed>("GET", $"users/{userId}/gfycats", new { count, cursor }, _accessToken);
+            return await _web.SendRequestForStatusAsync("HEAD", $"users/{username}", _accessToken, true) == HttpStatusCode.NotFound;
         }
 
         public Task SendPasswordResetEmailAsync(string usernameOrEmail)
@@ -205,14 +228,106 @@ namespace Gfycat
             return _web.SendJsonAsync("PATCH", "users", new ActionRequest() { Value = usernameOrEmail, Action = "send_password_reset_email" }, _accessToken);
         }
 
-        public Task ShareGfycatOnTwitter(string gfycatId, string postStatus)
+        public async Task<User> GetUserAsync(string userId)
+        {
+            await CheckAuthorization($"users/{userId}");
+            return await _web.SendRequestAsync<User>("GET", $"users/{userId}", _accessToken);
+        }
+
+        public SelfUser CurrentUser { get; private set; }
+
+        public async Task UpdateCurrentUserAsync()
+        {
+            Debug.WriteLine("Updating current user...");
+            CurrentUser = await _web.SendRequestAsync<SelfUser>("GET", "me", _accessToken);
+        }
+
+        public Task CreateAccountAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region User feeds
+
+        public Task<GfycatFeed> GetUserGfycatFeedAsync(string userId, int? count = null, string cursor = null)
+        {
+            return _web.SendJsonAsync<GfycatFeed>("GET", $"users/{userId}/gfycats", new { count, cursor }, _accessToken);
+        }
+
+        #endregion
+
+        #region Albums
+
+        // todo: implement public album methods
+
+        #endregion
+
+        public async Task<Gfy> GetGfyAsync(string gfycat)
+        {
+            await CheckAuthorization($"gfycats/{gfycat}");
+            return await _web.SendRequestAsync<Gfy>("GET", $"gfycats/{gfycat}", _accessToken);
+        }
+
+        #region Creating Gfycats
+
+        /// <summary>
+        /// Creates a Gfycat using a remote url and returns the Gfy name
+        /// </summary>
+        /// <param name="remoteUrl"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public async Task<string> CreateGfycatAsync(string remoteUrl, GfyCreationParameters parameters = null)
+        {
+            parameters = parameters ?? new GfyCreationParameters();
+            parameters.FetchUrl = remoteUrl;
+            return (await _web.SendJsonAsync<GfyKey>("POST", "gfycats", parameters, _accessToken)).Gfycat;
+        }
+
+        public async Task<GfyStatus> CheckGfyUploadStatusAsync(string gfycat)
+        {
+            return await _web.SendRequestAsync<GfyStatus>("GET", $"gfycats/fetch/status/{gfycat}");
+        }
+
+        public async Task<string> CreateGfycatAsync(Stream data, GfyCreationParameters parameters = null)
+        {
+            GfyKey uploadKey = await _web.SendJsonAsync<GfyKey>("POST", "gfycats", parameters ?? new object(), _accessToken);
+            
+        }
+
+        #endregion
+
+        public Task ShareGfycatOnTwitterAsync(string gfycatId, string postStatus)
         {
             return _web.SendJsonAsync("POST", $"gfycats/{gfycatId}/share/twitter", new { status = postStatus }, _accessToken);
         }
 
-        public async Task<bool> UsernameIsValidAsync(string username)
+        #region Trending feeds
+
+        public Task<TrendingGfycatFeed> GetTrendingGfycatsAsync(string tag = null, int? count = null, string cursor = null)
         {
-            return await _web.SendRequestForStatusAsync("HEAD", $"users/{username}", _accessToken, true) == HttpStatusCode.NotFound;
+            if (!string.IsNullOrWhiteSpace(tag))
+                tag = WebUtility.UrlEncode(tag);
+
+            return _web.SendJsonAsync<TrendingGfycatFeed>("GET", "gfycats/trending", new { tagName = tag, count, cursor }, _accessToken);
+        }
+
+        public Task<IEnumerable<string>> GetTrendingTagsAsync(int? tagCount = null, string cursor = null)
+        {
+            return _web.SendJsonAsync<IEnumerable<string>>("GET", "tags/trending", new { tagCount, cursor }, _accessToken);
+        }
+
+        public Task<GfycatFeed> GetTrendingTagsPopulatedAsync(int? tagCount = null, int? gfyCount = null, string cursor = null)
+        {
+            return _web.SendJsonAsync<GfycatFeed>("GET", "tags/trending/populated", new { tagCount, gfyCount, cursor }, _accessToken);
+        }
+
+        #endregion
+
+        public void Dispose()
+        {
+            ((IDisposable)_web).Dispose();
         }
     }
 }
