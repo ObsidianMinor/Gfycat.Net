@@ -31,10 +31,10 @@ namespace Gfycat
                 throw await GetExceptionFromResponse(result);
         }
 
-        internal static async Task<HttpStatusCode> SendStreamAsync<T>(this HttpClient client, string method, string endpoint, Stream stream, string accessToken = null, bool throwIf401 = false)
+        internal static async Task<HttpStatusCode> SendStreamAsync(this HttpClient client, string method, string endpoint, Stream stream, string fileName, string accessToken = null, bool throwIf401 = false)
         {
             HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
-            message.AddStreamContent(stream);
+            message.AddStreamContent(stream, fileName);
             HttpResponseMessage result = await client.SendAsync(message);
 
             if (throwIf401 && result.StatusCode == HttpStatusCode.Unauthorized)
@@ -95,9 +95,10 @@ namespace Gfycat
             message.Content = new StringContent(JsonConvert.SerializeObject(json), System.Text.Encoding.UTF8, "application/json");
         }
 
-        private static void AddStreamContent(this HttpRequestMessage message, Stream stream)
+        private static void AddStreamContent(this HttpRequestMessage message, Stream stream, string fileName)
         {
             message.Content = new StreamContent(stream);
+            message.Content.Headers.ContentDisposition.FileName = fileName;
         }
 
         private static HttpRequestMessage CreateMessage(HttpMethod method, string endpoint, string accessToken)
