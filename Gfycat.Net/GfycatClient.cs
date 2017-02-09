@@ -293,7 +293,6 @@ namespace Gfycat
         public async Task<string> CreateGfycatAsync(Stream data, GfyCreationParameters parameters = null)
         {
             GfyKey uploadKey = await _web.SendJsonAsync<GfyKey>("POST", "gfycats", parameters ?? new object(), _accessToken);
-            _web.BaseAddress = null;
             await _web.SendStreamAsync("POST", "https://filedrop.gfycat.com/", data, uploadKey.Gfycat);
             return uploadKey.Gfycat;
         }
