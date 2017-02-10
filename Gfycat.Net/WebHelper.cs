@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -12,6 +13,7 @@ namespace Gfycat
     {
         internal static async Task<T> SendJsonAsync<T>(this HttpClient client, string method, string endpoint, object json, string accessToken = null)
         {
+            Debug.WriteLine($"Sending json to {endpoint}");
             HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
             message.AddJsonContent(json);
             HttpResponseMessage result = await client.SendAsync(message);
@@ -24,6 +26,7 @@ namespace Gfycat
 
         internal static async Task SendJsonAsync(this HttpClient client, string method, string endpoint, object json, string accessToken = null)
         {
+            Debug.WriteLine($"Sending json to {endpoint}");
             HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
             message.AddJsonContent(json);
             HttpResponseMessage result = await client.SendAsync(message);
@@ -34,6 +37,7 @@ namespace Gfycat
 
         internal static async Task<HttpStatusCode> SendStreamAsync(this HttpClient client, string method, string endpoint, Stream stream, string fileName, string accessToken = null, bool throwIf401 = false, CancellationToken? cancelToken = null)
         {
+            Debug.WriteLine($"Sending stream to {endpoint}");
             HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
             message.AddStreamContent(stream, fileName);
              
@@ -47,6 +51,7 @@ namespace Gfycat
 
         internal static async Task<T> SendRequestAsync<T>(this HttpClient client, string method, string endpoint, string accessToken = null)
         {
+            Debug.WriteLine($"Sending request to {endpoint}");
             HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
             HttpResponseMessage result = await client.SendAsync(message);
 
@@ -58,6 +63,7 @@ namespace Gfycat
         
         internal static async Task<HttpStatusCode> SendRequestForStatusAsync(this HttpClient client, string method, string endpoint, string accessToken = null, bool throwIf401 = false)
         {
+            Debug.WriteLine($"Sending request for status code to {endpoint}");
             HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
             HttpResponseMessage result = await client.SendAsync(message);
 
@@ -69,6 +75,7 @@ namespace Gfycat
 
         internal static async Task<HttpStatusCode> SendJsonForStatusAsync(this HttpClient client, string method, string endpoint, object json, string accessToken = null, bool throwIf401 = false)
         {
+            Debug.WriteLine($"Sending json for status code to {endpoint}");
             HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
             AddJsonContent(message, json);
             HttpResponseMessage result = await client.SendAsync(message);
@@ -82,6 +89,9 @@ namespace Gfycat
         private static async Task<T> GetJsonFromResponse<T>(HttpResponseMessage message)
         {
             string result = await message.Content.ReadAsStringAsync();
+            #if SUPER_DEBUG_MODE
+            Debug.WriteLine(result);
+            #endif
             return JsonConvert.DeserializeObject<T>(result);
         }
 

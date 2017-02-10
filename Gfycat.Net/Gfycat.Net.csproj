@@ -3,13 +3,14 @@
     <TargetFramework>netstandard1.2</TargetFramework>
     <RootNamespace>Gfycat</RootNamespace>
     <Authors>ObsidianMinor</Authors>
-    <Company></Company>
+    <Company>
+    </Company>
     <Description>Gfycat.Net is a complete wrapper around the Gfycat API built for the .NET Standard</Description>
     <Copyright>ObsidianMinor</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>gfycat, api</PackageTags>
     <PackageReleaseNotes>Initial release. Supports all non-testing endpoints.</PackageReleaseNotes>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;SUPER_DEBUG_MODE</DefineConstants>
     <Optimize>False</Optimize>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>Gfycat.Net</PackageId>
