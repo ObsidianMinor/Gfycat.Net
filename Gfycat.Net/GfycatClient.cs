@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Gfycat
@@ -12,13 +13,18 @@ namespace Gfycat
     {
         const string _startEndpoint = "https://api.gfycat.com/v1/";
         private HttpClient _web;
-
+        private AuthenticationGrant _usedGrant;
+        
         private string _clientId;
         private string _clientSecret;
 
         private string _accessToken;
+        private Timer _accessTokenTimer;
 
         private string _refreshToken;
+
+        public DateTime EstimatedAccessTokenExpirationTime { get; private set; }
+        public bool AccessTokenExpired { get; private set; }
         
         public GfycatClient(string clientId, string clientSecret)
         {
@@ -33,6 +39,12 @@ namespace Gfycat
 
         public async Task RefreshTokenAsync()
         {
+            if(_usedGrant == AuthenticationGrant.Client)
+            {
+                await AuthenticateAsync();
+                return;
+            }
+
             Debug.WriteLine("Refreshing token...");
             var auth = await _web.SendJsonAsync<ClientAccountAuthResponse>(
                 "POST",
@@ -51,10 +63,12 @@ namespace Gfycat
             _refreshToken = auth.RefreshToken;
             _accessToken = auth.AccessToken;
             await FinishAuth();
+            SetTimer(auth.ExpiresIn);
         }
 
         public async Task AuthenticateAsync()
         {
+            _usedGrant = AuthenticationGrant.Client;
             Debug.WriteLine("Performing client credentials authentication...");
             var auth = await _web.SendJsonAsync<ClientCredentialsAuthResponse>(
                 "POST",
@@ -69,6 +83,7 @@ namespace Gfycat
             Debug.WriteLine($"Recieved access token {auth.AccessToken}");
             _accessToken = auth.AccessToken;
             await FinishAuth();
+            SetTimer(auth.ExpiresIn);
         }
 
         /// <summary>
@@ -79,6 +94,7 @@ namespace Gfycat
         /// <returns>An awaitable task</returns>
         public async Task AuthenticateAsync(string username, string password)
         {
+            _usedGrant = AuthenticationGrant.Password;
             Debug.WriteLine($"Performing client account authentication...");
             var auth = await _web.SendJsonAsync<ClientAccountAuthResponse>(
                 "POST",
@@ -97,10 +113,12 @@ namespace Gfycat
             _accessToken = auth.AccessToken;
             _refreshToken = auth.RefreshToken;
             await FinishAuth();
+            SetTimer(auth.ExpiresIn);
         }
 
         public async Task AuthenticateFacebookCodeAsync(string authCode)
         {
+            _usedGrant = AuthenticationGrant.FacebookAuthCode;
             Debug.WriteLine($"Performing account authentication using Facebook...");
             var auth = await _web.SendJsonAsync<ClientAccountAuthResponse>(
                 "POST", 
@@ -120,10 +138,12 @@ namespace Gfycat
             _accessToken = auth.AccessToken;
             _refreshToken = auth.RefreshToken;
             await FinishAuth();
+            SetTimer(auth.ExpiresIn);
         }
 
         public async Task AuthenticateFacebookTokenAsync(string token)
         {
+            _usedGrant = AuthenticationGrant.FacebookAccessCode;
             Debug.WriteLine("Performing account authentication using Facebook...");
             var auth = await _web.SendJsonAsync<ClientAccountAuthResponse>(
                 "POST",
@@ -143,6 +163,7 @@ namespace Gfycat
             _accessToken = auth.AccessToken;
             _refreshToken = auth.RefreshToken;
             await FinishAuth();
+            SetTimer(auth.ExpiresIn);
         }
 
         public async Task<string> GetTwitterRequestTokenAsync()
@@ -161,6 +182,7 @@ namespace Gfycat
 
         public async Task AuthenticateTwitterTokenAsync(string requestToken, string verifier)
         {
+            _usedGrant = AuthenticationGrant.TwitterProvider;
             Debug.WriteLine("Performing account authentication using Twitter...");
             var auth = await _web.SendJsonAsync<ClientAccountAuthResponse>(
                 "POST",
@@ -181,14 +203,17 @@ namespace Gfycat
             _accessToken = auth.AccessToken;
             _refreshToken = auth.RefreshToken;
             await FinishAuth();
+            SetTimer(auth.ExpiresIn);
         }
 
-        public async void Authenticate(string accessToken, string refreshToken)
+        public async void Authenticate(string accessToken, int accessTokenExpiration, string refreshToken)
         {
+            _usedGrant = AuthenticationGrant.BrowserAuthCode;
             Debug.WriteLine($"Recieved access token {accessToken}");
             _accessToken = accessToken;
             _refreshToken = refreshToken;
             await FinishAuth();
+            SetTimer(accessTokenExpiration);
         }
 
         public string GetBrowserAuthUrl(string state, string redirectUri) => $"https://gfycat.com/oauth/authorize?client_id={_clientId}&scope=all&state={state}&response_type=token&redirect_uri={redirectUri}";
@@ -210,8 +235,22 @@ namespace Gfycat
 
         private async Task FinishAuth()
         {
-            if (await _web.SendRequestForStatusAsync("HEAD", "me", _accessToken) != HttpStatusCode.Unauthorized)
+            if (await _web.SendRequestForStatusAsync("HEAD", "me", _accessToken) == HttpStatusCode.OK)
                 await UpdateCurrentUserAsync();
+        }
+
+        private void SetTimer(int time)
+        {
+            _accessTokenTimer = new Timer(AccessTokenExpirationCallback, _accessToken, TimeSpan.FromSeconds(time), TimeSpan.FromMilliseconds(-1));
+            EstimatedAccessTokenExpirationTime = DateTime.Now.AddSeconds(time);
+            Debug.WriteLine($"Client access token expected to expire at {EstimatedAccessTokenExpirationTime}");
+        }
+
+        private async void AccessTokenExpirationCallback(object state)
+        {
+            AccessTokenExpired = true;
+            await RefreshTokenAsync();
+            AccessTokenExpired = false;
         }
 
         #endregion
@@ -260,7 +299,26 @@ namespace Gfycat
 
         #region Albums
 
-        // todo: implement public album methods
+        public async Task<IEnumerable<GfycatAlbumInfo>> GetUserAlbums(string userId)
+        {
+            string endpoint = $"users/{userId}/albums";
+            await CheckAuthorization(endpoint);
+            return (await _web.SendRequestAsync<GfycatAlbumResponse>("GET", endpoint, _accessToken)).Albums;
+        }
+
+        public async Task<GfycatAlbum> GetAlbumContents(string userId, string albumId)
+        {
+            string endpoint = $"users/{userId}/albums/{albumId}";
+            await CheckAuthorization(endpoint);
+            return await _web.SendRequestAsync<GfycatAlbum>("GET", endpoint, _accessToken);
+        }
+
+        public async Task<GfycatAlbumInfo> GetAlbumContentsByLinkText(string userId, string albumLinkText)
+        {
+            string endpoint = $"users/{userId}/album_links/{albumLinkText}";
+            await CheckAuthorization(endpoint);
+            return await _web.SendRequestAsync<GfycatAlbumInfo>("GET", endpoint, _accessToken);
+        }
 
         #endregion
 
@@ -290,10 +348,13 @@ namespace Gfycat
             return await _web.SendRequestAsync<GfyStatus>("GET", $"gfycats/fetch/status/{gfycat}");
         }
 
-        public async Task<string> CreateGfycatAsync(Stream data, GfyCreationParameters parameters = null)
+        public async Task<string> CreateGfycatAsync(Stream data, GfyCreationParameters parameters = null, CancellationToken? cancellationToken = null)
         {
             GfyKey uploadKey = await _web.SendJsonAsync<GfyKey>("POST", "gfycats", parameters ?? new object(), _accessToken);
-            await _web.SendStreamAsync("POST", "https://filedrop.gfycat.com/", data, uploadKey.Gfycat);
+            await _web.SendStreamAsync("POST", "https://filedrop.gfycat.com/", data, uploadKey.Gfycat, cancelToken: cancellationToken);
+            if (cancellationToken?.IsCancellationRequested ?? false)
+                return null;
+
             return uploadKey.Gfycat;
         }
 

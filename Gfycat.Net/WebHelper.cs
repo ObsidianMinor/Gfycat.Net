@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Gfycat
@@ -31,11 +32,12 @@ namespace Gfycat
                 throw await GetExceptionFromResponse(result);
         }
 
-        internal static async Task<HttpStatusCode> SendStreamAsync(this HttpClient client, string method, string endpoint, Stream stream, string fileName, string accessToken = null, bool throwIf401 = false)
+        internal static async Task<HttpStatusCode> SendStreamAsync(this HttpClient client, string method, string endpoint, Stream stream, string fileName, string accessToken = null, bool throwIf401 = false, CancellationToken? cancelToken = null)
         {
             HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
             message.AddStreamContent(stream, fileName);
-            HttpResponseMessage result = await client.SendAsync(message);
+             
+            HttpResponseMessage result = (cancelToken.HasValue) ? await client.SendAsync(message) : await client.SendAsync(message, cancelToken.Value);
 
             if (throwIf401 && result.StatusCode == HttpStatusCode.Unauthorized)
                 throw await GetExceptionFromResponse(result);

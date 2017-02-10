@@ -25,6 +25,6 @@ namespace Gfycat
         public GfycatException() : base() { }
 
         [JsonConstructor]
-        public GfycatException([JsonProperty("message")] string message) : base(message) { }
+        public GfycatException([JsonProperty("errorMessage")] string message) : base(message) { }
     }
 }
