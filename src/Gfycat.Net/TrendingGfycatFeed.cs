@@ -10,6 +10,6 @@ namespace Gfycat
         [JsonProperty("digest")]
         public string Digest { get; set; }
         [JsonProperty("newGfycats")]
-        public IEnumerable<Gfy> NewGfycats { get; set; }
+        public List<Gfy> NewGfycats { get; set; }
     }
 }

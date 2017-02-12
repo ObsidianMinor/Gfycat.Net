@@ -18,7 +18,7 @@ namespace Gfycat
         /// </summary
         [JsonProperty("noMd5", NullValueHandling = NullValueHandling.Ignore)]
         public bool? NoMd5 { get; set; }
-        [JsonProperty("private", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("private", NullValueHandling = NullValueHandling.Ignore), JsonConverter(typeof(NumericalBooleanConverter))]
         public bool? Private { get; set; }
         [JsonProperty("nsfw", NullValueHandling = NullValueHandling.Ignore)]
         public NsfwSetting? Nsfw { get; set; }

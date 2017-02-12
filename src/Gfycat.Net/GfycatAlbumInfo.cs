@@ -53,9 +53,9 @@ namespace Gfycat
         public string MjpgUrl { get; set; }
         [JsonProperty("gifUrl")]
         public string GifUrl { get; set; }
-        [JsonProperty("published")]
+        [JsonProperty("published"), JsonConverter(typeof(NumericalBooleanConverter))]
         public bool Published { get; set; }
         [JsonProperty("nodes")]
-        public IEnumerable<GfycatFolder> Subalbums { get; set; }
+        public List<GfycatAlbumInfo> Subalbums { get; set; }
     }
 }

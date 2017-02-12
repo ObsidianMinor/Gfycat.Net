@@ -10,6 +10,6 @@ namespace Gfycat
         [JsonProperty("title")]
         public string Title { get; set; }
         [JsonProperty("nodes")]
-        public IEnumerable<GfycatFolder> Subfolders { get; set; }
+        public List<GfycatFolder> Subfolders { get; set; }
     }
 }

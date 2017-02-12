@@ -13,7 +13,7 @@ namespace Gfycat
         public string LinkText { get; set; }
         [JsonProperty("nsfw")]
         public NsfwSetting Nsfw { get; set; }
-        [JsonProperty("published")]
+        [JsonProperty("published"), JsonConverter(typeof(NumericalBooleanConverter))]
         public bool Published { get; set; }
         [JsonProperty("order")]
         public int Order { get; set; }
@@ -22,7 +22,7 @@ namespace Gfycat
         [JsonProperty("coverImageUrl-mobile")]
         public string CoverImageMobileUrl { get; set; }
         [JsonProperty("publishedGfys")]
-        public IEnumerable<Gfy> PublishedGfys { get; set; }
+        public List<Gfy> PublishedGfys { get; set; }
         [JsonProperty("gfyCount")]
         public int GfyCount { get; set; }
     }

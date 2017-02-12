@@ -39,7 +39,7 @@ namespace Gfycat
         [JsonProperty("height")]
         public int Height { get; set; }
         [JsonProperty("avgColor")]
-        public int AverageColor { get; set; }
+        public string AverageColor { get; set; }
         [JsonProperty("frameRate")]
         public int FrameRate { get; set; }
         [JsonProperty("numFrames")]
@@ -50,6 +50,8 @@ namespace Gfycat
         public int WebmSize { get; set; }
         [JsonProperty("gifSize")]
         public int GifSize { get; set; }
+        [JsonProperty("source")]
+        public string Source { get; set; }
         [JsonProperty("createDate", ItemConverterType = typeof(UnixTimeConverter))]
         public DateTime CreationDate { get; set; }
         [JsonProperty("nsfw")]
@@ -58,7 +60,7 @@ namespace Gfycat
         public string Mp4Url { get; set; }
         [JsonProperty("likes")]
         public int Likes { get; set; }
-        [JsonProperty("published")]
+        [JsonProperty("published"), JsonConverter(typeof(NumericalBooleanConverter))]
         public bool Published { get; set; }
         [JsonProperty("dislikes")]
         public int Dislikes { get; set; }
@@ -89,6 +91,6 @@ namespace Gfycat
         [JsonProperty("redditIdText")]
         public string RedditIdText { get; set; }
         [JsonProperty("domainWhitelist")]
-        public IEnumerable<string> DomainWhitelist { get; set; }
+        public List<string> DomainWhitelist { get; set; }
     }
 }
