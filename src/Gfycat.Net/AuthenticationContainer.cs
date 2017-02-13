@@ -12,6 +12,8 @@ namespace Gfycat
         public string ClientId { get; }
         public string ClientSecret { get; }
 
+        public string ResourceOwner { get; private set; }
+
         public string AccessToken { get; private set; }
         private Timer _accessTokenTimer;
 
@@ -50,13 +52,15 @@ namespace Gfycat
                     ClientSecret = ClientSecret,
                     GrantType = "refresh",
                     RefreshToken = RefreshToken
-                });
+                }, 
+                false);
 
             Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
             Debug.WriteLine($"Recieved access token {auth.AccessToken}");
 
+            AccessToken = auth.AccessToken;
             RefreshToken = auth.RefreshToken;
-            SetTimer(auth.ExpiresIn);
+            SetTimer(auth.ExpiresIn, auth.RefreshTokenExpiresIn);
         }
         
         public async Task AuthenticateAsync()
@@ -71,7 +75,8 @@ namespace Gfycat
                     ClientId = ClientId,
                     ClientSecret = ClientSecret,
                     GrantType = "client_credentials"
-                });
+                },
+                false);
 
             Debug.WriteLine($"Recieved access token {auth.AccessToken}");
             AccessToken = auth.AccessToken;
@@ -98,13 +103,15 @@ namespace Gfycat
                     GrantType = "password",
                     Username = username,
                     Password = password
-                });
+                }, 
+                false);
             Debug.WriteLine($"Logged in as {username}");
             Debug.WriteLine($"Recieved access token {auth.AccessToken}");
 
+            ResourceOwner = auth.ResourceOwner;
             AccessToken = auth.AccessToken;
             RefreshToken = auth.RefreshToken;
-            SetTimer(auth.ExpiresIn);
+            SetTimer(auth.ExpiresIn, auth.RefreshTokenExpiresIn);
         }
 
         public async Task AuthenticateFacebookCodeAsync(string authCode)
@@ -121,14 +128,16 @@ namespace Gfycat
                     GrantType = "convert_code",
                     Provider = "facebook",
                     AuthCode = authCode
-                });
+                },
+                false);
 
             Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
             Debug.WriteLine($"Recieved access token {auth.AccessToken}");
 
+            ResourceOwner = auth.ResourceOwner;
             AccessToken = auth.AccessToken;
             RefreshToken = auth.RefreshToken;
-            SetTimer(auth.ExpiresIn);
+            SetTimer(auth.ExpiresIn, auth.RefreshTokenExpiresIn);
         }
 
         public async Task AuthenticateFacebookTokenAsync(string token)
@@ -145,14 +154,16 @@ namespace Gfycat
                     GrantType = "convert_code",
                     Provider = "facebook",
                     Token = token
-                });
+                },
+                false);
 
             Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
             Debug.WriteLine($"Recieved access token {auth.AccessToken}");
 
+            ResourceOwner = auth.ResourceOwner;
             AccessToken = auth.AccessToken;
             RefreshToken = auth.RefreshToken;
-            SetTimer(auth.ExpiresIn);
+            SetTimer(auth.ExpiresIn, auth.RefreshTokenExpiresIn);
         }
 
         public async Task<string> GetTwitterRequestTokenAsync()
@@ -165,7 +176,8 @@ namespace Gfycat
                 {
                     grant_type = "request_token",
                     provider = "twitter"
-                });
+                },
+                false);
             return token.RequestToken;
         }
 
@@ -184,23 +196,25 @@ namespace Gfycat
                     ClientSecret = ClientSecret,
                     Token = requestToken,
                     Verifier = verifier
-                });
+                },
+                false);
 
             Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
             Debug.WriteLine($"Recieved access token {auth.AccessToken}");
 
+            ResourceOwner = auth.ResourceOwner;
             AccessToken = auth.AccessToken;
             RefreshToken = auth.RefreshToken;
-            SetTimer(auth.ExpiresIn);
+            SetTimer(auth.ExpiresIn, auth.RefreshTokenExpiresIn);
         }
 
-        public void Authenticate(string accessToken, int accessTokenExpiresIn, string refreshToken, int refreshTokenExpiresIn)
+        public void Authenticate(string accessToken, int accessTokenExpiresIn, string refreshToken, int refreshTokenExpiresIn, string resourceOwner)
         {
             _currentGrant = AuthenticationGrant.BrowserAuthCode;
             Debug.WriteLine($"Recieved access token {accessToken}");
             AccessToken = accessToken;
             RefreshToken = refreshToken;
-            SetTimer(accessTokenExpiresIn);
+            ResourceOwner = resourceOwner;
         }
 
         public async Task AuthenticateAsync(string refreshToken)
@@ -214,20 +228,21 @@ namespace Gfycat
 
         private void SetTimer(int time, int? refreshTokenTime = null)
         {
-            _accessTokenTimer = new Timer(AccessTokenExpirationCallback, AccessToken, TimeSpan.FromSeconds(time), TimeSpan.FromMilliseconds(-1));
+            _accessTokenTimer.Change(TimeSpan.FromSeconds(time), TimeSpan.FromMilliseconds(-1));
             EstimatedAccessTokenExpirationTime = DateTime.Now.AddSeconds(time);
             Debug.WriteLine($"Client access token expected to expire at {EstimatedAccessTokenExpirationTime}");
             if(refreshTokenTime.HasValue)
             {
-                _accessTokenTimer = new Timer(RefreshTokenExpirationCallback, RefreshToken, TimeSpan.FromSeconds(refreshTokenTime.Value), TimeSpan.FromMilliseconds(-1));
+                _accessTokenTimer.Change(TimeSpan.FromSeconds(refreshTokenTime.Value), TimeSpan.FromMilliseconds(-1));
                 EstimatedRefreshTokenExpirationTime = DateTime.Now.AddSeconds(refreshTokenTime.Value);
                 Debug.WriteLine($"Client refresh token expected to expire at {EstimatedRefreshTokenExpirationTime}");
             }
         }
 
-        private void AccessTokenExpirationCallback(object state)
+        private async void AccessTokenExpirationCallbackAsync(object state)
         {
             AccessTokenExpired?.Invoke(this, new EventArgs());
+            await RefreshTokenAsync();
         }
 
         private void RefreshTokenExpirationCallback(object state)

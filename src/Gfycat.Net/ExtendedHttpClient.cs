@@ -15,12 +15,12 @@ namespace Gfycat
 
         internal ExtendedHttpClient() : base() { }
 
-        internal async Task CheckAuthorization(string endpoint, string accessToken)
+        internal async Task CheckAuthorization(string endpoint)
         {
-            if (await SendRequestForStatusAsync("HEAD", endpoint, accessToken) == HttpStatusCode.Unauthorized)
+            if (await SendRequestForStatusAsync("HEAD", endpoint) == HttpStatusCode.Unauthorized)
             {
                 await Auth.RefreshTokenAsync();
-                if (await SendRequestForStatusAsync("HEAD", endpoint, accessToken) == HttpStatusCode.Unauthorized)
+                if (await SendRequestForStatusAsync("HEAD", endpoint) == HttpStatusCode.Unauthorized)
                     throw new GfycatException()
                     {
                         HttpCode = (HttpStatusCode)401,
@@ -30,10 +30,10 @@ namespace Gfycat
             }
         }
 
-        internal async Task<T> SendJsonAsync<T>(string method, string endpoint, object json, string accessToken = null)
+        internal async Task<T> SendJsonAsync<T>(string method, string endpoint, object json, bool useAccessToken = true)
         {
             Debug.WriteLine($"Sending json to {endpoint}");
-            HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
+            HttpRequestMessage message = await CreateMessageAsync(new HttpMethod(method), endpoint, useAccessToken);
             AddJsonContent(message, json);
             HttpResponseMessage result = await SendAsync(message);
 
@@ -43,10 +43,10 @@ namespace Gfycat
             return await GetJsonFromResponse<T>(result);
         }
 
-        internal async Task SendJsonAsync(string method, string endpoint, object json, string accessToken = null)
+        internal async Task SendJsonAsync(string method, string endpoint, object json, bool useAccessToken = true)
         {
             Debug.WriteLine($"Sending json to {endpoint}");
-            HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
+            HttpRequestMessage message = await CreateMessageAsync(new HttpMethod(method), endpoint, useAccessToken);
             AddJsonContent(message, json);
             HttpResponseMessage result = await SendAsync(message);
 
@@ -54,10 +54,10 @@ namespace Gfycat
                 throw await GetExceptionFromResponse(result);
         }
 
-        internal async Task<HttpStatusCode> SendStreamAsync(string method, string endpoint, Stream stream, string fileName, string accessToken = null, bool throwIf401 = false, CancellationToken? cancelToken = null)
+        internal async Task<HttpStatusCode> SendStreamAsync(string method, string endpoint, Stream stream, string fileName, bool useAccessToken = true, bool throwIf401 = false, CancellationToken? cancelToken = null)
         {
             Debug.WriteLine($"Sending stream to {endpoint}");
-            HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
+            HttpRequestMessage message = await CreateMessageAsync(new HttpMethod(method), endpoint, useAccessToken);
             AddStreamContent(message, stream, fileName);
              
             HttpResponseMessage result = (cancelToken.HasValue) ? await SendAsync(message) : await SendAsync(message, cancelToken.Value);
@@ -68,10 +68,10 @@ namespace Gfycat
             return result.StatusCode;
         }
 
-        internal async Task<T> SendRequestAsync<T>(string method, string endpoint, string accessToken = null)
+        internal async Task<T> SendRequestAsync<T>(string method, string endpoint, bool useAccessToken = true)
         {
             Debug.WriteLine($"Sending request to {endpoint}");
-            HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
+            HttpRequestMessage message = await CreateMessageAsync(new HttpMethod(method), endpoint, useAccessToken);
             HttpResponseMessage result = await SendAsync(message);
 
             if (!result.IsSuccessStatusCode)
@@ -80,10 +80,10 @@ namespace Gfycat
             return await GetJsonFromResponse<T>(result);
         }
         
-        internal async Task<HttpStatusCode> SendRequestForStatusAsync(string method, string endpoint, string accessToken = null, bool throwIf401 = false)
+        internal async Task<HttpStatusCode> SendRequestForStatusAsync(string method, string endpoint, bool useAccessToken = true, bool throwIf401 = false)
         {
             Debug.WriteLine($"Sending request for status code to {endpoint}");
-            HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
+            HttpRequestMessage message = await CreateMessageAsync(new HttpMethod(method), endpoint, useAccessToken);
             HttpResponseMessage result = await SendAsync(message);
 
             if (throwIf401 && result.StatusCode == HttpStatusCode.Unauthorized)
@@ -92,10 +92,10 @@ namespace Gfycat
             return result.StatusCode;
         }
 
-        internal async Task<HttpStatusCode> SendJsonForStatusAsync(string method, string endpoint, object json, string accessToken = null, bool throwIf401 = false)
+        internal async Task<HttpStatusCode> SendJsonForStatusAsync(string method, string endpoint, object json, bool useAccessToken = true, bool throwIf401 = false)
         {
             Debug.WriteLine($"Sending json for status code to {endpoint}");
-            HttpRequestMessage message = CreateMessage(new HttpMethod(method), endpoint, accessToken);
+            HttpRequestMessage message = await CreateMessageAsync(new HttpMethod(method), endpoint, useAccessToken);
             AddJsonContent(message, json);
             HttpResponseMessage result = await SendAsync(message);
 
@@ -132,11 +132,13 @@ namespace Gfycat
             message.Content.Headers.ContentDisposition.FileName = fileName;
         }
 
-        private static HttpRequestMessage CreateMessage(HttpMethod method, string endpoint, string accessToken)
+        private async Task<HttpRequestMessage> CreateMessageAsync(HttpMethod method, string endpoint, bool useAcccessToken = true)
         {
+            if (useAcccessToken)
+                await CheckAuthorization(endpoint);
             HttpRequestMessage message = new HttpRequestMessage(method, endpoint);
-            if (!string.IsNullOrWhiteSpace(accessToken))
-                message.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            if (useAcccessToken)
+                message.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Auth.AccessToken);
             return message;
         }
     }
