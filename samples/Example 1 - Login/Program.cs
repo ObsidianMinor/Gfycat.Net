@@ -34,10 +34,14 @@ namespace LoginSample
              * when this event fires, the Authentication container with attempt to refresh the token if possible
              * If you want to manually refresh the token, you can run Authentication.RefreshTokenAsync()
              */
+        }
 
-            client.Authentication.GetBrowserAuthUrl("random_state_goes_here", "https://example.com/callback"); // used when performing a browser authentication
-            // perform browser auth, then with
-            client.Authentication.Authenticate("ACCESS_TOKEN", 60, "REFRESH_TOKEN", 133500, "obsidianminor");  // browser auth is documented at: https://developers.gfycat.com/api/#browser-based-authentication
+        void ClientOwnerAuthentication()
+        {
+            GfycatClient client = new GfycatClient("REPLACE_WITH_YOUR_CLIENT_ID", "REPLACE_WITH_YOUR_CLIENT_SECRET");
+
+            client.Authentication.GetBrowserAuthUrl("random_state_goes_here", "https://example.com/callback", false); // used when performing a browser authentication
+            client.Authentication.Authenticate("ACCESS_TOKEN", 60);                                                   // browser auth is documented at: https://developers.gfycat.com/api/#browser-based-authentication
         }
     }
 }

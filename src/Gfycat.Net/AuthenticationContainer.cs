@@ -36,7 +36,7 @@ namespace Gfycat
 
         public async Task RefreshTokenAsync()
         {
-            if (_currentGrant == AuthenticationGrant.Client)
+            if (_currentGrant == AuthenticationGrant.Client || _currentGrant == AuthenticationGrant.BrowserImplicitGrant)
             {
                 await AuthenticateAsync();
                 return;
@@ -208,23 +208,47 @@ namespace Gfycat
             SetTimer(auth.ExpiresIn, auth.RefreshTokenExpiresIn);
         }
 
-        public void Authenticate(string accessToken, int accessTokenExpiresIn, string refreshToken, int refreshTokenExpiresIn, string resourceOwner)
+        /// <summary>
+        /// Sets the authorization using an access token and expiration time retrieved from an implicit authorization flow
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="accessTokenExpiresIn"></param>
+        public void Authenticate(string accessToken, int accessTokenExpiresIn)
         {
-            _currentGrant = AuthenticationGrant.BrowserAuthCode;
+            _currentGrant = AuthenticationGrant.BrowserImplicitGrant;
             Debug.WriteLine($"Recieved access token {accessToken}");
             AccessToken = accessToken;
-            RefreshToken = refreshToken;
-            ResourceOwner = resourceOwner;
         }
 
-        public async Task AuthenticateAsync(string refreshToken)
+        /// <summary>
+        /// Authenticates using an authorization code from the browser authentication flow
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public async Task AuthenticateAsync(string code)
+        {
+
+        }
+
+        /// <summary>
+        /// Authenticates the client using a refresh token
+        /// </summary>
+        /// <param name="refreshToken"></param>
+        /// <returns></returns>
+        public async Task AuthenticateWithRefreshTokenAsync(string refreshToken)
         {
             _currentGrant = AuthenticationGrant.BrowserAuthCode;
             RefreshToken = refreshToken;
             await RefreshTokenAsync();
         }
 
-        public string GetBrowserAuthUrl(string state, string redirectUri) => $"https://gfycat.com/oauth/authorize?client_id={ClientId}&scope=all&state={state}&response_type=token&redirect_uri={redirectUri}";
+        /// <summary>
+        /// Creates an authorization URL given a state and a redirect URI
+        /// </summary>
+        /// <param name="state"></param>
+        /// <param name="redirectUri"></param>
+        /// <returns></returns>
+        public string GetBrowserAuthUrl(string state, string redirectUri, bool codeResponse) => $"https://gfycat.com/oauth/authorize?client_id={ClientId}&scope=all&state={state}&response_type={(codeResponse ? "code" : "token")}&redirect_uri={redirectUri}";
 
         private void SetTimer(int time, int? refreshTokenTime = null)
         {

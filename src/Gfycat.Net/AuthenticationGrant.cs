@@ -4,6 +4,7 @@
     {
         Client,
         Password,
+        BrowserImplicitGrant,
         BrowserAuthCode,
         FacebookAuthCode,
         FacebookAccessCode,
