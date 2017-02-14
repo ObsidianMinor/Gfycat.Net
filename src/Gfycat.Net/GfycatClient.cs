@@ -62,13 +62,7 @@ namespace Gfycat
         #endregion
 
         #region Albums
-
-        public async Task<IEnumerable<GfycatAlbumInfo>> GetUserAlbums(string userId)
-        {
-            string endpoint = $"users/{userId}/albums";
-            return (await _web.SendRequestAsync<GfycatAlbumResponse>("GET", endpoint)).Albums;
-        }
-
+        
         public async Task<GfycatAlbum> GetAlbumContents(string userId, string albumId)
         {
             string endpoint = $"users/{userId}/albums/{albumId}";
@@ -119,11 +113,6 @@ namespace Gfycat
         }
 
         #endregion
-
-        public Task ShareGfycatOnTwitterAsync(string gfycatId, string postStatus)
-        {
-            return _web.SendJsonAsync("POST", $"gfycats/{gfycatId}/share/twitter", new { status = postStatus });
-        }
 
         #region Trending feeds
 

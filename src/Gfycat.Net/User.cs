@@ -1,11 +1,15 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Gfycat
 {
     [JsonArray]
-    public class User
+    public class User : ConnectedEntity
     {
+        internal User(ExtendedHttpClient client) : base(client) { }
+
         [JsonProperty("userid")]
         public string Id { get; set; }
         [JsonProperty("username")]
@@ -34,5 +38,17 @@ namespace Gfycat
         public int Following { get; set; }
         [JsonProperty("iframeProfileImageVisible")]
         public bool IframeProfileImageVisible { get; set; }
+
+        public async Task<IEnumerable<GfycatAlbumInfo>> GetAlbums()
+        {
+            string endpoint = $"users/{Id}/albums";
+            return (await Web.SendRequestAsync<GfycatAlbumResponse>("GET", endpoint)).Albums;
+        }
+
+        public async Task<GfycatAlbum> GetAlbumContents(string albumId)
+        {
+            string endpoint = $"users/{Id}/albums/{albumId}";
+            return await Web.SendRequestAsync<GfycatAlbum>("GET", endpoint);
+        }
     }
 }

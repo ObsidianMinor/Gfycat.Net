@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -105,16 +107,26 @@ namespace Gfycat
             return result.StatusCode;
         }
 
-        private static async Task<T> GetJsonFromResponse<T>(HttpResponseMessage message)
+        private async Task<T> GetJsonFromResponse<T>(HttpResponseMessage message)
         {
             string result = await message.Content.ReadAsStringAsync();
             #if SUPER_DEBUG_MODE
             Debug.WriteLine(result);
             #endif
-            return JsonConvert.DeserializeObject<T>(result);
+
+            if (typeof(T).GetTypeInfo().IsAssignableFrom((typeof(ConnectedEntity).GetTypeInfo())))
+            {
+                object target = Activator.CreateInstance(typeof(T), this);
+                JsonConvert.PopulateObject(result, target);
+                return (T)target;
+            }
+            else
+            {
+                return JsonConvert.DeserializeObject<T>(result);
+            }
         }
 
-        private static async Task<GfycatException> GetExceptionFromResponse(HttpResponseMessage message)
+        private async Task<GfycatException> GetExceptionFromResponse(HttpResponseMessage message)
         {
             GfycatException exception = await GetJsonFromResponse<GfycatException>(message);
             exception.HttpCode = message.StatusCode;

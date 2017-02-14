@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Gfycat
 {
-    public class Gfy
+    public class Gfy : ConnectedEntity
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -92,5 +93,12 @@ namespace Gfycat
         public string RedditIdText { get; set; }
         [JsonProperty("domainWhitelist")]
         public List<string> DomainWhitelist { get; set; }
+
+        internal Gfy(ExtendedHttpClient client) : base(client) { }
+
+        public Task ShareOnTwitterAsync(string postStatus)
+        {
+            return Web.SendJsonAsync("POST", $"gfycats/{Id}/share/twitter", new { status = postStatus });
+        }
     }
 }
