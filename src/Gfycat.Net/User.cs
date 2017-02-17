@@ -8,8 +8,6 @@ namespace Gfycat
     [JsonArray]
     public class User : ConnectedEntity
     {
-        internal User(ExtendedHttpClient client) : base(client) { }
-
         [JsonProperty("userid")]
         public string Id { get; set; }
         [JsonProperty("username")]
@@ -39,16 +37,32 @@ namespace Gfycat
         [JsonProperty("iframeProfileImageVisible")]
         public bool IframeProfileImageVisible { get; set; }
 
-        public async Task<IEnumerable<GfycatAlbumInfo>> GetAlbums()
+        public async Task<IEnumerable<GfycatAlbumInfo>> GetAlbumsAsync()
         {
             string endpoint = $"users/{Id}/albums";
             return (await Web.SendRequestAsync<GfycatAlbumResponse>("GET", endpoint)).Albums;
         }
 
-        public async Task<GfycatAlbum> GetAlbumContents(string albumId)
+        public async Task<GfycatAlbum> GetAlbumContentsAsync(string albumId)
         {
             string endpoint = $"users/{Id}/albums/{albumId}";
             return await Web.SendRequestAsync<GfycatAlbum>("GET", endpoint);
+        }
+
+        public async Task<GfycatAlbumInfo> GetAlbumContentsByLinkTextAsync(string albumLinkText)
+        {
+            string endpoint = $"users/{Id}/album_links/{albumLinkText}";
+            return await Web.SendRequestAsync<GfycatAlbumInfo>("GET", endpoint);
+        }
+
+        public Task<GfycatFeed> GetGfycatFeedAsync(int? count = null, string cursor = null)
+        {
+            string queryString = ExtendedHttpClient.CreateQueryString(new Dictionary<string, object>()
+            {
+                { "count", count },
+                { "cursor", cursor }
+            });
+            return Web.SendRequestAsync<GfycatFeed>("GET", $"users/{Id}/gfycats{queryString}");
         }
     }
 }

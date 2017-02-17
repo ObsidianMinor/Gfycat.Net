@@ -51,32 +51,7 @@ namespace Gfycat
         }
 
         #endregion
-
-        #region User feeds
-
-        public Task<GfycatFeed> GetUserGfycatFeedAsync(string userId, int? count = null, string cursor = null)
-        {
-            return _web.SendJsonAsync<GfycatFeed>("GET", $"users/{userId}/gfycats", new { count, cursor });
-        }
-
-        #endregion
-
-        #region Albums
         
-        public async Task<GfycatAlbum> GetAlbumContents(string userId, string albumId)
-        {
-            string endpoint = $"users/{userId}/albums/{albumId}";
-            return await _web.SendRequestAsync<GfycatAlbum>("GET", endpoint);
-        }
-
-        public async Task<GfycatAlbumInfo> GetAlbumContentsByLinkText(string userId, string albumLinkText)
-        {
-            string endpoint = $"users/{userId}/album_links/{albumLinkText}";
-            return await _web.SendRequestAsync<GfycatAlbumInfo>("GET", endpoint);
-        }
-
-        #endregion
-
         public async Task<Gfy> GetGfyAsync(string gfycat)
         {
             return await _web.SendRequestAsync<Gfy>("GET", $"gfycats/{gfycat}");
@@ -118,23 +93,49 @@ namespace Gfycat
 
         public Task<TrendingGfycatFeed> GetTrendingGfycatsAsync(string tag = null, int? count = null, string cursor = null)
         {
-            if (!string.IsNullOrWhiteSpace(tag))
-                tag = WebUtility.UrlEncode(tag);
-
-            return _web.SendJsonAsync<TrendingGfycatFeed>("GET", "gfycats/trending", new { tagName = tag, count, cursor });
+            string queryString = ExtendedHttpClient.CreateQueryString(new Dictionary<string, object>
+            {
+                { "tagName", tag },
+                { "count", count },
+                { "cursor", cursor }
+            });
+            return _web.SendRequestAsync<TrendingGfycatFeed>("GET", $"gfycats/trending{queryString}");
         }
 
         public Task<IEnumerable<string>> GetTrendingTagsAsync(int? tagCount = null, string cursor = null)
         {
-            return _web.SendJsonAsync<IEnumerable<string>>("GET", "tags/trending", new { tagCount, cursor });
+            string queryString = ExtendedHttpClient.CreateQueryString(new Dictionary<string, object>
+            {
+                { "tagCount", tagCount },
+                { "cursor", cursor }
+            });
+            return _web.SendRequestAsync<IEnumerable<string>>("GET", $"tags/trending{queryString}");
         }
 
         public Task<GfycatFeed> GetTrendingTagsPopulatedAsync(int? tagCount = null, int? gfyCount = null, string cursor = null)
         {
-            return _web.SendJsonAsync<GfycatFeed>("GET", "tags/trending/populated", new { tagCount, gfyCount, cursor });
+            string queryString = ExtendedHttpClient.CreateQueryString(new Dictionary<string, object>
+            {
+                { "tagCount", tagCount },
+                { "gfyCount", gfyCount },
+                { "cursor", cursor }
+            });
+            return _web.SendRequestAsync<GfycatFeed>("GET", $"tags/trending/populated{queryString}");
         }
 
         #endregion
+
+        // supposedly in testing. hhhhhhhhhhhhhhhhmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+        public Task<GfycatFeed> SearchAsync(string searchText, int count = 50, string cursor = null)
+        {
+            string queryString = ExtendedHttpClient.CreateQueryString(new Dictionary<string, object>
+            {
+                { "search_text", searchText },
+                { "count", count },
+                { "cursor", cursor }
+            });
+            return _web.SendRequestAsync<GfycatFeed>("GET", $"gfycats/search{queryString}");
+        }
 
         public void Dispose()
         {

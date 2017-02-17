@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Gfycat
+﻿namespace Gfycat
 {
+    /// <summary>
+    /// Exposes the current web client to objects
+    /// </summary>
     public abstract class ConnectedEntity
     {
-        internal ExtendedHttpClient Web { get; }
-
-        internal ConnectedEntity(ExtendedHttpClient client)
-        {
-            Web = client;
-        }
+        internal ExtendedHttpClient Web { get; set; }
     }
 }

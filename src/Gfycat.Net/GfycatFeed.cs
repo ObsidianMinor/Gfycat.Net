@@ -6,8 +6,8 @@ namespace Gfycat
     public class GfycatFeed
     {
         [JsonProperty("gfycats")]
-        List<Gfy> Gfycats { get; set; }
+        public List<Gfy> Gfycats { get; private set; }
         [JsonProperty("cursor")]
-        string Cursor { get; set; }
+        public string Cursor { get; private set; }
     }
 }

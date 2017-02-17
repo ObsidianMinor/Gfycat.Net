@@ -1,104 +1,248 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Gfycat
 {
     public class Gfy : ConnectedEntity
     {
+        private static readonly InvalidOperationException _invalidOwnership = new InvalidOperationException("The current user doesn't own this resource");
+
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; private set; }
         [JsonProperty("number")]
-        public long Number { get; set; }
+        public long Number { get; private set; }
         [JsonProperty("webmUrl")]
-        public string WebmUrl { get; set; }
+        public string WebmUrl { get; private set; }
         [JsonProperty("gifUrl")]
-        public string GifUrl { get; set; }
+        public string GifUrl { get; private set; }
         [JsonProperty("mobileUrl")]
-        public string MobileUrl { get; set; }
+        public string MobileUrl { get; private set; }
         [JsonProperty("mobilePosterUrl")]
-        public string MobilePosterUrl { get; set; }
+        public string MobilePosterUrl { get; private set; }
         [JsonProperty("posterUrl")]
-        public string PosterUrl { get; set; }
+        public string PosterUrl { get; private set; }
         [JsonProperty("thumb360Url")]
-        public string Thumb360Url { get; set; }
+        public string Thumb360Url { get; private set; }
         [JsonProperty("thumb360PosterUrl")]
-        public string Thumb360PosterUrl { get; set; }
+        public string Thumb360PosterUrl { get; private set; }
         [JsonProperty("thumb100PosterUrl")]
-        public string Thumb100PosterUrl { get; set; }
+        public string Thumb100PosterUrl { get; private set; }
         [JsonProperty("max5mbGif")]
-        public string Max5MbGif { get; set; }
+        public string Max5MbGif { get; private set; }
         [JsonProperty("max2mbGif")]
-        public string Max2MbGif { get; set; }
+        public string Max2MbGif { get; private set; }
         [JsonProperty("max1mbGif")]
-        public string Max1MbGif { get; set; }
+        public string Max1MbGif { get; private set; }
         [JsonProperty("mjpgUrl")]
-        public string MjpgUrl { get; set; }
+        public string MjpgUrl { get; private set; }
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public int Width { get; private set; }
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public int Height { get; private set; }
         [JsonProperty("avgColor")]
-        public string AverageColor { get; set; }
+        public string AverageColor { get; private set; }
         [JsonProperty("frameRate")]
-        public int FrameRate { get; set; }
+        public int FrameRate { get; private set; }
         [JsonProperty("numFrames")]
-        public int NumberOfFrames { get; set; }
+        public int NumberOfFrames { get; private set; }
         [JsonProperty("mp4Size")]
-        public int Mp4Size { get; set; }
+        public int Mp4Size { get; private set; }
         [JsonProperty("webmSize")]
-        public int WebmSize { get; set; }
+        public int WebmSize { get; private set; }
         [JsonProperty("gifSize")]
-        public int GifSize { get; set; }
+        public int GifSize { get; private set; }
         [JsonProperty("source")]
-        public string Source { get; set; }
+        public string Source { get; private set; }
         [JsonProperty("createDate", ItemConverterType = typeof(UnixTimeConverter))]
-        public DateTime CreationDate { get; set; }
+        public DateTime CreationDate { get; private set; }
         [JsonProperty("nsfw")]
-        public bool Nsfw { get; set; }
+        public bool Nsfw { get; private set; }
         [JsonProperty("mp4Url")]
-        public string Mp4Url { get; set; }
+        public string Mp4Url { get; private set; }
         [JsonProperty("likes")]
-        public int Likes { get; set; }
+        public int Likes { get; private set; }
         [JsonProperty("published"), JsonConverter(typeof(NumericalBooleanConverter))]
-        public bool Published { get; set; }
+        public bool Published { get; private set; }
         [JsonProperty("dislikes")]
-        public int Dislikes { get; set; }
+        public int Dislikes { get; private set; }
         [JsonProperty("extraLemmas")]
-        public string ExtraLemmas { get; set; }
+        public string ExtraLemmas { get; private set; }
         [JsonProperty("md5")]
-        public string Md5 { get; set; }
+        public string Md5 { get; private set; }
         [JsonProperty("views")]
-        public int Views { get; set; }
+        public int Views { get; private set; }
         [JsonProperty("tags")]
-        public List<string> Tags { get; set; }
+        public List<string> Tags { get; private set; }
         [JsonProperty("username")]
-        public string Username { get; set; }
+        public string Username { get; private set; }
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; private set; }
         [JsonProperty("title")]
-        public string Title { get; set; }
+        public string Title { get; private set; }
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string Description { get; private set; }
         [JsonProperty("languageText")]
-        public string LanguageText { get; set; }
+        public string LanguageText { get; private set; }
         [JsonProperty("languageCategories")]
-        public string LanguageCategories { get; set; }
+        public string LanguageCategories { get; private set; }
         [JsonProperty("subreddit")]
-        public string Subreddit { get; set; }
+        public string Subreddit { get; private set; }
         [JsonProperty("redditId")]
-        public string RedditId { get; set; }
+        public string RedditId { get; private set; }
         [JsonProperty("redditIdText")]
-        public string RedditIdText { get; set; }
+        public string RedditIdText { get; private set; }
         [JsonProperty("domainWhitelist")]
-        public List<string> DomainWhitelist { get; set; }
-
-        internal Gfy(ExtendedHttpClient client) : base(client) { }
-
-        public Task ShareOnTwitterAsync(string postStatus)
+        public List<string> DomainWhitelist { get; private set; }
+        
+        public Task ShareOnTwitterAsyncAsync(string postStatus)
         {
             return Web.SendJsonAsync("POST", $"gfycats/{Id}/share/twitter", new { status = postStatus });
+        }
+
+        public async Task ModifyTitleAsync(string newTitle)
+        {
+            if (!CurrentUserOwnsGfy())
+                throw _invalidOwnership;
+
+            await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/title", new { value = newTitle });
+            await UpdateCurrentGfyAsync();
+        }
+        
+        public async Task DeleteTitleAsync()
+        {
+            if (!CurrentUserOwnsGfy())
+                throw _invalidOwnership;
+
+            await Web.SendRequestAsync("DELETE", $"me/gfycats/{Id}/title");
+
+            await UpdateCurrentGfyAsync();
+        }
+
+        public async Task UpdateTagsAsync(params string[] tags)
+        {
+            if (tags.Count() > 20)
+                throw new ArgumentException("The number of tags provided exceeds the max value 20");
+            if (!CurrentUserOwnsGfy())
+                throw _invalidOwnership;
+
+            await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/tags", new { value = tags });
+
+            await UpdateCurrentGfyAsync();
+        }
+
+        public Task<IEnumerable<string>> GetDomainWhitelistAsync()
+        {
+            if (!CurrentUserOwnsGfy())
+                throw _invalidOwnership;
+
+            return Web.SendRequestAsync<IEnumerable<string>>("GET", $"me/gfycats/{Id}/domain-whitelist");
+        }
+
+        public async Task ModifyDomainWhitelistAsync(IEnumerable<string> newWhitelist)
+        {
+            if (!CurrentUserOwnsGfy())
+                throw _invalidOwnership;
+
+            await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/domain-whitelist", new { value = newWhitelist });
+
+            await UpdateCurrentGfyAsync();
+        }
+
+        public async Task DeleteDomainWhitelistAsync()
+        {
+            if (!CurrentUserOwnsGfy())
+                throw _invalidOwnership;
+
+            await Web.SendRequestAsync("DELETE", $"me/gfycats/{Id}/domain-whitelist");
+
+            await UpdateCurrentGfyAsync();
+        }
+
+        public Task<IEnumerable<string>> GetGeoWhitelistAsync()
+        {
+            if (!CurrentUserOwnsGfy())
+                throw _invalidOwnership;
+
+            return Web.SendRequestAsync<IEnumerable<string>>("GET", $"me/gfycats/{Id}/geo-whitelist");
+        }
+
+        public async Task ModifyGeoWhitelistAsync(IEnumerable<string> newWhitelist)
+        {
+            if (!CurrentUserOwnsGfy())
+                throw _invalidOwnership;
+
+            await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/geo-whitelist", new { value = newWhitelist });
+
+            await UpdateCurrentGfyAsync();
+        }
+
+        public async Task DeleteGeoWhitelistAsync()
+        {
+            if (!CurrentUserOwnsGfy())
+                throw _invalidOwnership;
+
+            await Web.SendRequestAsync("DELETE", $"me/gfycats/{Id}/geo-whitelist");
+
+            await UpdateCurrentGfyAsync();
+        }
+
+        public async Task ModifyDescriptionAsync(string newDescription)
+        {
+            if (!CurrentUserOwnsGfy())
+                throw _invalidOwnership;
+
+            await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/description", new { value = newDescription });
+
+            await UpdateCurrentGfyAsync();
+        }
+
+        public async Task DeleteDescriptionAsync()
+        {
+            if (!CurrentUserOwnsGfy())
+                throw _invalidOwnership;
+
+            await Web.SendRequestAsync("DELETE", $"me/gfycats/{Id}/description");
+
+            await UpdateCurrentGfyAsync();
+        }
+
+        public async Task ModifyPublishedAsync(bool published)
+        {
+            if (!CurrentUserOwnsGfy())
+                throw _invalidOwnership;
+
+            await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/published", new { value = (published) ? 1 : 0 });
+
+            await UpdateCurrentGfyAsync();
+        }
+
+        public async Task ModifyNsfwSettingAsync(NsfwSetting setting)
+        {
+            if (!CurrentUserOwnsGfy())
+                throw _invalidOwnership;
+
+            await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/nsfw", new { value = (int)setting });
+
+            await UpdateCurrentGfyAsync();
+        }
+
+        public Task DeleteAsync()
+        {
+            if (!CurrentUserOwnsGfy())
+                throw _invalidOwnership;
+
+            return Web.SendRequestAsync("DELETE", $"me/gfycats/{Id}");
+        }
+        
+        public bool CurrentUserOwnsGfy() => Web.Auth.ResourceOwner == Username;
+
+        private async Task UpdateCurrentGfyAsync()
+        {
+            string result = await Web.SendRequestForStringAsync("GET", $"gfycats/{Id}");
+            JsonConvert.PopulateObject(result, this);
         }
     }
 }
