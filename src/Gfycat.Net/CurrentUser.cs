@@ -89,6 +89,8 @@ namespace Gfycat
 
         #endregion
 
+        #region User feeds
+
         new public Task<GfycatFeed> GetGfycatFeedAsync(int? count = null, string cursor = null)
         {
             string queryString = ExtendedHttpClient.CreateQueryString(new Dictionary<string, object>()
@@ -107,6 +109,14 @@ namespace Gfycat
                 { "cursor", cursor }
             });
             return Web.SendRequestAsync<GfycatFeed>("GET", $"me/follows/gfycats{queryString}");
+        }
+
+        #endregion
+
+        new public async Task<GfycatAlbum> GetAlbumContentsAsync(string albumId)
+        {
+            string endpoint = $"me/albums/{albumId}";
+            return await Web.SendRequestAsync<GfycatAlbum>("GET", endpoint);
         }
 
         public Task<GfycatFeed> SearchAsync(string searchText, int? count = null, string cursor = null)

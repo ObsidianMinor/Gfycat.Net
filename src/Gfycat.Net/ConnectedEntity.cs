@@ -1,7 +1,7 @@
 ﻿namespace Gfycat
 {
     /// <summary>
-    /// Exposes the current web client to objects
+    /// Exposes the  client to objects
     /// </summary>
     public abstract class ConnectedEntity
     {
