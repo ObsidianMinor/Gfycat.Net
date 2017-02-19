@@ -56,6 +56,6 @@ namespace Gfycat
         [JsonProperty("published"), JsonConverter(typeof(NumericalBooleanConverter))]
         public bool Published { get; set; }
         [JsonProperty("nodes")]
-        public List<GfycatAlbumInfo> Subalbums { get; set; }
+        public IEnumerable<GfycatAlbumInfo> Subalbums { get; set; }
     }
 }

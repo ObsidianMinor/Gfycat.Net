@@ -113,11 +113,28 @@ namespace Gfycat
 
         #endregion
 
+        #region User Folders
+
+        public async Task<IEnumerable<GfycatFolderInfo>> GetUserFoldersAsync()
+        {
+            return (await Web.SendRequestAsync<GfycatFolderInfo>("GET", "me/folders")).Subfolders;
+        }
+
+        public Task<GfycatFolder> GetFolderContentsAsync(string folderId)
+        {
+            return Web.SendRequestAsync<GfycatFolder>("GET", $"me/folders/{folderId}");
+        }
+
+        #endregion
+        
+        #region Albums
+
         new public async Task<GfycatAlbum> GetAlbumContentsAsync(string albumId)
         {
-            string endpoint = $"me/albums/{albumId}";
-            return await Web.SendRequestAsync<GfycatAlbum>("GET", endpoint);
+            return await Web.SendRequestAsync<GfycatAlbum>("GET", $"me/albums/{albumId}");
         }
+
+        #endregion
 
         public Task<GfycatFeed> SearchAsync(string searchText, int? count = null, string cursor = null)
         {

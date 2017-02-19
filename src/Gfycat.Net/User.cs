@@ -37,10 +37,10 @@ namespace Gfycat
         [JsonProperty("iframeProfileImageVisible")]
         public bool IframeProfileImageVisible { get; set; }
 
-        public Task<GfycatAlbumResponse> GetAlbumsAsync()
+        public async Task<IEnumerable<GfycatAlbumInfo>> GetAlbumsAsync()
         {
             string endpoint = $"users/{Id}/albums";
-            return Web.SendRequestAsync<GfycatAlbumResponse>("GET", endpoint);
+            return (await Web.SendRequestAsync<GfycatAlbumResponse>("GET", endpoint)).Albums;
         }
 
         public async Task<GfycatAlbum> GetAlbumContentsAsync(string albumId)

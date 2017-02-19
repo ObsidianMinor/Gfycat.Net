@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Gfycat
 {
-    public class GfycatAlbumResponse
+    internal class GfycatAlbumResponse
     {
         [JsonProperty("totalItemCount")]
-        public int Count { get; set; }
+        internal int Count { get; set; }
         [JsonProperty("items")]
-        public IEnumerable<GfycatAlbumInfo> Albums { get; set; }
+        internal IEnumerable<GfycatAlbumInfo> Albums { get; set; }
     }
 }
