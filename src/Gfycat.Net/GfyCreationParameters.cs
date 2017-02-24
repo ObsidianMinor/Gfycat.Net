@@ -13,9 +13,9 @@ namespace Gfycat
         public string Description { get; set; }
         [JsonProperty("tags", NullValueHandling = NullValueHandling.Ignore)]
         public IEnumerable<string> Tags { get; set; }
-        /// <summary
+        /// <summary>
         /// Instructs the uploader to skip the file duplication check
-        /// </summary
+        /// </summary>
         [JsonProperty("noMd5", NullValueHandling = NullValueHandling.Ignore)]
         public bool? NoMd5 { get; set; }
         [JsonProperty("private", NullValueHandling = NullValueHandling.Ignore), JsonConverter(typeof(NumericalBooleanConverter))]

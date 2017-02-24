@@ -108,7 +108,7 @@ namespace Gfycat
                 throw _invalidOwnership;
 
             await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/title", new { value = newTitle });
-            await UpdateCurrentGfyAsync();
+            await UpdateAsync();
         }
         
         public async Task DeleteTitleAsync()
@@ -118,7 +118,7 @@ namespace Gfycat
 
             await Web.SendRequestAsync("DELETE", $"me/gfycats/{Id}/title");
 
-            await UpdateCurrentGfyAsync();
+            await UpdateAsync();
         }
 
         public async Task UpdateTagsAsync(params string[] tags)
@@ -130,7 +130,7 @@ namespace Gfycat
 
             await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/tags", new { value = tags });
 
-            await UpdateCurrentGfyAsync();
+            await UpdateAsync();
         }
 
         public Task<IEnumerable<string>> GetDomainWhitelistAsync()
@@ -148,7 +148,7 @@ namespace Gfycat
 
             await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/domain-whitelist", new { value = newWhitelist });
 
-            await UpdateCurrentGfyAsync();
+            await UpdateAsync();
         }
 
         public async Task DeleteDomainWhitelistAsync()
@@ -158,7 +158,7 @@ namespace Gfycat
 
             await Web.SendRequestAsync("DELETE", $"me/gfycats/{Id}/domain-whitelist");
 
-            await UpdateCurrentGfyAsync();
+            await UpdateAsync();
         }
 
         public Task<IEnumerable<string>> GetGeoWhitelistAsync()
@@ -176,7 +176,7 @@ namespace Gfycat
 
             await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/geo-whitelist", new { value = newWhitelist });
 
-            await UpdateCurrentGfyAsync();
+            await UpdateAsync();
         }
 
         public async Task DeleteGeoWhitelistAsync()
@@ -186,7 +186,7 @@ namespace Gfycat
 
             await Web.SendRequestAsync("DELETE", $"me/gfycats/{Id}/geo-whitelist");
 
-            await UpdateCurrentGfyAsync();
+            await UpdateAsync();
         }
 
         public async Task ModifyDescriptionAsync(string newDescription)
@@ -196,7 +196,7 @@ namespace Gfycat
 
             await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/description", new { value = newDescription });
 
-            await UpdateCurrentGfyAsync();
+            await UpdateAsync();
         }
 
         public async Task DeleteDescriptionAsync()
@@ -206,7 +206,7 @@ namespace Gfycat
 
             await Web.SendRequestAsync("DELETE", $"me/gfycats/{Id}/description");
 
-            await UpdateCurrentGfyAsync();
+            await UpdateAsync();
         }
 
         public async Task ModifyPublishedAsync(bool published)
@@ -214,9 +214,9 @@ namespace Gfycat
             if (!CurrentUserOwnsGfy())
                 throw _invalidOwnership;
 
-            await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/published", new { value = (published) ? 1 : 0 });
+            await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/published", new { value = (published) ? "1" : "0" });
 
-            await UpdateCurrentGfyAsync();
+            await UpdateAsync();
         }
 
         public async Task ModifyNsfwSettingAsync(NsfwSetting setting)
@@ -226,7 +226,7 @@ namespace Gfycat
 
             await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/nsfw", new { value = (int)setting });
 
-            await UpdateCurrentGfyAsync();
+            await UpdateAsync();
         }
 
         public Task DeleteAsync()
@@ -246,25 +246,25 @@ namespace Gfycat
             return (await Web.SendRequestAsync<dynamic>("GET", $"me/bookmarks/{Id}")).bookmarkState == "1";
         }
 
-        public Task BookmarkAsync(string folderId = null)
+        public Task BookmarkAsync(GfycatBookmarkFolder folder = null)
         {
-            if (string.IsNullOrWhiteSpace(folderId))
+            if (string.IsNullOrWhiteSpace(folder?.Id))
                 return Web.SendRequestAsync("PUT", $"me/bookmarks/{Id}");
             else
-                return Web.SendRequestAsync("PUT", $"me/bookmark-folders/{folderId}/contents/{Id}");
+                return Web.SendRequestAsync("PUT", $"me/bookmark-folders/{folder.Id}/contents/{Id}");
         }
 
-        public Task UnbookmarkAsync(string folderId = null)
+        public Task UnbookmarkAsync(GfycatBookmarkFolder folder = null)
         {
-            if (string.IsNullOrWhiteSpace(folderId))
+            if (string.IsNullOrWhiteSpace(folder?.Id))
                 return Web.SendRequestAsync("DELETE", $"me/bookmarks/{Id}");
             else
-                return Web.SendRequestAsync("DELETE", $"me/bookmark-folders/{folderId}/contents/{Id}");
+                return Web.SendRequestAsync("DELETE", $"me/bookmark-folders/{folder.Id}/contents/{Id}");
         }
         
         public bool CurrentUserOwnsGfy() => Web.Auth.ResourceOwner == Username;
 
-        private async Task UpdateCurrentGfyAsync()
+        private async Task UpdateAsync()
         {
             string result = await Web.SendRequestForStringAsync("GET", $"gfycats/{Id}");
             JsonConvert.PopulateObject(result, this);
