@@ -7,12 +7,12 @@ namespace Gfycat
     {
         public override bool CanConvert(Type objectType)
         {
-            return objectType == typeof(bool) || objectType == typeof(bool?);
+            return objectType == typeof(string);
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            return ((int)existingValue != 1 ? false : true);
+            return ((string)existingValue != "1" ? false : true);
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
