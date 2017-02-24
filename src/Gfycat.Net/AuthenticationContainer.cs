@@ -8,7 +8,6 @@ namespace Gfycat
     public class AuthenticationContainer
     {
         public AuthenticationGrant CurrentGrantType { get; private set; }
-        private string _currentGrantToken { get; set; }
 
         public string ClientId { get; }
         public string ClientSecret { get; }
@@ -39,11 +38,6 @@ namespace Gfycat
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
-        }
-
-        internal string GetAuthenticationMethodString()
-        {
-            return _currentGrantToken;
         }
 
         public async Task AttemptRefreshTokenAsync()
@@ -158,8 +152,7 @@ namespace Gfycat
 
             Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
             Debug.WriteLine($"Recieved access token {auth.AccessToken}");
-
-            _currentGrantToken = authCode;
+            
             ResourceOwner = auth.ResourceOwner;
             AccessToken = auth.AccessToken;
             RefreshToken = auth.RefreshToken;
@@ -190,8 +183,7 @@ namespace Gfycat
 
             Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
             Debug.WriteLine($"Recieved access token {auth.AccessToken}");
-
-            _currentGrantToken = token;
+            
             ResourceOwner = auth.ResourceOwner;
             AccessToken = auth.AccessToken;
             RefreshToken = auth.RefreshToken;
@@ -245,8 +237,7 @@ namespace Gfycat
 
             Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
             Debug.WriteLine($"Recieved access token {auth.AccessToken}");
-
-            _currentGrantToken = requestToken;
+            
             ResourceOwner = auth.ResourceOwner;
             AccessToken = auth.AccessToken;
             RefreshToken = auth.RefreshToken;

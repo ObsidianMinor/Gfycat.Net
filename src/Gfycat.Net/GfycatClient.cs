@@ -56,43 +56,7 @@ namespace Gfycat
         {
             return await _web.SendRequestAsync<CurrentUser>("GET", "me");
         }
-
-        /// <summary>
-        /// Creates a new gfycat account using the provided username, password, and email
-        /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        /// <param name="email"></param>
-        /// <param name="useCurrentAuthDetails">If the client is authenticated using Facebook </param>
-        /// <returns></returns>
-        public Task CreateAccountAsync(string username, string password = null, string email = null, bool useCurrentAuthDetails = true)
-        {
-            string accountAuth = null;
-            Provider? provider = null;
-            TokenType? accountAuthType = null;
-            if (useCurrentAuthDetails)
-                accountAuth = Authentication.GetAuthenticationMethodString();
-            else if (string.IsNullOrWhiteSpace(username) && (string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(email)))
-                throw new ArgumentException($"The {nameof(username)} and {nameof(password)} or {nameof(email)} fields must not be null or empty if {nameof(useCurrentAuthDetails)} is false");
-            switch(Authentication.CurrentGrantType)
-            {
-                case AuthenticationGrant.FacebookAccessCode:
-                    provider = Provider.Facebook;
-                    accountAuthType = TokenType.FacebookAccessToken;
-                    break;
-                case AuthenticationGrant.FacebookAuthCode:
-                    provider = Provider.Facebook;
-                    accountAuthType = TokenType.FacebookAuthCode;
-                    break;
-                case AuthenticationGrant.TwitterProvider:
-                    provider = Provider.Twitter;
-                    accountAuthType = TokenType.TwitterToken;
-                    break;
-            }
-
-            return CreateAccountAsync(username, password, email, provider, accountAuthType, accountAuth);
-        }
-
+        
         public Task CreateAccountAsync(string username, string password, string email, Provider? provider = null, TokenType? authCodeType = null, string authCode = null)
         {
             if (string.IsNullOrWhiteSpace(username) && (string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(email)))
