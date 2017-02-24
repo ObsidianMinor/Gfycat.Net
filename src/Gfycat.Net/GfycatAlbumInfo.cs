@@ -1,61 +1,72 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Gfycat
 {
-    public class GfycatAlbumInfo
+    public class GfycatAlbumInfo : GfycatFolderInfoBase<GfycatAlbum>
     {
-        [JsonProperty("id")]
-        public string Id { get; set; }
-        [JsonProperty("title")]
-        public string Title { get; set; }
+        internal IUser Owner { get; set; }
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string Description { get; private set; }
         [JsonProperty("linkText")]
-        public string LinkText { get; set; }
+        public string LinkText { get; private set; }
         [JsonProperty("folderSubType")]
-        public string FolderSubType { get; set; }
+        public string FolderSubType { get; private set; }
         [JsonProperty("coverImageUrl")]
-        public string CoverImageUrl { get; set; }
+        public string CoverImageUrl { get; private set; }
         [JsonProperty("coverImageUrl-mobile")]
-        public string CoverMobileImageUrl { get; set; }
+        public string CoverMobileImageUrl { get; private set; }
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public int Width { get; private set; }
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public int Height { get; private set; }
         [JsonProperty("mp4Url")]
-        public string Mp4Url { get; set; }
+        public string Mp4Url { get; private set; }
         [JsonProperty("webmUrl")]
-        public string WebmUrl { get; set; }
+        public string WebmUrl { get; private set; }
         [JsonProperty("webpUrl")]
-        public string WebpUrl { get; set; }
+        public string WebpUrl { get; private set; }
         [JsonProperty("mobileUrl")]
-        public string MobileUrl { get; set; }
+        public string MobileUrl { get; private set; }
         [JsonProperty("mobilePosterUrl")]
-        public string MobilePosterUrl { get; set; }
+        public string MobilePosterUrl { get; private set; }
         [JsonProperty("posterUrl")]
-        public string PosterUrl { get; set; }
+        public string PosterUrl { get; private set; }
         [JsonProperty("thumb360Url")]
-        public string Thumb360Url { get; set; }
+        public string Thumb360Url { get; private set; }
         [JsonProperty("thumb360PosterUrl")]
-        public string Thumb360PosterUrl { get; set; }
+        public string Thumb360PosterUrl { get; private set; }
         [JsonProperty("thumb100PosterUrl")]
-        public string Thumb100PosterUrl { get; set; }
+        public string Thumb100PosterUrl { get; private set; }
         [JsonProperty("max5mbGif")]
-        public string Max5mbGif { get; set; }
+        public string Max5mbGif { get; private set; }
         [JsonProperty("max2mbGif")]
-        public string Max2mbGif { get; set; }
+        public string Max2mbGif { get; private set; }
         [JsonProperty("miniUrl")]
-        public string MiniUrl { get; set; }
+        public string MiniUrl { get; private set; }
         [JsonProperty("miniPosterUrl")]
-        public string MiniPosterUrl { get; set; }
+        public string MiniPosterUrl { get; private set; }
         [JsonProperty("mjpgUrl")]
-        public string MjpgUrl { get; set; }
+        public string MjpgUrl { get; private set; }
         [JsonProperty("gifUrl")]
-        public string GifUrl { get; set; }
+        public string GifUrl { get; private set; }
         [JsonProperty("published"), JsonConverter(typeof(NumericalBooleanConverter))]
-        public bool Published { get; set; }
+        public bool Published { get; private set; }
         [JsonProperty("nodes")]
-        public IEnumerable<GfycatAlbumInfo> Subalbums { get; set; }
+        public IEnumerable<GfycatAlbumInfo> Subalbums { get; private set; }
+
+        /// <summary>
+        /// Retrieves the contents of this album
+        /// </summary>
+        /// <returns></returns>
+        public override async Task<GfycatAlbum> GetContentsAsync()
+        {
+            GfycatAlbum album = (Owner.Id == Web.Auth.ResourceOwner) // but what do I use? username or user Id?
+                ? await Web.SendRequestAsync<GfycatAlbum>("GET", $"me/albums/{Id}") 
+                : await Web.SendRequestAsync<GfycatAlbum>("GET", $"users/{Owner.Id}/albums/{Id}");
+            album.Owner = Owner; // if we pass the owner between albums we won't need to ask the user every time they run an album method
+            return album;
+        }
     }
 }

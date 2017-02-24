@@ -8,7 +8,7 @@ namespace Gfycat
 {
     public class Gfy : ConnectedEntity
     {
-        private static readonly InvalidOperationException _invalidOwnership = new InvalidOperationException("The current user doesn't own this resource");
+        private static readonly UnauthorizedAccessException _invalidOwnership = new UnauthorizedAccessException("The current user doesn't own this resource");
 
         [JsonProperty("id")]
         public string Id { get; private set; }
@@ -235,6 +235,31 @@ namespace Gfycat
                 throw _invalidOwnership;
 
             return Web.SendRequestAsync("DELETE", $"me/gfycats/{Id}");
+        }
+
+        /// <summary>
+        /// Returns a boolean that says whether or not the current Gfy is or isn't bookmarked
+        /// </summary>
+        /// <returns>True if bookmarked, false otherwise</returns>
+        public async Task<bool> GetBookmarkStatusAsync()
+        {
+            return (await Web.SendRequestAsync<dynamic>("GET", $"me/bookmarks/{Id}")).bookmarkState == "1";
+        }
+
+        public Task BookmarkAsync(string folderId = null)
+        {
+            if (string.IsNullOrWhiteSpace(folderId))
+                return Web.SendRequestAsync("PUT", $"me/bookmarks/{Id}");
+            else
+                return Web.SendRequestAsync("PUT", $"me/bookmark-folders/{folderId}/contents/{Id}");
+        }
+
+        public Task UnbookmarkAsync(string folderId = null)
+        {
+            if (string.IsNullOrWhiteSpace(folderId))
+                return Web.SendRequestAsync("DELETE", $"me/bookmarks/{Id}");
+            else
+                return Web.SendRequestAsync("DELETE", $"me/bookmark-folders/{folderId}/contents/{Id}");
         }
         
         public bool CurrentUserOwnsGfy() => Web.Auth.ResourceOwner == Username;

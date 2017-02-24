@@ -1,6 +1,6 @@
 ﻿namespace Gfycat
 {
-    internal enum AuthenticationGrant
+    public enum AuthenticationGrant
     {
         Client,
         Password,

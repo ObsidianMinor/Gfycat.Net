@@ -7,7 +7,8 @@ namespace Gfycat
 {
     public class AuthenticationContainer
     {
-        private AuthenticationGrant _currentGrant;
+        public AuthenticationGrant CurrentGrantType { get; private set; }
+        private string _currentGrantToken { get; set; }
 
         public string ClientId { get; }
         public string ClientSecret { get; }
@@ -40,14 +41,19 @@ namespace Gfycat
             ClientSecret = clientSecret;
         }
 
+        internal string GetAuthenticationMethodString()
+        {
+            return _currentGrantToken;
+        }
+
         public async Task AttemptRefreshTokenAsync()
         {
-            if (_currentGrant == AuthenticationGrant.Client)
+            if (CurrentGrantType == AuthenticationGrant.Client)
             {
                 await AuthenticateClientAsync();
                 return;
             }
-            else if (_currentGrant == AuthenticationGrant.BrowserImplicitGrant)
+            else if (CurrentGrantType == AuthenticationGrant.BrowserImplicitGrant)
                 return; // we can't actually refresh this, but if the end user hooks into the AccessTokenExpired event they can handle it
             else
             {
@@ -79,7 +85,7 @@ namespace Gfycat
         /// <returns>An awaitable task</returns>
         public async Task AuthenticateClientAsync()
         {
-            _currentGrant = AuthenticationGrant.Client;
+            CurrentGrantType = AuthenticationGrant.Client;
             Debug.WriteLine("Performing client credentials authentication...");
             var auth = await Client.SendJsonAsync<ClientCredentialsAuthResponse>(
                 "POST",
@@ -105,7 +111,7 @@ namespace Gfycat
         /// <returns>An awaitable task</returns>
         public async Task AuthenticatePasswordAsync(string username, string password)
         {
-            _currentGrant = AuthenticationGrant.Password;
+            CurrentGrantType = AuthenticationGrant.Password;
             Debug.WriteLine($"Performing client account authentication...");
             var auth = await Client.SendJsonAsync<ClientAccountAuthResponse>(
                 "POST",
@@ -135,7 +141,7 @@ namespace Gfycat
         /// <returns>An awaitable task</returns>
         public async Task AuthenticateFacebookCodeAsync(string authCode)
         {
-            _currentGrant = AuthenticationGrant.FacebookAuthCode;
+            CurrentGrantType = AuthenticationGrant.FacebookAuthCode;
             Debug.WriteLine($"Performing account authentication using Facebook...");
             var auth = await Client.SendJsonAsync<ClientAccountAuthResponse>(
                 "POST",
@@ -153,6 +159,7 @@ namespace Gfycat
             Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
             Debug.WriteLine($"Recieved access token {auth.AccessToken}");
 
+            _currentGrantToken = authCode;
             ResourceOwner = auth.ResourceOwner;
             AccessToken = auth.AccessToken;
             RefreshToken = auth.RefreshToken;
@@ -166,7 +173,7 @@ namespace Gfycat
         /// <returns>An awaitable task</returns>
         public async Task AuthenticateFacebookTokenAsync(string token)
         {
-            _currentGrant = AuthenticationGrant.FacebookAccessCode;
+            CurrentGrantType = AuthenticationGrant.FacebookAccessCode;
             Debug.WriteLine("Performing account authentication using Facebook...");
             var auth = await Client.SendJsonAsync<ClientAccountAuthResponse>(
                 "POST",
@@ -184,6 +191,7 @@ namespace Gfycat
             Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
             Debug.WriteLine($"Recieved access token {auth.AccessToken}");
 
+            _currentGrantToken = token;
             ResourceOwner = auth.ResourceOwner;
             AccessToken = auth.AccessToken;
             RefreshToken = auth.RefreshToken;
@@ -219,7 +227,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task AuthenticateTwitterTokenAsync(string requestToken, string verifier)
         {
-            _currentGrant = AuthenticationGrant.TwitterProvider;
+            CurrentGrantType = AuthenticationGrant.TwitterProvider;
             Debug.WriteLine("Performing account authentication using Twitter...");
             var auth = await Client.SendJsonAsync<ClientAccountAuthResponse>(
                 "POST",
@@ -238,6 +246,7 @@ namespace Gfycat
             Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
             Debug.WriteLine($"Recieved access token {auth.AccessToken}");
 
+            _currentGrantToken = requestToken;
             ResourceOwner = auth.ResourceOwner;
             AccessToken = auth.AccessToken;
             RefreshToken = auth.RefreshToken;
@@ -251,7 +260,7 @@ namespace Gfycat
         /// <param name="accessTokenExpiresIn"></param>
         public void Authenticate(string accessToken, int accessTokenExpiresIn)
         {
-            _currentGrant = AuthenticationGrant.BrowserImplicitGrant;
+            CurrentGrantType = AuthenticationGrant.BrowserImplicitGrant;
             Debug.WriteLine($"Recieved access token {accessToken}");
             AccessToken = accessToken;
             SetTimer(accessTokenExpiresIn);
@@ -265,7 +274,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task AuthenticateCodeAsync(string code, string redirectUri)
         {
-            _currentGrant = AuthenticationGrant.BrowserAuthCode;
+            CurrentGrantType = AuthenticationGrant.BrowserAuthCode;
             var auth = await Client.SendJsonAsync<ClientAccountAuthResponse>(
                 "POST",
                 "oauth/token",
@@ -295,7 +304,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task AuthenticateWithRefreshTokenAsync(string refreshToken)
         {
-            _currentGrant = AuthenticationGrant.BrowserAuthCode;
+            CurrentGrantType = AuthenticationGrant.BrowserAuthCode;
             RefreshToken = refreshToken;
             await AttemptRefreshTokenAsync();
         }

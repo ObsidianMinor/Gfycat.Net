@@ -6,47 +6,52 @@ using System.Threading.Tasks;
 namespace Gfycat
 {
     [JsonArray]
-    public class User : ConnectedEntity
+    public class User : ConnectedEntity, IUser
     {
         [JsonProperty("userid")]
-        public string Id { get; set; }
+        public string Id { get; private set; }
         [JsonProperty("username")]
-        public string Username { get; set; }
+        public string Username { get; private set; }
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string Description { get; private set; }
         [JsonProperty("profileUrl")]
-        public string ProfileUrl { get; set; }
+        public string ProfileUrl { get; private set; }
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; private set; }
         [JsonProperty("views")]
-        public int Views { get; set; }
+        public int Views { get; private set; }
         [JsonProperty("emailVerified")]
-        public bool EmailVerified { get; set; }
+        public bool EmailVerified { get; private set; }
         [JsonProperty("url")]
-        public string Url { get; set; }
+        public string Url { get; private set; }
         [JsonProperty("createDate"), JsonConverter(typeof(UnixTimeConverter))]
-        public DateTime CreationDate { get; set; }
+        public DateTime CreationDate { get; private set; }
         [JsonProperty("profileImageUrl")]
-        public string ProfileImageUrl { get; set; }
+        public string ProfileImageUrl { get; private set; }
         [JsonProperty("verified")]
-        public bool Verified { get; set; }
+        public bool Verified { get; private set; }
         [JsonProperty("followers")]
-        public int Followers { get; set; }
+        public int Followers { get; private set; }
         [JsonProperty("following")]
-        public int Following { get; set; }
+        public int Following { get; private set; }
         [JsonProperty("iframeProfileImageVisible")]
-        public bool IframeProfileImageVisible { get; set; }
+        public bool IframeProfileImageVisible { get; private set; }
 
         public async Task<IEnumerable<GfycatAlbumInfo>> GetAlbumsAsync()
         {
             string endpoint = $"users/{Id}/albums";
-            return (await Web.SendRequestAsync<GfycatAlbumResponse>("GET", endpoint)).Albums;
+            IEnumerable<GfycatAlbumInfo> albums = (await Web.SendRequestAsync<GfycatAlbumResponse>("GET", endpoint)).Albums;
+            RecursiveSetOwners(albums);
+            return albums;
         }
 
-        public async Task<GfycatAlbum> GetAlbumContentsAsync(string albumId)
+        private void RecursiveSetOwners(IEnumerable<GfycatAlbumInfo> albums)
         {
-            string endpoint = $"users/{Id}/albums/{albumId}";
-            return await Web.SendRequestAsync<GfycatAlbum>("GET", endpoint);
+            foreach(GfycatAlbumInfo album in albums)
+            {
+                album.Owner = this;
+                RecursiveSetOwners(album.Subalbums);
+            }
         }
 
         public async Task<GfycatAlbumInfo> GetAlbumContentsByLinkTextAsync(string albumLinkText)
