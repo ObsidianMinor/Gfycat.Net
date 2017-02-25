@@ -121,7 +121,7 @@ namespace Gfycat
 
         public Task<GfycatFeed> GetGfycatFeedAsync(int? count = null, string cursor = null)
         {
-            string queryString = ExtendedHttpClient.CreateQueryString(new Dictionary<string, object>()
+            string queryString = Client.CreateQueryString(new Dictionary<string, object>()
             {
                 { "count", count },
                 { "cursor", cursor }
@@ -131,7 +131,7 @@ namespace Gfycat
 
         public Task<GfycatFeed> GetTimelineFeedAsync(int? count = null, string cursor = null)
         {
-            string queryString = ExtendedHttpClient.CreateQueryString(new Dictionary<string, object>()
+            string queryString = Client.CreateQueryString(new Dictionary<string, object>()
             {
                 { "count", count },
                 { "cursor", cursor }
@@ -190,7 +190,7 @@ namespace Gfycat
 
         public Task<GfycatFeed> SearchAsync(string searchText, int? count = null, string cursor = null)
         {
-            string queryString = ExtendedHttpClient.CreateQueryString(new Dictionary<string, object>
+            string queryString = Client.CreateQueryString(new Dictionary<string, object>
             {
                 { "search_text", searchText },
                 { "count", count },

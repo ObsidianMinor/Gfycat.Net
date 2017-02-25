@@ -1,15 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.2</TargetFramework>
+    <TargetFrameworks>net35;netstandard1.2</TargetFrameworks>
     <RootNamespace>Gfycat</RootNamespace>
     <Authors>ObsidianMinor</Authors>
-    <Company></Company>
+    <Company>
+</Company>
     <Description>Gfycat.Net is a complete wrapper around the Gfycat API built for the .NET Standard</Description>
     <Copyright></Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageTags>gfycat, api</PackageTags>
+    <PackageTags>gfycat</PackageTags>
     <PackageReleaseNotes>Initial release. Supports all non-testing endpoints.</PackageReleaseNotes>
-    <DefineConstants>TRACE;DEBUG;SUPER_DEBUG_MODE;NETSTANDARD1_2</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;SUPER_DEBUG_MODE;NETSTANDARD1_2;NET35</DefineConstants>
     <Optimize>False</Optimize>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>Gfycat.Net</PackageId>
@@ -25,9 +26,12 @@
     <EmbeddedResource Remove="Auth\**" />
     <None Remove="Auth\**" />
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard1.2'">
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
-    <PackageReference Include="System.Net.Http" Version="4.3.0" />
     <PackageReference Include="System.Threading.Timer" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='net35'">
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="TaskParallelLibrary" Version="1.0.2856" />
   </ItemGroup>
 </Project>

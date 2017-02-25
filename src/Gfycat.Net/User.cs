@@ -62,7 +62,7 @@ namespace Gfycat
 
         public Task<GfycatFeed> GetGfycatFeedAsync(int? count = null, string cursor = null)
         {
-            string queryString = ExtendedHttpClient.CreateQueryString(new Dictionary<string, object>()
+            string queryString = Client.CreateQueryString(new Dictionary<string, object>()
             {
                 { "count", count },
                 { "cursor", cursor }

@@ -5,27 +5,54 @@ using System.Threading.Tasks;
 
 namespace Gfycat
 {
+    /// <summary>
+    /// Handles the OAuth flow between the client and Gfycat
+    /// </summary>
     public class AuthenticationContainer
     {
-        public AuthenticationGrant CurrentGrantType { get; private set; }
+        internal AuthenticationGrant CurrentGrantType { get; private set; }
 
         public string ClientId { get; }
         public string ClientSecret { get; }
 
+        /// <summary>
+        /// The current login user
+        /// </summary>
         public string ResourceOwner { get; private set; }
 
+        /// <summary>
+        /// The current access token being used for requests
+        /// </summary>
         public string AccessToken { get; private set; }
         private Timer _accessTokenTimer;
 
+        /// <summary>
+        /// The current refresh token being used for refreshing the access token when it expires
+        /// </summary>
         public string RefreshToken { get; private set; }
         private Timer _refreshTokenTimer;
 
-        internal ExtendedHttpClient Client { get; set; }
+        internal Client Client { get; set; }
 
+        /// <summary>
+        /// The estimated date and time of the expiration of the current access token
+        /// </summary>
         public DateTime EstimatedAccessTokenExpirationTime { get; private set; }
+        
+        /// <summary>
+        /// Tells the user the current access token has expired. If using a authentication method that contains a refresh token, the access token will automatically be refreshed
+        /// </summary>
         public event EventHandler AccessTokenExpired;
 
+        /// <summary>
+        /// The estimated date and time of the expiration of the current refresh token
+        /// </summary>
         public DateTime EstimatedRefreshTokenExpirationTime { get; private set; }
+
+        /// <summary>
+        /// Tells the user the current refresh token might have expired
+        /// </summary>
+        /// <remarks>If this is invoked, something might be really, really wrong...</remarks>
         public event EventHandler RefreshTokenExpired;
 
         private AuthenticationContainer()
@@ -33,13 +60,17 @@ namespace Gfycat
             _accessTokenTimer = new Timer(AccessTokenExpirationCallbackAsync, null, Timeout.Infinite, Timeout.Infinite);
             _refreshTokenTimer = new Timer(RefreshTokenExpirationCallback, null, Timeout.Infinite, Timeout.Infinite);
         }
-
-        public AuthenticationContainer(string clientId, string clientSecret) : this()
+        
+        internal AuthenticationContainer(string clientId, string clientSecret) : this()
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
         }
 
+        /// <summary>
+        /// If the current authentication method used includes a refresh token in the response this will refresh both access and refresh tokens
+        /// </summary>
+        /// <returns></returns>
         public async Task AttemptRefreshTokenAsync()
         {
             if (CurrentGrantType == AuthenticationGrant.Client)

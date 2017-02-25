@@ -7,18 +7,26 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Gfycat
 {
-    internal class ExtendedHttpClient : HttpClient
+    internal class Client 
     {
         internal AuthenticationContainer Auth { get; set; }
+        HttpMessageInvoker _invoker;
+        CancellationTokenSource _source;
+        internal Uri BaseAddress { get; set; }
 
-        internal ExtendedHttpClient() : base() { }
+        internal Client(HttpMessageInvoker sender, CancellationTokenSource source = null)
+        {
+            if (sender == null)
+                throw new ArgumentNullException(nameof(sender));
+
+            _source = source ?? new CancellationTokenSource();
+        }
 
         internal async Task CheckAuthorizationAsync(string endpoint)
         {
@@ -40,7 +48,7 @@ namespace Gfycat
             Debug.WriteLine($"Sending json to {endpoint}");
             HttpRequestMessage message = await CreateMessageAsync(new HttpMethod(method), endpoint, useAccessToken);
             AddJsonContent(message, json);
-            HttpResponseMessage result = await SendAsync(message);
+            HttpResponseMessage result = await _invoker.SendAsync(message, _source.Token);
 
             if (!result.IsSuccessStatusCode)
                 throw await GetExceptionFromResponseAsync(result);
@@ -53,7 +61,7 @@ namespace Gfycat
             Debug.WriteLine($"Sending json to {endpoint}");
             HttpRequestMessage message = await CreateMessageAsync(new HttpMethod(method), endpoint, useAccessToken);
             AddJsonContent(message, json);
-            HttpResponseMessage result = await SendAsync(message);
+            HttpResponseMessage result = await _invoker.SendAsync(message, _source.Token);
 
             if (!result.IsSuccessStatusCode)
                 throw await GetExceptionFromResponseAsync(result);
@@ -65,7 +73,7 @@ namespace Gfycat
             HttpRequestMessage message = await CreateMessageAsync(new HttpMethod(method), endpoint, useAccessToken);
             AddStreamContent(message, stream, fileName);
              
-            HttpResponseMessage result = (cancelToken.HasValue) ? await SendAsync(message) : await SendAsync(message, cancelToken.Value);
+            HttpResponseMessage result = (cancelToken.HasValue) ? await _invoker.SendAsync(message, _source.Token) : await _invoker.SendAsync(message, cancelToken.Value);
 
             if (throwIf401 && result.StatusCode == HttpStatusCode.Unauthorized)
                 throw await GetExceptionFromResponseAsync(result);
@@ -77,7 +85,7 @@ namespace Gfycat
         {
             Debug.WriteLine($"Sending request to {endpoint}");
             HttpRequestMessage message = await CreateMessageAsync(new HttpMethod(method), endpoint, useAccessToken);
-            HttpResponseMessage result = await SendAsync(message);
+            HttpResponseMessage result = await _invoker.SendAsync(message, _source.Token);
 
             if (!result.IsSuccessStatusCode)
                 throw await GetExceptionFromResponseAsync(result);
@@ -89,7 +97,7 @@ namespace Gfycat
         {
             Debug.WriteLine($"Sending request to {endpoint}");
             HttpRequestMessage message = await CreateMessageAsync(new HttpMethod(method), endpoint, useAccessToken);
-            HttpResponseMessage result = await SendAsync(message);
+            HttpResponseMessage result = await _invoker.SendAsync(message, _source.Token);
 
             if (!result.IsSuccessStatusCode)
                 throw await GetExceptionFromResponseAsync(result);
@@ -99,7 +107,7 @@ namespace Gfycat
         {
             Debug.WriteLine($"Sending request for status code to {endpoint}");
             HttpRequestMessage message = await CreateMessageAsync(new HttpMethod(method), endpoint, useAccessToken);
-            HttpResponseMessage result = await SendAsync(message);
+            HttpResponseMessage result = await _invoker.SendAsync(message, _source.Token);
 
             if (throwIf401 && result.StatusCode == HttpStatusCode.Unauthorized)
                 throw await GetExceptionFromResponseAsync(result);
@@ -111,7 +119,7 @@ namespace Gfycat
         {
             Debug.WriteLine($"Sending request for status code to {endpoint}");
             HttpRequestMessage message = await CreateMessageAsync(new HttpMethod(method), endpoint, useAccessToken);
-            HttpResponseMessage result = await SendAsync(message);
+            HttpResponseMessage result = await _invoker.SendAsync(message, _source.Token);
 
             if (throwIf401 && result.StatusCode == HttpStatusCode.Unauthorized)
                 throw await GetExceptionFromResponseAsync(result);
@@ -122,16 +130,15 @@ namespace Gfycat
         internal async Task<HttpStatusCode> SendJsonForStatusAsync(string method, string endpoint, object json, bool useAccessToken = true, bool throwIf401 = false)
         {
             Debug.WriteLine($"Sending json for status code to {endpoint}");
-            HttpRequestMessage message = await CreateMessageAsync(new HttpMethod(method), endpoint, useAccessToken);
-            AddJsonContent(message, json);
-            HttpResponseMessage result = await SendAsync(message);
+
+            await InternalConstructAndSend(method, endpoint, json, _source.Token, true, false, null, useAccessToken, throwIf401);
 
             if (throwIf401 && result.StatusCode == HttpStatusCode.Unauthorized)
                 throw await GetExceptionFromResponseAsync(result);
 
             return result.StatusCode;
         }
-#pragma warning disable IDE0019 // https://github.com/dotnet/roslyn/issues/16195
+
         private async Task<T> GetJsonFromResponseAsync<T>(HttpResponseMessage message)
         {
             string result = await message.Content.ReadAsStringAsync();
@@ -141,23 +148,38 @@ namespace Gfycat
 
             T deserialized = JsonConvert.DeserializeObject<T>(result);
 
-            ConnectedEntity webEntity = deserialized as ConnectedEntity;
-            if (webEntity != null)
-                webEntity.Web = this;
+            if (deserialized as ConnectedEntity != null)
+                (deserialized as ConnectedEntity).Web = this;
 
             return deserialized;
         }
-#pragma warning restore IDE0019
+
+#if NETSTANDARD1_2
+        private async Task<HttpResponseMessage> InternalConstructAndSend(string method, string endpoint, object content, CancellationToken cancel, bool isJsonContent, bool isStreamContent, string fileName, bool useAccessToken, bool throwOnUnauthorized)
+        {
+            HttpRequestMessage message = new HttpRequestMessage(new HttpMethod(method), BaseAddress + endpoint);
+            if(useAccessToken)
+                message.Headers.Add("Authorization", $"Bearer {Auth.AccessToken}");
+            if(content != null)
+            {
+                if (isJsonContent)
+                    message.Content = new StringContent(JsonConvert.SerializeObject(content), Encoding.UTF8, "application/json");
+                else if (isStreamContent)
+                {
+                    message.Content = new StreamContent(content as Stream);
+                    message.Content.Headers.ContentDisposition.FileName = fileName;
+                }
+            }
+            HttpResponseMessage response = await _invoker.SendAsync(message, cancel);
+
+        }
+#endif
+
         private async Task<GfycatException> GetExceptionFromResponseAsync(HttpResponseMessage message)
         {
             GfycatException exception = await GetJsonFromResponseAsync<GfycatException>(message);
             exception.HttpCode = message.StatusCode;
             return exception;
-        }
-
-        private static void AddJsonContent(HttpRequestMessage message, object json)
-        {
-            message.Content = new StringContent(JsonConvert.SerializeObject(json), System.Text.Encoding.UTF8, "application/json");
         }
 
         private static void AddStreamContent(HttpRequestMessage message, Stream stream, string fileName)
@@ -194,6 +216,11 @@ namespace Gfycat
             }
 
             return builder.ToString();
+        }
+
+        class GfycatResponse
+        {
+            public HttpStatusCode ResponseCode { get; set; }
         }
     }
 }
