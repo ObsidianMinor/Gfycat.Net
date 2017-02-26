@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Gfycat
+namespace Gfycat.Rest
 {
     public class DefaultRestClient : IRestClient, IDisposable
     {
@@ -18,7 +18,7 @@ namespace Gfycat
 
         public Task<RestResponse> SendAsync(string method, string endpoint, CancellationToken token)
         {
-            HttpRequestMessage 
+            
         }
 
         public Task<RestResponse> SendAsync(string method, string endpoint, string json, CancellationToken token)

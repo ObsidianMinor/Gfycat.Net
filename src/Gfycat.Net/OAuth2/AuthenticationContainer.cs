@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Gfycat.Rest;
+using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Gfycat
+namespace Gfycat.OAuth2
 {
     /// <summary>
     /// Handles the OAuth flow between the client and Gfycat

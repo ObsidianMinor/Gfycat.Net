@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Gfycat
+namespace Gfycat.Rest
 {
     public interface IRestClient
     {

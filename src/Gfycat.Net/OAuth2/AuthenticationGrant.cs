@@ -1,4 +1,4 @@
-﻿namespace Gfycat
+﻿namespace Gfycat.OAuth2
 {
     internal enum AuthenticationGrant
     {

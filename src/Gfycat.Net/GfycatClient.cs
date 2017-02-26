@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Gfycat.OAuth2;
+using Gfycat.Rest;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

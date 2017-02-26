@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Gfycat
+namespace Gfycat.OAuth2
 {
     internal class ClientAccountAuthRequest : ClientCredentialsAuthRequest
     {
