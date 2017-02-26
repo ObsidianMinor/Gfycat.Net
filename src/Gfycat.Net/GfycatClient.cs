@@ -13,7 +13,8 @@ namespace Gfycat
     public class GfycatClient : IDisposable
     {
         const string _startEndpoint = "https://api.gfycat.com/v1/";
-        Client _web;
+        IRestClient _web;
+        GfycatClientConfig _config;
         private static readonly IReadOnlyDictionary<TokenType, string> _tokensToString = new Dictionary<TokenType, string>()
         {
             { TokenType.FacebookAuthCode, "auth_code" },
@@ -27,9 +28,10 @@ namespace Gfycat
 
         public AuthenticationContainer Authentication { get; }
 
-        public GfycatClient(string clientId, string clientSecret, HttpM)
+        public GfycatClient(string clientId, string clientSecret)
         {
-            _web = new Client(invoker) { BaseAddress = new Uri(_startEndpoint) };
+            _config = new GfycatClientConfig();
+            _web = _config.RestClient;
             Authentication = new AuthenticationContainer(clientId, clientSecret) { Client = _web };
             _web.Auth = Authentication;
 
@@ -43,7 +45,7 @@ namespace Gfycat
             return await _web.SendRequestForStatusAsync("HEAD", $"users/{username}", throwIf401:true) == HttpStatusCode.NotFound;
         }
 
-        public async Task SendPasswordResetEmailAsync(string usernameOrEmail
+        public async Task SendPasswordResetEmailAsync(string usernameOrEmail)
         {
             await _web.SendJsonAsync("PATCH", "users", new ActionRequest() { Value = usernameOrEmail, Action = "send_password_reset_email" });
         }
@@ -117,7 +119,7 @@ namespace Gfycat
 
         public Task<TrendingGfycatFeed> GetTrendingGfycatsAsync(string tag = null, int? count = null, string cursor = null)
         {
-            string queryString = Client.CreateQueryString(new Dictionary<string, object>
+            string queryString = InternalClient.CreateQueryString(new Dictionary<string, object>
             {
                 { "tagName", tag },
                 { "count", count },
@@ -128,7 +130,7 @@ namespace Gfycat
 
         public Task<IEnumerable<string>> GetTrendingTagsAsync(int? tagCount = null, string cursor = null)
         {
-            string queryString = Client.CreateQueryString(new Dictionary<string, object>
+            string queryString = InternalClient.CreateQueryString(new Dictionary<string, object>
             {
                 { "tagCount", tagCount },
                 { "cursor", cursor }
@@ -138,7 +140,7 @@ namespace Gfycat
 
         public Task<GfycatFeed> GetTrendingTagsPopulatedAsync(int? tagCount = null, int? gfyCount = null, string cursor = null)
         {
-            string queryString = Client.CreateQueryString(new Dictionary<string, object>
+            string queryString = InternalClient.CreateQueryString(new Dictionary<string, object>
             {
                 { "tagCount", tagCount },
                 { "gfyCount", gfyCount },
@@ -152,7 +154,7 @@ namespace Gfycat
         // supposedly in testing. hhhhhhhhhhhhhhhhmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
         public Task<GfycatFeed> SearchAsync(string searchText, int count = 50, string cursor = null)
         {
-            string queryString = Client.CreateQueryString(new Dictionary<string, object>
+            string queryString = InternalClient.CreateQueryString(new Dictionary<string, object>
             {
                 { "search_text", searchText },
                 { "count", count },

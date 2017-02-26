@@ -32,12 +32,12 @@ namespace Gfycat
         public string RefreshToken { get; private set; }
         private Timer _refreshTokenTimer;
 
-        internal Client Client { get; set; }
+        internal IRestClient Client { get; set; }
 
         /// <summary>
         /// The estimated date and time of the expiration of the current access token
         /// </summary>
-        public DateTime EstimatedAccessTokenExpirationTime { get; private set; }
+        public DateTime? EstimatedAccessTokenExpirationTimeUtc { get; private set; }
         
         /// <summary>
         /// Tells the user the current access token has expired. If using a authentication method that contains a refresh token, the access token will automatically be refreshed
@@ -47,7 +47,7 @@ namespace Gfycat
         /// <summary>
         /// The estimated date and time of the expiration of the current refresh token
         /// </summary>
-        public DateTime EstimatedRefreshTokenExpirationTime { get; private set; }
+        public DateTime? EstimatedRefreshTokenExpirationTimeUtc { get; private set; }
 
         /// <summary>
         /// Tells the user the current refresh token might have expired
@@ -343,13 +343,13 @@ namespace Gfycat
         private void SetTimer(int time, int? refreshTokenTime = null)
         {
             _accessTokenTimer.Change(TimeSpan.FromSeconds(time), TimeSpan.FromMilliseconds(-1));
-            EstimatedAccessTokenExpirationTime = DateTime.Now.AddSeconds(time);
-            Debug.WriteLine($"Client access token expected to expire at {EstimatedAccessTokenExpirationTime}");
+            EstimatedAccessTokenExpirationTimeUtc = DateTime.Now.AddSeconds(time);
+            Debug.WriteLine($"Client access token expected to expire at {EstimatedAccessTokenExpirationTimeUtc}");
             if(refreshTokenTime.HasValue)
             {
                 _accessTokenTimer.Change(TimeSpan.FromSeconds(refreshTokenTime.Value), TimeSpan.FromMilliseconds(-1));
-                EstimatedRefreshTokenExpirationTime = DateTime.Now.AddSeconds(refreshTokenTime.Value);
-                Debug.WriteLine($"Client refresh token expected to expire at {EstimatedRefreshTokenExpirationTime}");
+                EstimatedRefreshTokenExpirationTimeUtc = DateTime.Now.AddSeconds(refreshTokenTime.Value);
+                Debug.WriteLine($"Client refresh token expected to expire at {EstimatedRefreshTokenExpirationTimeUtc}");
             }
         }
 

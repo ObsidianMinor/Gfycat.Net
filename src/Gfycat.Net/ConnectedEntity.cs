@@ -5,6 +5,6 @@
     /// </summary>
     public abstract class ConnectedEntity
     {
-        internal Client Web { get; set; }
+        internal InternalClient Web { get; set; }
     }
 }
