@@ -15,7 +15,8 @@ namespace LoginSample
         {
             /*
              * Welcome to the first example of using Gfycat.Net, 
-             * this shows Authentication which you'll need to do before you can use any endpoints.
+             * this shows how to use the authentication methods
+             * you'll need to authenticate before you can use any endpoints.
              */
 
             GfycatClient client = new GfycatClient(_clientId, _clientSecret);

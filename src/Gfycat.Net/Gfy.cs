@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gfycat
 {
-    public class Gfy : ConnectedEntity
+    public class Gfy : Entity
     {
         private static readonly UnauthorizedAccessException _invalidOwnership = new UnauthorizedAccessException("The current user doesn't own this resource");
 
@@ -262,7 +262,7 @@ namespace Gfycat
                 return Web.SendRequestAsync("DELETE", $"me/bookmark-folders/{folder.Id}/contents/{Id}");
         }
         
-        public bool CurrentUserOwnsGfy() => Web.Auth.ResourceOwner == Username;
+        public bool CurrentUserOwnsGfy() => 
 
         private async Task UpdateAsync()
         {

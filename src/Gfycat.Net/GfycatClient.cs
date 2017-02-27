@@ -6,17 +6,18 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
-using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Gfycat
 {
-    public class GfycatClient : IDisposable
+    public class GfycatClient
     {
         const string _startEndpoint = "https://api.gfycat.com/v1/";
-        IRestClient _web;
-        GfycatClientConfig _config;
+        internal IRestClient RestClient { get; }
+        internal GfycatClientConfig _config { get; }
+        internal RetryMode DefaultRetryMode { get; }
+
         private static readonly IReadOnlyDictionary<TokenType, string> _tokensToString = new Dictionary<TokenType, string>()
         {
             { TokenType.FacebookAuthCode, "auth_code" },
@@ -30,12 +31,15 @@ namespace Gfycat
 
         public AuthenticationContainer Authentication { get; }
 
-        public GfycatClient(string clientId, string clientSecret)
+        public GfycatClient(string clientId, string clientSecret) : this(clientId, clientSecret, new GfycatClientConfig())
         {
-            _config = new GfycatClientConfig();
-            _web = _config.RestClient;
-            Authentication = new AuthenticationContainer(clientId, clientSecret) { Client = _web };
-            _web.Auth = Authentication;
+        }
+
+        public GfycatClient(string clientId, string clientSecret, GfycatClientConfig config)
+        {
+            RestClient = _config.RestClient;
+            Authentication = new AuthenticationContainer(clientId, clientSecret, RestClient);
+            DefaultRetryMode = config.DefaultRetryMode;
 
             Debug.WriteLine($"Client created with ID \"{clientId}\"");
         }
@@ -44,22 +48,22 @@ namespace Gfycat
 
         public async Task<bool> UsernameIsValidAsync(string username)
         {
-            return await _web.SendRequestForStatusAsync("HEAD", $"users/{username}", throwIf401:true) == HttpStatusCode.NotFound;
+            return await _rest.SendRequestForStatusAsync("HEAD", $"users/{username}", throwIf401:true) == HttpStatusCode.NotFound;
         }
 
         public async Task SendPasswordResetEmailAsync(string usernameOrEmail)
         {
-            await _web.SendJsonAsync("PATCH", "users", new ActionRequest() { Value = usernameOrEmail, Action = "send_password_reset_email" });
+            await _rest.SendJsonAsync("PATCH", "users", new ActionRequest() { Value = usernameOrEmail, Action = "send_password_reset_email" });
         }
 
         public async Task<User> GetUserAsync(string userId)
         {
-            return await _web.SendRequestAsync<User>("GET", $"users/{userId}");
+            return await _rest.SendRequestAsync<User>("GET", $"users/{userId}");
         }
 
         public async Task<CurrentUser> GetCurrentUserAsync()
         {
-            return await _web.SendRequestAsync<CurrentUser>("GET", "me");
+            return await _rest.SendRequestAsync<CurrentUser>("GET", "me");
         }
         
         public Task CreateAccountAsync(string username, string password, string email, Provider? provider = null, TokenType? authCodeType = null, string authCode = null)
@@ -75,14 +79,15 @@ namespace Gfycat
             JObject json = JObject.FromObject(new { username, password, email, provider });
             if (authCodeType != null)
                 json.Add(_tokensToString[authCodeType.Value], authCode);
-            return _web.SendJsonAsync("POST", "users", json);
+            return _rest.SendJsonAsync("POST", "users", json);
         }
 
         #endregion
         
-        public async Task<Gfy> GetGfyAsync(string gfycat)
+        public async Task<Gfy> GetGfyAsync(string gfycat, RequestOptions options = null)
         {
-            return await _web.SendRequestAsync<Gfy>("GET", $"gfycats/{gfycat}");
+            options = options ?? new RequestOptions();
+            return (await _rest.SendAsync("GET", $"gfycats/{gfycat}", options.CancellationToken)).ReadAsJson<Gfy>();
         }
 
         #region Creating Gfycats
@@ -93,22 +98,22 @@ namespace Gfycat
         /// <param name="remoteUrl"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public async Task<string> CreateGfycatAsync(string remoteUrl, GfyCreationParameters parameters = null)
+        public async Task<string> CreateGfyAsync(string remoteUrl, GfyCreationParameters parameters = null)
         {
             parameters = parameters ?? new GfyCreationParameters();
             parameters.FetchUrl = remoteUrl;
-            return (await _web.SendJsonAsync<GfyKey>("POST", "gfycats", parameters)).Gfycat;
+            return (await _rest.SendJsonAsync<GfyKey>("POST", "gfycats", parameters)).Gfycat;
         }
 
         public async Task<GfyStatus> CheckGfyUploadStatusAsync(string gfycat)
         {
-            return await _web.SendRequestAsync<GfyStatus>("GET", $"gfycats/fetch/status/{gfycat}");
+            return await _rest.SendRequestAsync<GfyStatus>("GET", $"gfycats/fetch/status/{gfycat}");
         }
 
-        public async Task<string> CreateGfycatAsync(Stream data, GfyCreationParameters parameters = null, CancellationToken? cancellationToken = null)
+        public async Task<string> CreateGfyAsync(Stream data, GfyCreationParameters parameters = null, CancellationToken? cancellationToken = null)
         {
-            GfyKey uploadKey = await _web.SendJsonAsync<GfyKey>("POST", "gfycats", parameters ?? new object());
-            await _web.SendStreamAsync("POST", "https://filedrop.gfycat.com/", data, uploadKey.Gfycat, cancelToken: cancellationToken);
+            GfyKey uploadKey = await _rest.SendJsonAsync<GfyKey>("POST", "gfycats", parameters ?? new object());
+            await _rest.SendStreamAsync("POST", "https://filedrop.gfycat.com/", data, uploadKey.Gfycat, cancelToken: cancellationToken);
             if (cancellationToken?.IsCancellationRequested ?? false)
                 return null;
 
@@ -119,55 +124,54 @@ namespace Gfycat
 
         #region Trending feeds
 
-        public Task<TrendingGfycatFeed> GetTrendingGfycatsAsync(string tag = null, int? count = null, string cursor = null)
+        public Task<TrendingGfycatFeed> GetTrendingGfycatsAsync(string tag = null, int? count = null, string cursor = null, RequestOptions options = null)
         {
+            options = options ?? new RequestOptions();
             string queryString = InternalClient.CreateQueryString(new Dictionary<string, object>
             {
                 { "tagName", tag },
                 { "count", count },
                 { "cursor", cursor }
             });
-            return _web.SendRequestAsync<TrendingGfycatFeed>("GET", $"gfycats/trending{queryString}");
+            return _rest.SendRequestAsync<TrendingGfycatFeed>("GET", $"gfycats/trending{queryString}");
         }
 
-        public Task<IEnumerable<string>> GetTrendingTagsAsync(int? tagCount = null, string cursor = null)
+        public Task<IEnumerable<string>> GetTrendingTagsAsync(int? tagCount = null, string cursor = null, RequestOptions options = null)
         {
+            options = options ?? new RequestOptions();
             string queryString = InternalClient.CreateQueryString(new Dictionary<string, object>
             {
                 { "tagCount", tagCount },
                 { "cursor", cursor }
             });
-            return _web.SendRequestAsync<IEnumerable<string>>("GET", $"tags/trending{queryString}");
+            return _rest.SendRequestAsync<IEnumerable<string>>("GET", $"tags/trending{queryString}");
         }
 
-        public Task<GfycatFeed> GetTrendingTagsPopulatedAsync(int? tagCount = null, int? gfyCount = null, string cursor = null)
+        public Task<GfycatFeed> GetTrendingTagsPopulatedAsync(int? tagCount = null, int? gfyCount = null, string cursor = null, RequestOptions options = null)
         {
+            options = options ?? new RequestOptions();
             string queryString = InternalClient.CreateQueryString(new Dictionary<string, object>
             {
                 { "tagCount", tagCount },
                 { "gfyCount", gfyCount },
                 { "cursor", cursor }
             });
-            return _web.SendRequestAsync<GfycatFeed>("GET", $"tags/trending/populated{queryString}");
+            return _rest.SendRequestAsync<GfycatFeed>("GET", $"tags/trending/populated{queryString}");
         }
 
         #endregion
 
         // supposedly in testing. hhhhhhhhhhhhhhhhmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
-        public Task<GfycatFeed> SearchAsync(string searchText, int count = 50, string cursor = null)
+        public Task<GfycatFeed> SearchAsync(string searchText, int count = 50, string cursor = null, RequestOptions options = null)
         {
+            options = options ?? new RequestOptions();
             string queryString = InternalClient.CreateQueryString(new Dictionary<string, object>
             {
                 { "search_text", searchText },
                 { "count", count },
                 { "cursor", cursor }
             });
-            return _web.SendRequestAsync<GfycatFeed>("GET", $"gfycats/search{queryString}");
-        }
-
-        public void Dispose()
-        {
-            ((IDisposable)_web).Dispose();
+            return _rest.SendAsync("GET", $"gfycats/search{queryString}", options.CancellationToken);
         }
     }
 }

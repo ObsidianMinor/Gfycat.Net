@@ -33,7 +33,7 @@ namespace Gfycat.OAuth2
         public string RefreshToken { get; private set; }
         private Timer _refreshTokenTimer;
 
-        internal IRestClient Client { get; set; }
+        internal IRestClient Client { get; }
 
         /// <summary>
         /// The estimated date and time of the expiration of the current access token
@@ -62,10 +62,11 @@ namespace Gfycat.OAuth2
             _refreshTokenTimer = new Timer(RefreshTokenExpirationCallback, null, Timeout.Infinite, Timeout.Infinite);
         }
         
-        internal AuthenticationContainer(string clientId, string clientSecret) : this()
+        internal AuthenticationContainer(string clientId, string clientSecret, IRestClient client) : this()
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
+            Client = client;
         }
 
         /// <summary>
@@ -93,8 +94,7 @@ namespace Gfycat.OAuth2
                         ClientSecret = ClientSecret,
                         GrantType = "refresh",
                         RefreshToken = RefreshToken
-                    },
-                    false);
+                    });
 
                 Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
                 Debug.WriteLine($"Recieved access token {auth.AccessToken}");

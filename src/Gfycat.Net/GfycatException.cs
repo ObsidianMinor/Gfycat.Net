@@ -19,7 +19,7 @@ namespace Gfycat
         {
             get
             {
-                if (Description == null)
+                if (Description != null)
                     return $"The server responded with {this}";
                 else if(!_baseMessageNull)
                     return $"The server responded with \"{base.Message}\"";

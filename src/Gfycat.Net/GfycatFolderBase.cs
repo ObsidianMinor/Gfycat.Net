@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Gfycat
 {
-    public abstract class GfycatFolderBase : ConnectedEntity
+    public abstract class GfycatFolderBase : Entity
     {
         protected abstract string InternalFolderTypeName { get; }
 

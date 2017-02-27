@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Gfycat
 {
-    public abstract class GfycatFolderInfoBase<T> : ConnectedEntity where T : GfycatFolderBase
+    public abstract class GfycatFolderInfoBase<T> : Entity where T : GfycatFolderBase
     {
         [JsonProperty("id")]
         public string Id { get; private set; }

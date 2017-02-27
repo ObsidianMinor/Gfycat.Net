@@ -62,7 +62,7 @@ namespace Gfycat
         /// <returns></returns>
         public override async Task<GfycatAlbum> GetContentsAsync()
         {
-            GfycatAlbum album = (Owner.Id == Web.Auth.ResourceOwner) // but what do I use? username or user Id?
+            GfycatAlbum album = (Owner.Id == Authentication.ResourceOwner) // but what do I use? username or user Id?
                 ? await Web.SendRequestAsync<GfycatAlbum>("GET", $"me/albums/{Id}") 
                 : await Web.SendRequestAsync<GfycatAlbum>("GET", $"users/{Owner.Id}/albums/{Id}");
             album.Owner = Owner; // if we pass the owner between albums we won't need to ask the user every time they run an album method

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Gfycat
 {
-    public class CurrentUser : ConnectedEntity, IUser
+    public class CurrentUser : Entity, IUser
     {
         [JsonProperty("userid")]
         public string Id { get; private set; }
