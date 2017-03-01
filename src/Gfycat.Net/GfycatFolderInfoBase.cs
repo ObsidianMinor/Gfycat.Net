@@ -10,6 +10,6 @@ namespace Gfycat
         [JsonProperty("title")]
         public string Title { get; private set; }
 
-        public abstract Task<T> GetContentsAsync();
+        public abstract Task<T> GetContentsAsync(RequestOptions options = null);
     }
 }

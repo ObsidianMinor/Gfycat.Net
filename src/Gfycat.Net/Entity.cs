@@ -1,7 +1,7 @@
 ﻿namespace Gfycat
 {
     /// <summary>
-    /// Exposes the REST client to objects
+    /// Exposes the GfycatClient to objects
     /// </summary>
     public abstract class Entity
     {

@@ -22,8 +22,11 @@
     <PackageLicenseUrl>https://github.com/ObsidianMinor/Gfycat.Net/LICENSE.txt</PackageLicenseUrl>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="API\**" />
     <Compile Remove="Auth\**" />
+    <EmbeddedResource Remove="API\**" />
     <EmbeddedResource Remove="Auth\**" />
+    <None Remove="API\**" />
     <None Remove="Auth\**" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard1.2'">
@@ -32,8 +35,5 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Net.Http" Version="4.3.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="API\" />
   </ItemGroup>
 </Project>

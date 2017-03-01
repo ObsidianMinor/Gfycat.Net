@@ -9,9 +9,9 @@ namespace Gfycat
         [JsonProperty("nodes")]
         public IEnumerable<GfycatFolderInfo> Subfolders { get; private set; }
 
-        public override Task<GfycatFolder> GetContentsAsync()
+        public override Task<GfycatFolder> GetContentsAsync(RequestOptions options = null)
         {
-            return Web.SendRequestAsync<GfycatFolder>("GET", $"me/folders/{Id}");
+            return Client.SendAsync<GfycatFolder>("GET", $"me/folders/{Id}", options);
         }
     }
 }

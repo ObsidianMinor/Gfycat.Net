@@ -60,11 +60,11 @@ namespace Gfycat
         /// Retrieves the contents of this album
         /// </summary>
         /// <returns></returns>
-        public override async Task<GfycatAlbum> GetContentsAsync()
+        public override async Task<GfycatAlbum> GetContentsAsync(RequestOptions options = null)
         {
-            GfycatAlbum album = (Owner.Id == Authentication.ResourceOwner) // but what do I use? username or user Id?
-                ? await Web.SendRequestAsync<GfycatAlbum>("GET", $"me/albums/{Id}") 
-                : await Web.SendRequestAsync<GfycatAlbum>("GET", $"users/{Owner.Id}/albums/{Id}");
+            GfycatAlbum album = (Owner.Id == Client.Authentication.ResourceOwner) // but what do I use? username or user Id?
+                ? await Client.SendAsync<GfycatAlbum>("GET", $"me/albums/{Id}") 
+                : await Client.SendAsync<GfycatAlbum>("GET", $"users/{Owner.Id}/albums/{Id}");
             album.Owner = Owner; // if we pass the owner between albums we won't need to ask the user every time they run an album method
             return album;
         }

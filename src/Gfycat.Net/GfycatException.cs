@@ -9,6 +9,9 @@ namespace Gfycat
     {
         public HttpStatusCode HttpCode { get; set; }
 
+        [JsonProperty("message")]
+        public string ServerMessage { get; set; }
+
         [JsonProperty("code")]
         public string Code { get; set; }
 
@@ -19,28 +22,29 @@ namespace Gfycat
         {
             get
             {
-                if (Description != null)
-                    return $"The server responded with {this}";
-                else if(!_baseMessageNull)
-                    return $"The server responded with \"{base.Message}\"";
-                else
+                if (ServerMessage != null)
+                    return $"The server responded with {HttpCode}: {ServerMessage}";
+                else if (Description != null)
+                    return $"The server responded with {HttpCode} {Code}: {Description}";
+                else if (Description == null && ServerMessage == null)
                     return $"The server responded with {(int)HttpCode}: {HttpCode}";
+                else
+                    return base.Message;
             }
-        }
-
-        private readonly bool _baseMessageNull;
-
-        public override string ToString()
-        {
-            return $"{(int)HttpCode} {Code}: \"{Description}\"";
         }
 
         public GfycatException() : base() { }
 
-        [JsonConstructor]
-        public GfycatException([JsonProperty("message")] string message) : base(message)
+        internal static GfycatException CreateFromResponse(RestResponse restResponse)
         {
-            _baseMessageNull = message == null;
+            GfycatException exception = new GfycatException()
+            {
+                HttpCode = restResponse.Status
+            };
+            string result = restResponse.ReadAsString();
+            if (!string.IsNullOrWhiteSpace(result) && !result.StartsWith("<html>"))
+                JsonConvert.PopulateObject(result, exception);
+            return exception;
         }
     }
 }

@@ -21,8 +21,8 @@ namespace Gfycat
         int Following { get; }
         bool IframeProfileImageVisible { get; }
 
-        Task<IEnumerable<GfycatAlbumInfo>> GetAlbumsAsync();
+        Task<IEnumerable<GfycatAlbumInfo>> GetAlbumsAsync(RequestOptions options = null);
 
-        Task<GfycatFeed> GetGfycatFeedAsync(int? count = null, string cursor = null);
+        Task<GfycatFeed> GetGfycatFeedAsync(int? count = null, string cursor = null, RequestOptions options = null);
     }
 }

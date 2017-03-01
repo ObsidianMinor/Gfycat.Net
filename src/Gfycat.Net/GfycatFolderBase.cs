@@ -18,49 +18,49 @@ namespace Gfycat
         [JsonProperty("publishedGfys")]
         public IEnumerable<Gfy> PublishedGfys { get; private set; }
         
-        public virtual async Task UpdateAsync()
+        public virtual async Task UpdateAsync(RequestOptions options = null)
         {
-            JsonConvert.PopulateObject(await Web.SendRequestForStringAsync("GET", $"me/{InternalFolderTypeName}/{Id}"), this);
+            JsonConvert.PopulateObject((await Client.SendAsync("GET", $"me/{InternalFolderTypeName}/{Id}")).ReadAsString(), this);
         }
 
         /// <summary>
         /// Deletes this folder (must be empty)
         /// </summary>
         /// <returns>An awaitable task</returns>
-        public virtual Task DeleteAsync()
+        public virtual Task DeleteAsync(RequestOptions options = null)
         {
-            return Web.SendRequestAsync("DELETE", $"me/{InternalFolderTypeName}/{Id}");
+            return Client.SendAsync("DELETE", $"me/{InternalFolderTypeName}/{Id}", options);
         }
         
         /// <summary>
         /// Changes the name of this folder to a new value
         /// </summary>
         /// <returns>An awaitable task</returns>
-        public virtual async Task ModifyTitleAsync(string newTitle)
+        public virtual async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
-            await Web.SendJsonAsync("PUT", $"me/{InternalFolderTypeName}/{Id}/name", new { value = newTitle });
+            await Client.SendJsonAsync("PUT", $"me/{InternalFolderTypeName}/{Id}/name", new { value = newTitle }, options);
             await UpdateAsync();
         }
         
-        public virtual async Task MoveFolderAsync(string parentId)
+        public virtual async Task MoveFolderAsync(string parentId, RequestOptions options = null)
         {
-            await Web.SendJsonAsync("PUT", $"me/{InternalFolderTypeName}/{Id}", new { parent_id = parentId });
+            await Client.SendJsonAsync("PUT", $"me/{InternalFolderTypeName}/{Id}", new { parent_id = parentId }, options);
             await UpdateAsync();
         }
 
-        public virtual async Task CreateFolderAsync(string title = "New Folder")
+        public virtual async Task CreateFolderAsync(string title = "New Folder", RequestOptions options = null)
         {
-            await Web.SendJsonAsync("POST", $"me/{InternalFolderTypeName}/{Id}", new { folderName = title });
+            await Client.SendJsonAsync("POST", $"me/{InternalFolderTypeName}/{Id}", new { folderName = title }, options);
         }
         
-        public virtual async Task MoveGfysAsync(string parentId, params Gfy[] gfys)
+        public virtual async Task MoveGfysAsync(string parentId, IEnumerable<Gfy> gfys, RequestOptions options = null)
         {
-            await Web.SendJsonAsync("PATCH", $"me/{InternalFolderTypeName}/{Id}", new GfyFolderAction()
+            await Client.SendJsonAsync("PATCH", $"me/{InternalFolderTypeName}/{Id}", new GfyFolderAction()
             {
                 Action = "move_contents",
                 ParentId = parentId,
                 GfycatIds = gfys.Select(g => g.Id)
-            });
+            }, options);
             await UpdateAsync();
         }
     }

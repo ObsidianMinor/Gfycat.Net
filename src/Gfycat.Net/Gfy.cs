@@ -99,7 +99,7 @@ namespace Gfycat
         
         public Task ShareOnTwitterAsyncAsync(string postStatus)
         {
-            return Web.SendJsonAsync("POST", $"gfycats/{Id}/share/twitter", new { status = postStatus });
+            return Client.SendJsonAsync("POST", $"gfycats/{Id}/share/twitter", new { status = postStatus });
         }
 
         public async Task ModifyTitleAsync(string newTitle)
@@ -107,7 +107,7 @@ namespace Gfycat
             if (!CurrentUserOwnsGfy())
                 throw _invalidOwnership;
 
-            await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/title", new { value = newTitle });
+            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/title", new { value = newTitle });
             await UpdateAsync();
         }
         
@@ -116,7 +116,7 @@ namespace Gfycat
             if (!CurrentUserOwnsGfy())
                 throw _invalidOwnership;
 
-            await Web.SendRequestAsync("DELETE", $"me/gfycats/{Id}/title");
+            await Client.SendAsync("DELETE", $"me/gfycats/{Id}/title");
 
             await UpdateAsync();
         }
@@ -128,7 +128,7 @@ namespace Gfycat
             if (!CurrentUserOwnsGfy())
                 throw _invalidOwnership;
 
-            await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/tags", new { value = tags });
+            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/tags", new { value = tags });
 
             await UpdateAsync();
         }
@@ -138,7 +138,7 @@ namespace Gfycat
             if (!CurrentUserOwnsGfy())
                 throw _invalidOwnership;
 
-            return Web.SendRequestAsync<IEnumerable<string>>("GET", $"me/gfycats/{Id}/domain-whitelist");
+            return Client.SendAsync<IEnumerable<string>>("GET", $"me/gfycats/{Id}/domain-whitelist");
         }
 
         public async Task ModifyDomainWhitelistAsync(IEnumerable<string> newWhitelist)
@@ -146,7 +146,7 @@ namespace Gfycat
             if (!CurrentUserOwnsGfy())
                 throw _invalidOwnership;
 
-            await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/domain-whitelist", new { value = newWhitelist });
+            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/domain-whitelist", new { value = newWhitelist });
 
             await UpdateAsync();
         }
@@ -156,7 +156,7 @@ namespace Gfycat
             if (!CurrentUserOwnsGfy())
                 throw _invalidOwnership;
 
-            await Web.SendRequestAsync("DELETE", $"me/gfycats/{Id}/domain-whitelist");
+            await Client.SendAsync("DELETE", $"me/gfycats/{Id}/domain-whitelist");
 
             await UpdateAsync();
         }
@@ -166,7 +166,7 @@ namespace Gfycat
             if (!CurrentUserOwnsGfy())
                 throw _invalidOwnership;
 
-            return Web.SendRequestAsync<IEnumerable<string>>("GET", $"me/gfycats/{Id}/geo-whitelist");
+            return Client.SendAsync<IEnumerable<string>>("GET", $"me/gfycats/{Id}/geo-whitelist");
         }
 
         public async Task ModifyGeoWhitelistAsync(IEnumerable<string> newWhitelist)
@@ -174,7 +174,7 @@ namespace Gfycat
             if (!CurrentUserOwnsGfy())
                 throw _invalidOwnership;
 
-            await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/geo-whitelist", new { value = newWhitelist });
+            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/geo-whitelist", new { value = newWhitelist });
 
             await UpdateAsync();
         }
@@ -184,7 +184,7 @@ namespace Gfycat
             if (!CurrentUserOwnsGfy())
                 throw _invalidOwnership;
 
-            await Web.SendRequestAsync("DELETE", $"me/gfycats/{Id}/geo-whitelist");
+            await Client.SendAsync("DELETE", $"me/gfycats/{Id}/geo-whitelist");
 
             await UpdateAsync();
         }
@@ -194,7 +194,7 @@ namespace Gfycat
             if (!CurrentUserOwnsGfy())
                 throw _invalidOwnership;
 
-            await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/description", new { value = newDescription });
+            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/description", new { value = newDescription });
 
             await UpdateAsync();
         }
@@ -204,7 +204,7 @@ namespace Gfycat
             if (!CurrentUserOwnsGfy())
                 throw _invalidOwnership;
 
-            await Web.SendRequestAsync("DELETE", $"me/gfycats/{Id}/description");
+            await Client.SendAsync("DELETE", $"me/gfycats/{Id}/description");
 
             await UpdateAsync();
         }
@@ -214,7 +214,7 @@ namespace Gfycat
             if (!CurrentUserOwnsGfy())
                 throw _invalidOwnership;
 
-            await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/published", new { value = (published) ? "1" : "0" });
+            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/published", new { value = (published) ? "1" : "0" });
 
             await UpdateAsync();
         }
@@ -224,7 +224,7 @@ namespace Gfycat
             if (!CurrentUserOwnsGfy())
                 throw _invalidOwnership;
 
-            await Web.SendJsonAsync("PUT", $"me/gfycats/{Id}/nsfw", new { value = (int)setting });
+            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/nsfw", new { value = (int)setting });
 
             await UpdateAsync();
         }
@@ -234,7 +234,7 @@ namespace Gfycat
             if (!CurrentUserOwnsGfy())
                 throw _invalidOwnership;
 
-            return Web.SendRequestAsync("DELETE", $"me/gfycats/{Id}");
+            return Client.SendAsync("DELETE", $"me/gfycats/{Id}");
         }
 
         /// <summary>
@@ -243,31 +243,31 @@ namespace Gfycat
         /// <returns>True if bookmarked, false otherwise</returns>
         public async Task<bool> GetBookmarkStatusAsync()
         {
-            return (await Web.SendRequestAsync<dynamic>("GET", $"me/bookmarks/{Id}")).bookmarkState == "1";
+            return (await Client.SendAsync<dynamic>("GET", $"me/bookmarks/{Id}")).bookmarkState == "1";
         }
 
         public Task BookmarkAsync(GfycatBookmarkFolder folder = null)
         {
             if (string.IsNullOrWhiteSpace(folder?.Id))
-                return Web.SendRequestAsync("PUT", $"me/bookmarks/{Id}");
+                return Client.SendAsync("PUT", $"me/bookmarks/{Id}");
             else
-                return Web.SendRequestAsync("PUT", $"me/bookmark-folders/{folder.Id}/contents/{Id}");
+                return Client.SendAsync("PUT", $"me/bookmark-folders/{folder.Id}/contents/{Id}");
         }
 
         public Task UnbookmarkAsync(GfycatBookmarkFolder folder = null)
         {
             if (string.IsNullOrWhiteSpace(folder?.Id))
-                return Web.SendRequestAsync("DELETE", $"me/bookmarks/{Id}");
+                return Client.SendAsync("DELETE", $"me/bookmarks/{Id}");
             else
-                return Web.SendRequestAsync("DELETE", $"me/bookmark-folders/{folder.Id}/contents/{Id}");
+                return Client.SendAsync("DELETE", $"me/bookmark-folders/{folder.Id}/contents/{Id}");
         }
-        
-        public bool CurrentUserOwnsGfy() => 
+
+        public bool CurrentUserOwnsGfy() => Username == Client.Authentication.ResourceOwner;
 
         private async Task UpdateAsync()
         {
-            string result = await Web.SendRequestForStringAsync("GET", $"gfycats/{Id}");
-            JsonConvert.PopulateObject(result, this);
+            RestResponse response = await Client.SendAsync("GET", $"gfycats/{Id}");
+            JsonConvert.PopulateObject(response.ReadAsString(), this);
         }
     }
 }

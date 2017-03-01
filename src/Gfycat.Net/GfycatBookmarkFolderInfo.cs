@@ -9,9 +9,9 @@ namespace Gfycat
         [JsonProperty("nodes")]
         public IEnumerable<GfycatBookmarkFolderInfo> Subfolders { get; private set; }
 
-        public override Task<GfycatBookmarkFolder> GetContentsAsync()
+        public override Task<GfycatBookmarkFolder> GetContentsAsync(RequestOptions options = null)
         {
-            return Web.SendRequestAsync<GfycatBookmarkFolder>("GET", $"me/bookmark-folders/{Id}");
+            return Client.SendAsync<GfycatBookmarkFolder>("GET", $"me/bookmark-folders/{Id}", options);
         }
     }
 }

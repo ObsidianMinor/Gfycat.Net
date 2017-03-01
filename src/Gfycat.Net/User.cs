@@ -37,10 +37,10 @@ namespace Gfycat
         [JsonProperty("iframeProfileImageVisible")]
         public bool IframeProfileImageVisible { get; private set; }
 
-        public async Task<IEnumerable<GfycatAlbumInfo>> GetAlbumsAsync()
+        public async Task<IEnumerable<GfycatAlbumInfo>> GetAlbumsAsync(RequestOptions options = null)
         {
             string endpoint = $"users/{Id}/albums";
-            IEnumerable<GfycatAlbumInfo> albums = (await Web.SendRequestAsync<GfycatAlbumResponse>("GET", endpoint)).Albums;
+            IEnumerable<GfycatAlbumInfo> albums = (await Client.SendAsync<GfycatAlbumResponse>("GET", endpoint, options)).Albums;
             RecursiveSetOwners(albums);
             return albums;
         }
@@ -54,20 +54,20 @@ namespace Gfycat
             }
         }
 
-        public async Task<GfycatAlbumInfo> GetAlbumContentsByLinkTextAsync(string albumLinkText)
+        public async Task<GfycatAlbumInfo> GetAlbumContentsByLinkTextAsync(string albumLinkText, RequestOptions options = null)
         {
             string endpoint = $"users/{Id}/album_links/{albumLinkText}";
-            return await Web.SendRequestAsync<GfycatAlbumInfo>("GET", endpoint);
+            return await Client.SendAsync<GfycatAlbumInfo>("GET", endpoint, options);
         }
 
-        public Task<GfycatFeed> GetGfycatFeedAsync(int? count = null, string cursor = null)
+        public Task<GfycatFeed> GetGfycatFeedAsync(int? count = null, string cursor = null, RequestOptions options = null)
         {
-            string queryString = InternalClient.CreateQueryString(new Dictionary<string, object>()
+            string queryString = Utils.CreateQueryString(new Dictionary<string, object>()
             {
                 { "count", count },
                 { "cursor", cursor }
             });
-            return Web.SendRequestAsync<GfycatFeed>("GET", $"users/{Id}/gfycats{queryString}");
+            return Client.SendAsync<GfycatFeed>("GET", $"users/{Id}/gfycats{queryString}", options);
         }
     }
 }

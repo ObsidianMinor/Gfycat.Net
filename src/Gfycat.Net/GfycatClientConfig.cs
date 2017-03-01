@@ -5,7 +5,8 @@ namespace Gfycat
 {
     public class GfycatClientConfig
     {
-        const string _baseUri = "https://api.gfycat.com/v1/";
+        public const int ApiVersion = 1;
+        public static readonly string BaseUrl = $"https://api.gfycat.com/v{ApiVersion}/";
 
         /// <summary>
         /// Overrides the rest client for this Gfycat client
@@ -13,10 +14,11 @@ namespace Gfycat
         public IRestClient RestClient { get; set; }
 
         public RetryMode DefaultRetryMode { get; set; }
+        public int? DefaultTimeout { get; set; }
 
         public GfycatClientConfig()
         {
-            RestClient = new DefaultRestClient(new Uri(_baseUri));
+            RestClient = new DefaultRestClient(new Uri(BaseUrl));
         }
     }
 }
