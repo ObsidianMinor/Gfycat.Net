@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Gfycat
 {
+    [JsonObject("gfyItem")]
     public class Gfy : Entity
     {
         private static readonly UnauthorizedAccessException _invalidOwnership = new UnauthorizedAccessException("The current user doesn't own this resource");
 
-        [JsonProperty("id")]
+        [JsonProperty("gfyId")]
         public string Id { get; private set; }
-        [JsonProperty("number")]
+        [JsonProperty("gfyNumber")]
         public long Number { get; private set; }
         [JsonProperty("webmUrl")]
         public string WebmUrl { get; private set; }
@@ -57,15 +58,15 @@ namespace Gfycat
         [JsonProperty("source")]
         public string Source { get; private set; }
         [JsonProperty("createDate", ItemConverterType = typeof(UnixTimeConverter))]
-        public DateTime CreationDate { get; private set; }
+        public long CreationDate { get; private set; }
         [JsonProperty("nsfw")]
-        public bool Nsfw { get; private set; }
+        public NsfwSetting Nsfw { get; private set; }
         [JsonProperty("mp4Url")]
         public string Mp4Url { get; private set; }
         [JsonProperty("likes")]
         public int Likes { get; private set; }
-        [JsonProperty("published"), JsonConverter(typeof(NumericalBooleanConverter))]
-        public bool Published { get; private set; }
+        [JsonProperty("published")]
+        public string Published { get; private set; }
         [JsonProperty("dislikes")]
         public int Dislikes { get; private set; }
         [JsonProperty("extraLemmas")]
@@ -78,7 +79,7 @@ namespace Gfycat
         public List<string> Tags { get; private set; }
         [JsonProperty("username")]
         public string Username { get; private set; }
-        [JsonProperty("name")]
+        [JsonProperty("gfyName")]
         public string Name { get; private set; }
         [JsonProperty("title")]
         public string Title { get; private set; }
@@ -87,7 +88,7 @@ namespace Gfycat
         [JsonProperty("languageText")]
         public string LanguageText { get; private set; }
         [JsonProperty("languageCategories")]
-        public string LanguageCategories { get; private set; }
+        public IEnumerable<string> LanguageCategories { get; private set; }
         [JsonProperty("subreddit")]
         public string Subreddit { get; private set; }
         [JsonProperty("redditId")]
@@ -266,7 +267,7 @@ namespace Gfycat
 
         private async Task UpdateAsync()
         {
-            RestResponse response = await Client.SendAsync("GET", $"gfycats/{Id}");
+            Rest.RestResponse response = await Client.SendAsync("GET", $"gfycats/{Id}");
             JsonConvert.PopulateObject(response.ReadAsString(), this);
         }
     }

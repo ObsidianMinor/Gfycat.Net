@@ -34,7 +34,11 @@ namespace Gfycat
 
         internal async Task<TResult> SendAsync<TResult>(string method, string endpoint, RequestOptions options = null)
         {
-            return (await SendAsync(method, endpoint, options)).ReadAsJson<TResult>();
+            TResult result = (await SendAsync(method, endpoint, options)).ReadAsJson<TResult>();
+            Entity resultEntity = result as Entity;
+            if (resultEntity != null)
+                resultEntity.Client = this;
+            return result;
         }
 
         internal Task<RestResponse> SendAsync(string method, string endpoint, RequestOptions options = null)
@@ -45,7 +49,11 @@ namespace Gfycat
 
         internal async Task<TResult> SendJsonAsync<TResult>(string method, string endpoint, object jsonObject, RequestOptions options = null)
         {
-            return (await SendJsonAsync(method, endpoint, jsonObject, options)).ReadAsJson<TResult>();
+            TResult result = (await SendJsonAsync(method, endpoint, jsonObject, options)).ReadAsJson<TResult>();
+            Entity resultEntity = result as Entity;
+            if (resultEntity != null)
+                resultEntity.Client = this;
+            return result;
         }
 
         internal Task<RestResponse> SendJsonAsync(string method, string endpoint, object jsonObject, RequestOptions options = null)
@@ -68,7 +76,7 @@ namespace Gfycat
         private async Task<RestResponse> SendInternalAsync(Func<Task<RestResponse>> RestFunction, RequestOptions options)
         {
             RestResponse response = null;
-            RestClient.SetHeader("Authentication", options.UseAccessToken ? $"Bearer {Authentication.AccessToken}" : null);
+            RestClient.SetAuthorization("Bearer", options.UseAccessToken ? Authentication.AccessToken : null);
             bool retry = true, first401 = true;
             do
             {
@@ -116,7 +124,7 @@ namespace Gfycat
 
         public Task<User> GetUserAsync(string userId, RequestOptions options = null)
         {
-            return SendAsync<User>("GET", $"users/{userId}");
+            return SendAsync<User>("GET", $"users/{userId}", options);
         }
 
         public Task<CurrentUser> GetCurrentUserAsync(RequestOptions options = null)
@@ -144,7 +152,6 @@ namespace Gfycat
 
         public async Task<Gfy> GetGfyAsync(string gfycat, RequestOptions options = null)
         {
-            options = options ?? new RequestOptions();
             return (await SendAsync("GET", $"gfycats/{gfycat}", options)).ReadAsJson<Gfy>();
         }
 

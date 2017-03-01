@@ -26,7 +26,7 @@ namespace Gfycat
             for (int i = 1; i < nullParsedDictionary.Count(); i++)
             {
                 current = nullParsedDictionary.ElementAt(i);
-                result.Append($"{WebUtility.UrlEncode(current.Key)}={WebUtility.UrlEncode(current.Value.ToString())}");
+                result.Append($"&{WebUtility.UrlEncode(current.Key)}={WebUtility.UrlEncode(current.Value.ToString())}");
             }
 
             return result.ToString();

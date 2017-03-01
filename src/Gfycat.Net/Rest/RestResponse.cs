@@ -2,7 +2,7 @@
 using System.IO;
 using System.Net;
 
-namespace Gfycat
+namespace Gfycat.Rest
 {
     public class RestResponse
     {

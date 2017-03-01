@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 
 namespace Gfycat
 {
-    [JsonArray]
     public class User : Entity, IUser
     {
         [JsonProperty("userid")]

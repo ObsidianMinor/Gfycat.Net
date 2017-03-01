@@ -23,9 +23,9 @@ namespace Gfycat
             get
             {
                 if (ServerMessage != null)
-                    return $"The server responded with {HttpCode}: {ServerMessage}";
+                    return $"The server responded with {(int)HttpCode}: {ServerMessage}";
                 else if (Description != null)
-                    return $"The server responded with {HttpCode} {Code}: {Description}";
+                    return $"The server responded with {(int)HttpCode} {Code}: {Description}";
                 else if (Description == null && ServerMessage == null)
                     return $"The server responded with {(int)HttpCode}: {HttpCode}";
                 else
@@ -35,7 +35,7 @@ namespace Gfycat
 
         public GfycatException() : base() { }
 
-        internal static GfycatException CreateFromResponse(RestResponse restResponse)
+        internal static GfycatException CreateFromResponse(Rest.RestResponse restResponse)
         {
             GfycatException exception = new GfycatException()
             {

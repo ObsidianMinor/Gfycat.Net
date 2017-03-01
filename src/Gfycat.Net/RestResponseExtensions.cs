@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
+using Gfycat.Rest;
 
 namespace Gfycat
 {
@@ -7,8 +8,9 @@ namespace Gfycat
     {
         internal static T ReadAsJson<T>(this RestResponse response)
         {
-            using (StreamReader reader = new StreamReader(response.Content))
-                return JsonConvert.DeserializeObject<T>(reader.ReadToEnd());
+            string responseContentAsString = response.ReadAsString();
+            T resultObject = JsonConvert.DeserializeObject<T>(responseContentAsString);
+            return resultObject;
         }
 
         internal static string ReadAsString(this RestResponse response)

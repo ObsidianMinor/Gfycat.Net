@@ -110,5 +110,13 @@ namespace Gfycat.Rest
             if (value != null)
                 _client.DefaultRequestHeaders.Add(key, value);
         }
+
+        public void SetAuthorization(string scheme, string token)
+        {
+            if (token == null)
+                _client.DefaultRequestHeaders.Authorization = null;
+            else
+                _client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(scheme, token);
+        }
     }
 }
