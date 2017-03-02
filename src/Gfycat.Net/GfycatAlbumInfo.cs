@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Gfycat.Converters;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

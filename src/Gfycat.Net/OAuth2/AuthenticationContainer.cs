@@ -1,4 +1,6 @@
-﻿using Gfycat.Rest;
+﻿using Gfycat.API.Requests;
+using Gfycat.API.Responses;
+using Gfycat.Rest;
 using System;
 using System.Diagnostics;
 using System.Threading;

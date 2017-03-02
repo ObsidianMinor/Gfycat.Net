@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Gfycat
+namespace Gfycat.API.Responses
 {
     internal class GfyResponse
     {

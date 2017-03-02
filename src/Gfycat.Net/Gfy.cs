@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Gfycat.Converters;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace Gfycat
 {
-    [JsonObject("gfyItem")]
     public class Gfy : Entity
     {
         private static readonly UnauthorizedAccessException _invalidOwnership = new UnauthorizedAccessException("The current user doesn't own this resource");
@@ -65,8 +65,8 @@ namespace Gfycat
         public string Mp4Url { get; private set; }
         [JsonProperty("likes")]
         public int Likes { get; private set; }
-        [JsonProperty("published")]
-        public string Published { get; private set; }
+        [JsonProperty("published", ItemConverterType = typeof(NumericalBooleanConverter))]
+        public bool Published { get; private set; } = true;
         [JsonProperty("dislikes")]
         public int Dislikes { get; private set; }
         [JsonProperty("extraLemmas")]

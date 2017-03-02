@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace Gfycat
+namespace Gfycat.Converters
 {
-    internal class UnixTimeConverter : JsonConverter
+    public class UnixTimeConverter : JsonConverter
     {
         DateTime _epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
@@ -19,7 +19,7 @@ namespace Gfycat
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteValue((((DateTime)value).ToUniversalTime() - _epoch).TotalSeconds);
+            writer.WriteValue((ulong)(((DateTime)value).ToUniversalTime() - _epoch).TotalSeconds);
         }
     }
 }

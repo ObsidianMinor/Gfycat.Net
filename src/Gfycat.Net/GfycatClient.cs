@@ -1,4 +1,6 @@
-﻿using Gfycat.OAuth2;
+﻿using Gfycat.API.Requests;
+using Gfycat.API.Responses;
+using Gfycat.OAuth2;
 using Gfycat.Rest;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -8,7 +10,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Gfycat
@@ -234,8 +235,22 @@ namespace Gfycat
             return SendAsync<GfycatFeed>("GET", $"gfycats/search{queryString}", options);
         }
 
+        #region API Credentials
+
+        /// <summary>
+        /// Fetches the developer keys for the current user
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public async Task<IEnumerable<AppApiInfo>> GetApiCredentialsAsync(RequestOptions options = null)
+        {
+            return await SendAsync<IEnumerable<AppApiInfo>>("GET", "me/api-credentials", options);
+        }
+
+        #endregion
+
         #region Extras
-        
+
         private static readonly IReadOnlyDictionary<TokenType, string> _tokensToString = new Dictionary<TokenType, string>()
         {
             { TokenType.FacebookAuthCode, "auth_code" },
