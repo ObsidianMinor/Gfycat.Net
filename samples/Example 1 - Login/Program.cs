@@ -61,7 +61,7 @@ namespace LoginSample
             // process the query string however you like, run Authenticate with the access_token and expires_in variables
             // if the user doesn't authenticate, you're navigated back using the redirect uri with an "error" parameter
             
-            client.Authentication.Authenticate("accessToken", 60, "resourceOwner");
+            client.Authentication.Authenticate("accessToken", 60);
         }
 
         async Task AuthCodeAsync()

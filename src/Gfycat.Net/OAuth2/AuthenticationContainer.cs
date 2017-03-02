@@ -284,12 +284,11 @@ namespace Gfycat.OAuth2
         /// </summary>
         /// <param name="accessToken"></param>
         /// <param name="accessTokenExpiresIn"></param>
-        public void Authenticate(string accessToken, int accessTokenExpiresIn, string resourceOwner)
+        public void Authenticate(string accessToken, int accessTokenExpiresIn)
         {
             CurrentGrantType = AuthenticationGrant.BrowserImplicitGrant;
             Debug.WriteLine($"Recieved access token {accessToken}");
             AccessToken = accessToken;
-            ResourceOwner = resourceOwner;
             SetTimer(accessTokenExpiresIn);
         }
 
