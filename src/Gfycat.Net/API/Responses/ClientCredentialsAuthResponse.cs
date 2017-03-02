@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Gfycat.OAuth2
+namespace Gfycat.API.Responses
 {
     /// <summary>
     /// Represents an authentication response using client credentials

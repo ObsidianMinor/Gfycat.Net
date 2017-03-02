@@ -13,7 +13,10 @@ namespace Gfycat
         /// </summary>
         public IRestClient RestClient { get; set; }
 
-        public RetryMode DefaultRetryMode { get; set; }
+        /// <summary>
+        /// Sets the default retry mode for all requests, the default is <see cref="RetryMode.RetryFirst401"/>
+        /// </summary>
+        public RetryMode DefaultRetryMode { get; set; } = RetryMode.RetryFirst401;
         public int? DefaultTimeout { get; set; }
 
         public GfycatClientConfig()

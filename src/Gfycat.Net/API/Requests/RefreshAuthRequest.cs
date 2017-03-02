@@ -1,4 +1,4 @@
-﻿namespace Gfycat.OAuth2
+﻿namespace Gfycat.API.Requests
 {
     internal class RefreshAuthRequest : ClientCredentialsAuthRequest
     {

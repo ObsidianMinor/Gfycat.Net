@@ -4,7 +4,6 @@ using System.Net;
 
 namespace Gfycat
 {
-    [JsonObject("errorMessage")]
     public class GfycatException : Exception
     {
         public HttpStatusCode HttpCode { get; set; }
@@ -37,14 +36,17 @@ namespace Gfycat
 
         internal static GfycatException CreateFromResponse(Rest.RestResponse restResponse)
         {
-            GfycatException exception = new GfycatException()
+            ErrorResponse response = new ErrorResponse()
             {
-                HttpCode = restResponse.Status
+                Error = new GfycatException()
+                {
+                    HttpCode = restResponse.Status
+                }
             };
             string result = restResponse.ReadAsString();
             if (!string.IsNullOrWhiteSpace(result) && !result.StartsWith("<html>"))
-                JsonConvert.PopulateObject(result, exception);
-            return exception;
+                JsonConvert.PopulateObject(result, response);
+            return response.Error;
         }
     }
 }

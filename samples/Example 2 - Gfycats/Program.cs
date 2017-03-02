@@ -22,7 +22,7 @@ namespace GfycatsSample
         async Task<string> FetchGfySouceAsync(string gfyName)
         {
             Gfy gfy = await _client.GetGfyAsync(gfyName); // provided you have a gfy's ID, you can fetch it with GetGfyAsync
-            return gfy.Source; // if this gfy was made by a youtube video, the source 
+            return gfy.Source; // if this gfy was made by a youtube video or another image link, this field will not be null
         }
     }
 }

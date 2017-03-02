@@ -114,6 +114,7 @@ namespace Gfycat
         public async Task<bool> UsernameIsValidAsync(string username, RequestOptions options = null)
         {
             options = options ?? RequestOptions.CreateFromDefaults(Config);
+            options.IgnoreCodes = Utils.Ignore404;
             return (await SendAsync("HEAD", $"users/{username}", options)).Status == HttpStatusCode.NotFound;
         }
 
@@ -152,7 +153,7 @@ namespace Gfycat
 
         public async Task<Gfy> GetGfyAsync(string gfycat, RequestOptions options = null)
         {
-            return (await SendAsync("GET", $"gfycats/{gfycat}", options)).ReadAsJson<Gfy>();
+            return (await SendAsync("GET", $"gfycats/{gfycat}", options)).ReadAsJson<GfyResponse>().GfyItem;
         }
 
         #region Creating Gfycats

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Gfycat.OAuth2
+namespace Gfycat.API.Requests
 {
     internal abstract class ProviderBaseAuthRequest : ClientCredentialsAuthRequest
     {

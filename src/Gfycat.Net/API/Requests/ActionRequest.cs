@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Gfycat
+namespace Gfycat.API.Requests
 {
     internal class ActionRequest
     {
