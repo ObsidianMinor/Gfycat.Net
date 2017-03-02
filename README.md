@@ -26,7 +26,7 @@ using Gfycat;
 GfycatClient client = new GfycatClient("replace-with-clientid", "replace-with-clientsecret");
 await client.Authentication.AuthenticateClientAsync(); // authenticate without a user as the client
 
-string gfy = await client.CreateGfyAsync(System.IO.File.Open("somevideo.mp4")); // upload a video, get back a name
+string gfyId = await client.CreateGfyAsync(System.IO.File.Open("somevideo.mp4")); // upload a video, get back a name
 
 GfyStatus status = await _client.CheckGfyUploadStatusAsync(gfyId); // use the name to get the status
 while(status.Task == Status.Encoding)
