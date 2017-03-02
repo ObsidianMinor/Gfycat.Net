@@ -36,7 +36,9 @@ while(status.Task == Status.Encoding)
 }
 
 if (status.Task == Status.Invalid || status.Task == Status.NotFoundo)
+{
   // well shit, it broke :( do something about it
+}
     
 Gfy yourGfy = await client.GetGfyAsync(status.GfyName);
 // congrats, you now have a gfy
