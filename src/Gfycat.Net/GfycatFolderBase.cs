@@ -20,7 +20,7 @@ namespace Gfycat
         
         public virtual async Task UpdateAsync(RequestOptions options = null)
         {
-            JsonConvert.PopulateObject((await Client.SendAsync("GET", $"me/{InternalFolderTypeName}/{Id}")).ReadAsString(), this);
+            JsonConvert.PopulateObject((await Client.SendAsync("GET", $"me/{InternalFolderTypeName}/{Id}", options)).ReadAsString(), this);
         }
 
         /// <summary>

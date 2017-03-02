@@ -26,10 +26,8 @@ namespace Gfycat
                     return $"The server responded with {(int)HttpCode}: {ServerMessage}";
                 else if (Description != null)
                     return $"The server responded with {(int)HttpCode} {Code}: {Description}";
-                else if (Description == null && ServerMessage == null)
-                    return $"The server responded with {(int)HttpCode}: {HttpCode}";
                 else
-                    return base.Message;
+                    return $"The server responded with {(int)HttpCode}: {HttpCode}";
             }
         }
 

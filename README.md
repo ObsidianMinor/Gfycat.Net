@@ -15,9 +15,7 @@ Add support for analytics endpoints (maybe namespace Gfycat.Analytics?)
 * Universal Windows Phone 8.1
 
 ### Unimplemented features: 
-1. Adding and removing links to provider accounts
-2. Adding, removing, and updating the current user's geo and domain whitelists
-3. Secret endpoints not covered by documentation (like fetching, creating, and modifying API keys)
+1. Secret endpoints not covered by documentation (like fetching, creating, and modifying API keys)
 
 ### Upload Gfy Example
 ```csharp

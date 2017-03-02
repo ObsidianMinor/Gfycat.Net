@@ -1,4 +1,6 @@
 ﻿using Gfycat;
+using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace GfycatsSample
@@ -16,7 +18,14 @@ namespace GfycatsSample
             _client = new GfycatClient(_clientId, _clientSecret);
             await _client.Authentication.AuthenticateClientAsync(); // gfy actions such as creating and fetching don't require that a user logs in
 
-            
+            string gfyId = await _client.CreateGfyAsync(File.Open("somefile", FileMode.Open));
+
+            GfyStatus status = await _client.GetGfyUploadStatusAsync(gfyId);
+            while(status.Task == Status.Encoding)
+            {
+                await Task.Delay(TimeSpan.FromSeconds(status.Time));
+                status = await _client.GetGfyUploadStatusAsync(gfyId);
+            }
         }
 
         async Task<string> FetchGfySouceAsync(string gfyName)

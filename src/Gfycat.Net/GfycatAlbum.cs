@@ -38,19 +38,19 @@ namespace Gfycat
 
         public async Task ModifyNsfwSettingAsync(NsfwSetting newSetting, RequestOptions options = null)
         {
-            await Client.SendJsonAsync("PUT", $"me/albums/{Id}/nsfw", new { value = (int)newSetting });
+            await Client.SendJsonAsync("PUT", $"me/albums/{Id}/nsfw", new { value = (int)newSetting }, options);
             await UpdateAsync();
         }
 
         public async Task ModifyPublishSettingAsync(bool published, RequestOptions options = null)
         {
-            await Client.SendJsonAsync("PUT", $"me/albums/{Id}/published", new { value = (published) ? "1" : "0" });
+            await Client.SendJsonAsync("PUT", $"me/albums/{Id}/published", new { value = (published) ? "1" : "0" }, options);
             await UpdateAsync();
         }
 
         public async Task ModifyOrderOfGfysAsync(IEnumerable<Gfy> gfysInNewOrder, RequestOptions options = null)
         {
-            await Client.SendJsonAsync("PUT", $"me/albums/{Id}/order", new { newOrder = gfysInNewOrder.Select(g => g.Id) });
+            await Client.SendJsonAsync("PUT", $"me/albums/{Id}/order", new { newOrder = gfysInNewOrder.Select(g => g.Id) }, options);
             await UpdateAsync();
         }
 
@@ -60,7 +60,7 @@ namespace Gfycat
             {
                 Action = "remove_contents",
                 GfycatIds = gfysToRemove.Select(g => g.Id)
-            });
+            }, options);
             await UpdateAsync();
         }
 
@@ -70,7 +70,7 @@ namespace Gfycat
             {
                 Action = "add_to_album",
                 GfycatIds = gfysToAdd.Select(g => g.Id)
-            });
+            }, options);
             await UpdateAsync();
         }
     }

@@ -9,8 +9,6 @@ namespace Gfycat
 {
     public class Gfy : Entity
     {
-        private static readonly UnauthorizedAccessException _invalidOwnership = new UnauthorizedAccessException("The current user doesn't own this resource");
-
         [JsonProperty("gfyId")]
         public string Id { get; private set; }
         [JsonProperty("gfyNumber")]
@@ -98,176 +96,135 @@ namespace Gfycat
         [JsonProperty("domainWhitelist")]
         public List<string> DomainWhitelist { get; private set; }
         
-        public Task ShareOnTwitterAsyncAsync(string postStatus)
+        public Task ShareOnTwitterAsyncAsync(string postStatus, RequestOptions options = null)
         {
-            return Client.SendJsonAsync("POST", $"gfycats/{Id}/share/twitter", new { status = postStatus });
+            return Client.SendJsonAsync("POST", $"gfycats/{Id}/share/twitter", new { status = postStatus }, options);
         }
 
-        public async Task ModifyTitleAsync(string newTitle)
+        public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
-            if (!CurrentUserOwnsGfy())
-                throw _invalidOwnership;
-
-            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/title", new { value = newTitle });
+            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/title", new { value = newTitle }, options);
             await UpdateAsync();
         }
         
-        public async Task DeleteTitleAsync()
+        public async Task DeleteTitleAsync(RequestOptions options = null)
         {
-            if (!CurrentUserOwnsGfy())
-                throw _invalidOwnership;
-
-            await Client.SendAsync("DELETE", $"me/gfycats/{Id}/title");
+            await Client.SendAsync("DELETE", $"me/gfycats/{Id}/title", options);
 
             await UpdateAsync();
         }
 
-        public async Task UpdateTagsAsync(params string[] tags)
+        public async Task UpdateTagsAsync(IEnumerable<string> tags, RequestOptions options = null)
         {
             if (tags.Count() > 20)
                 throw new ArgumentException("The number of tags provided exceeds the max value 20");
-            if (!CurrentUserOwnsGfy())
-                throw _invalidOwnership;
 
-            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/tags", new { value = tags });
+            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/tags", new { value = tags }, options);
 
             await UpdateAsync();
         }
 
-        public Task<IEnumerable<string>> GetDomainWhitelistAsync()
+        public Task<IEnumerable<string>> GetDomainWhitelistAsync(RequestOptions options = null)
         {
-            if (!CurrentUserOwnsGfy())
-                throw _invalidOwnership;
-
-            return Client.SendAsync<IEnumerable<string>>("GET", $"me/gfycats/{Id}/domain-whitelist");
+            return Client.SendAsync<IEnumerable<string>>("GET", $"me/gfycats/{Id}/domain-whitelist", options);
         }
 
-        public async Task ModifyDomainWhitelistAsync(IEnumerable<string> newWhitelist)
+        public async Task ModifyDomainWhitelistAsync(IEnumerable<string> newWhitelist, RequestOptions options = null)
         {
-            if (!CurrentUserOwnsGfy())
-                throw _invalidOwnership;
-
-            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/domain-whitelist", new { value = newWhitelist });
+            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/domain-whitelist", new { value = newWhitelist }, options);
 
             await UpdateAsync();
         }
 
-        public async Task DeleteDomainWhitelistAsync()
+        public async Task DeleteDomainWhitelistAsync(RequestOptions options = null)
         {
-            if (!CurrentUserOwnsGfy())
-                throw _invalidOwnership;
-
-            await Client.SendAsync("DELETE", $"me/gfycats/{Id}/domain-whitelist");
+            await Client.SendAsync("DELETE", $"me/gfycats/{Id}/domain-whitelist", options);
 
             await UpdateAsync();
         }
 
-        public Task<IEnumerable<string>> GetGeoWhitelistAsync()
+        public Task<IEnumerable<string>> GetGeoWhitelistAsync(RequestOptions options = null)
         {
-            if (!CurrentUserOwnsGfy())
-                throw _invalidOwnership;
-
-            return Client.SendAsync<IEnumerable<string>>("GET", $"me/gfycats/{Id}/geo-whitelist");
+            return Client.SendAsync<IEnumerable<string>>("GET", $"me/gfycats/{Id}/geo-whitelist", options);
         }
 
-        public async Task ModifyGeoWhitelistAsync(IEnumerable<string> newWhitelist)
+        public async Task ModifyGeoWhitelistAsync(IEnumerable<string> newWhitelist, RequestOptions options = null)
         {
-            if (!CurrentUserOwnsGfy())
-                throw _invalidOwnership;
-
-            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/geo-whitelist", new { value = newWhitelist });
+            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/geo-whitelist", new { value = newWhitelist }, options);
 
             await UpdateAsync();
         }
 
-        public async Task DeleteGeoWhitelistAsync()
+        public async Task DeleteGeoWhitelistAsync(RequestOptions options = null)
         {
-            if (!CurrentUserOwnsGfy())
-                throw _invalidOwnership;
-
-            await Client.SendAsync("DELETE", $"me/gfycats/{Id}/geo-whitelist");
+            await Client.SendAsync("DELETE", $"me/gfycats/{Id}/geo-whitelist", options);
 
             await UpdateAsync();
         }
 
-        public async Task ModifyDescriptionAsync(string newDescription)
+        public async Task ModifyDescriptionAsync(string newDescription, RequestOptions options = null)
         {
-            if (!CurrentUserOwnsGfy())
-                throw _invalidOwnership;
-
-            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/description", new { value = newDescription });
+            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/description", new { value = newDescription }, options);
 
             await UpdateAsync();
         }
 
-        public async Task DeleteDescriptionAsync()
+        public async Task DeleteDescriptionAsync(RequestOptions options = null)
         {
-            if (!CurrentUserOwnsGfy())
-                throw _invalidOwnership;
-
-            await Client.SendAsync("DELETE", $"me/gfycats/{Id}/description");
+            await Client.SendAsync("DELETE", $"me/gfycats/{Id}/description", options);
 
             await UpdateAsync();
         }
 
-        public async Task ModifyPublishedAsync(bool published)
+        public async Task ModifyPublishedAsync(bool published, RequestOptions options = null)
         {
-            if (!CurrentUserOwnsGfy())
-                throw _invalidOwnership;
-
-            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/published", new { value = (published) ? "1" : "0" });
+            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/published", new { value = (published) ? "1" : "0" }, options);
 
             await UpdateAsync();
         }
 
-        public async Task ModifyNsfwSettingAsync(NsfwSetting setting)
+        public async Task ModifyNsfwSettingAsync(NsfwSetting setting, RequestOptions options = null)
         {
-            if (!CurrentUserOwnsGfy())
-                throw _invalidOwnership;
-
-            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/nsfw", new { value = (int)setting });
+            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/nsfw", new { value = (int)setting }, options);
 
             await UpdateAsync();
         }
 
-        public Task DeleteAsync()
+        public Task DeleteAsync(RequestOptions options = null)
         {
-            if (!CurrentUserOwnsGfy())
-                throw _invalidOwnership;
-
-            return Client.SendAsync("DELETE", $"me/gfycats/{Id}");
+            return Client.SendAsync("DELETE", $"me/gfycats/{Id}", options);
         }
 
         /// <summary>
         /// Returns a boolean that says whether or not the current Gfy is or isn't bookmarked
         /// </summary>
         /// <returns>True if bookmarked, false otherwise</returns>
-        public async Task<bool> GetBookmarkStatusAsync()
+        public async Task<bool> GetBookmarkStatusAsync(RequestOptions options = null)
         {
-            return (await Client.SendAsync<dynamic>("GET", $"me/bookmarks/{Id}")).bookmarkState == "1";
+            return (await Client.SendAsync<dynamic>("GET", $"me/bookmarks/{Id}", options)).bookmarkState == "1";
         }
 
-        public Task BookmarkAsync(GfycatBookmarkFolder folder = null)
+        public Task BookmarkAsync(GfycatBookmarkFolder folder = null, RequestOptions options = null)
         {
             if (string.IsNullOrWhiteSpace(folder?.Id))
-                return Client.SendAsync("PUT", $"me/bookmarks/{Id}");
+                return Client.SendAsync("PUT", $"me/bookmarks/{Id}", options);
             else
-                return Client.SendAsync("PUT", $"me/bookmark-folders/{folder.Id}/contents/{Id}");
+                return Client.SendAsync("PUT", $"me/bookmark-folders/{folder.Id}/contents/{Id}", options);
         }
 
-        public Task UnbookmarkAsync(GfycatBookmarkFolder folder = null)
+        public Task UnbookmarkAsync(GfycatBookmarkFolder folder = null, RequestOptions options = null)
         {
             if (string.IsNullOrWhiteSpace(folder?.Id))
-                return Client.SendAsync("DELETE", $"me/bookmarks/{Id}");
+                return Client.SendAsync("DELETE", $"me/bookmarks/{Id}", options);
             else
-                return Client.SendAsync("DELETE", $"me/bookmark-folders/{folder.Id}/contents/{Id}");
+                return Client.SendAsync("DELETE", $"me/bookmark-folders/{folder.Id}/contents/{Id}", options);
         }
 
         public bool CurrentUserOwnsGfy() => Username == Client.Authentication.ResourceOwner;
 
-        private async Task UpdateAsync()
+        private async Task UpdateAsync(RequestOptions options = null)
         {
-            Rest.RestResponse response = await Client.SendAsync("GET", $"gfycats/{Id}");
+            Rest.RestResponse response = await Client.SendAsync("GET", $"gfycats/{Id}", options);
             JsonConvert.PopulateObject(response.ReadAsString(), this);
         }
     }

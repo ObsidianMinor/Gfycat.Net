@@ -33,7 +33,7 @@ namespace Gfycat
             Debug.WriteLine($"Client created with ID \"{clientId}\"");
         }
 
-        internal async Task<TResult> SendAsync<TResult>(string method, string endpoint, RequestOptions options = null)
+        internal async Task<TResult> SendAsync<TResult>(string method, string endpoint, RequestOptions options)
         {
             TResult result = (await SendAsync(method, endpoint, options)).ReadAsJson<TResult>();
             Entity resultEntity = result as Entity;
@@ -42,13 +42,13 @@ namespace Gfycat
             return result;
         }
 
-        internal Task<RestResponse> SendAsync(string method, string endpoint, RequestOptions options = null)
+        internal Task<RestResponse> SendAsync(string method, string endpoint, RequestOptions options)
         {
             options = options ?? RequestOptions.CreateFromDefaults(Config);
             return SendInternalAsync(() => RestClient.SendAsync(method, endpoint, options.CancellationToken), options);
         }
 
-        internal async Task<TResult> SendJsonAsync<TResult>(string method, string endpoint, object jsonObject, RequestOptions options = null)
+        internal async Task<TResult> SendJsonAsync<TResult>(string method, string endpoint, object jsonObject, RequestOptions options)
         {
             TResult result = (await SendJsonAsync(method, endpoint, jsonObject, options)).ReadAsJson<TResult>();
             Entity resultEntity = result as Entity;
@@ -57,14 +57,14 @@ namespace Gfycat
             return result;
         }
 
-        internal Task<RestResponse> SendJsonAsync(string method, string endpoint, object jsonObject, RequestOptions options = null)
+        internal Task<RestResponse> SendJsonAsync(string method, string endpoint, object jsonObject, RequestOptions options)
         {
             options = options ?? RequestOptions.CreateFromDefaults(Config);
             string jsonString = JsonConvert.SerializeObject(jsonObject);
             return SendInternalAsync(() => RestClient.SendAsync(method, endpoint, jsonString, options.CancellationToken), options);
         }
 
-        internal Task<RestResponse> SendStreamAsync(string method, string endpoint, string key, Stream stream, string fileName, RequestOptions options = null)
+        internal Task<RestResponse> SendStreamAsync(string method, string endpoint, string key, Stream stream, string fileName, RequestOptions options)
         {
             options = options ?? RequestOptions.CreateFromDefaults(Config);
             Dictionary<string, object> content = new Dictionary<string, object>
@@ -119,9 +119,9 @@ namespace Gfycat
             return (await SendAsync("HEAD", $"users/{username}", options)).Status == HttpStatusCode.NotFound;
         }
 
-        public async Task SendPasswordResetEmailAsync(string usernameOrEmail)
+        public async Task SendPasswordResetEmailAsync(string usernameOrEmail, RequestOptions options = null)
         {
-            await SendJsonAsync("PATCH", "users", new ActionRequest() { Value = usernameOrEmail, Action = "send_password_reset_email" });
+            await SendJsonAsync("PATCH", "users", new ActionRequest() { Value = usernameOrEmail, Action = "send_password_reset_email" }, options);
         }
 
         public Task<User> GetUserAsync(string userId, RequestOptions options = null)
@@ -131,7 +131,7 @@ namespace Gfycat
 
         public Task<CurrentUser> GetCurrentUserAsync(RequestOptions options = null)
         {
-            return SendAsync<CurrentUser>("GET", "me");
+            return SendAsync<CurrentUser>("GET", "me", options);
         }
 
         public Task CreateAccountAsync(string username, string password, string email, Provider? provider = null, TokenType? authCodeType = null, string authCode = null, RequestOptions options = null)
@@ -172,9 +172,9 @@ namespace Gfycat
             return (await SendJsonAsync<GfyKey>("POST", "gfycats", parameters, options)).Gfycat;
         }
 
-        public async Task<GfyStatus> CheckGfyUploadStatusAsync(string gfycat, RequestOptions options = null)
+        public async Task<GfyStatus> GetGfyUploadStatusAsync(string gfycat, RequestOptions options = null)
         {
-            return await SendAsync<GfyStatus>("GET", $"gfycats/fetch/status/{gfycat}");
+            return await SendAsync<GfyStatus>("GET", $"gfycats/fetch/status/{gfycat}", options);
         }
 
         public async Task<string> CreateGfyAsync(Stream data, GfyCreationParameters parameters = null, RequestOptions options = null)

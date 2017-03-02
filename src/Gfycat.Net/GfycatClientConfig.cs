@@ -1,5 +1,6 @@
 ﻿using Gfycat.Rest;
 using System;
+using System.Reflection;
 
 namespace Gfycat
 {
@@ -7,6 +8,7 @@ namespace Gfycat
     {
         public const int ApiVersion = 1;
         public static readonly string BaseUrl = $"https://api.gfycat.com/v{ApiVersion}/";
+        public static Version Version => typeof(GfycatClient).GetTypeInfo().Assembly.GetName().Version;
 
         /// <summary>
         /// Overrides the rest client for this Gfycat client
