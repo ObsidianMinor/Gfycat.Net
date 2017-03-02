@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using Gfycat.API.Responses;
+using Gfycat.Converters;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
