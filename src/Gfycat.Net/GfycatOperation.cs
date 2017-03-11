@@ -15,30 +15,30 @@ namespace Gfycat
             {
                 switch(Path)
                 {
-                    case CurrentUserOperationPath.Name:
+                    case OperationPath.Name:
                         return "/name";
-                    case CurrentUserOperationPath.Email:
+                    case OperationPath.Email:
                         return "/email";
-                    case CurrentUserOperationPath.Password:
+                    case OperationPath.Password:
                         return "/password";
-                    case CurrentUserOperationPath.ProfileUrl:
+                    case OperationPath.ProfileUrl:
                         return "/profile_url";
-                    case CurrentUserOperationPath.Description:
+                    case OperationPath.Description:
                         return "/description";
-                    case CurrentUserOperationPath.UploadNotices:
+                    case OperationPath.UploadNotices:
                         return "/upload_notices";
-                    case CurrentUserOperationPath.DomainWhitelist:
+                    case OperationPath.DomainWhitelist:
                         return "/domain_whitelist";
-                    case CurrentUserOperationPath.GeoWhitelist:
+                    case OperationPath.GeoWhitelist:
                         return "/geo_whitelist";
-                    case CurrentUserOperationPath.IframeImageVisible:
+                    case OperationPath.IframeImageVisible:
                         return "/iframe_image_visible";
                     default:
                         return string.Empty;
                 }
             }
         }
-        public CurrentUserOperationPath Path { get; set; }
+        public OperationPath Path { get; set; }
 
         [JsonProperty("value")]
         public object Value { get; set; }
@@ -51,7 +51,7 @@ namespace Gfycat
         Replace
     }
 
-    public enum CurrentUserOperationPath
+    public enum OperationPath
     {
         Name, 
         Email,

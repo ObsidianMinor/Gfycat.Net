@@ -5,6 +5,14 @@
     /// </summary>
     public abstract class Entity
     {
-        protected internal GfycatClient Client { get; set; }
+        protected internal GfycatClient Client { get; }
+
+        public string Id { get; internal set; }
+
+        internal Entity(GfycatClient client, string id)
+        {
+            Client = client;
+            Id = id;
+        }
     }
 }

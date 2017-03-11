@@ -4,10 +4,7 @@
     {
         FacebookAuthCode,
         FacebookAccessToken,
-        TwitterToken,
-        TwitterVerifier,
-        TwitterOauthToken,
-        TwitterOauthTokenSecret,
-        TwitterSecret
+        TwitterTokenVerifier,
+        TwitterTokenSecret
     }
 }

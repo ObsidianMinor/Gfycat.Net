@@ -15,7 +15,7 @@ namespace Gfycat.Converters
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            return ((string)reader.Value == "1");
+            return ((long)reader.Value == 1);
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)

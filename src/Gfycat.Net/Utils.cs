@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -31,5 +33,11 @@ namespace Gfycat
 
             return result.ToString();
         }
+
+        internal static string CreateQueryString(params (string Name, object Value)[] parameters)
+            => CreateQueryString(new Dictionary<string, object>(parameters.ToDictionary(t => t.Name, t => t.Value)));
+
+        internal static IReadOnlyCollection<T> ToReadOnlyCollection<T>(this IEnumerable<T> enumerable)
+            => new ReadOnlyCollection<T>(enumerable.ToList());
     }
 }

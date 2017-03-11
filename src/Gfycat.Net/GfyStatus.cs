@@ -1,15 +1,18 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+﻿using Model = Gfycat.API.Models.Status;
 
 namespace Gfycat
 {
     public class GfyStatus
     {
-        [JsonProperty("task"), JsonConverter(typeof(StringEnumConverter))]
-        public Status Task { get; set; }
-        [JsonProperty("time")]
-        public int Time { get; set; }
-        [JsonProperty("gfyname")]
-        public string GfyName { get; set; }
+        public UploadTask Task { get; internal set; }
+        public int Time { get; internal set; }
+        public string GfyName { get; internal set; }
+
+        internal GfyStatus(Model model)
+        {
+            Task = model.Task;
+            Time = model.Time;
+            GfyName = model.GfyName;
+        }
     }
 }

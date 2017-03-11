@@ -1,13 +1,12 @@
-﻿using Gfycat.API.Responses;
-using Gfycat.Converters;
-using Gfycat.OAuth2;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Model = Gfycat.API.Models.CurrentUser;
+using Gfycat.API.Models;
 
 namespace Gfycat
 {
@@ -16,107 +15,101 @@ namespace Gfycat
     /// </summary>
     public class CurrentUser : Entity, IUser
     {
+        internal CurrentUser(GfycatClient client) : base(client)
+        {
+        }
+
+        internal void Update(Model model)
+        {
+            Id = model.Id;
+            Username = model.Username;
+            Description = model.Description;
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// A unique identifier for the user
         /// </summary>
-        [JsonProperty("userid")]
         public string Id { get; private set; }
         /// <summary>
         /// The user’s username on Gfycat
         /// </summary>
-        [JsonProperty("username")]
         public string Username { get; private set; }
         /// <summary>
         /// The user’s profile description
         /// </summary>
-        [JsonProperty("description")]
         public string Description { get; private set; }
         /// <summary>
         /// The user’s profile link
         /// </summary>
-        [JsonProperty("profileUrl")]
         public string ProfileUrl { get; private set; }
         /// <summary>
         /// The user’s name on Gfycat
         /// </summary>
-        [JsonProperty("name")]
         public string Name { get; private set; }
         /// <summary>
         /// The number of user’s gfy views on Gfycat
         /// </summary>
-        [JsonProperty("views")]
         public int Views { get; private set; }
         /// <summary>
         /// The user’s email verification status
         /// </summary>
-        [JsonProperty("emailVerified")]
         public bool EmailVerified { get; private set; }
+
+        internal static CurrentUser Create(GfycatClient gfycatClient, Model currentUserModel)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// The URL to the user’s profile on Gfycat
         /// </summary>
-        [JsonProperty("url")]
         public string Url { get; private set; }
         /// <summary>
         /// The date the user created their account
         /// </summary>
-        [JsonProperty("createDate"), JsonConverter(typeof(UnixTimeConverter))]
         public DateTime CreationDate { get; private set; }
         /// <summary>
         /// The URL to the user’s avatar on Gfycat
         /// </summary>
-        [JsonProperty("profileImageUrl")]
         public string ProfileImageUrl { get; private set; }
         /// <summary>
         /// The account’s verified status
         /// </summary>
-        [JsonProperty("verified")]
         public bool Verified { get; private set; }
         /// <summary>
         /// The number of user’s followers
         /// </summary>
-        [JsonProperty("followers")]
         public int Followers { get; private set; }
         /// <summary>
         /// The number of users this user follows
         /// </summary>
-        [JsonProperty("following")]
         public int Following { get; private set; }
         /// <summary>
         /// The user’s profile image visibility on the iframe
         /// </summary>
-        [JsonProperty("iframeProfileImageVisible")]
         public bool IframeProfileImageVisible { get; private set; }
         /// <summary>
         /// The user’s geo whitelist on Gfycat
         /// </summary>
-        [JsonProperty("geoWhitelist")]
-        public string GeoWhitelist { get; private set; }
+        public IEnumerable<string> GeoWhitelist { get; private set; }
         /// <summary>
         /// The user’s domain whitelist on Gfycat
         /// </summary>
-        [JsonProperty("domainWhitelist")]
-        public string DomainWhitelist { get; private set; }
+        public IEnumerable<string> DomainWhitelist { get; private set; }
         /// <summary>
         /// The email address of the specified user
         /// </summary>
-        [JsonProperty("email")]
         public string Email { get; private set; }
         /// <summary>
         /// The user’s associated provider details (has the user linked their facebook or twitter account and selected details from the provider)
         /// </summary>
-        [JsonProperty("associatedProvders")]
         public string AssociatedProviders { get; private set; }
         /// <summary>
         /// The user’s upload notices settings, whether the user wants to get notified of uploads or not
         /// </summary>
-        [JsonProperty("uploadNotices")]
         public bool UploadNotices { get; private set; }
-
-        public async Task UpdateAsync(RequestOptions options = null)
-        {
-            JsonConvert.PopulateObject((await Client.SendAsync("GET", "me", options)).ReadAsString(), this);
-        }
-
+        
         #region Users
 
         /// <summary>
@@ -314,7 +307,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<IEnumerable<GfycatAlbumInfo>> GetAlbumsAsync(RequestOptions options = null)
         {
-            IEnumerable<GfycatAlbumInfo> albums = (await Client.SendAsync<GfycatAlbumResponse>("GET", $"me/album-folders", options)).Albums;
+            IEnumerable<GfycatAlbumInfo> albums = await Client.SendAsync<IEnumerable<GfycatAlbumInfo>>("GET", $"me/album-folders", options);
             RecursiveSetOwners(albums);
             return albums;
         }
@@ -332,13 +325,7 @@ namespace Gfycat
 
         public Task<GfycatFeed> SearchAsync(string searchText, int? count = null, string cursor = null, RequestOptions options = null)
         {
-            string queryString = Utils.CreateQueryString(new Dictionary<string, object>
-            {
-                { "search_text", searchText },
-                { "count", count },
-                { "cursor", cursor }
-            });
-            return Client.SendAsync<GfycatFeed>("GET", $"me/gfycats/search{queryString}", options);
+            return  SendAsync<GfycatFeed>("GET", $"me/gfycats/search{queryString}", options);
         }
 
         public Task AddTwitterProviderAsync(string secret, RequestOptions options = null)
@@ -364,13 +351,13 @@ namespace Gfycat
         public async Task ModifyDomainWhitelistAsync(IEnumerable<string> newWhitelist, RequestOptions options = null)
         {
             await Client.SendJsonAsync("PUT", $"me/domain-whitelist", new { domainWhitelist = newWhitelist }, options);
-            await UpdateAsync();
+            DomainWhitelist = newWhitelist;
         }
 
         public async Task DeleteDomainWhitelistAsync(RequestOptions options = null)
         {
             await Client.SendAsync("DELETE", $"me/domain-whitelist", options);
-            await UpdateAsync();
+            DomainWhitelist = new string[0];
         }
 
         public Task<IEnumerable<string>> GetGeoWhitelistAsync(RequestOptions options = null)
@@ -381,13 +368,13 @@ namespace Gfycat
         public async Task ModifyGeoWhitelistAsync(IEnumerable<string> newWhitelist, RequestOptions options = null)
         {
             await Client.SendJsonAsync("PUT", $"me/geo-whitelist", new { geoWhitelist = newWhitelist }, options);
-            await UpdateAsync();
+            GeoWhitelist = newWhitelist;
         }
 
         public async Task DeleteGeoWhitelistAsync(RequestOptions options = null)
         {
             await Client.SendAsync("DELETE", $"me/geo-whitelist", options);
-            await UpdateAsync();
+            GeoWhitelist = new string[0];
         }
     }
 }

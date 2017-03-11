@@ -1,4 +1,4 @@
-﻿using Gfycat.API.Responses;
+﻿using Gfycat.API;
 using Newtonsoft.Json;
 using System;
 using System.Net;
@@ -8,8 +8,7 @@ namespace Gfycat
     public class GfycatException : Exception
     {
         public HttpStatusCode HttpCode { get; set; }
-
-        [JsonProperty("message")]
+        
         public string ServerMessage { get; set; }
 
         [JsonProperty("code")]
@@ -35,17 +34,20 @@ namespace Gfycat
 
         internal static GfycatException CreateFromResponse(Rest.RestResponse restResponse)
         {
-            ErrorResponse response = new ErrorResponse()
-            {
-                Error = new GfycatException()
-                {
-                    HttpCode = restResponse.Status
-                }
-            };
             string result = restResponse.ReadAsString();
             if (!string.IsNullOrWhiteSpace(result) && !result.StartsWith("<html>"))
-                JsonConvert.PopulateObject(result, response);
-            return response.Error;
+            {
+                ErrorResponse error = JsonConvert.DeserializeObject<ErrorResponse>(result);
+                error.Error.HttpCode = restResponse.Status;
+                return error.Error;
+            }
+            else
+            {
+                return new GfycatException()
+                {
+                    HttpCode = restResponse.Status
+                };
+            }
         }
     }
 }

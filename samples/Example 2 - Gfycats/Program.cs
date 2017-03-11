@@ -21,7 +21,7 @@ namespace GfycatsSample
             string gfyId = await _client.CreateGfyAsync(File.Open("somefile", FileMode.Open));
 
             GfyStatus status = await _client.GetGfyUploadStatusAsync(gfyId);
-            while(status.Task == Status.Encoding)
+            while(status.Task == UploadTask.Encoding)
             {
                 await Task.Delay(TimeSpan.FromSeconds(status.Time));
                 status = await _client.GetGfyUploadStatusAsync(gfyId);

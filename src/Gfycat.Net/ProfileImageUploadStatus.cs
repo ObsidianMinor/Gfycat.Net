@@ -2,10 +2,8 @@
 {
     public enum ProfileImageUploadStatus
     {
+        Invalid,
         Succeeded,
         Pending,
-        Failed,
-        Error,
-        NotFound
     }
 }
