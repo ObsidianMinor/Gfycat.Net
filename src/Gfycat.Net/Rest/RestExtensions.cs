@@ -4,7 +4,7 @@ using Gfycat.Rest;
 
 namespace Gfycat
 {
-    internal static class RestResponseExtensions
+    internal static class RestExtensions
     {
         internal static T ReadAsJson<T>(this RestResponse response, GfycatClientConfig config)
         {

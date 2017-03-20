@@ -18,7 +18,7 @@ namespace Gfycat
             return new RequestOptions()
             {
                 Timeout = config.DefaultTimeout,
-                RetryMode = config.DefaultRetryMode
+                RetryMode = config.DefaultRetryMode,
             };
         }
     }

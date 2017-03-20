@@ -21,16 +21,16 @@ Add support for analytics endpoints (maybe namespace Gfycat.Analytics?)
 ```csharp
 using Gfycat;
 ...
-GfycatClient client = new GfycatClient("replace-with-clientid", "replace-with-clientsecret");
-await client.Authentication.AuthenticateClientAsync(); // authenticate without a user as the client
+GfycatClient client = new GfycatClient("replace_with_your_client_ID", "replace_with_your_client_secret");
+await client.AuthenticateAsync(); // gfy actions such as creating and fetching don't require that a user logs in
 
-string gfyId = await client.CreateGfyAsync(System.IO.File.Open("somevideo.mp4")); // upload a video, get back a name
+string gfyId = await client.CreateGfyAsync(File.Open("somefile", FileMode.Open));
 
-GfyStatus status = await _client.CheckGfyUploadStatusAsync(gfyId); // use the name to get the status
-while(status.Task == Status.Encoding)
+GfyStatus status = await client.GetGfyUploadStatusAsync(gfyId);
+while(status.Task == UploadTask.Encoding)
 {
-  await Task.Delay(TimeSpan.FromSeconds(status.Time));
-  status = await _client.CheckGfyUploadStatusAsync(gfyId);
+    await Task.Delay(TimeSpan.FromSeconds(status.Time));
+    status = await client.GetGfyUploadStatusAsync(gfyId);
 }
 
 if (status.Task == Status.Invalid || status.Task == Status.NotFoundo)

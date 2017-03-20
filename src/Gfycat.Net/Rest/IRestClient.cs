@@ -7,7 +7,6 @@ namespace Gfycat.Rest
     public interface IRestClient
     {
         void SetHeader(string key, string value);
-        void SetAuthorization(string scheme, string token);
         void SetCancellationToken(CancellationToken token);
 
         Task<RestResponse> SendAsync(string method, string endpoint, CancellationToken token);

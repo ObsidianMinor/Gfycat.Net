@@ -4,6 +4,6 @@ namespace Gfycat
 {
     public interface ISearchable
     {
-        Task<IFeed> SearchAsync(string searchText, int count, string cursor, RequestOptions options);
+        Task<GfyFeed> SearchAsync(string searchText, int count = 10, RequestOptions options = null);
     }
 }

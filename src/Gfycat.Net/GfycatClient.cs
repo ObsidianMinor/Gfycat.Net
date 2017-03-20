@@ -1,13 +1,13 @@
 ﻿using Gfycat.API;
 using Gfycat.API.Models;
-using Gfycat.OAuth2;
-using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
+using Gfycat.Rest;
+using System;
 
 namespace Gfycat
 {
@@ -15,16 +15,208 @@ namespace Gfycat
     {
         internal GfycatApiClient ApiClient { get; }
 
-        public GfycatClient(string clientId, string clientSecret) : this(clientId, clientSecret, new GfycatClientConfig())
+        public GfycatClient(string clientId, string clientSecret) : this(new GfycatClientConfig(clientId, clientSecret))
         {
         }
 
-        public GfycatClient(string clientId, string clientSecret, GfycatClientConfig config)
+        public GfycatClient(GfycatClientConfig config)
         {
-            ApiClient = new GfycatApiClient(clientId, clientSecret, config);
+            ApiClient = new GfycatApiClient(this, config);
 
-            Debug.WriteLine($"Client created with ID \"{clientId}\"");
+            Debug.WriteLine($"Client created with ID \"{config.ClientId}\"");
         }
+
+        #region Auth methods
+
+        public string ClientId { get; }
+        private string ClientSecret { get; }
+
+        public string AccessToken { get; private set; }
+
+        /// <summary>
+        /// The current refresh token being used for refreshing the access token when it expires
+        /// </summary>
+        public string RefreshToken { get; private set; }
+
+        private IRestClient RestClient => ApiClient.RestClient;
+
+        /// <summary>
+        /// If the current authentication method used includes a refresh token in the response this will refresh both access and refresh tokens
+        /// </summary>
+        /// <returns></returns>
+        public async Task RefreshTokenAsync(string providedRefreshToken = null, RequestOptions options = null)
+        {
+            if (!string.IsNullOrWhiteSpace(providedRefreshToken))
+                RefreshToken = providedRefreshToken;
+
+            options = options ?? RequestOptions.CreateFromDefaults(ApiClient.Config);
+            options.UseAccessToken = false;
+            if (RefreshToken == null)
+            {
+                await AuthenticateAsync(options);
+                return;
+            }
+            else
+            {
+                Debug.WriteLine("Refreshing token...");
+                RestResponse response = await ApiClient.SendJsonAsync(
+                    "POST",
+                    "oauth/token",
+                    new RefreshAuthRequest()
+                    {
+                        ClientId = ClientId,
+                        ClientSecret = ClientSecret,
+                        GrantType = "refresh",
+                        RefreshToken = RefreshToken
+                    },
+                    options);
+                ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
+
+                Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
+                Debug.WriteLine($"Recieved access token {auth.AccessToken}");
+
+                AccessToken = auth.AccessToken;
+                RefreshToken = auth.RefreshToken;
+            }
+        }
+
+        /// <summary>
+        /// Authenticates this instance using client credentials
+        /// </summary>
+        /// <returns>An awaitable task</returns>
+        public async Task AuthenticateAsync(RequestOptions options = null)
+        {
+            Debug.WriteLine("Performing client credentials authentication...");
+            options = options ?? RequestOptions.CreateFromDefaults(ApiClient.Config);
+            options.UseAccessToken = false;
+            RestResponse response = await ApiClient.SendJsonAsync(
+                "POST",
+                "oauth/token",
+                new ClientCredentialsAuthRequest()
+                {
+                    ClientId = ClientId,
+                    ClientSecret = ClientSecret,
+                    GrantType = "client_credentials"
+                },
+                options);
+            ClientCredentialsAuthResponse auth = response.ReadAsJson<ClientCredentialsAuthResponse>(ApiClient.Config);
+
+            Debug.WriteLine($"Recieved access token {auth.AccessToken}");
+            AccessToken = auth.AccessToken;
+        }
+
+        /// <summary>
+        /// Allows the owner of this client to log in with their username and password
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns>An awaitable task</returns>
+        public async Task AuthenticateAsync(string username, string password, RequestOptions options = null)
+        {
+            Debug.WriteLine($"Performing client account authentication...");
+            options = options ?? RequestOptions.CreateFromDefaults(ApiClient.Config);
+            options.UseAccessToken = false;
+            RestResponse response = await ApiClient.SendJsonAsync(
+                "POST",
+                "oauth/token",
+                new ClientAccountAuthRequest()
+                {
+                    ClientId = ClientId,
+                    ClientSecret = ClientSecret,
+                    GrantType = "password",
+                    Username = username,
+                    Password = password
+                },
+                options);
+            ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
+
+            Debug.WriteLine($"Logged in as {username}");
+            Debug.WriteLine($"Recieved access token {auth.AccessToken}");
+
+            AccessToken = auth.AccessToken;
+            RefreshToken = auth.RefreshToken;
+        }
+
+        public async Task<string> GetTwitterRequestTokenAsync(RequestOptions options = null)
+        {
+            options = options ?? RequestOptions.CreateFromDefaults(ApiClient.Config);
+            options.UseAccessToken = false;
+            RestResponse response = await ApiClient.SendJsonAsync(
+                "POST",
+                "oauth/token",
+                new
+                {
+                    grant_type = "request_token",
+                    provider = "twitter"
+                },
+                options);
+            TwitterRequestTokenResponse auth = response.ReadAsJson<TwitterRequestTokenResponse>(ApiClient.Config);
+            return auth.RequestToken;
+        }
+
+        public async Task AuthenticateAsync(TokenType type, string token, RequestOptions options = null)
+        {
+            options = options ?? RequestOptions.CreateFromDefaults(ApiClient.Config);
+            options.UseAccessToken = false;
+            switch (type)
+            {
+                case TokenType.FacebookAccessToken:
+                    {
+                        throw new NotImplementedException();
+                    }
+                    break;
+                case TokenType.FacebookAuthCode:
+                    {
+                        throw new NotImplementedException();
+                    }
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("The provided token type does not accept one token parameter");
+            }
+        }
+
+        /// <summary>
+        /// Authenticates using a browser auth code and redirect uri, twitter token and secret, or twitter token and verifier
+        /// </summary>
+        /// <param name="type">The type of the provided tokens</param>
+        /// <param name="tokenOrCode">A twitter token or browser auth code</param>
+        /// <param name="verifierSecretRedirectUri">A twitter secret, verifier, or browser redirect uri</param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public async Task AuthenticateAsync(TokenType type, string tokenOrCode, string verifierSecretRedirectUri, RequestOptions options = null)
+        {
+            options = options ?? RequestOptions.CreateFromDefaults(ApiClient.Config);
+            options.UseAccessToken = false;
+            switch (type)
+            {
+                case TokenType.AuthorizationCode:
+                    {
+                        throw new NotImplementedException();
+                    }
+                    break;
+                case TokenType.TwitterTokenSecret:
+                    {
+                        throw new NotImplementedException();
+                    }
+                    break;
+                case TokenType.TwitterTokenVerifier:
+                    {
+                        throw new NotImplementedException();
+                    }
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("The provided token type does not accept two token parameters");
+            }
+        }
+
+        public async Task AuthenticateAsync(string accessToken, bool verifyToken = true)
+        {
+            AccessToken = accessToken;
+
+            if (verifyToken)
+                await GetCurrentUserAsync(); // throws if the access token is invalid
+        }
+        #endregion
 
         #region Users
 
@@ -35,7 +227,7 @@ namespace Gfycat
 
         public async Task SendPasswordResetEmailAsync(string usernameOrEmail, RequestOptions options = null)
         {
-            await ApiClient.SendPasswordResetEmailAsync(new ActionRequest() { Action = "send_password_reset_email", Value = usernameOrEmail }, options);
+            await ApiClient.SendPasswordResetEmailAsync(usernameOrEmail, options);
         }
 
         public async Task<User> GetUserAsync(string userId, RequestOptions options = null)
@@ -48,16 +240,6 @@ namespace Gfycat
         {
             API.Models.CurrentUser currentUserModel = await ApiClient.GetCurrentUserAsync(options);
             return CurrentUser.Create(this, currentUserModel);
-        }
-
-        public Task CreateAccountAsync(string username, string password, string email, Provider? provider = null, TokenType? authCodeType = null, string authCode = null, RequestOptions options = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        private Task CreateAccountInternalAsync(string username, string password, string email, Provider? provider, TokenType? authCodeType, string authCode, RequestOptions options = null)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion
@@ -85,13 +267,13 @@ namespace Gfycat
         public async Task<GfyStatus> GetGfyUploadStatusAsync(string gfycat, RequestOptions options = null)
         {
             Status status = await ApiClient.GetGfyStatusAsync(gfycat, options);
-            return new GfyStatus(status);
+            return new GfyStatus(this, status);
         }
 
         public async Task<string> CreateGfyAsync(Stream data, GfyCreationParameters parameters = null, RequestOptions options = null)
         {
-            UploadKey uploadKey = await SendJsonAsync<UploadKey>("POST", "gfycats", parameters ?? new object(), options);
-            await SendStreamAsync("POST", "https://filedrop.gfycat.com/", uploadKey.Secret, data, uploadKey.Gfycat, options);
+            UploadKey uploadKey = await ApiClient.GetUploadKeyAsync(parameters, options);
+            await ApiClient.PostGfyStreamAsync(uploadKey, data, options);
 
             return uploadKey.Gfycat;
         }
@@ -100,45 +282,27 @@ namespace Gfycat
 
         #region Trending feeds
 
-        public Task<TrendingGfycatFeed> GetTrendingGfycatsAsync(string tag = null, int? count = null, string cursor = null, RequestOptions options = null)
+        public async Task<TaggedGfyFeed> GetTrendingGfycatsAsync(string tag = null, int count = 10, string cursor = null, RequestOptions options = null)
         {
-            string queryString = Utils.CreateQueryString(new Dictionary<string, object>
-            {
-                { "tagName", tag },
-                { "count", count },
-                { "cursor", cursor }
-            });
-            return SendAsync<TrendingGfycatFeed>("GET", $"gfycats/trending{queryString}", options);
+            throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<string>> GetTrendingTagsAsync(int? tagCount = null, string cursor = null, RequestOptions options = null)
+        public async Task<IEnumerable<string>> GetTrendingTagsAsync(int tagCount = 10, string cursor = null, RequestOptions options = null)
         {
-            string queryString = Utils.CreateQueryString(new Dictionary<string, object>
-            {
-                { "tagCount", tagCount },
-                { "cursor", cursor }
-            });
-            return SendAsync<IEnumerable<string>>("GET", $"tags/trending{queryString}", options);
+            return await ApiClient.GetTrendingTagsAsync(tagCount, cursor, options);
         }
 
-        public Task<GfycatFeed> GetTrendingTagsPopulatedAsync(int? tagCount = null, int? gfyCount = null, string cursor = null, RequestOptions options = null)
+        public async Task<PopulatedTagFeed> GetTrendingTagsPopulatedAsync(int tagCount = 10, int gfyCount = 5, RequestOptions options = null)
         {
-            string queryString = Utils.CreateQueryString(new Dictionary<string, object>
-            {
-                { "tagCount", tagCount },
-                { "gfyCount", gfyCount },
-                { "cursor", cursor }
-            });
-            return SendAsync<GfycatFeed>("GET", $"tags/trending/populated{queryString}", options);
+            throw new NotImplementedException();
         }
 
         #endregion
 
         // supposedly in testing. hhhhhhhhhhhhhhhhmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
-        public Task<GfycatFeed> SearchAsync(string searchText, int count = 50, string cursor = null, RequestOptions options = null)
+        public async Task<GfyFeed> SearchAsync(string searchText, int count = 10, RequestOptions options = null)
         {
-            Feed feed = await ApiClient.SearchSiteAsync(searchText, count, cursor, options);
-            return GfycatFeed.Create(this, feed);
+            throw new NotImplementedException();
         }
 
         #region API Credentials
@@ -150,7 +314,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<IEnumerable<AppApiInfo>> GetApiCredentialsAsync(RequestOptions options = null)
         {
-            return await SendAsync<IEnumerable<AppApiInfo>>("GET", "me/api-credentials", options);
+            return (await ApiClient.GetDeveloperKeysAsync(options)).Select(a => AppApiInfo.Create(this, a));
         }
 
         #endregion
@@ -161,12 +325,20 @@ namespace Gfycat
         {
             { TokenType.FacebookAuthCode, "auth_code" },
             { TokenType.FacebookAccessToken, "access_token" },
-            { TokenType.TwitterOauthToken, "oauth_token" },
-            { TokenType.TwitterOauthTokenSecret, "oauth_token_secret" },
-            { TokenType.TwitterSecret, "secret" },
-            { TokenType.TwitterToken, "token" },
-            { TokenType.TwitterVerifier, "verifier" }
+            { TokenType.TwitterTokenSecret, "secret" },
+            { TokenType.TwitterTokenVerifier, "verifier" }
         };
+
+        public static string GetTwitterRequestTokenUrl(string requestToken) => $"https://api.twitter.com/oauth/authenticate?oauth_token={requestToken}";
+
+        /// <summary>
+        /// Creates an authorization URL given a state and a redirect URI
+        /// </summary>
+        /// <param name="state"></param>
+        /// <param name="redirectUri"></param>
+        /// <param name="codeResponse">True to return a code response (for authorization response), false to return a token response (implicit authorization)</param>
+        /// <returns></returns>
+        public string GetBrowserAuthUrl(string state, string redirectUri, bool codeResponse) => $"https://gfycat.com/oauth/authorize?client_id={ClientId}&scope=all&state={state}&response_type={(codeResponse ? "code" : "token")}&redirect_uri={redirectUri}";
 
         #endregion
 

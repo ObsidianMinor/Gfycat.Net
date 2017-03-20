@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Gfycat
 {
-    public interface IFeed
+    public interface IFeed<T> : IAsyncEnumerable<T>
     {
-        IReadOnlyCollection<Gfy> Gfycats { get; }
-
-        Task<IFeed> GetNextAsync(int count, RequestOptions options);
+        IReadOnlyCollection<T> Content { get; }
+        string Cursor { get; }
     }
 }

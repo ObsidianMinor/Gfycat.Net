@@ -5,76 +5,77 @@ using Model = Gfycat.API.Models.User;
 
 namespace Gfycat
 {
-    public class User : Entity, IUser
+    public class User : Entity, IUser, IUpdatable
     {
-        public string Username { get; private set; }
-        public string Description { get; private set; }
-        public string ProfileUrl { get; private set; }
-        public string Name { get; private set; }
-        public int Views { get; private set; }
-        public bool EmailVerified { get; private set; }
-        public string Url { get; private set; }
-        public DateTime CreationDate { get; private set; }
-        public string ProfileImageUrl { get; private set; }
-        public bool Verified { get; private set; }
-        public int Followers { get; private set; }
-        public int Following { get; private set; }
-        public bool IframeProfileImageVisible { get; private set; }
+        public string Username { get; internal set; }
+        public string Description { get; internal set; }
+        public string ProfileUrl { get; internal set; }
+        public string Name { get; internal set; }
+        public int Views { get; internal set; }
+        public bool EmailVerified { get; internal set; }
+        public string Url { get; internal set; }
+        public DateTime CreationDate { get; internal set; }
+        public string ProfileImageUrl { get; internal set; }
+        public bool Verified { get; internal set; }
+        public int Followers { get; internal set; }
+        public int Following { get; internal set; }
+        public bool IframeProfileImageVisible { get; internal set; }
 
         internal User(GfycatClient client, string id) : base(client, id)
         { }
 
+        internal void Update(Model model)
+        {
+            CreationDate = model.CreationDate;
+            Description = model.Description;
+            EmailVerified = model.EmailVerified;
+            Followers = model.Followers;
+            Following = model.Following;
+            IframeProfileImageVisible = model.IframeProfileImageVisible;
+            Name = model.Name;
+            ProfileImageUrl = model.ProfileImageUrl;
+            ProfileUrl = model.ProfileUrl;
+            Url = model.Url;
+            Username = model.Username;
+            Verified = model.Verified;
+            Views = model.Views;
+        }
+
         internal static User Create(GfycatClient client, Model model)
         {
-            return new User(client, model.Id)
-            {
-                CreationDate = model.CreationDate,
-                Description = model.Description,
-                EmailVerified = model.EmailVerified,
-                Followers = model.Followers,
-                Following = model.Following,
-                IframeProfileImageVisible = model.IframeProfileImageVisible,
-                Name = model.Name,
-                ProfileImageUrl = model.ProfileImageUrl,
-                ProfileUrl = model.ProfileUrl,
-                Url = model.Url,
-                Username = model.Username,
-                Verified = model.Verified,
-                Views = model.Views
-            };
+            User user = new User(client, model.Id);
+            user.Update(model);
+            return user;
         }
 
-        public async Task<IEnumerable<GfycatAlbumInfo>> GetAlbumsAsync(RequestOptions options = null)
+        public async Task UpdateAsync(RequestOptions options)
         {
-            string endpoint = $"users/{Id}/albums";
-            IEnumerable<GfycatAlbumInfo> albums = await Client.SendAsync<IEnumerable<GfycatAlbumInfo>>("GET", endpoint, options);
-            RecursiveSetOwners(albums);
-            return albums;
+            Update(await Client.ApiClient.GetUserAsync(Id, options));
         }
 
-        private void RecursiveSetOwners(IEnumerable<GfycatAlbumInfo> albums)
+        public async Task<IEnumerable<AlbumInfo>> GetAlbumsAsync(RequestOptions options = null)
         {
-            foreach(GfycatAlbumInfo album in albums)
-            {
-                album.Owner = this;
-                RecursiveSetOwners(album.Subalbums);
-            }
+            throw new NotImplementedException();
         }
 
-        public async Task<GfycatAlbum> GetAlbumContentsByLinkTextAsync(string albumLinkText, RequestOptions options = null)
+        public async Task<GfyFeed> GetGfycatFeedAsync(int count = 10, RequestOptions options = null)
         {
-            string endpoint = $"users/{Id}/album_links/{albumLinkText}";
-            return await Client.SendAsync<GfycatAlbum>("GET", endpoint, options);
+            throw new NotImplementedException();
         }
 
-        public Task<GfycatFeed> GetGfycatFeedAsync(int? count = null, string cursor = null, RequestOptions options = null)
+        public async Task FollowUserAsync(RequestOptions options = null)
         {
-            string queryString = Utils.CreateQueryString(new Dictionary<string, object>()
-            {
-                { "count", count },
-                { "cursor", cursor }
-            });
-            return Client.SendAsync<GfycatFeed>("GET", $"users/{Id}/gfycats{queryString}", options);
+            await Client.ApiClient.FollowUserAsync(Id, options);
+        }
+
+        public async Task UnfollowUserAsync(RequestOptions options = null)
+        {
+            await Client.ApiClient.UnfollowUserAsync(Id, options);
+        }
+
+        public async Task<bool> GetFollowingUser(RequestOptions options = null)
+        {
+            return (await Client.ApiClient.GetFollowingUserAsync(Id, options)) == System.Net.HttpStatusCode.OK;
         }
     }
 }

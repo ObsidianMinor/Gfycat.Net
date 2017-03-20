@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using Model = Gfycat.API.Models.ApplicationInfo;
+
 namespace Gfycat
 {
     public class AppApiInfo : Entity
@@ -18,5 +20,21 @@ namespace Gfycat
         public AppType AppType { get; private set; }
         public string Username { get; private set; }
         public string Email { get; private set; }
+
+        internal static AppApiInfo Create(GfycatClient client, Model model)
+        {
+            return new AppApiInfo(client, model.ClientId)
+            {
+                AppName = model.AppName,
+                AppType = model.AppType,
+                Company = model.Company,
+                ContactName = model.ContactName,
+                CreationDate = model.CreationDate,
+                Email = model.Email,
+                RedirectUris = model.RedirectUris.ToReadOnlyCollection(),
+                Username = model.Username,
+                WebUrl = model.WebUrl
+            };
+        }
     }
 }

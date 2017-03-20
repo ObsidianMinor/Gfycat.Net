@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Gfycat
 {
+
     internal static class Utils
     {
         internal static IEnumerable<HttpStatusCode> Ignore404 => new[] { HttpStatusCode.NotFound };

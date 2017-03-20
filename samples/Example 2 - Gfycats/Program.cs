@@ -16,7 +16,7 @@ namespace GfycatsSample
         async Task StartAsync()
         {
             _client = new GfycatClient(_clientId, _clientSecret);
-            await _client.Authentication.AuthenticateClientAsync(); // gfy actions such as creating and fetching don't require that a user logs in
+            await _client.AuthenticateAsync(); // gfy actions such as creating and fetching don't require that a user logs in
 
             string gfyId = await _client.CreateGfyAsync(File.Open("somefile", FileMode.Open));
 

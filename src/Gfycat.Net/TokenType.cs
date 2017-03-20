@@ -1,7 +1,8 @@
-﻿namespace Gfycat.OAuth2
+﻿namespace Gfycat
 {
     public enum TokenType
     {
+        AuthorizationCode,
         FacebookAuthCode,
         FacebookAccessToken,
         TwitterTokenVerifier,

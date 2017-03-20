@@ -1,102 +1,88 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Model = Gfycat.API.Models.CurrentUser;
-using Gfycat.API.Models;
 
 namespace Gfycat
 {
     /// <summary>
     /// Represents the current login user on Gfycat
     /// </summary>
-    public class CurrentUser : Entity, IUser
+    public class CurrentUser : Entity, IUser, IUpdatable, ISearchable
     {
-        internal CurrentUser(GfycatClient client) : base(client)
+        internal CurrentUser(GfycatClient client, string id) : base(client, id)
         {
         }
 
         internal void Update(Model model)
         {
-            Id = model.Id;
             Username = model.Username;
             Description = model.Description;
-            throw new NotImplementedException();
+            ProfileUrl = model.ProfileUrl;
+            Name = model.Name;
+            Views = model.Views;
+            EmailVerified = model.EmailVerified;
+            Url = model.Url;
+            CreationDate = model.CreationDate;
+            ProfileImageUrl = model.ProfileImageUrl;
+            Verified = model.Verified;
+            Followers = model.Followers;
+            Following = model.Following;
+            IframeProfileImageVisible = model.IframeProfileImageVisible;
+            GeoWhitelist = model.GeoWhitelist.ToReadOnlyCollection();
+            DomainWhitelist = model.DomainWhitelist.ToReadOnlyCollection();
+            Email = model.Email;
+            AssociatedProviders = model.AssociatedProviders;
+            UploadNotices = model.UploadNotices;
         }
 
-        /// <summary>
-        /// A unique identifier for the user
-        /// </summary>
-        public string Id { get; private set; }
-        /// <summary>
-        /// The user’s username on Gfycat
-        /// </summary>
-        public string Username { get; private set; }
-        /// <summary>
-        /// The user’s profile description
-        /// </summary>
-        public string Description { get; private set; }
-        /// <summary>
-        /// The user’s profile link
-        /// </summary>
-        public string ProfileUrl { get; private set; }
-        /// <summary>
-        /// The user’s name on Gfycat
-        /// </summary>
-        public string Name { get; private set; }
-        /// <summary>
-        /// The number of user’s gfy views on Gfycat
-        /// </summary>
-        public int Views { get; private set; }
-        /// <summary>
-        /// The user’s email verification status
-        /// </summary>
-        public bool EmailVerified { get; private set; }
-
+        public async Task UpdateAsync(RequestOptions options)
+            => Update(await Client.ApiClient.GetCurrentUserAsync(options));
+        
         internal static CurrentUser Create(GfycatClient gfycatClient, Model currentUserModel)
         {
-            throw new NotImplementedException();
+            CurrentUser user = new CurrentUser(gfycatClient, currentUserModel.Id);
+            user.Update(currentUserModel);
+            return user;
         }
+        
+        public string Username { get; private set; }
 
-        /// <summary>
-        /// The URL to the user’s profile on Gfycat
-        /// </summary>
+        public string Description { get; private set; }
+
+        public string ProfileUrl { get; private set; }
+
+        public string Name { get; private set; }
+
+        public int Views { get; private set; }
+
+        public bool EmailVerified { get; private set; }
+
         public string Url { get; private set; }
-        /// <summary>
-        /// The date the user created their account
-        /// </summary>
+
         public DateTime CreationDate { get; private set; }
-        /// <summary>
-        /// The URL to the user’s avatar on Gfycat
-        /// </summary>
+
         public string ProfileImageUrl { get; private set; }
-        /// <summary>
-        /// The account’s verified status
-        /// </summary>
+
         public bool Verified { get; private set; }
-        /// <summary>
-        /// The number of user’s followers
-        /// </summary>
+
         public int Followers { get; private set; }
-        /// <summary>
-        /// The number of users this user follows
-        /// </summary>
+
         public int Following { get; private set; }
-        /// <summary>
-        /// The user’s profile image visibility on the iframe
-        /// </summary>
+
         public bool IframeProfileImageVisible { get; private set; }
+
         /// <summary>
         /// The user’s geo whitelist on Gfycat
         /// </summary>
-        public IEnumerable<string> GeoWhitelist { get; private set; }
+        public IReadOnlyCollection<string> GeoWhitelist { get; private set; }
         /// <summary>
         /// The user’s domain whitelist on Gfycat
         /// </summary>
-        public IEnumerable<string> DomainWhitelist { get; private set; }
+        public IReadOnlyCollection<string> DomainWhitelist { get; private set; }
         /// <summary>
         /// The email address of the specified user
         /// </summary>
@@ -109,7 +95,7 @@ namespace Gfycat
         /// The user’s upload notices settings, whether the user wants to get notified of uploads or not
         /// </summary>
         public bool UploadNotices { get; private set; }
-        
+
         #region Users
 
         /// <summary>
@@ -119,10 +105,7 @@ namespace Gfycat
         /// <returns>True if the current user's email is verified, otherwise false</returns>
         public async Task<bool> GetEmailVerifiedAsync(RequestOptions options = null)
         {
-            options = options ?? RequestOptions.CreateFromDefaults(Client.Config);
-            options.IgnoreCodes = Utils.Ignore404;
-            HttpStatusCode code = (await Client.SendAsync("GET", "me/email-verified", options)).Status;
-            return code != HttpStatusCode.NotFound;
+            return (await Client.ApiClient.GetEmailVerificationStatusAsync(options)) != HttpStatusCode.NotFound;
         }
 
         /// <summary>
@@ -132,7 +115,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task SendVerificationEmailAsync(RequestOptions options = null)
         {
-            await Client.SendAsync("POST", "me/send_verification_email", options);
+            await Client.ApiClient.SendVerificationEmailRequestAsync(options);
         }
 
         /// <summary>
@@ -140,13 +123,9 @@ namespace Gfycat
         /// </summary>
         /// <param name="profilePic"></param>
         /// <param name="options"></param>
-        /// <returns>The ticket of the upload, used for fetching the status later</returns>
-        public async Task<string> UploadProfilePictureAsync(Stream profilePic, RequestOptions options = null)
+        public async Task UploadProfilePictureAsync(Stream profilePic, RequestOptions options = null)
         {
-            string ticketResponse = (await Client.SendAsync("POST", "me/profile_image_url", options)).ReadAsString();
-            string ticket = ticketResponse.Split('/').Last();
-            await Client.SendStreamAsync("PUT", $"https://imageupload.gfycat.com/{ticket}","profilePic", profilePic, null, options);
-            return ticket;
+            await Client.ApiClient.UploadProfileImageAsync(await Client.ApiClient.GetProfileUploadUrlAsync(options), profilePic, options);
         }
 
         /// <summary>
@@ -155,9 +134,10 @@ namespace Gfycat
         /// <param name="ticket"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task<ProfileImageUploadStatus> GetProfilePictureUploadStatusAsync(string ticket, RequestOptions options = null)
+        public async Task<ProfileImageUploadStatus> GetProfilePictureUploadStatusAsync(RequestOptions options = null)
         {
-            return (ProfileImageUploadStatus)Enum.Parse(typeof(ProfileImageUploadStatus), (await Client.SendAsync("GET", $"me/profile_image_url/status/{ticket}", options)).ReadAsString(), true);
+            Uri ticket = new Uri(await Client.ApiClient.GetProfileUploadUrlAsync(options));
+            return await Client.ApiClient.GetProfileImageUploadStatusAsync(ticket.AbsolutePath.Trim('/'), options);
         }
 
         /// <summary>
@@ -168,80 +148,34 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyCurrentUserAsync(IEnumerable<GfycatOperation> operations, RequestOptions options = null)
         {
-            await Client.SendJsonAsync("PATCH", "me", new { operations }, options);
+            await Client.ApiClient.ModifyCurrentUserAsync(operations, options);
         }
-
+        
         /// <summary>
-        /// Follows the specified user
-        /// </summary>
-        /// <param name="user">The user to follow</param>
-        /// <param name="options"></param>
-        /// <returns></returns>
-        public Task FollowUserAsync(IUser user, RequestOptions options = null)
-        {
-            return Client.SendAsync("PUT", $"me/follows/{user.Id}", options);
-        }
-
-        /// <summary>
-        /// Unfollows the specified user
-        /// </summary>
-        /// <param name="user">The user to unfollow</param>
-        /// <param name="options"></param>
-        /// <returns></returns>
-        public Task UnfollowUserAsync(IUser user, RequestOptions options = null)
-        {
-            return Client.SendAsync("DELETE", $"me/follows/{user.Id}", options);
-        }
-
-        /// <summary>
-        /// Checks if this user is following the provided user
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <returns>True if the current user is following the provided user, otherwise false</returns>
-        public async Task<bool> GetFollowingUserAsync(string userId, RequestOptions options = null)
-        {
-            options = options ?? RequestOptions.CreateFromDefaults(Client.Config);
-            options.IgnoreCodes = Utils.Ignore404;
-            return (await Client.SendAsync("HEAD", $"me/follows/{userId}", options)).Status == HttpStatusCode.OK;
-        }
-
-        /// <summary>
-        /// Returns an enumerable of users the current user is following
+        /// Returns an enumerable user ids of the users the current user is following
         /// </summary>
         /// <returns></returns>
-        public Task<IEnumerable<string>> GetFollowingUsersAsync(RequestOptions options = null)
+        public async Task<IEnumerable<string>> GetFollowingUsersAsync(RequestOptions options = null)
         {
-            return Client.SendAsync<IEnumerable<string>>("GET", "me/follows", options);
+            return (await Client.ApiClient.GetFollowingsAsync(options)).Follows;
         }
 
         /// <summary>
         /// Returns an enumerable of users following the current user
         /// </summary>
         /// <returns></returns>
-        public Task<IEnumerable<string>> GetUsersFollowingAsync(RequestOptions options = null)
+        public async Task<IEnumerable<string>> GetFollowersAsync(RequestOptions options = null)
         {
-            return Client.SendAsync<IEnumerable<string>>("GET", "me/following", options);
+            return (await Client.ApiClient.GetFollowersAsync(options)).Followers;
         }
 
         #endregion
 
         #region User feeds
 
-        /// <summary>
-        /// Returns a full list of all Gfycats in the current users account, published or not.
-        /// </summary>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="options"></param>
-        /// <returns></returns>
-        public Task<GfycatFeed> GetGfycatFeedAsync(int? count = null, string cursor = null, RequestOptions options = null)
+        public Task<GfyFeed> GetGfycatFeedAsync(int count = 10, RequestOptions options = null)
         {
-            string queryString = Utils.CreateQueryString(new Dictionary<string, object>()
-            {
-                { "count", count },
-                { "cursor", cursor }
-            });
-            return Client.SendAsync<GfycatFeed>("GET", $"me/gfycats{queryString}", options);
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -251,14 +185,9 @@ namespace Gfycat
         /// <param name="cursor">The cursor from the previous request, used to fetch the next page of gfys</param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public Task<GfycatFeed> GetTimelineFeedAsync(int? count = null, string cursor = null, RequestOptions options = null)
+        public async Task<GfyFeed> GetTimelineFeedAsync(int count = 10, RequestOptions options = null)
         {
-            string queryString = Utils.CreateQueryString(new Dictionary<string, object>()
-            {
-                { "count", count },
-                { "cursor", cursor }
-            });
-            return Client.SendAsync<GfycatFeed>("GET", $"me/follows/gfycats{queryString}", options);
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -269,9 +198,9 @@ namespace Gfycat
         /// Retrieves a list of folder information for the current user
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<GfycatFolderInfo>> GetFoldersAsync(RequestOptions options = null)
+        public async Task<FolderInfo> GetFoldersAsync(RequestOptions options = null)
         {
-            return (await Client.SendAsync<GfycatFolderInfo>("GET", "me/folders", options)).Subfolders;
+            return FolderInfo.Create(Client, (await Client.ApiClient.GetCurrentUserFoldersAsync(options)).FirstOrDefault()); // skip the first one,
         }
 
         /// <summary>
@@ -281,9 +210,9 @@ namespace Gfycat
         /// <param name="parent"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public Task CreateFolderAsync(string folderName, string parent = null, RequestOptions options = null)
+        public async Task CreateFolderAsync(string folderName, RequestOptions options = null)
         {
-            return Client.SendJsonAsync("POST", $"me/folders{(string.IsNullOrWhiteSpace(parent) ? "" : $"/{parent}")}", new { folderName }, options);
+            await Client.ApiClient.CreateFolderAsync(null, folderName, options);
         }
 
         #endregion
@@ -293,9 +222,9 @@ namespace Gfycat
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        public Task<IEnumerable<GfycatBookmarkFolderInfo>> GetBookmarkFoldersAsync(RequestOptions options = null)
+        public Task<IEnumerable<BookmarkFolderInfo>> GetBookmarkFoldersAsync(RequestOptions options = null)
         {
-            return Client.SendAsync<IEnumerable<GfycatBookmarkFolderInfo>>("GET", "me/bookmark-folders", options);
+            throw new NotImplementedException();
         }
 
         #region Albums
@@ -305,76 +234,68 @@ namespace Gfycat
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task<IEnumerable<GfycatAlbumInfo>> GetAlbumsAsync(RequestOptions options = null)
+        public async Task<IEnumerable<AlbumInfo>> GetAlbumsAsync(RequestOptions options = null)
         {
-            IEnumerable<GfycatAlbumInfo> albums = await Client.SendAsync<IEnumerable<GfycatAlbumInfo>>("GET", $"me/album-folders", options);
-            RecursiveSetOwners(albums);
+            IEnumerable<AlbumInfo> albums = (await Client.ApiClient.GetAlbumsAsync(options)).Select(albumInfo => AlbumInfo.Create(Client, albumInfo));
             return albums;
-        }
-
-        private void RecursiveSetOwners(IEnumerable<GfycatAlbumInfo> albums)
-        {
-            foreach (GfycatAlbumInfo album in albums)
-            {
-                album.Owner = this;
-                RecursiveSetOwners(album.Subalbums);
-            }
         }
         
         #endregion
 
-        public Task<GfycatFeed> SearchAsync(string searchText, int? count = null, string cursor = null, RequestOptions options = null)
+        public Task<GfyFeed> SearchAsync(string searchText, int count = 10, RequestOptions options = null)
         {
-            return  SendAsync<GfycatFeed>("GET", $"me/gfycats/search{queryString}", options);
+            throw new NotImplementedException();
         }
 
-        public Task AddTwitterProviderAsync(string secret, RequestOptions options = null)
+        public async Task AddTwitterProviderAsync(string secret, RequestOptions options = null)
         {
-            return Client.SendJsonAsync("POST", "me/providers", new { provider = "twitter", secret }, options);
+            await Client.ApiClient.AddProviderAsync(new API.AddProviderParameters() { Provider = "twitter", Secret = secret }, options);
         }
         
-        public Task AddTwitterProviderAsync(string verifier, string token, RequestOptions options = null)
+        public async Task AddTwitterProviderAsync(string verifier, string token, RequestOptions options = null)
         {
-            return Client.SendJsonAsync("POST", "me/providers", new { provider = "twitter", verifier, token }, options);
+            await Client.ApiClient.AddProviderAsync(new API.AddProviderParameters() { Provider = "twitter", Token = token, Verifier = verifier }, options);
         }
 
-        public Task RemoveTwitterProviderAsync(RequestOptions options = null)
+        public async Task RemoveTwitterProviderAsync(RequestOptions options = null)
         {
-            return Client.SendAsync("DELETE", "me/providers/twitter", options);
+            await Client.ApiClient.RemoveProviderAsync("twitter", options);
         }
         
-        public Task<IEnumerable<string>> GetDomainWhitelistAsync(RequestOptions options = null)
+        public async Task<IEnumerable<string>> GetDomainWhitelistAsync(RequestOptions options = null)
         {
-            return Client.SendAsync<IEnumerable<string>>("GET", $"me/domain-whitelist", options);
+            return (await Client.ApiClient.GetDomainWhitelistAsync(options)).DomainWhitelist;
         }
 
         public async Task ModifyDomainWhitelistAsync(IEnumerable<string> newWhitelist, RequestOptions options = null)
         {
-            await Client.SendJsonAsync("PUT", $"me/domain-whitelist", new { domainWhitelist = newWhitelist }, options);
-            DomainWhitelist = newWhitelist;
+            await Client.ApiClient.ModifyDomainWhitelistAsync(new API.DomainWhitelistShared { DomainWhitelist = newWhitelist }, options);
         }
 
         public async Task DeleteDomainWhitelistAsync(RequestOptions options = null)
         {
-            await Client.SendAsync("DELETE", $"me/domain-whitelist", options);
-            DomainWhitelist = new string[0];
+            await Client.ApiClient.DeleteDomainWhitelistAsync(options);
         }
 
-        public Task<IEnumerable<string>> GetGeoWhitelistAsync(RequestOptions options = null)
+        public async Task<IEnumerable<string>> GetGeoWhitelistAsync(RequestOptions options = null)
         {
-            return Client.SendAsync<IEnumerable<string>>("GET", $"me/geo-whitelist", options);
+            return (await Client.ApiClient.GetGeoWhitelistAsync(options)).GeoWhitelist;
         }
 
         public async Task ModifyGeoWhitelistAsync(IEnumerable<string> newWhitelist, RequestOptions options = null)
         {
-            await Client.SendJsonAsync("PUT", $"me/geo-whitelist", new { geoWhitelist = newWhitelist }, options);
-            GeoWhitelist = newWhitelist;
+            await Client.ApiClient.ModifyGeoWhitelistAsync(new API.GeoWhitelistShared { GeoWhitelist = newWhitelist }, options);
         }
 
         public async Task DeleteGeoWhitelistAsync(RequestOptions options = null)
         {
-            await Client.SendAsync("DELETE", $"me/geo-whitelist", options);
-            GeoWhitelist = new string[0];
+            await Client.ApiClient.DeleteGeoWhitelistAsync(options);
         }
+        
+        Task IUser.FollowUserAsync(RequestOptions options) => throw new NotSupportedException("You can't follow yourself");
+
+        Task IUser.UnfollowUserAsync(RequestOptions options) => throw new NotSupportedException("You can't unfollow yourself");
+
+        Task<bool> IUser.GetFollowingUser(RequestOptions options) => Task.FromResult(false);
     }
 }

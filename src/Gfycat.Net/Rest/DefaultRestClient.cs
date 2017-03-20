@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -36,13 +35,13 @@ namespace Gfycat.Rest
 
         public async Task<RestResponse> SendAsync(string method, string endpoint, CancellationToken token)
         {
-            using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), _baseUri + endpoint))
+            using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), new Uri(_baseUri, new Uri(endpoint))))
                 return await SendInternalAsync(request, token);
         }
 
         public async Task<RestResponse> SendAsync(string method, string endpoint, string json, CancellationToken token)
         {
-            using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), _baseUri + endpoint))
+            using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), new Uri(_baseUri, new Uri(endpoint))))
             {
                 request.Content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
                 return await SendInternalAsync(request, token);
@@ -51,7 +50,7 @@ namespace Gfycat.Rest
 
         public async Task<RestResponse> SendAsync(string method, string endpoint, IDictionary<string, object> multipart, CancellationToken token)
         {
-            using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), _baseUri + endpoint))
+            using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), new Uri(_baseUri, new Uri(endpoint))))
             {
                 MultipartFormDataContent content = new MultipartFormDataContent("Upload----" + DateTime.UtcNow.ToString(CultureInfo.InvariantCulture));
                 foreach(KeyValuePair<string, object> param in multipart)
@@ -109,14 +108,6 @@ namespace Gfycat.Rest
             _client.DefaultRequestHeaders.Remove(key);
             if (value != null)
                 _client.DefaultRequestHeaders.Add(key, value);
-        }
-
-        public void SetAuthorization(string scheme, string token)
-        {
-            if (token == null)
-                _client.DefaultRequestHeaders.Authorization = null;
-            else
-                _client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(scheme, token);
         }
     }
 }
