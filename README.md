@@ -30,7 +30,7 @@ GfyStatus status = await client.GetGfyUploadStatusAsync(gfyId);
 while(status.Task == UploadTask.Encoding)
 {
     await Task.Delay(TimeSpan.FromSeconds(status.Time));
-	await status.UpdateAsync();
+    await status.UpdateAsync();
 }
 
 if (status.Task == Status.Invalid || status.Task == Status.NotFoundo)
