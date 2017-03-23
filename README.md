@@ -7,15 +7,15 @@ Finishing up, adding documentation, running tests, writing samples.
 ## FUTURE:
 Add support for analytics endpoints (maybe namespace Gfycat.Analytics?)
 
+### Unimplemented features: 
+1. Secret endpoints not covered by documentation (like fetching, creating, and modifying API keys)
+
 ### Compatible frameworks (if you don't know the table)
 * .NET Core 1.0 (and up)
 * .NET Framework 4.5.1 (and up)
 * Universal Windows Platform 10.0
 * Universal Windows 8.1
 * Universal Windows Phone 8.1
-
-### Unimplemented features: 
-1. Secret endpoints not covered by documentation (like fetching, creating, and modifying API keys)
 
 ### Upload Gfy Example
 ```csharp
