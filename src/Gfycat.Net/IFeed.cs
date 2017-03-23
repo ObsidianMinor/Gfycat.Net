@@ -2,7 +2,7 @@
 
 namespace Gfycat
 {
-    public interface IFeed<T> : IAsyncEnumerable<T>
+    public interface IFeed<out T> : IAsyncEnumerable<T>
     {
         IReadOnlyCollection<T> Content { get; }
         string Cursor { get; }

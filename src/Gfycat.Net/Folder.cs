@@ -7,7 +7,7 @@ using Model = Gfycat.API.Models.Folder;
 
 namespace Gfycat
 {
-    public class Folder : Entity, IFolder, IUpdatable
+    public class Folder : Entity, IFolderContent, IUpdatable
     {
         public string Title { get; private set; }
         /// <summary>
@@ -73,17 +73,19 @@ namespace Gfycat
         /// <param name="folderName"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task CreateNewFolderAsync(string folderName, RequestOptions options)
+        public async Task CreateNewFolderAsync(string folderName, RequestOptions options = null)
         {
             await Client.ApiClient.CreateFolderAsync(Id, folderName, options);
         }
+
+        public async Task DeleteAsync(RequestOptions options = null)
+        {
+            await Client.ApiClient.DeleteFolderAsync(Id, options);
+        }
         
         #region Expicit IFolder implimentation
-
-        async Task IFolder.MoveFolderAsync(IFolder parent, RequestOptions options)
-            => await MoveFolderAsync(parent as Folder ?? throw new ArgumentException($"Can't move folder into {parent.GetType()}"), options);
-
-        async Task IFolder.MoveGfysAsync(IFolder folderToMoveTo, IEnumerable<Gfy> gfysToMove, RequestOptions options)
+        
+        async Task IFolderContent.MoveGfysAsync(IFolderContent folderToMoveTo, IEnumerable<Gfy> gfysToMove, RequestOptions options)
             => await MoveGfysAsync(folderToMoveTo as Folder ?? throw new ArgumentException($"Can't move gfys from a folder into {folderToMoveTo.GetType()}"), gfysToMove, options);
 
         #endregion

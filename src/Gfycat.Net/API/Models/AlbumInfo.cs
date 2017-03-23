@@ -13,6 +13,8 @@ namespace Gfycat.API.Models
         internal bool Published { get; set; }
         [JsonProperty("nodes")]
         internal IEnumerable<AlbumInfo> Nodes { get; set; }
+        [JsonProperty("folderSubType")]
+        internal string FolderSubType { get; set; }
         [JsonProperty("coverImageUrl")]
         internal string CoverImageUrl { get; set; }
         [JsonProperty("coverImageUrl-mobile")]

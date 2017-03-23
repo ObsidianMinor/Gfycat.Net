@@ -10,6 +10,7 @@ namespace Gfycat
         public static readonly string BaseUrl = $"https://api.gfycat.com/v{ApiVersion}/";
         internal JsonSerializerSettings SerializerSettings = new JsonSerializerSettings() // for future things, if we need it
         {
+            NullValueHandling = NullValueHandling.Ignore
         };
 
         public string ClientId { get; }

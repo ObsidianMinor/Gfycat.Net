@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Model = Gfycat.API.Models.FolderInfo;
@@ -29,11 +30,32 @@ namespace Gfycat
             return Folder.Create(Client, await Client.ApiClient.GetFolderContentsAsync(Id, options));
         }
 
+        public async Task MoveFolderAsync(FolderInfo parent, RequestOptions options = null)
+        {
+            await Client.ApiClient.MoveFolderAsync(Id, parent.Id, options);
+        }
+
+        public async Task CreateNewFolderAsync(string folderName, RequestOptions options = null)
+        {
+            await Client.ApiClient.CreateFolderAsync(Id, folderName, options);
+        }
+
+        public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
+        {
+            await Client.ApiClient.ModifyFolderTitleAsync(Id, newTitle, options);
+        }
+
+        public async Task DeleteAsync(RequestOptions options = null)
+        {
+            await Client.ApiClient.DeleteFolderAsync(Id, options);
+        }
+
         #region Explicit IFolderInfo
 
         IReadOnlyCollection<IFolderInfo> IFolderInfo.Subfolders => Subfolders;
 
-        async Task<IFolder> IFolderInfo.GetContentsAsync(RequestOptions options) => await GetContentsAsync(options);
+        async Task<IFolderContent> IFolderInfo.GetContentsAsync(RequestOptions options) => await GetContentsAsync(options);
+        async Task IFolderInfo.MoveFolderAsync(IFolderInfo parent, RequestOptions options) => await MoveFolderAsync(parent as FolderInfo ?? throw new ArgumentException(), options);
 
         #endregion
     }

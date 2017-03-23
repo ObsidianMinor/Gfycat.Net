@@ -6,7 +6,7 @@ namespace Gfycat.API.Models
     internal class TrendingTagsFeed
     {
         [JsonProperty("tags")]
-        internal IEnumerable<TagFeed> Tags { get; set; }
+        internal IEnumerable<TrendingFeed> Tags { get; set; }
         [JsonProperty("cursor")]
         internal string Cursor { get; set; }
     }

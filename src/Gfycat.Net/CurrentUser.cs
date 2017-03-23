@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -32,7 +33,7 @@ namespace Gfycat
             Followers = model.Followers;
             Following = model.Following;
             IframeProfileImageVisible = model.IframeProfileImageVisible;
-            GeoWhitelist = model.GeoWhitelist.ToReadOnlyCollection();
+            GeoWhitelist = model.GeoWhitelist.Select(s => new RegionInfo(s)).ToReadOnlyCollection();
             DomainWhitelist = model.DomainWhitelist.ToReadOnlyCollection();
             Email = model.Email;
             AssociatedProviders = model.AssociatedProviders;
@@ -78,7 +79,7 @@ namespace Gfycat
         /// <summary>
         /// The user’s geo whitelist on Gfycat
         /// </summary>
-        public IReadOnlyCollection<string> GeoWhitelist { get; private set; }
+        public IReadOnlyCollection<RegionInfo> GeoWhitelist { get; private set; }
         /// <summary>
         /// The user’s domain whitelist on Gfycat
         /// </summary>
@@ -173,9 +174,9 @@ namespace Gfycat
 
         #region User feeds
 
-        public Task<GfyFeed> GetGfycatFeedAsync(int count = 10, RequestOptions options = null)
+        public async Task<GfyFeed> GetGfycatFeedAsync(int count = 10, RequestOptions options = null)
         {
-            throw new NotImplementedException();
+            return CurrentUserGfyFeed.Create(Client, count, options, await Client.ApiClient.GetCurrentUserGfyFeedAsync(count, null, options));
         }
 
         /// <summary>
@@ -187,7 +188,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<GfyFeed> GetTimelineFeedAsync(int count = 10, RequestOptions options = null)
         {
-            throw new NotImplementedException();
+            return CurrentUserTimelineFeed.Create(Client, count, options, await Client.ApiClient.GetFollowsGfyFeedAsync(count, null, options));
         }
 
         #endregion
@@ -222,9 +223,9 @@ namespace Gfycat
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        public Task<IEnumerable<BookmarkFolderInfo>> GetBookmarkFoldersAsync(RequestOptions options = null)
+        public async Task<BookmarkFolderInfo> GetBookmarkFoldersAsync(RequestOptions options = null)
         {
-            throw new NotImplementedException();
+            return BookmarkFolderInfo.Create(Client, (await Client.ApiClient.GetCurrentUserBookmarkFoldersAsync(options)).FirstOrDefault());
         }
 
         #region Albums
@@ -234,17 +235,16 @@ namespace Gfycat
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task<IEnumerable<AlbumInfo>> GetAlbumsAsync(RequestOptions options = null)
+        public async Task<IAlbumInfo> GetAlbumsAsync(RequestOptions options = null)
         {
-            IEnumerable<AlbumInfo> albums = (await Client.ApiClient.GetAlbumsAsync(options)).Select(albumInfo => AlbumInfo.Create(Client, albumInfo));
-            return albums;
+            return Utils.CreateAlbum(Client, (await Client.ApiClient.GetAlbumsAsync(options)).FirstOrDefault(), null);
         }
         
         #endregion
 
-        public Task<GfyFeed> SearchAsync(string searchText, int count = 10, RequestOptions options = null)
+        public async Task<GfyFeed> SearchAsync(string searchText, int count = 10, RequestOptions options = null)
         {
-            throw new NotImplementedException();
+            return CurrentUserSearchFeed.Create(Client, await Client.ApiClient.SearchCurrentUserAsync(searchText, count, null, options), searchText, options, count);
         }
 
         public async Task AddTwitterProviderAsync(string secret, RequestOptions options = null)
@@ -277,9 +277,9 @@ namespace Gfycat
             await Client.ApiClient.DeleteDomainWhitelistAsync(options);
         }
 
-        public async Task<IEnumerable<string>> GetGeoWhitelistAsync(RequestOptions options = null)
+        public async Task<IEnumerable<RegionInfo>> GetGeoWhitelistAsync(RequestOptions options = null)
         {
-            return (await Client.ApiClient.GetGeoWhitelistAsync(options)).GeoWhitelist;
+            return (await Client.ApiClient.GetGeoWhitelistAsync(options)).GeoWhitelist.Select(s => new RegionInfo(s));
         }
 
         public async Task ModifyGeoWhitelistAsync(IEnumerable<string> newWhitelist, RequestOptions options = null)
@@ -291,10 +291,24 @@ namespace Gfycat
         {
             await Client.ApiClient.DeleteGeoWhitelistAsync(options);
         }
-        
-        Task IUser.FollowUserAsync(RequestOptions options) => throw new NotSupportedException("You can't follow yourself");
 
-        Task IUser.UnfollowUserAsync(RequestOptions options) => throw new NotSupportedException("You can't unfollow yourself");
+        #region API Credentials
+
+        /// <summary>
+        /// Fetches the developer keys for the current user
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public async Task<IEnumerable<AppApiInfo>> GetApiCredentialsAsync(RequestOptions options = null)
+        {
+            return (await Client.ApiClient.GetDeveloperKeysAsync(options)).Select(a => AppApiInfo.Create(Client, a));
+        }
+
+        #endregion
+
+        Task IUser.FollowAsync(RequestOptions options) => throw new NotSupportedException("You can't follow yourself");
+
+        Task IUser.UnfollowAsync(RequestOptions options) => throw new NotSupportedException("You can't unfollow yourself");
 
         Task<bool> IUser.GetFollowingUser(RequestOptions options) => Task.FromResult(false);
     }

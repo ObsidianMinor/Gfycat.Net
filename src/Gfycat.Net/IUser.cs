@@ -21,10 +21,10 @@ namespace Gfycat
         int Following { get; }
         bool IframeProfileImageVisible { get; }
 
-        Task<IEnumerable<AlbumInfo>> GetAlbumsAsync(RequestOptions options = null);
+        Task<IAlbumInfo> GetAlbumsAsync(RequestOptions options = null);
         Task<GfyFeed> GetGfycatFeedAsync(int count = 10, RequestOptions options = null);
-        Task FollowUserAsync(RequestOptions options = null);
-        Task UnfollowUserAsync(RequestOptions options = null);
+        Task FollowAsync(RequestOptions options = null);
+        Task UnfollowAsync(RequestOptions options = null);
         Task<bool> GetFollowingUser(RequestOptions options = null);
     }
 }

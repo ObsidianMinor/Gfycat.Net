@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Model = Gfycat.API.Models.Gfy;
 
 namespace Gfycat
 {
+    [DebuggerDisplay("{Name} : {Title}")]
     public class Gfy : Entity, IUpdatable
     {
         internal Gfy(GfycatClient client, string id) : base(client, id)
@@ -14,8 +17,48 @@ namespace Gfycat
 
         internal void Update(Model model)
         {
-            throw new NotImplementedException();
-        }
+            Number = model.Number;
+            WebmUrl = model.WebmUrl;
+            GifUrl = model.GifUrl;
+            MobileUrl = model.MobileUrl;
+            MobilePosterUrl = model.MobilePosterUrl;
+            PosterUrl = model.PosterUrl;
+            Thumb360Url = model.Thumb360Url;
+            Thumb360PosterUrl = model.Thumb360PosterUrl;
+            Thumb100PosterUrl = model.Thumb100PosterUrl;
+            Max5MbGif = model.Max5MbGif;
+            Max2MbGif = model.Max2MbGif;
+            Max1MbGif = model.Max1MbGif;
+            MjpgUrl = model.MjpgUrl;
+            Width = model.Width;
+            Height = model.Height;
+            AverageColor = model.AverageColor;
+            FrameRate = model.FrameRate;
+            NumberOfFrames = model.NumberOfFrames;
+            Mp4Size = model.Mp4Size;
+            WebmSize = model.WebmSize;
+            GifSize = model.GifSize;
+            Source = model.Source;
+            CreationDate = model.CreationDate;
+            Nsfw = model.Nsfw;
+            Mp4Url = model.Mp4Url;
+            Likes = model.Likes;
+            Published = model.Published;
+            Dislikes = model.Dislikes;
+            Md5 = model.Md5;
+            Views = model.Views;
+            Tags = model.Tags.ToReadOnlyCollection();
+            Username = model.Username;
+            Name = model.Name;
+            Title = model.Title;
+            Description = model.Description;
+            LanguageText = model.LanguageText;
+            LanguageCategories = model.LanguageCategories;
+            Subreddit = model.Subreddit;
+            RedditId = model.RedditId;
+            RedditIdText = model.RedditIdText;
+            DomainWhitelist = model.DomainWhitelist.ToReadOnlyCollection();
+    }
 
         internal static Gfy Create(GfycatClient client, Model model)
         {
@@ -52,7 +95,6 @@ namespace Gfycat
         public int Likes { get; private set; }
         public bool Published { get; private set; }
         public int Dislikes { get; private set; }
-        public string ExtraLemmas { get; private set; }
         public string Md5 { get; private set; }
         public int Views { get; private set; }
         public IReadOnlyCollection<string> Tags { get; private set; }
@@ -74,96 +116,86 @@ namespace Gfycat
 
         public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
-            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/title", new { value = newTitle }, options);
+            await Client.ApiClient.ModifyGfyTitleAsync(Id, newTitle, options);
             await UpdateAsync();
         }
         
         public async Task DeleteTitleAsync(RequestOptions options = null)
         {
-            await ClientSendAsync("DELETE", $"me/gfycats/{Id}/title", options);
-
+            await Client.ApiClient.DeleteGfyTitleAsync(Id, options);
             await UpdateAsync();
         }
 
-        public async Task UpdateTagsAsync(IEnumerable<string> tags, RequestOptions options = null)
+        public async Task ModifyTagsAsync(IEnumerable<string> tags, RequestOptions options = null)
         {
             if (tags.Count() > 20)
                 throw new ArgumentException("The number of tags provided exceeds the max value 20");
 
-            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/tags", new { value = tags }, options);
-
+            await Client.ApiClient.ModifyGfyTagsAsync(tags, options);
             await UpdateAsync();
         }
 
-        public Task<IEnumerable<string>> GetDomainWhitelistAsync(RequestOptions options = null)
+        public async Task<IEnumerable<string>> GetDomainWhitelistAsync(RequestOptions options = null)
         {
-            return Client.SendAsync<IEnumerable<string>>("GET", $"me/gfycats/{Id}/domain-whitelist", options);
+            return await Client.ApiClient.GetGfyDomainWhitelistAsync(Id, options);
         }
 
         public async Task ModifyDomainWhitelistAsync(IEnumerable<string> newWhitelist, RequestOptions options = null)
         {
-            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/domain-whitelist", new { value = newWhitelist }, options);
-
+            await Client.ApiClient.ModifyGfyDomainWhitelistAsync(Id, newWhitelist, options);
             await UpdateAsync();
         }
 
         public async Task DeleteDomainWhitelistAsync(RequestOptions options = null)
         {
-            await Client.SendAsync("DELETE", $"me/gfycats/{Id}/domain-whitelist", options);
-
+            await Client.ApiClient.DeleteGfyDomainWhitelistAsync(Id, options);
             await UpdateAsync();
         }
 
-        public Task<IEnumerable<string>> GetGeoWhitelistAsync(RequestOptions options = null)
+        public async Task<IEnumerable<RegionInfo>> GetGeoWhitelistAsync(RequestOptions options = null)
         {
-            return Client.SendAsync<IEnumerable<string>>("GET", $"me/gfycats/{Id}/geo-whitelist", options);
+            return (await Client.ApiClient.GetGfyGeoWhitelistAsync(Id, options)).Select(s => new RegionInfo(s));
         }
 
-        public async Task ModifyGeoWhitelistAsync(IEnumerable<string> newWhitelist, RequestOptions options = null)
+        public async Task ModifyGeoWhitelistAsync(IEnumerable<RegionInfo> newWhitelist, RequestOptions options = null)
         {
-            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/geo-whitelist", new { value = newWhitelist }, options);
-
+            await Client.ApiClient.ModifyGfyGeoWhitelistAsync(Id, newWhitelist.Select(r => r.TwoLetterISORegionName), options);
             await UpdateAsync();
         }
 
         public async Task DeleteGeoWhitelistAsync(RequestOptions options = null)
         {
-            await Client.SendAsync("DELETE", $"me/gfycats/{Id}/geo-whitelist", options);
-
+            await Client.ApiClient.DeleteGfyGeoWhitelistAsync(Id, options);
             await UpdateAsync();
         }
 
         public async Task ModifyDescriptionAsync(string newDescription, RequestOptions options = null)
         {
-            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/description", new { value = newDescription }, options);
-
+            await Client.ApiClient.ModifyGfyDescriptionAsync(Id, newDescription, options);
             await UpdateAsync();
         }
 
         public async Task DeleteDescriptionAsync(RequestOptions options = null)
         {
-            await Client.SendAsync("DELETE", $"me/gfycats/{Id}/description", options);
-
+            await Client.ApiClient.DeleteGfyDescriptionAsync(Id, options);
             await UpdateAsync();
         }
 
-        public async Task ModifyPublishedAsync(bool published, RequestOptions options = null)
+        public async Task ModifyPublishSettingAsync(bool published, RequestOptions options = null)
         {
-            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/published", new { value = (published) ? "1" : "0" }, options);
-
+            await Client.ApiClient.ModifyGfyPublishedSettingAsync(Id, published, options);
             await UpdateAsync();
         }
 
         public async Task ModifyNsfwSettingAsync(NsfwSetting setting, RequestOptions options = null)
         {
-            await Client.SendJsonAsync("PUT", $"me/gfycats/{Id}/nsfw", new { value = (int)setting }, options);
-
+            await Client.ApiClient.ModifyGfyNsfwSettingAsync(Id, setting, options);
             await UpdateAsync();
         }
 
-        public Task DeleteAsync(RequestOptions options = null)
+        public async Task DeleteAsync(RequestOptions options = null)
         {
-            return Client.SendAsync("DELETE", $"me/gfycats/{Id}", options);
+            await Client.ApiClient.DeleteGfyAsync(Id, options);
         }
 
         /// <summary>
@@ -172,29 +204,32 @@ namespace Gfycat
         /// <returns>True if bookmarked, false otherwise</returns>
         public async Task<bool> GetBookmarkStatusAsync(RequestOptions options = null)
         {
-            return (await Client.SendAsync<dynamic>("GET", $"me/bookmarks/{Id}", options)).bookmarkState == "1";
+            return (await Client.ApiClient.GetBookmarkedStatusAsync(Id, options)).BookmarkStatus;
         }
 
-        public Task BookmarkAsync(GfycatBookmarkFolder folder = null, RequestOptions options = null)
+        public async Task BookmarkAsync(BookmarkFolder folder = null, RequestOptions options = null)
         {
-            if (string.IsNullOrWhiteSpace(folder?.Id))
-                return Client.SendAsync("PUT", $"me/bookmarks/{Id}", options);
-            else
-                return Client.SendAsync("PUT", $"me/bookmark-folders/{folder.Id}/contents/{Id}", options);
+            await Client.ApiClient.BookmarkGfyAsync(Id, folder?.Id, options);
         }
 
-        public Task UnbookmarkAsync(GfycatBookmarkFolder folder = null, RequestOptions options = null)
+        public async Task UnbookmarkAsync(BookmarkFolder folder = null, RequestOptions options = null)
         {
-            if (string.IsNullOrWhiteSpace(folder?.Id))
-                return Client.SendAsync("DELETE", $"me/bookmarks/{Id}", options);
-            else
-                return Client.SendAsync("DELETE", $"me/bookmark-folders/{folder.Id}/contents/{Id}", options);
+            await Client.ApiClient.UnbookmarkGfyAsync(Id, folder?.Id, options);
         }
 
         public async Task UpdateAsync(RequestOptions options = null)
         {
-            Model model = await Client.GetGfyAsync(Id, options);
-            Update(model);
+            Update((await Client.ApiClient.GetGfyAsync(Id, options)).GfyItem);
+        }
+
+        /// <summary>
+        /// Returns the creator of this <see cref="Gfy"/>. If it was uploaded or created anonymously, this returns null
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public async Task<User> GetUserAsync(RequestOptions options = null)
+        {
+            return (Username != "anonymous") ? await Client.GetUserAsync(Username, options) : null;
         }
     }
 }

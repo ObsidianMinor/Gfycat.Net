@@ -3,7 +3,7 @@ using System;
 
 namespace Gfycat.Converters
 {
-    public class UnixTimeConverter : JsonConverter
+    internal class UnixTimeConverter : JsonConverter
     {
         DateTime _epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 

@@ -10,7 +10,7 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>gfycat</PackageTags>
     <PackageReleaseNotes>Initial release. Supports all non-testing endpoints.</PackageReleaseNotes>
-    <DefineConstants>TRACE;DEBUG;SUPER_DEBUG_MODE;NETSTANDARD1_2;NET35</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;SUPER_DEBUG_MODE;NETSTANDARD1_2</DefineConstants>
     <Optimize>False</Optimize>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>Gfycat.Net</PackageId>
@@ -20,6 +20,7 @@
     <PackageProjectUrl>https://github.com/ObsidianMinor/Gfycat.Net</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseUrl>https://github.com/ObsidianMinor/Gfycat.Net/LICENSE.txt</PackageLicenseUrl>
+    <AssemblyName>Gfycat.Net</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Auth\**" />

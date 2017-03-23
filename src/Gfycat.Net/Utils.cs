@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
@@ -39,6 +40,14 @@ namespace Gfycat
             => CreateQueryString(new Dictionary<string, object>(parameters.ToDictionary(t => t.Name, t => t.Value)));
 
         internal static IReadOnlyCollection<T> ToReadOnlyCollection<T>(this IEnumerable<T> enumerable)
-            => new ReadOnlyCollection<T>(enumerable.ToList());
+            => new ReadOnlyCollection<T>(enumerable?.ToList() ?? new List<T>());
+
+        internal static IAlbumInfo CreateAlbum(GfycatClient client, API.Models.AlbumInfo albumModel, string ownerId)
+        {
+            if (string.Equals(albumModel.FolderSubType, "Album", StringComparison.OrdinalIgnoreCase))
+                return AlbumInfo.Create(client, albumModel, ownerId);
+            else
+                return AlbumFolder.Create(client, albumModel, ownerId);
+        }
     }
 }

@@ -6,7 +6,7 @@ using Model = Gfycat.API.Models.Album;
 
 namespace Gfycat
 {
-    public class Album : Entity, IFolder, IUpdatable
+    public class Album : Entity, IFolderContent, IUpdatable
     {
         internal Album(GfycatClient client, string id) : base(client, id)
         {
@@ -40,32 +40,58 @@ namespace Gfycat
         public bool Published { get; private set; }
         public int Order { get; private set; }
 
-        public Task CreateNewFolderAsync(string folderName, RequestOptions options = null)
+        public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
-            throw new NotImplementedException();
+            await Client.ApiClient.ModifyTitleAsync(Id, newTitle, options);
+            await UpdateAsync();
         }
 
-        public Task CreateNewAlbumAsync(string albumName, string description, IEnumerable<Gfy> gfys = null, RequestOptions options = null)
+        public async Task ModifyDescriptionAsync(string newDescription, RequestOptions options = null)
         {
-            throw new NotImplementedException();
+            await Client.ApiClient.ModifyDescriptionAsync(Id, newDescription, options);
+            await UpdateAsync();
         }
 
-        public Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
+        public async Task ModifyNsfwSettingAsync(NsfwSetting newSetting, RequestOptions options = null)
         {
-            throw new NotImplementedException();
+            await Client.ApiClient.ModifyNsfwSettingAsync(Id, newSetting, options);
+            await UpdateAsync();
         }
 
-        public Task MoveFolderAsync(IFolder parent, RequestOptions options = null)
+        public async Task ModifyPublishSettingAsync(bool published, RequestOptions options = null)
         {
-            throw new NotImplementedException();
+            await Client.ApiClient.ModifyPublishedSettingAsync(Id, published, options);
+            await UpdateAsync();
         }
 
-        public Task MoveGfysAsync(IFolder folderToMoveTo, IEnumerable<Gfy> gfysToMove, RequestOptions options = null)
+        public async Task AddGfysAsync(IEnumerable<Gfy> gfysToAdd, RequestOptions options = null)
         {
-            throw new NotImplementedException();
+            await Client.ApiClient.AddGfysAsync(Id, gfysToAdd.Select(g => g.Id), options);
+            await UpdateAsync();
+        }
+
+        public async Task MoveGfysAsync(Album folderToMoveTo, IEnumerable<Gfy> gfysToMove, RequestOptions options = null)
+        {
+            await Client.ApiClient.MoveGfysAsync(Id, folderToMoveTo.Id, gfysToMove.Select(g => g.Id), options);
+            await UpdateAsync();
+            await folderToMoveTo.UpdateAsync();
+        }
+
+        public async Task RemoveGfysAsync(IEnumerable<Gfy> gfysToRemove, RequestOptions options = null)
+        {
+            await Client.ApiClient.RemoveGfysAsync(Id, gfysToRemove.Select(g => g.Id), options);
+            await UpdateAsync();
+        }
+
+        public async Task DeleteAsync(RequestOptions options = null)
+        {
+            await Client.ApiClient.DeleteAsync(Id, options);
         }
 
         public async Task UpdateAsync(RequestOptions options = null)
             => Update(await Client.ApiClient.GetAlbumContentsAsync(Id, options));
+
+        async Task IFolderContent.MoveGfysAsync(IFolderContent folderToMoveTo, IEnumerable<Gfy> gfysToMove, RequestOptions options)
+            => await MoveGfysAsync(folderToMoveTo as Album ?? throw new ArgumentException($"{nameof(folderToMoveTo)} must be an Album"), gfysToMove, options);
     }
 }

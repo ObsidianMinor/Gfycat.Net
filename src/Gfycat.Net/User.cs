@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Model = Gfycat.API.Models.User;
 
@@ -53,22 +54,22 @@ namespace Gfycat
             Update(await Client.ApiClient.GetUserAsync(Id, options));
         }
 
-        public async Task<IEnumerable<AlbumInfo>> GetAlbumsAsync(RequestOptions options = null)
+        public async Task<IAlbumInfo> GetAlbumsAsync(RequestOptions options = null)
         {
-            throw new NotImplementedException();
+            return Utils.CreateAlbum(Client, (await Client.ApiClient.GetAlbumsForUserAsync(Id, options)).FirstOrDefault(), Id);
         }
 
         public async Task<GfyFeed> GetGfycatFeedAsync(int count = 10, RequestOptions options = null)
         {
-            throw new NotImplementedException();
+            return UserGfyFeed.Create(Client, count, options, Id, await Client.ApiClient.GetUserGfyFeedAsync(Id, count, null, options));
         }
 
-        public async Task FollowUserAsync(RequestOptions options = null)
+        public async Task FollowAsync(RequestOptions options = null)
         {
             await Client.ApiClient.FollowUserAsync(Id, options);
         }
 
-        public async Task UnfollowUserAsync(RequestOptions options = null)
+        public async Task UnfollowAsync(RequestOptions options = null)
         {
             await Client.ApiClient.UnfollowUserAsync(Id, options);
         }

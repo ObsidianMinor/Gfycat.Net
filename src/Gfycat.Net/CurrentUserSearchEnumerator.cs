@@ -5,20 +5,16 @@ namespace Gfycat
 {
     internal class CurrentUserSearchEnumerator : FeedEnumerator<Gfy>
     {
-        readonly GfycatClient _client;
         readonly string _searchText;
-        readonly RequestOptions _options;
 
-        internal CurrentUserSearchEnumerator(GfycatClient client, string searchText, RequestOptions options, IFeed<Gfy> feed, int count) : base(feed, count)
+        internal CurrentUserSearchEnumerator(GfycatClient client, string searchText, RequestOptions options, IFeed<Gfy> feed, int count) : base(client, feed, count, options)
         {
-            _client = client;
             _searchText = searchText;
-            _options = options;
         }
 
-        protected override async Task<IFeed<Gfy>> GetNext(string cursor, int count)
+        protected override async Task<IFeed<Gfy>> GetNext(string cursor, int count, RequestOptions options = null)
         {
-            return GfyFeed.Create(_client, (await _client.ApiClient.SearchCurrentUserAsync(_searchText, count, cursor, _options)));
+            return CurrentUserSearchFeed.Create(_client, await _client.ApiClient.SearchCurrentUserAsync(_searchText, count, cursor, _options), _searchText, options ?? _options, _count);
         }
     }
 }

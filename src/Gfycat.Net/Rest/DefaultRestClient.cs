@@ -35,13 +35,15 @@ namespace Gfycat.Rest
 
         public async Task<RestResponse> SendAsync(string method, string endpoint, CancellationToken token)
         {
-            using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), new Uri(_baseUri, new Uri(endpoint))))
+            using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), new Uri(_baseUri, endpoint)))
+            {
                 return await SendInternalAsync(request, token);
+            }
         }
 
         public async Task<RestResponse> SendAsync(string method, string endpoint, string json, CancellationToken token)
         {
-            using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), new Uri(_baseUri, new Uri(endpoint))))
+            using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), new Uri(_baseUri, endpoint)))
             {
                 request.Content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
                 return await SendInternalAsync(request, token);
@@ -50,7 +52,7 @@ namespace Gfycat.Rest
 
         public async Task<RestResponse> SendAsync(string method, string endpoint, IDictionary<string, object> multipart, CancellationToken token)
         {
-            using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), new Uri(_baseUri, new Uri(endpoint))))
+            using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), new Uri(_baseUri, endpoint)))
             {
                 MultipartFormDataContent content = new MultipartFormDataContent("Upload----" + DateTime.UtcNow.ToString(CultureInfo.InvariantCulture));
                 foreach(KeyValuePair<string, object> param in multipart)

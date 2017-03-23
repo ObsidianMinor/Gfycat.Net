@@ -61,7 +61,7 @@ namespace Gfycat.API
                 else if (taskResponse.Result.Status == HttpStatusCode.BadGateway && !options.RetryMode.HasFlag(RetryMode.Retry502))
                     throw GfycatException.CreateFromResponse(taskResponse.Result);
                 else if (taskResponse.Result.Status == HttpStatusCode.Unauthorized)
-                    if (first401 && options.RetryMode.HasFlag(RetryMode.RetryFirst401))
+                    if (options.UseAccessToken && (first401 && options.RetryMode.HasFlag(RetryMode.RetryFirst401))) // make sure we don't get in a refresh loop due to not having an access token when using an invalid client ID
                     {
                         await Client.RefreshTokenAsync();
                         first401 = false;
@@ -71,7 +71,7 @@ namespace Gfycat.API
                 else
                 {
                     response = taskResponse.Result;
-                    if (!response.Status.IsSuccessfulStatus() && !(options.IgnoreCodes?.Any(code => code != response.Status) ?? false))
+                    if (!response.Status.IsSuccessfulStatus() && !(options.IgnoreCodes?.Any(code => code == response.Status) ?? false))
                     {
                         throw GfycatException.CreateFromResponse(response);
                     }
@@ -392,9 +392,9 @@ namespace Gfycat.API
             return response.ReadAsJson<Models.Album>(Config);
         }
 
-        internal async Task CreateAlbumAsync(string albumId, RequestOptions options)
+        internal async Task CreateAlbumAsync(string albumId, string name, RequestOptions options)
         {
-            await SendAsync("POST", $"me/albums/{albumId}", options);
+            await SendJsonAsync("POST", $"me/albums/{albumId}", new { folderName = name }, options);
         }
 
         internal async Task MoveAlbumAsync(string albumId, string parentId, RequestOptions options)
@@ -417,7 +417,7 @@ namespace Gfycat.API
             await SendJsonAsync("PATCH", $"me/albums/{albumId}", new ActionRequest() { Action = "remove_contents", Value = gfyIds }, options);
         }
 
-        internal async Task CreateAlbumInFolderAsync(string folderId, string title, string description, IEnumerable<string> gfyIds, RequestOptions options)
+        internal async Task CreateAlbumInFolderAsync(string folderId, string title, RequestOptions options)
         {
             throw new NotImplementedException();
         }
@@ -447,13 +447,18 @@ namespace Gfycat.API
             throw new NotImplementedException();
         }
 
+        internal async Task DeleteAsync(string albumId, RequestOptions options)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         #region Getting gfycats
 
         public async Task<GfyResponse> GetGfyAsync(string gfyId, RequestOptions options)
         {
-            RestResponse response = await SendAsync("GET", "gfycats/{gfyId}", options);
+            RestResponse response = await SendAsync("GET", $"gfycats/{gfyId}", options);
             return response.ReadAsJson<GfyResponse>(Config);
         }
 
@@ -470,7 +475,10 @@ namespace Gfycat.API
         internal async Task<Status> GetGfyStatusAsync(string gfyId, RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", $"gfycats/fetch/status/{gfyId}", options);
-            return response.ReadAsJson<Status>(Config);
+            Status tempStatus = response.ReadAsJson<Status>(Config);
+            if (tempStatus.GfyName is null)
+                tempStatus.GfyName = gfyId;
+            return tempStatus;
         }
 
         internal async Task<UploadKey> GetUploadKeyAsync(GfyCreationParameters parameters, RequestOptions options)
@@ -585,11 +593,11 @@ namespace Gfycat.API
             return response.ReadAsJson<IEnumerable<string>>(Config);
         }
 
-        internal async Task<Feed> GetTrendingTagsPopulatedAsync(int tagCount, int gfyCount, string cursor, RequestOptions options)
+        internal async Task<TrendingTagsFeed> GetTrendingTagsPopulatedAsync(int tagCount, int gfyCount, string cursor, RequestOptions options)
         {
             string queryString = Utils.CreateQueryString(("tagCount", tagCount), ("gfyCount", gfyCount), ("cursor", cursor));
             RestResponse response = await SendAsync("GET", $"tags/trending/populated{queryString}", options);
-            return response.ReadAsJson<Models.Feed>(Config);
+            return response.ReadAsJson<TrendingTagsFeed>(Config);
         }
 
         #endregion
@@ -611,7 +619,7 @@ namespace Gfycat.API
         }
 
         #endregion
-
+        
         #region Developer API functions
 
         internal async Task<IEnumerable<ApplicationInfo>> GetDeveloperKeysAsync(RequestOptions options)

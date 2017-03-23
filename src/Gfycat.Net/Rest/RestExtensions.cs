@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
 using Gfycat.Rest;
+using System.Diagnostics;
 
 namespace Gfycat
 {
@@ -13,6 +14,7 @@ namespace Gfycat
             return resultObject;
         }
 
+        [DebuggerStepThrough]
         internal static string ReadAsString(this RestResponse response)
         {
             using (StreamReader reader = new StreamReader(response.Content))

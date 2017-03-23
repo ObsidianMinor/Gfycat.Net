@@ -1,28 +1,32 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Model = Gfycat.API.Models.AlbumInfo;
 
 namespace Gfycat
 {
-    public class AlbumInfo : Entity, IFolderInfo
+    public class AlbumInfo : Entity, IAlbumInfo
     {
-        internal AlbumInfo(GfycatClient client, string id) : base(client, id)
-        {
-        }
+        readonly string _owner;
 
-        internal static AlbumInfo Create(GfycatClient client, Model albumInfo)
+        internal AlbumInfo(GfycatClient client, string id, string owner) : base(client, id)
         {
-            return new AlbumInfo(client, albumInfo.Id)
+            _owner = owner;
+        }
+        
+        internal static AlbumInfo Create(GfycatClient client, Model albumInfo, string ownerId)
+        {
+            return new AlbumInfo(client, albumInfo.Id, ownerId)
             {
                 Title = albumInfo.Title,
-                Subfolders = albumInfo.Nodes.Select(a => Create(client, a)).ToReadOnlyCollection(),
+                Subfolders = albumInfo.Nodes.Select(a => Create(client, a, ownerId)).ToReadOnlyCollection(),
                 Published = albumInfo.Published,
             };
         }
 
         public string Title { get; private set; }
-        public IReadOnlyCollection<AlbumInfo> Subfolders { get; private set; }
+        public IReadOnlyCollection<IAlbumInfo> Subfolders { get; private set; }
         public bool Published { get; private set; }
         public string CoverImageUrl { get; private set; }
         public string CoverImageUrlMobile { get; private set; }
@@ -46,13 +50,39 @@ namespace Gfycat
 
         public async Task<Album> GetContentsAsync(RequestOptions options = null)
         {
-            return Album.Create(Client, await Client.ApiClient.GetAlbumContentsAsync(Id, options));
+            return Album.Create(Client, (_owner == null) ? await Client.ApiClient.GetAlbumContentsAsync(Id, options) : await Client.ApiClient.GetAlbumContentsAsync(_owner, Id, options));
+        }
+
+        public async Task MoveFolderAsync(IAlbumInfo parent, RequestOptions options = null)
+        {
+            await Client.ApiClient.MoveAlbumAsync(Id, parent.Id, options);
+        }
+
+        public async Task CreateNewFolderAsync(string folderName, RequestOptions options = null)
+        {
+            await Client.ApiClient.CreateAlbumInFolderAsync(Id, folderName, options);
+        }
+
+        public async Task CreateNewAlbumAsync(string albumName, RequestOptions options = null)
+        {
+            await Client.ApiClient.CreateAlbumAsync(Id, albumName, options);
+        }
+
+        public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
+        {
+            await Client.ApiClient.ModifyTitleAsync(Id, newTitle, options);
+        }
+
+        public async Task DeleteAsync(RequestOptions options = null)
+        {
+            await Client.ApiClient.DeleteAsync(Id, options);
         }
 
         #region IFolderInfo explicits
 
         IReadOnlyCollection<IFolderInfo> IFolderInfo.Subfolders => Subfolders;
-        async Task<IFolder> IFolderInfo.GetContentsAsync(RequestOptions options) => await GetContentsAsync(options);
+        async Task<IFolderContent> IFolderInfo.GetContentsAsync(RequestOptions options) => await GetContentsAsync(options);
+        async Task IFolderInfo.MoveFolderAsync(IFolderInfo parent, RequestOptions options) => await MoveFolderAsync(parent as IAlbumInfo ?? throw new ArgumentException(), options);
         
         #endregion
     }

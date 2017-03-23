@@ -1,27 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Model = Gfycat.API.Models.Feed;
+﻿using System.Collections.Generic;
 
 namespace Gfycat
 {
     public abstract class GfyFeed : IFeed<Gfy>
     {
-        protected readonly GfycatClient _client;
+        internal readonly GfycatClient _client;
+        internal readonly int _count;
+        internal readonly RequestOptions _options;
 
-        protected GfyFeed(GfycatClient client)
+        internal GfyFeed(GfycatClient client, int defaultCount, RequestOptions defaultOptions)
         {
             _client = client;
+            _count = defaultCount;
+            _options = defaultOptions;
         }
 
-        public IReadOnlyCollection<Gfy> Content { get; private set; }
+        public IReadOnlyCollection<Gfy> Content { get; internal set; }
 
-        public string Cursor { get; private set; }
-
-        internal static IFeed<Gfy> Create(GfycatClient client, Model feed)
-        {
-            throw new NotImplementedException();
-        }
+        public string Cursor { get; internal set; }
 
         public abstract IAsyncEnumerator<Gfy> GetEnumerator();
     }

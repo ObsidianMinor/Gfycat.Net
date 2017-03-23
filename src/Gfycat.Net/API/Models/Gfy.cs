@@ -60,7 +60,7 @@ namespace Gfycat.API.Models
         internal string Mp4Url { get; set; }
         [JsonProperty("likes")]
         internal int Likes { get; set; }
-        [JsonProperty("published", ItemConverterType = typeof(NumericalBooleanConverter))]
+        [JsonProperty("published"), JsonConverter(typeof(NumericalBooleanConverter))]
         internal bool Published { get; set; } = true;
         [JsonProperty("dislikes")]
         internal int Dislikes { get; set; }

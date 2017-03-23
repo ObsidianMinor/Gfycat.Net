@@ -3,12 +3,12 @@ using System.Threading.Tasks;
 
 namespace Gfycat
 {
-    public interface IFolderInfo
+    public interface IFolderInfo : IFolder
     {
-        string Id { get; }
-        string Title { get; }
         IReadOnlyCollection<IFolderInfo> Subfolders { get; }
 
-        Task<IFolder> GetContentsAsync(RequestOptions options = null);
+        Task<IFolderContent> GetContentsAsync(RequestOptions options = null);
+        Task MoveFolderAsync(IFolderInfo parent, RequestOptions options = null);
+        Task CreateNewFolderAsync(string folderName, RequestOptions options = null);
     }
 }

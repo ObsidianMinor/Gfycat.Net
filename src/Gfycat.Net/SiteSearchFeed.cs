@@ -4,11 +4,11 @@ using Model = Gfycat.API.Models.Feed;
 
 namespace Gfycat
 {
-    internal class CurrentUserSearchFeed : GfyFeed
+    internal class SiteSearchFeed : GfyFeed
     {
         readonly string _searchText;
 
-        internal CurrentUserSearchFeed(GfycatClient client, string searchText, RequestOptions options, int count) : base(client, count, options)
+        internal SiteSearchFeed(GfycatClient client, string searchText, RequestOptions options, int count) : base(client, count, options)
         {
             _searchText = searchText;
         }
@@ -24,7 +24,7 @@ namespace Gfycat
 
         public override IAsyncEnumerator<Gfy> GetEnumerator()
         {
-            return new CurrentUserSearchEnumerator(_client, _searchText, _options, this, _count);
+            return new SiteSearchEnumerator(_client, _searchText, _options, this, _count);
         }
     }
 }

@@ -11,5 +11,7 @@ namespace Gfycat.API.Models
         public int Time { get; set; }
         [JsonProperty("gfyname")]
         public string GfyName { get; set; }
+        [JsonProperty("description")]
+        public string ErrorDescription { get; set; }
     }
 }

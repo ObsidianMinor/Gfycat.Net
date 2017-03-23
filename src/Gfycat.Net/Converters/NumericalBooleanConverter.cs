@@ -3,7 +3,7 @@ using System;
 
 namespace Gfycat.Converters
 {
-    public class NumericalBooleanConverter : JsonConverter
+    internal class NumericalBooleanConverter : JsonConverter
     {
         public override bool CanRead => true;
         public override bool CanWrite => true;
@@ -15,7 +15,7 @@ namespace Gfycat.Converters
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            return ((long)reader.Value == 1);
+            return reader.Value.ToString() == "1";
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)

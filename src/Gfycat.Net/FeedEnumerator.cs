@@ -6,14 +6,19 @@ namespace Gfycat
 {
     public abstract class FeedEnumerator<T> : IAsyncEnumerator<T>
     {
-        internal FeedEnumerator(IFeed<T> feed, int count)
+        internal FeedEnumerator(GfycatClient client, IFeed<T> feed, int count, RequestOptions defaultOptions)
         {
+            _options = defaultOptions;
+            _client = client;
             _currentFeed = feed;
             _count = count;
+            _currentEnumerator = _currentFeed.Content.GetEnumerator();
         }
-        readonly int _count;
+        internal readonly RequestOptions _options;
+        internal readonly GfycatClient _client;
+        internal readonly int _count;
         IFeed<T> _currentFeed;
-        IEnumerator<T> _currentEnumerator => _currentFeed.Content.GetEnumerator();
+        IEnumerator<T> _currentEnumerator;
 
         public T Current => _currentEnumerator.Current;
 
@@ -27,12 +32,13 @@ namespace Gfycat
             if (!_currentEnumerator.MoveNext())
             {
                 _currentFeed = await GetNext(_currentFeed.Cursor, _count);
-                return _currentFeed.Cursor != null;
+                _currentEnumerator = _currentFeed.Content.GetEnumerator();
+                return _currentEnumerator.MoveNext();
             }
             else
                 return true;
         }
 
-        protected abstract Task<IFeed<T>> GetNext(string cursor, int count);
+        protected abstract Task<IFeed<T>> GetNext(string cursor, int count, RequestOptions options = null);
     }
 }
