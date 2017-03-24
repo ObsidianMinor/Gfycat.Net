@@ -7,14 +7,14 @@ namespace Gfycat
     {
         readonly string /*thatguy*/tagg;
 
-        public TaggedGfyFeedEnumerator(GfycatClient client, IFeed<Gfy> feed, int count, string tag, RequestOptions options) : base(client, feed, count, options)
+        public TaggedGfyFeedEnumerator(GfycatClient client, IFeed<Gfy> feed, string tag, RequestOptions options) : base(client, feed, options)
         {
             tagg = tag;
         }
 
-        protected override async Task<IFeed<Gfy>> GetNext(string cursor, int count, RequestOptions options = null)
+        protected override async Task<IFeed<Gfy>> GetNext(string cursor, RequestOptions options = null)
         {
-            return TaggedGfyFeed.Create(_client, count, (await _client.ApiClient.GetTrendingFeedAsync(tagg, count, cursor, options ?? _options)), options ?? _options);
+            return TaggedGfyFeed.Create(_client, (await _client.ApiClient.GetTrendingFeedAsync(tagg, cursor, options ?? _options)), options ?? _options);
         }
     }
 }

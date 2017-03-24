@@ -16,7 +16,7 @@ namespace Gfycat
             return new AlbumFolder(client, model.Id)
             {
                 Title = model.Title,
-                Subfolders = model.Nodes.Select(a => Utils.CreateAlbum(client, model, ownerId)).ToReadOnlyCollection(),
+                Subfolders = model.Nodes.Select(a => Utils.CreateAlbum(client, a, ownerId)).ToReadOnlyCollection(),
                 Published = model.Published
             };
         }

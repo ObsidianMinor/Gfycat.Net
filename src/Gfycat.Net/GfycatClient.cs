@@ -11,6 +11,7 @@ using System;
 
 namespace Gfycat
 {
+    [DebuggerDisplay("Client {ClientId}")]
     public class GfycatClient : ISearchable
     {
         internal GfycatApiClient ApiClient { get; }
@@ -380,25 +381,25 @@ namespace Gfycat
 
         public async Task<TaggedGfyFeed> GetTrendingGfysAsync(string tag = null, RequestOptions options = null)
         {
-            return TaggedGfyFeed.Create(this, 10, (await ApiClient.GetTrendingFeedAsync(tag, 10, null, options)), options);
+            return TaggedGfyFeed.Create(this, (await ApiClient.GetTrendingFeedAsync(tag, null, options)), options);
         }
 
-        public async Task<IEnumerable<string>> GetTrendingTagsAsync(int tagCount = 10, RequestOptions options = null)
+        public async Task<IEnumerable<string>> GetTrendingTagsAsync(RequestOptions options = null)
         {
-            return await ApiClient.GetTrendingTagsAsync(tagCount, null, options);
+            return await ApiClient.GetTrendingTagsAsync(null, options);
         }
 
-        public async Task<PopulatedTagFeed> GetTrendingTagsPopulatedAsync(int tagCount = 10, int gfyCount = 5, RequestOptions options = null)
+        public async Task<PopulatedTagFeed> GetTrendingTagsPopulatedAsync(RequestOptions options = null)
         {
-            return PopulatedTagFeed.Create(this, gfyCount, tagCount, options, await ApiClient.GetTrendingTagsPopulatedAsync(tagCount, gfyCount, null, options));
+            return PopulatedTagFeed.Create(this, options, await ApiClient.GetTrendingTagsPopulatedAsync(null, options));
         }
 
         #endregion
 
         // supposedly in testing. hhhhhhhhhhhhhhhhmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
-        public async Task<GfyFeed> SearchAsync(string searchText, int count = 10, RequestOptions options = null)
+        public async Task<GfyFeed> SearchAsync(string searchText, RequestOptions options = null)
         {
-            return SiteSearchFeed.Create(this, await ApiClient.SearchSiteAsync(searchText, count, null, options), searchText, options, count);
+            return SiteSearchFeed.Create(this, await ApiClient.SearchSiteAsync(searchText, null, options), searchText, options);
         }
 
         #region Extras

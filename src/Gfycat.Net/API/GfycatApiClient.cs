@@ -227,23 +227,23 @@ namespace Gfycat.API
 
         #region User feeds
 
-        internal async Task<Feed> GetUserGfyFeedAsync(string userId, int count, string cursor, RequestOptions options)
+        internal async Task<Feed> GetUserGfyFeedAsync(string userId, string cursor, RequestOptions options)
         {
-            string query = Utils.CreateQueryString(new Dictionary<string, object> { { "count", count }, { "cursor", cursor } });
+            string query = Utils.CreateQueryString(( "cursor", cursor ));
             RestResponse response = await SendAsync("GET", $"users/{userId}/gfycats{query}", options);
             return response.ReadAsJson<Models.Feed>(Config);
         }
 
-        internal async Task<Models.Feed> GetCurrentUserGfyFeedAsync(int count, string cursor, RequestOptions options)
+        internal async Task<Models.Feed> GetCurrentUserGfyFeedAsync(string cursor, RequestOptions options)
         {
-            string query = Utils.CreateQueryString(new Dictionary<string, object> { { "count", count }, { "cursor", cursor } });
+            string query = Utils.CreateQueryString(("cursor",cursor));
             RestResponse response = await SendAsync("GET", $"me/gfycats{query}", options);
             return response.ReadAsJson<Models.Feed>(Config);
         }
 
-        internal async Task<Models.Feed> GetFollowsGfyFeedAsync(int count, string cursor, RequestOptions options)
+        internal async Task<Models.Feed> GetFollowsGfyFeedAsync(string cursor, RequestOptions options)
         {
-            string query = Utils.CreateQueryString(new Dictionary<string, object> { { "count", count }, { "cursor", cursor } });
+            string query = Utils.CreateQueryString(( "cursor", cursor ));
             RestResponse response = await SendAsync("GET", $"me/follows/gfycats{query}", options);
             return response.ReadAsJson<Models.Feed>(Config);
         }
@@ -419,37 +419,37 @@ namespace Gfycat.API
 
         internal async Task CreateAlbumInFolderAsync(string folderId, string title, RequestOptions options)
         {
-            throw new NotImplementedException();
+            await SendJsonAsync("POST", $"me/album-folders/{folderId}", new { folderName = title }, options);
         }
 
         internal async Task ModifyTitleAsync(string albumId, string newTitle, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendJsonAsync("PUT", $"me/albums/{albumId}/title", new { value = newTitle }, options);
         }
 
         internal async Task ModifyDescriptionAsync(string albumId, string newDescription, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendJsonAsync("PUT", $"me/albums/{albumId}/description", new { value = newDescription }, options);
         }
 
         internal async Task ModifyNsfwSettingAsync(string albumId, NsfwSetting setting, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendJsonAsync("PUT", $"me/albums/{albumId}/nsfw", new { value = setting }, options);
         }
 
         internal async Task ModifyPublishedSettingAsync(string albumId, bool published, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendJsonAsync("PUT", $"me/albums/{albumId}/published", new { value = published }, options);
         }
 
         internal async Task ModifyOrderAsync(string albumId, IEnumerable<string> gfyIdsInNewOrder, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendJsonAsync("PUT", $"me/albums/{albumId}/order", new { newOrder = gfyIdsInNewOrder }, options);
         }
 
         internal async Task DeleteAsync(string albumId, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendAsync("DELETE", $"me/albums/{albumId}", options);
         }
 
         #endregion
@@ -498,72 +498,74 @@ namespace Gfycat.API
 
         internal async Task ModifyGfyTitleAsync(string gfyId, string newTitle, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendJsonAsync("PUT", $"me/gfycats/{gfyId}/title", new { value = newTitle }, options);
         }
 
         internal async Task DeleteGfyTitleAsync(string gfyId, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendAsync("DELETE", $"me/gfycats/{gfyId}/title", options);
         }
 
-        internal async Task ModifyGfyTagsAsync(IEnumerable<string> newTags, RequestOptions options)
+        internal async Task ModifyGfyTagsAsync(string gfyId, IEnumerable<string> newTags, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendJsonAsync("PUT", $"me/gfycats/{gfyId}/tags", new { value = newTags }, options);
         }
 
         internal async Task<IEnumerable<string>> GetGfyDomainWhitelistAsync(string gfyId, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendAsync("GET", $"me/gfycats/{gfyId}/domain-whitelist", options);
+            return response.ReadAsJson<DomainWhitelistShared>(Config).DomainWhitelist;
         }
 
         internal async Task ModifyGfyDomainWhitelistAsync(string gfyId, IEnumerable<string> newWhitelist, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendJsonAsync("PUT", $"me/gfycats/{gfyId}/domain-whitelist", new DomainWhitelistShared() { DomainWhitelist = newWhitelist }, options);
         }
 
         internal async Task DeleteGfyDomainWhitelistAsync(string gfyId, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendAsync("DELETE", $"me/gfycats/{gfyId}/domain-whitelist", options);
         }
 
         internal async Task<IEnumerable<string>> GetGfyGeoWhitelistAsync(string gfyId, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendAsync("GET", $"me/gfycats/{gfyId}/geo-whitelist", options);
+            return response.ReadAsJson<GeoWhitelistShared>(Config).GeoWhitelist;
         }
         
         internal async Task ModifyGfyGeoWhitelistAsync(string gfyId, IEnumerable<string> newWhitelist, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendJsonAsync("PUT", $"me/gfycats/{gfyId}/geo-whitelist", new GeoWhitelistShared() { GeoWhitelist = newWhitelist }, options);
         }
 
         internal async Task DeleteGfyGeoWhitelistAsync(string gfyId, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendAsync("DELETE", $"me/gfycats/{gfyId}/geo-whitelist", options);
         }
 
         internal async Task ModifyGfyDescriptionAsync(string gfyId, string newDescription, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendJsonAsync("PUT", $"me/gfycats/{gfyId}/description", new { value = newDescription } ,options);
         }
 
         internal async Task DeleteGfyDescriptionAsync(string gfyId, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendAsync("DELETE", $"me/gfycats/{gfyId}/description", options);
         }
 
         internal async Task ModifyGfyPublishedSettingAsync(string gfyId, bool published, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendJsonAsync("PUT", $"me/gfycats/{gfyId}/published", new { value = published }, options);
         }
 
         internal async Task ModifyGfyNsfwSettingAsync(string gfyId, NsfwSetting newSetting, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendJsonAsync("PUT", $"me/gfycats/{gfyId}/nsfw", new { value = newSetting }, options);
         }
 
         internal async Task DeleteGfyAsync(string gfyId, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendAsync("DELETE", $"me/gfycats/{gfyId}", options);
         }
 
         #endregion
@@ -579,23 +581,23 @@ namespace Gfycat.API
 
         #region Trending feeds
 
-        internal async Task<TrendingFeed> GetTrendingFeedAsync(string tagName, int count, string cursor, RequestOptions options)
+        internal async Task<TrendingFeed> GetTrendingFeedAsync(string tagName,string cursor, RequestOptions options)
         {
-            string queryString = Utils.CreateQueryString(("tagName", tagName), ("count", count), ("cursor", cursor));
+            string queryString = Utils.CreateQueryString(("tagName", tagName), ("cursor", cursor));
             RestResponse response = await SendAsync("GET", $"gfycats/trending{queryString}", options);
             return response.ReadAsJson<TrendingFeed>(Config);
         }
 
-        internal async Task<IEnumerable<string>> GetTrendingTagsAsync(int tagCount, string cursor, RequestOptions options)
+        internal async Task<IEnumerable<string>> GetTrendingTagsAsync(string cursor, RequestOptions options)
         {
-            string queryString = Utils.CreateQueryString(("tagCount", tagCount), ("cursor", cursor));
+            string queryString = Utils.CreateQueryString(("cursor", cursor));
             RestResponse response = await SendAsync("GET", $"tags/trending{queryString}", options);
             return response.ReadAsJson<IEnumerable<string>>(Config);
         }
 
-        internal async Task<TrendingTagsFeed> GetTrendingTagsPopulatedAsync(int tagCount, int gfyCount, string cursor, RequestOptions options)
+        internal async Task<TrendingTagsFeed> GetTrendingTagsPopulatedAsync(string cursor, RequestOptions options)
         {
-            string queryString = Utils.CreateQueryString(("tagCount", tagCount), ("gfyCount", gfyCount), ("cursor", cursor));
+            string queryString = Utils.CreateQueryString(("cursor", cursor));
             RestResponse response = await SendAsync("GET", $"tags/trending/populated{queryString}", options);
             return response.ReadAsJson<TrendingTagsFeed>(Config);
         }
@@ -604,16 +606,16 @@ namespace Gfycat.API
 
         #region Search
 
-        internal async Task<Feed> SearchSiteAsync(string searchText, int count, string cursor, RequestOptions options)
+        internal async Task<Feed> SearchSiteAsync(string searchText, string cursor, RequestOptions options)
         {
-            string queryString = Utils.CreateQueryString(("search_text", searchText), ("count", count), ("cursor", cursor));
+            string queryString = Utils.CreateQueryString(("search_text", searchText), ("cursor", cursor));
             RestResponse response = await SendAsync("GET", $"gfycats/search{queryString}", options);
             return response.ReadAsJson<Feed>(Config);
         }
 
-        internal async Task<Feed> SearchCurrentUserAsync(string searchText, int count, string cursor, RequestOptions options)
+        internal async Task<Feed> SearchCurrentUserAsync(string searchText, string cursor, RequestOptions options)
         {
-            string queryString = Utils.CreateQueryString(("search_text", searchText), ("count", count), ("cursor", cursor));
+            string queryString = Utils.CreateQueryString(("search_text", searchText), ("cursor", cursor));
             RestResponse response = await SendAsync("GET", $"me/gfycats/search{queryString}", options);
             return response.ReadAsJson<Feed>(Config);
         }

@@ -8,14 +8,14 @@ namespace Gfycat
     {
         readonly string _userId;
 
-        internal UserGfyFeed(GfycatClient client, int defaultCount, RequestOptions defaultOptions, string userId) : base(client, defaultCount, defaultOptions)
+        internal UserGfyFeed(GfycatClient client, RequestOptions defaultOptions, string userId) : base(client, defaultOptions)
         {
             _userId = userId;
         }
 
-        internal static UserGfyFeed Create(GfycatClient client, int defaultCount, RequestOptions defaultOptions, string userId, API.Models.Feed feed)
+        internal static UserGfyFeed Create(GfycatClient client, RequestOptions defaultOptions, string userId, API.Models.Feed feed)
         {
-            return new UserGfyFeed(client, defaultCount, defaultOptions, userId)
+            return new UserGfyFeed(client, defaultOptions, userId)
             {
                 Content = feed.Gfycats.Select(g => Gfy.Create(client, g)).ToReadOnlyCollection(),
                 Cursor = feed.Cursor
@@ -24,7 +24,7 @@ namespace Gfycat
 
         public override IAsyncEnumerator<Gfy> GetEnumerator()
         {
-            return new UserGfyFeedEnumerator(_client, this, _count, _options, _userId);
+            return new UserGfyFeedEnumerator(_client, this, _options, _userId);
         }
     }
 }

@@ -1,19 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Model = Gfycat.API.Models.User;
 
 namespace Gfycat
 {
+    [DebuggerDisplay("Username: {Username}")]
     public class User : Entity, IUser, IUpdatable
     {
         public string Username { get; internal set; }
         public string Description { get; internal set; }
+        /// <summary>
+        /// The linked website on a user's profile page
+        /// </summary>
         public string ProfileUrl { get; internal set; }
         public string Name { get; internal set; }
         public int Views { get; internal set; }
-        public bool EmailVerified { get; internal set; }
+        /// <summary>
+        /// A link to the user's Gfycat profile url
+        /// </summary>
         public string Url { get; internal set; }
         public DateTime CreationDate { get; internal set; }
         public string ProfileImageUrl { get; internal set; }
@@ -21,6 +27,8 @@ namespace Gfycat
         public int Followers { get; internal set; }
         public int Following { get; internal set; }
         public bool IframeProfileImageVisible { get; internal set; }
+        public int PublishedGfys { get; internal set; }
+        public int PublishedAlbums { get; internal set; }
 
         internal User(GfycatClient client, string id) : base(client, id)
         { }
@@ -29,7 +37,6 @@ namespace Gfycat
         {
             CreationDate = model.CreationDate;
             Description = model.Description;
-            EmailVerified = model.EmailVerified;
             Followers = model.Followers;
             Following = model.Following;
             IframeProfileImageVisible = model.IframeProfileImageVisible;
@@ -40,6 +47,8 @@ namespace Gfycat
             Username = model.Username;
             Verified = model.Verified;
             Views = model.Views;
+            PublishedGfys = model.PublishedGfycats;
+            PublishedAlbums = model.PublishedAlbums;
         }
 
         internal static User Create(GfycatClient client, Model model)
@@ -59,9 +68,9 @@ namespace Gfycat
             return Utils.CreateAlbum(Client, (await Client.ApiClient.GetAlbumsForUserAsync(Id, options)).FirstOrDefault(), Id);
         }
 
-        public async Task<GfyFeed> GetGfycatFeedAsync(int count = 10, RequestOptions options = null)
+        public async Task<GfyFeed> GetGfyFeedAsync(RequestOptions options = null)
         {
-            return UserGfyFeed.Create(Client, count, options, Id, await Client.ApiClient.GetUserGfyFeedAsync(Id, count, null, options));
+            return UserGfyFeed.Create(Client, options, Id, await Client.ApiClient.GetUserGfyFeedAsync(Id, null, options));
         }
 
         public async Task FollowAsync(RequestOptions options = null)

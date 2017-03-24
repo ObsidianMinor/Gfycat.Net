@@ -11,9 +11,15 @@ namespace Gfycat.API.Models
         internal IEnumerable<string> DomainWhitelist { get; set; }
         [JsonProperty("email")]
         internal string Email { get; set; }
-        [JsonProperty("associatedProvders")]
-        internal string AssociatedProviders { get; set; }
+        [JsonProperty("emailVerified")]
+        internal bool EmailVerified { get; set; }
         [JsonProperty("uploadNotices")]
         internal bool UploadNotices { get; set; }
+        [JsonProperty("totalGfycats")]
+        internal int TotalGfycats { get; set; }
+        [JsonProperty("totalAlbums")]
+        internal int TotalAlbums { get; set; }
+        [JsonProperty("totalBookmarks")]
+        internal int TotalBookmarks { get; set; }
     }
 }

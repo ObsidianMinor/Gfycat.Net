@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace Gfycat
     /// <summary>
     /// Represents the current login user on Gfycat
     /// </summary>
+    [DebuggerDisplay("Username: {Username}")]
     public class CurrentUser : Entity, IUser, IUpdatable, ISearchable
     {
         internal CurrentUser(GfycatClient client, string id) : base(client, id)
@@ -36,11 +38,15 @@ namespace Gfycat
             GeoWhitelist = model.GeoWhitelist.Select(s => new RegionInfo(s)).ToReadOnlyCollection();
             DomainWhitelist = model.DomainWhitelist.ToReadOnlyCollection();
             Email = model.Email;
-            AssociatedProviders = model.AssociatedProviders;
             UploadNotices = model.UploadNotices;
+            TotalGfys = model.TotalGfycats;
+            TotalAlbums = model.TotalAlbums;
+            TotalBookmarks = model.TotalBookmarks;
+            PublishedGfys = model.PublishedGfycats;
+            PublishedAlbums = model.PublishedAlbums;
         }
 
-        public async Task UpdateAsync(RequestOptions options)
+        public async Task UpdateAsync(RequestOptions options = null)
             => Update(await Client.ApiClient.GetCurrentUserAsync(options));
         
         internal static CurrentUser Create(GfycatClient gfycatClient, Model currentUserModel)
@@ -89,13 +95,19 @@ namespace Gfycat
         /// </summary>
         public string Email { get; private set; }
         /// <summary>
-        /// The user’s associated provider details (has the user linked their facebook or twitter account and selected details from the provider)
-        /// </summary>
-        public string AssociatedProviders { get; private set; }
-        /// <summary>
         /// The user’s upload notices settings, whether the user wants to get notified of uploads or not
         /// </summary>
         public bool UploadNotices { get; private set; }
+
+        public int PublishedGfys { get; private set; }
+
+        public int PublishedAlbums { get; private set; }
+
+        public int TotalGfys { get; private set; }
+
+        public int TotalBookmarks { get; private set; }
+
+        public int TotalAlbums { get; private set; }
 
         #region Users
 
@@ -150,6 +162,7 @@ namespace Gfycat
         public async Task ModifyCurrentUserAsync(IEnumerable<GfycatOperation> operations, RequestOptions options = null)
         {
             await Client.ApiClient.ModifyCurrentUserAsync(operations, options);
+            await UpdateAsync(options);
         }
         
         /// <summary>
@@ -174,9 +187,9 @@ namespace Gfycat
 
         #region User feeds
 
-        public async Task<GfyFeed> GetGfycatFeedAsync(int count = 10, RequestOptions options = null)
+        public async Task<GfyFeed> GetGfyFeedAsync(RequestOptions options = null)
         {
-            return CurrentUserGfyFeed.Create(Client, count, options, await Client.ApiClient.GetCurrentUserGfyFeedAsync(count, null, options));
+            return CurrentUserGfyFeed.Create(Client, options, await Client.ApiClient.GetCurrentUserGfyFeedAsync(null, options));
         }
 
         /// <summary>
@@ -186,9 +199,9 @@ namespace Gfycat
         /// <param name="cursor">The cursor from the previous request, used to fetch the next page of gfys</param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task<GfyFeed> GetTimelineFeedAsync(int count = 10, RequestOptions options = null)
+        public async Task<GfyFeed> GetTimelineFeedAsync(RequestOptions options = null)
         {
-            return CurrentUserTimelineFeed.Create(Client, count, options, await Client.ApiClient.GetFollowsGfyFeedAsync(count, null, options));
+            return CurrentUserTimelineFeed.Create(Client, options, await Client.ApiClient.GetFollowsGfyFeedAsync(null, options));
         }
 
         #endregion
@@ -242,9 +255,9 @@ namespace Gfycat
         
         #endregion
 
-        public async Task<GfyFeed> SearchAsync(string searchText, int count = 10, RequestOptions options = null)
+        public async Task<GfyFeed> SearchAsync(string searchText, RequestOptions options = null)
         {
-            return CurrentUserSearchFeed.Create(Client, await Client.ApiClient.SearchCurrentUserAsync(searchText, count, null, options), searchText, options, count);
+            return CurrentUserSearchFeed.Create(Client, await Client.ApiClient.SearchCurrentUserAsync(searchText, null, options), searchText, options);
         }
 
         public async Task AddTwitterProviderAsync(string secret, RequestOptions options = null)
@@ -270,11 +283,13 @@ namespace Gfycat
         public async Task ModifyDomainWhitelistAsync(IEnumerable<string> newWhitelist, RequestOptions options = null)
         {
             await Client.ApiClient.ModifyDomainWhitelistAsync(new API.DomainWhitelistShared { DomainWhitelist = newWhitelist }, options);
+            await UpdateAsync(options);
         }
 
         public async Task DeleteDomainWhitelistAsync(RequestOptions options = null)
         {
             await Client.ApiClient.DeleteDomainWhitelistAsync(options);
+            await UpdateAsync(options);
         }
 
         public async Task<IEnumerable<RegionInfo>> GetGeoWhitelistAsync(RequestOptions options = null)
@@ -282,14 +297,16 @@ namespace Gfycat
             return (await Client.ApiClient.GetGeoWhitelistAsync(options)).GeoWhitelist.Select(s => new RegionInfo(s));
         }
 
-        public async Task ModifyGeoWhitelistAsync(IEnumerable<string> newWhitelist, RequestOptions options = null)
+        public async Task ModifyGeoWhitelistAsync(IEnumerable<RegionInfo> newWhitelist, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyGeoWhitelistAsync(new API.GeoWhitelistShared { GeoWhitelist = newWhitelist }, options);
+            await Client.ApiClient.ModifyGeoWhitelistAsync(new API.GeoWhitelistShared { GeoWhitelist = newWhitelist.Select(r => r.TwoLetterISORegionName) }, options);
+            await UpdateAsync(options);
         }
 
         public async Task DeleteGeoWhitelistAsync(RequestOptions options = null)
         {
             await Client.ApiClient.DeleteGeoWhitelistAsync(options);
+            await UpdateAsync(options);
         }
 
         #region API Credentials

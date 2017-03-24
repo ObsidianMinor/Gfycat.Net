@@ -131,7 +131,7 @@ namespace Gfycat
             if (tags.Count() > 20)
                 throw new ArgumentException("The number of tags provided exceeds the max value 20");
 
-            await Client.ApiClient.ModifyGfyTagsAsync(tags, options);
+            await Client.ApiClient.ModifyGfyTagsAsync(Id, tags, options);
             await UpdateAsync();
         }
 

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Model = Gfycat.API.Models.Album;
 
 namespace Gfycat
 {
+    [DebuggerDisplay("Album: {Title}")]
     public class Album : Entity, IFolderContent, IUpdatable
     {
         internal Album(GfycatClient client, string id) : base(client, id)

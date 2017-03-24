@@ -5,13 +5,11 @@ namespace Gfycat
     public abstract class GfyFeed : IFeed<Gfy>
     {
         internal readonly GfycatClient _client;
-        internal readonly int _count;
         internal readonly RequestOptions _options;
 
-        internal GfyFeed(GfycatClient client, int defaultCount, RequestOptions defaultOptions)
+        internal GfyFeed(GfycatClient client, RequestOptions defaultOptions)
         {
             _client = client;
-            _count = defaultCount;
             _options = defaultOptions;
         }
 

@@ -34,5 +34,9 @@ namespace Gfycat.API.Models
         internal int Following { get; set; }
         [JsonProperty("iframeProfileImageVisible")]
         internal bool IframeProfileImageVisible { get; set; }
+        [JsonProperty("publishedGfycats")]
+        internal int PublishedGfycats { get; set; }
+        [JsonProperty("publishedAlbums")]
+        internal int PublishedAlbums { get; set; }
     }
 }

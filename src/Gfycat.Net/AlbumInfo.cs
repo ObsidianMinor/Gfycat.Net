@@ -22,6 +22,25 @@ namespace Gfycat
                 Title = albumInfo.Title,
                 Subfolders = albumInfo.Nodes.Select(a => Create(client, a, ownerId)).ToReadOnlyCollection(),
                 Published = albumInfo.Published,
+                CoverImageUrl = albumInfo.CoverImageUrl,
+                CoverImageUrlMobile = albumInfo.CoverImageUrlMobile,
+                Mp4Url = albumInfo.Mp4Url,
+                WebmUrl = albumInfo.WebmUrl,
+                GifUrl = albumInfo.GifUrl,
+                MobileUrl = albumInfo.MobileUrl,
+                MobilePosterUrl = albumInfo.MobilePosterUrl,
+                PosterUrl = albumInfo.PosterUrl,
+                Thumb360Url = albumInfo.Thumb360Url,
+                Thumb360PosterUrl = albumInfo.Thumb360PosterUrl,
+                Thumb100PosterUrl = albumInfo.Thumb100PosterUrl,
+                Max5MbGif = albumInfo.Max5MbGif,
+                Max2MbGif = albumInfo.Max2MbGif,
+                MjpgUrl = albumInfo.MjpgUrl,
+                Height = albumInfo.Height,
+                Width = albumInfo.Width,
+                MiniPosterUrl = albumInfo.MiniPosterUrl,
+                MiniUrl = albumInfo.MiniUrl,
+                WebpUrl = albumInfo.WebpUrl
             };
         }
 

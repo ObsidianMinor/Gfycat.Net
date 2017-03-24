@@ -4,6 +4,14 @@ namespace Gfycat
 {
     public class GfycatOperation
     {
+        public GfycatOperation(Operation op, OperationPath path, object value)
+        {
+            Operation = op;
+            Path = path;
+            Value = value;
+        }
+
+        [JsonIgnore]
         public Operation Operation { get; set; } // I couldn't use the string enum converter with an array of constructor args because CLS compliance
         [JsonProperty("op")]
         private string _operation => Operation.ToString().ToLowerInvariant();
@@ -38,6 +46,8 @@ namespace Gfycat
                 }
             }
         }
+
+        [JsonIgnore]
         public OperationPath Path { get; set; }
 
         [JsonProperty("value")]
