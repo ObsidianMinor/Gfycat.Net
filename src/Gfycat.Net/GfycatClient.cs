@@ -343,6 +343,22 @@ namespace Gfycat
             return Gfy.Create(this, response.GfyItem);
         }
 
+        /// <summary>
+        /// Attempts to retrieve a Gfy using a url string
+        /// </summary>
+        /// <param name="gfycatUrl">The gfycat url</param>
+        /// <param name="options">Optional request parameters</param>
+        /// <returns>An awaitable Gfy</returns>
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="GfycatException"></exception>
+        public async Task<Gfy> GetGfyFromUrlAsync(string gfycatUrl, RequestOptions options = null)
+        {
+            if (!Uri.TryCreate(gfycatUrl, UriKind.Absolute, out Uri result) || result.Host != "gfycat.com" || result.LocalPath == "/")
+                throw new ArgumentException("The provided string is not a valid URI, the host isn't gfycat.com, or the local path is empty");
+            else
+                return await GetGfyAsync(result.Segments.LastOrDefault(), options);
+        }
+
         #region Creating Gfycats
 
         /// <summary>
