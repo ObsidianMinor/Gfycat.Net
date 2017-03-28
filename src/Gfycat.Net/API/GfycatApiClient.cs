@@ -43,6 +43,7 @@ namespace Gfycat.API
             options = options ?? RequestOptions.CreateFromDefaults(Config);
             Dictionary<string, object> content = new Dictionary<string, object>
             {
+                { "key", fileName },
                 { "file", new MultipartFile(stream, fileName) }
             };
             return await SendInternalAsync(() => RestClient.SendAsync(method, endpoint, content, options.CancellationToken), options).ConfigureAwait(false);
