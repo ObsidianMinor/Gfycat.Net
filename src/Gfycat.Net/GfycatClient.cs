@@ -503,6 +503,7 @@ namespace Gfycat
         {
             UploadKey uploadKey = await ApiClient.GetUploadKeyAsync(parameters, options);
             await ApiClient.PostGfyStreamAsync(uploadKey, data, options);
+            await Task.Delay(500);
 
             return await GetGfyUploadStatusAsync(uploadKey.Gfycat, options);
         }

@@ -510,6 +510,8 @@ namespace Gfycat.API
 
         internal async Task PostGfyStreamAsync(UploadKey key, Stream stream, RequestOptions options)
         {
+            options = options ?? RequestOptions.CreateFromDefaults(Config);
+            options.UseAccessToken = false;
             RestResponse response = await SendStreamAsync("POST", "https://filedrop.gfycat.com/", stream, key.Gfycat, options); // uploads as multipart
         }
 

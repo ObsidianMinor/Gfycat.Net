@@ -69,7 +69,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<Gfy> GetGfyWhenCompleteAsync(RequestOptions options = null)
         {
-            while(Task != UploadTask.Encoding)
+            while(Task == UploadTask.Encoding)
             {
                 await System.Threading.Tasks.Task.Delay(TimeSpan.FromSeconds(Time));
                 await UpdateAsync(options);
