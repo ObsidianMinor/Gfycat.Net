@@ -22,6 +22,11 @@
     <PackageLicenseUrl>https://github.com/ObsidianMinor/Gfycat.Net/LICENSE.txt</PackageLicenseUrl>
     <AssemblyName>Gfycat.Net</AssemblyName>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.2|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard1.2\Gfycat.Net.xml</DocumentationFile>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>True</DebugSymbols>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Auth\**" />
     <EmbeddedResource Remove="Auth\**" />

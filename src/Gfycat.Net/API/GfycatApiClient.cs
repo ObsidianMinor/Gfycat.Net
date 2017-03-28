@@ -474,7 +474,12 @@ namespace Gfycat.API
 
         public async Task<GfyResponse> GetGfyAsync(string gfyId, RequestOptions options)
         {
+            options = options ?? RequestOptions.CreateFromDefaults(Config);
+            options.IgnoreCodes = Utils.Ignore404;
             RestResponse response = await SendAsync("GET", $"gfycats/{gfyId}", options);
+            if (response.Status == HttpStatusCode.NotFound)
+                return null;
+
             return response.ReadAsJson<GfyResponse>(Config);
         }
 

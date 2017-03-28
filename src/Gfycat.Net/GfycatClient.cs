@@ -11,6 +11,9 @@ using System;
 
 namespace Gfycat
 {
+    /// <summary>
+    /// Represents a client for communicating with the Gfycat API
+    /// </summary>
     [DebuggerDisplay("Client {ClientId}")]
     public class GfycatClient : ISearchable
     {
@@ -19,10 +22,19 @@ namespace Gfycat
         const string TwitterProvider = "twitter";
         const string FacebookProvider = "facebook";
 
+        /// <summary>
+        /// Creates a <see cref="GfycatClient"/> using the provided client ID and client secret
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <param name="clientSecret"></param>
         public GfycatClient(string clientId, string clientSecret) : this(new GfycatClientConfig(clientId, clientSecret))
         {
         }
 
+        /// <summary>
+        /// Creates a <see cref="GfycatClient"/> using the provided <see cref="GfycatClientConfig"/>
+        /// </summary>
+        /// <param name="config"></param>
         public GfycatClient(GfycatClientConfig config)
         {
             ApiClient = new GfycatApiClient(this, config);
@@ -32,9 +44,15 @@ namespace Gfycat
 
         #region Auth methods
 
+        /// <summary>
+        /// This client's ID provided during construction
+        /// </summary>
         public string ClientId => ApiClient.Config.ClientId;
         private string ClientSecret => ApiClient.Config.ClientSecret;
 
+        /// <summary>
+        /// The current access token being used for all requests
+        /// </summary>
         public string AccessToken { get; private set; }
 
         /// <summary>
@@ -45,7 +63,7 @@ namespace Gfycat
         private IRestClient RestClient => ApiClient.RestClient;
 
         /// <summary>
-        /// If the current authentication method used includes a refresh token in the response this will refresh both access and refresh tokens
+        /// Attempts to refresh the access token using the current refresh token or with a provided access token. If the current refresh token is null or an refresh token isn't provided, this will perform client credential authentication
         /// </summary>
         /// <returns></returns>
         public async Task RefreshTokenAsync(string providedRefreshToken = null, RequestOptions options = null)
@@ -73,7 +91,7 @@ namespace Gfycat
                         GrantType = "refresh",
                         RefreshToken = RefreshToken
                     },
-                    options);
+                    options).ConfigureAwait(false);
                 ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
 
                 Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
@@ -102,7 +120,7 @@ namespace Gfycat
                     ClientSecret = ClientSecret,
                     GrantType = "client_credentials"
                 },
-                options);
+                options).ConfigureAwait(false);
             ClientCredentialsAuthResponse auth = response.ReadAsJson<ClientCredentialsAuthResponse>(ApiClient.Config);
 
             Debug.WriteLine($"Recieved access token {auth.AccessToken}");
@@ -114,6 +132,7 @@ namespace Gfycat
         /// </summary>
         /// <param name="username"></param>
         /// <param name="password"></param>
+        /// <param name="options"></param>
         /// <returns>An awaitable task</returns>
         public async Task AuthenticateAsync(string username, string password, RequestOptions options = null)
         {
@@ -131,7 +150,7 @@ namespace Gfycat
                     Username = username,
                     Password = password
                 },
-                options);
+                options).ConfigureAwait(false);
             ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
 
             Debug.WriteLine($"Logged in as {username}");
@@ -141,6 +160,11 @@ namespace Gfycat
             RefreshToken = auth.RefreshToken;
         }
 
+        /// <summary>
+        /// Retrieves a Twitter request token for the Twitter Request token auth flow
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task<string> GetTwitterRequestTokenAsync(RequestOptions options = null)
         {
             options = options ?? RequestOptions.CreateFromDefaults(ApiClient.Config);
@@ -153,11 +177,18 @@ namespace Gfycat
                     grant_type = "request_token",
                     provider = "twitter"
                 },
-                options);
+                options).ConfigureAwait(false);
             TwitterRequestTokenResponse auth = response.ReadAsJson<TwitterRequestTokenResponse>(ApiClient.Config);
             return auth.RequestToken;
         }
 
+        /// <summary>
+        /// Allows authentication with either a facebook access token or facebook auth code
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="token"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task AuthenticateAsync(TokenType type, string token, RequestOptions options = null)
         {
             options = options ?? RequestOptions.CreateFromDefaults(ApiClient.Config);
@@ -177,7 +208,7 @@ namespace Gfycat
                                 Provider = "facebook",
                                 AuthCode = token
                             },
-                            options);
+                            options).ConfigureAwait(false);
                         ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
 
                         Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
@@ -200,7 +231,7 @@ namespace Gfycat
                                 Provider = "facebook",
                                 Token = token
                             },
-                            options);
+                            options).ConfigureAwait(false);
                         ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
 
                         Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
@@ -242,7 +273,7 @@ namespace Gfycat
                                 Code = tokenOrCode,
                                 RedirectUri = verifierSecretRedirectUri
                             },
-                            options);
+                            options).ConfigureAwait(false);
                         ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
 
                         Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
@@ -266,7 +297,7 @@ namespace Gfycat
                                 Token = tokenOrCode,
                                 Verifier = verifierSecretRedirectUri
                             },
-                            options);
+                            options).ConfigureAwait(false);
                         ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
 
                         Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
@@ -290,7 +321,7 @@ namespace Gfycat
                                 Token = tokenOrCode,
                                 Secret = verifierSecretRedirectUri
                             },
-                            options);
+                            options).ConfigureAwait(false);
                         ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
 
                         Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
@@ -305,6 +336,13 @@ namespace Gfycat
             }
         }
 
+        /// <summary>
+        /// Authenticates using an given access token
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="verifyToken"></param>
+        /// <returns></returns>
+        /// <exception cref="GfycatException">If verifyToken is true, this will attempt to get the current user which will return 401 unauthorized if the access token is invalid</exception>
         public async Task AuthenticateAsync(string accessToken, bool verifyToken = true)
         {
             AccessToken = accessToken;
@@ -312,6 +350,7 @@ namespace Gfycat
             if (verifyToken)
                 await GetCurrentUserAsync(); // throws if the access token is invalid
         }
+
         #endregion
 
         #region Users
@@ -406,24 +445,31 @@ namespace Gfycat
         
         #endregion
 
+        /// <summary>
+        /// Gets info for a single Gfy
+        /// </summary>
+        /// <param name="gfycat"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task<Gfy> GetGfyAsync(string gfycat, RequestOptions options = null)
         {
             GfyResponse response = await ApiClient.GetGfyAsync(gfycat, options);
+            if (response == null)
+                return null;
+
             return Gfy.Create(this, response.GfyItem);
         }
 
         /// <summary>
-        /// Attempts to retrieve a Gfy using a url string
+        /// Attempts to get info for a single Gfy using a url string. If the URI isn't in a valid format or the gfy does not exist, this returns null
         /// </summary>
         /// <param name="gfycatUrl">The gfycat url</param>
         /// <param name="options">Optional request parameters</param>
         /// <returns>An awaitable Gfy</returns>
-        /// <exception cref="ArgumentException"></exception>
-        /// <exception cref="GfycatException"></exception>
         public async Task<Gfy> GetGfyFromUrlAsync(string gfycatUrl, RequestOptions options = null)
         {
             if (!Uri.TryCreate(gfycatUrl, UriKind.Absolute, out Uri result) || result.Host != "gfycat.com" || result.LocalPath == "/")
-                throw new ArgumentException("The provided string is not a valid URI, the host isn't gfycat.com, or the local path is empty");
+                return null;
             else
                 return await GetGfyAsync(result.Segments.LastOrDefault(), options);
         }
@@ -435,11 +481,12 @@ namespace Gfycat
         /// </summary>
         /// <param name="remoteUrl"></param>
         /// <param name="parameters"></param>
+        /// <param name="options"></param>
         /// <returns></returns>
-        public async Task<string> CreateGfyAsync(string remoteUrl, GfyCreationParameters parameters = null, RequestOptions options = null)
+        public async Task<GfyStatus> CreateGfyAsync(string remoteUrl, GfyCreationParameters parameters = null, RequestOptions options = null)
         {
-            UploadKey key = await ApiClient.CreateGfyFromFetchUrlAsync(remoteUrl, parameters ?? new GfyCreationParameters(remoteUrl), options);
-            return key.Gfycat;
+            UploadKey key = await ApiClient.CreateGfyFromFetchUrlAsync(remoteUrl, parameters ?? new GfyCreationParameters(), options);
+            return await GetGfyUploadStatusAsync(key.Gfycat, options);
         }
 
         public async Task<GfyStatus> GetGfyUploadStatusAsync(string gfycat, RequestOptions options = null)
@@ -447,17 +494,17 @@ namespace Gfycat
             Status status = await ApiClient.GetGfyStatusAsync(gfycat, options);
 
             if (status.Task == UploadTask.Error)
-                throw new GfycatException(HttpStatusCode.OK.ToString(), status.ErrorDescription, HttpStatusCode.OK);
+                throw new GfycatException(status.ErrorDescription);
 
             return new GfyStatus(this, status);
         }
 
-        public async Task<string> CreateGfyAsync(Stream data, GfyCreationParameters parameters = null, RequestOptions options = null)
+        public async Task<GfyStatus> CreateGfyAsync(Stream data, GfyCreationParameters parameters = null, RequestOptions options = null)
         {
             UploadKey uploadKey = await ApiClient.GetUploadKeyAsync(parameters, options);
             await ApiClient.PostGfyStreamAsync(uploadKey, data, options);
 
-            return uploadKey.Gfycat;
+            return await GetGfyUploadStatusAsync(uploadKey.Gfycat, options);
         }
 
         #endregion
@@ -481,6 +528,12 @@ namespace Gfycat
 
         #endregion
 
+        /// <summary>
+        /// Searches the Gfycat website using the provided search text
+        /// </summary>
+        /// <param name="searchText"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         // supposedly in testing. hhhhhhhhhhhhhhhhmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
         public async Task<GfyFeed> SearchAsync(string searchText, RequestOptions options = null)
         {
@@ -497,6 +550,11 @@ namespace Gfycat
             { TokenType.TwitterTokenVerifier, "verifier" }
         };
 
+        /// <summary>
+        /// Formats a request token into a Twitter oauth url
+        /// </summary>
+        /// <param name="requestToken"></param>
+        /// <returns></returns>
         public static string GetTwitterRequestTokenUrl(string requestToken) => $"https://api.twitter.com/oauth/authenticate?oauth_token={requestToken}";
 
         /// <summary>

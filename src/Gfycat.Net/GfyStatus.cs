@@ -4,12 +4,25 @@ using Model = Gfycat.API.Models.Status;
 
 namespace Gfycat
 {
+    /// <summary>
+    /// Represents a Gfy's upload status
+    /// </summary>
     public class GfyStatus : IUpdatable
     {
         readonly GfycatClient _client;
+        private string _errorResponse;
 
+        /// <summary>
+        /// The current upload task of the gfy
+        /// </summary>
         public UploadTask Task { get; private set; }
+        /// <summary>
+        /// The current time remaining in seconds
+        /// </summary>
         public int Time { get; private set; }
+        /// <summary>
+        /// The current gfy name for getting the current status
+        /// </summary>
         public string GfyName { get; private set; }
 
         internal GfyStatus(GfycatClient client, Model model)
@@ -24,8 +37,14 @@ namespace Gfycat
             Time = model.Time;
             if (model.GfyName != null)
                 GfyName = model.GfyName;
+            _errorResponse = model.ErrorDescription;
         }
         
+        /// <summary>
+        /// Updates gfy's upload status
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task UpdateAsync(RequestOptions options = null)
             => Update(await _client.ApiClient.GetGfyStatusAsync(GfyName, options));
 
@@ -41,6 +60,26 @@ namespace Gfycat
                 throw new InvalidOperationException("The Gfy's upload isn't complete!");
 
             return await _client.GetGfyAsync(GfyName, options);
+        }
+
+        /// <summary>
+        /// Waits for the gfy to finish uploading and retrieves it when it's done. This task is long running.
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public async Task<Gfy> GetGfyWhenCompleteAsync(RequestOptions options = null)
+        {
+            while(Task != UploadTask.Encoding)
+            {
+                await System.Threading.Tasks.Task.Delay(TimeSpan.FromSeconds(Time));
+                await UpdateAsync(options);
+            }
+
+            if (Task == UploadTask.Complete)
+                return await GetGfyAsync(options);
+            else
+                return null;
+            
         }
     }
 }

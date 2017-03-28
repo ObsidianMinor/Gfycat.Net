@@ -12,15 +12,12 @@ namespace Gfycat
         public string Code { get; set; }
         
         public string Description { get; set; }
-        
-        public GfycatException() : base()
-        {
 
-        }
+        public GfycatException() : base() { }
 
-        public GfycatException(string message, HttpStatusCode code) : this(code.ToString(), message, code)
-        {
-        }
+        public GfycatException(string message) : base(message) { }
+
+        public GfycatException(string message, HttpStatusCode code) : this(code.ToString(), message, code) { }
         
         public GfycatException(string code, string description, HttpStatusCode status) : base($"The server responded with {(int)status} {code}: {description}")
         {
@@ -62,7 +59,7 @@ namespace Gfycat
                         if (gfyException.Type == JTokenType.String)
                             return new GfycatException(gfyException.Value<string>(), restResponse.Status);
                         else
-                            return new GfycatException(gfyException["code"].Value<string>(), gfyException["description"].Value<string>(), restResponse.Status);
+                            return new GfycatException(gfyException.Value<string>("code"), gfyException.Value<string>("description"), restResponse.Status);
                     }
                     else
                         return new InvalidResourceException(message.Value<string>());
