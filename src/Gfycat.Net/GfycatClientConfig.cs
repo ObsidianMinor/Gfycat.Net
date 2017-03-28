@@ -28,7 +28,7 @@ namespace Gfycat
         /// <summary>
         /// Sets the default timeout for all requests.
         /// </summary>
-        public int? DefaultTimeout { get; set; } = 30000;
+        public int? DefaultTimeout { get; set; } = -1;
 
         public GfycatClientConfig(string clientId, string clientSecret)
         {

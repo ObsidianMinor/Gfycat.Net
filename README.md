@@ -24,20 +24,7 @@ using Gfycat;
 GfycatClient client = new GfycatClient("replace_with_your_client_ID", "replace_with_your_client_secret");
 await client.AuthenticateAsync(); // gfy actions such as creating and fetching don't require that a user logs in
 
-string gfyId = await client.CreateGfyAsync(File.Open("somefile", FileMode.Open));
-
-GfyStatus status = await client.GetGfyUploadStatusAsync(gfyId);
-while(status.Task == UploadTask.Encoding)
-{
-    await Task.Delay(TimeSpan.FromSeconds(status.Time));
-    await status.UpdateAsync();
-}
-
-if (status.Task == Status.Invalid || status.Task == Status.NotFoundo)
-{
-  // well shit, it broke :( do something about it
-}
-    
-Gfy yourGfy = await status.GetGfyAsync();
+GfyStatus gfyStatus = await client.CreateGfyAsync(File.Open("somefile", FileMode.Open));
+Gfy completedGfy = await gfyStatus.GetGfyWhenCompleteAsync();
 // congrats, you now have a gfy
 ```
