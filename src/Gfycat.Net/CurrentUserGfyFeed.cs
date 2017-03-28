@@ -22,7 +22,7 @@ namespace Gfycat
             return new CurrentUserGfyFeed(client, options)
             {
                 Content = feed.Gfycats.Select(g => Gfy.Create(client, g)).ToReadOnlyCollection(),
-                Cursor = feed.Cursor
+                _cursor = feed.Cursor
             };
         }
     }

@@ -9,6 +9,8 @@ namespace Gfycat
         readonly RequestOptions _defaultOptions;
         readonly GfycatClient _client;
         readonly ReactionLanguage _language;
+        string IFeed<ReactionFeed>.Cursor => _cursor;
+        internal string _cursor { get; set; }
 
         internal ReactionTagsFeed(GfycatClient client, RequestOptions defaultOptions, ReactionLanguage language)
         {
@@ -18,15 +20,13 @@ namespace Gfycat
         }
 
         public IReadOnlyCollection<ReactionFeed> Content { get; private set; }
-
-        public string Cursor { get; private set; }
-
+        
         internal static ReactionTagsFeed Create(GfycatClient client, RequestOptions options, Model model, ReactionLanguage lang)
         {
             return new ReactionTagsFeed(client, options, lang)
             {
-                Content = model.Tags.Select(t => ReactionFeed.Create(client, t, options)).ToReadOnlyCollection(),
-                Cursor = model.Cursor
+                Content = model.Tags.Select(t => ReactionFeed.Create(client, t, t.Tag, options)).ToReadOnlyCollection(),
+                _cursor = model.Cursor
             };
         }
 

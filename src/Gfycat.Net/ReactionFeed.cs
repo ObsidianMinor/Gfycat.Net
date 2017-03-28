@@ -1,24 +1,24 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Model = Gfycat.API.Models.TrendingFeed;
+
+using Model = Gfycat.API.Models.Feed;
 
 namespace Gfycat
 {
     public class ReactionFeed : GfyFeed
     {
-        public string Tag { get; private set; }
+        public string Tag { get; }
 
-        internal ReactionFeed(GfycatClient client, RequestOptions options) : base(client, options)
+        internal ReactionFeed(GfycatClient client, string searchText, RequestOptions options) : base(client, options)
         {
+            Tag = searchText;
         }
 
-        internal static ReactionFeed Create(GfycatClient client, Model trendingFeed, RequestOptions options)
+        internal static ReactionFeed Create(GfycatClient client, Model model, string searchText, RequestOptions options)
         {
-            return new ReactionFeed(client, options)
+            return new ReactionFeed(client, searchText, options)
             {
-                Content = trendingFeed.Gfycats.Select(g => Gfy.Create(client, g)).ToReadOnlyCollection(),
-                Tag = trendingFeed.Tag,
-                Cursor = trendingFeed.Cursor
+                Content = model.Gfycats.Select(g => Gfy.Create(client, g)).ToReadOnlyCollection()
             };
         }
 

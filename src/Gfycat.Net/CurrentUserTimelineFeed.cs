@@ -20,7 +20,7 @@ namespace Gfycat
             return new CurrentUserTimelineFeed(client, defaultOptions)
             {
                 Content = feed.Gfycats.Select(g => Gfy.Create(client, g)).ToReadOnlyCollection(),
-                Cursor = feed.Cursor
+                _cursor = feed.Cursor
             };
         }
     }

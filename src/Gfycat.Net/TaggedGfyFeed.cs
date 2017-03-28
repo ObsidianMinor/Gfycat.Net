@@ -23,7 +23,7 @@ namespace Gfycat
             {
                 Content = trendingFeed.Gfycats.Select(g => Gfy.Create(client, g)).ToReadOnlyCollection(),
                 Tag = trendingFeed.Tag,
-                Cursor = trendingFeed.Cursor
+                _cursor = trendingFeed.Cursor
             };
         }
 

@@ -11,7 +11,9 @@ namespace Gfycat
     {
         readonly RequestOptions _defaultOptions;
         readonly GfycatClient _client;
-        
+        string IFeed<TaggedGfyFeed>.Cursor => _cursor;
+        internal string _cursor { get; set; }
+
         internal PopulatedTagFeed(GfycatClient client,  RequestOptions defaultOptions)
         {
             _defaultOptions = defaultOptions;
@@ -19,15 +21,13 @@ namespace Gfycat
         }
 
         public IReadOnlyCollection<TaggedGfyFeed> Content { get; private set; }
-
-        public string Cursor { get; private set; }
-
+        
         internal static PopulatedTagFeed Create(GfycatClient client, RequestOptions options, Model model)
         {
             return new PopulatedTagFeed(client, options)
             {
                 Content = model.Tags.Select(t => TaggedGfyFeed.Create(client, t, options)).ToReadOnlyCollection(),
-                Cursor = model.Cursor
+                _cursor = model.Cursor
             };
         }
 
