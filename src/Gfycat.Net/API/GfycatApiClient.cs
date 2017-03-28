@@ -602,6 +602,17 @@ namespace Gfycat.API
 
         #endregion
 
+        #region Reaction gifs
+
+        internal async Task<TrendingTagsFeed> GetReactionGifsPopulatedAsync(ReactionLanguage lang, string cursor, RequestOptions options)
+        {
+            string query = Utils.CreateQueryString(("locale", lang), ("cursor", cursor));
+            RestResponse response = await SendAsync("GET", "reactions/populated" + query, options);
+            return response.ReadAsJson<TrendingTagsFeed>(Config);
+        }
+
+        #endregion
+
         #region Trending feeds
 
         internal async Task<TrendingFeed> GetTrendingFeedAsync(string tagName,string cursor, RequestOptions options)

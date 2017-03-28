@@ -47,5 +47,27 @@ namespace Gfycat
             else
                 return AlbumFolder.Create(client, albumModel, ownerId);
         }
+
+        internal static readonly Dictionary<ReactionLanguage, string> _reactionLangToString = new Dictionary<ReactionLanguage, string>
+        {
+            { ReactionLanguage.English, null },
+            { ReactionLanguage.Russian, "ru-RU" },
+            { ReactionLanguage.Japanese, "ja-JP" },
+            { ReactionLanguage.SimplifiedChinese, "zh-CN" },
+            { ReactionLanguage.TraditionalChinese, "zh-TW" },
+            { ReactionLanguage.French, "fr-FR" },
+            { ReactionLanguage.German, "de-DE" },
+            { ReactionLanguage.Spanish, "es-LA" },
+            { ReactionLanguage.Korean, "ko-KR" },
+            { ReactionLanguage.Arabic, "ar-SA" },
+            { ReactionLanguage.Farsi, "fa-IR" },
+            { ReactionLanguage.Hebrew, "he-IL" },
+            { ReactionLanguage.Italian, "it-IT" },
+            { ReactionLanguage.Thai, "th-TH" },
+            { ReactionLanguage.Turkish, "tr-TR" },
+            { ReactionLanguage.Vietnamese, "vi-VN" },
+            { ReactionLanguage.Portuguese, "pt-BR" },
+            { ReactionLanguage.HanChinese, "zh-Ha" }
+        };
     }
 }

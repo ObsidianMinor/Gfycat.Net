@@ -13,9 +13,9 @@ namespace Gfycat
             _searchText = searchText;
         }
 
-        internal static CurrentUserSearchFeed Create(GfycatClient client, Model model, string searchText, RequestOptions options)
+        internal static SiteSearchFeed Create(GfycatClient client, Model model, string searchText, RequestOptions options)
         {
-            return new CurrentUserSearchFeed(client, searchText, options)
+            return new SiteSearchFeed(client, searchText, options)
             {
                 Content = model.Gfycats.Select(g => Gfy.Create(client, g)).ToReadOnlyCollection(),
                 Cursor = model.Cursor
