@@ -6,31 +6,31 @@ namespace Gfycat.API.Models
 {
     internal class GfyParameters
     {
-        [JsonProperty("fetchUrl", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("fetchUrl")]
         internal string FetchUrl { get; set; }
-        [JsonProperty("title", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("title")]
         internal string Title { get; set; }
-        [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("description")]
         internal string Description { get; set; }
-        [JsonProperty("tags", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("tags")]
         internal IEnumerable<string> Tags { get; set; }
-        [JsonProperty("noMd5", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("noMd5")]
         internal bool? NoMd5 { get; set; }
-        [JsonProperty("private", NullValueHandling = NullValueHandling.Ignore), JsonConverter(typeof(NumericalBooleanConverter))]
+        [JsonProperty("private")]
         internal bool? Private { get; set; }
-        [JsonProperty("nsfw", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("nsfw")]
         internal NsfwSetting? Nsfw { get; set; }
-        [JsonProperty("fetchSeconds", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("fetchSeconds")]
         internal float? FetchSeconds { get; set; }
-        [JsonProperty("fetchMinutes", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("fetchMinutes")]
         internal float? FetchMinutes { get; set; }
-        [JsonProperty("fetchHours", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("fetchHours")]
         internal float? FetchHours { get; set; }
-        [JsonProperty("captions", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("captions")]
         internal IEnumerable<Caption> Captions { get; set; }
-        [JsonProperty("cut", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("cut")]
         internal Cut Cut { get; set; }
-        [JsonProperty("crop", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("crop")]
         internal Crop Crop { get; set; }
     }
 
@@ -38,21 +38,21 @@ namespace Gfycat.API.Models
     {
         [JsonProperty("text", Required = Required.Always)]
         internal string Text { get; set; }
-        [JsonProperty("startSeconds", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("startSeconds")]
         internal int? StartSeconds { get; set; }
-        [JsonProperty("duration", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("duration")]
         internal int? Duration { get; set; }
-        [JsonProperty("fontHeight", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("fontHeight")]
         internal int? FontHeight { get; set; }
-        [JsonProperty("x", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("x")]
         internal int? X { get; set; }
-        [JsonProperty("y", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("y")]
         internal int? Y { get; set; }
-        [JsonProperty("fontHeightRelative", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("fontHeightRelative")]
         internal int? RelativeFontHeight { get; set; }
-        [JsonProperty("xRelative", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("xRelative")]
         internal int? RelativeX { get; set; }
-        [JsonProperty("yRelative", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("yRelative")]
         internal int? RelativeY { get; set; }
     }
 

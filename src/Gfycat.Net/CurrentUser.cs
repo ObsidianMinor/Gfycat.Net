@@ -16,6 +16,8 @@ namespace Gfycat
     [DebuggerDisplay("Username: {Username}")]
     public class CurrentUser : Entity, IUser, IUpdatable, ISearchable
     {
+        private Uri _currentUploadUrl;
+
         internal CurrentUser(GfycatClient client, string id) : base(client, id)
         {
         }
@@ -138,7 +140,8 @@ namespace Gfycat
         /// <param name="options"></param>
         public async Task UploadProfilePictureAsync(Stream profilePic, RequestOptions options = null)
         {
-            await Client.ApiClient.UploadProfileImageAsync(await Client.ApiClient.GetProfileUploadUrlAsync(options), profilePic, options);
+            _currentUploadUrl = new Uri(await Client.ApiClient.GetProfileUploadUrlAsync(options));
+            await Client.ApiClient.UploadProfileImageAsync(_currentUploadUrl.ToString(), profilePic, options);
         }
 
         /// <summary>
@@ -147,10 +150,17 @@ namespace Gfycat
         /// <param name="ticket"></param>
         /// <param name="options"></param>
         /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public async Task<ProfileImageUploadStatus> GetProfilePictureUploadStatusAsync(RequestOptions options = null)
         {
-            Uri ticket = new Uri(await Client.ApiClient.GetProfileUploadUrlAsync(options));
-            return await Client.ApiClient.GetProfileImageUploadStatusAsync(ticket.AbsolutePath.Trim('/'), options);
+            if (_currentUploadUrl == null)
+                throw new InvalidOperationException("The current upload url isn't set! Have you uploaded a profile pic yet?");
+
+            var status = await Client.ApiClient.GetProfileImageUploadStatusAsync(_currentUploadUrl.Segments.LastOrDefault(), options);
+            if (status == ProfileImageUploadStatus.Succeeded)
+                await UpdateAsync();
+
+            return status;
         }
 
         /// <summary>

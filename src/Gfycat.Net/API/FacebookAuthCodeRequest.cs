@@ -4,10 +4,10 @@ namespace Gfycat.API
 {
     internal class FacebookAuthCodeRequest : ProviderBaseAuthRequest
     {
-        [JsonProperty("auth_code", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("auth_code")]
         internal string AuthCode { get; set; }
 
-        [JsonProperty("token", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("token")]
         internal string Token { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Gfycat.API
@@ -37,14 +38,20 @@ namespace Gfycat.API
             return await SendInternalAsync(() => RestClient.SendAsync(method, endpoint, jsonString, options.CancellationToken), options).ConfigureAwait(false);
         }
 
-        internal async Task<RestResponse> SendStreamAsync(string method, string endpoint, string key, Stream stream, string fileName, RequestOptions options)
+        internal async Task<RestResponse> SendStreamAsync(string method, string endpoint, Stream stream, string fileName, RequestOptions options)
         {
             options = options ?? RequestOptions.CreateFromDefaults(Config);
             Dictionary<string, object> content = new Dictionary<string, object>
             {
-                { key, new MultipartFile(stream, fileName) }
+                { "file", new MultipartFile(stream, fileName) }
             };
             return await SendInternalAsync(() => RestClient.SendAsync(method, endpoint, content, options.CancellationToken), options).ConfigureAwait(false);
+        }
+
+        private async Task<RestResponse> SendBinaryStreamAsync(string method, string endpoint, Stream stream, RequestOptions options)
+        {
+            options = options ?? RequestOptions.CreateFromDefaults(Config);
+            return await SendInternalAsync(() => RestClient.SendAsync(method, endpoint, stream, options.CancellationToken), options).ConfigureAwait(false);
         }
 
         private async Task<RestResponse> SendInternalAsync(Func<Task<RestResponse>> RestFunction, RequestOptions options)
@@ -174,23 +181,32 @@ namespace Gfycat.API
         internal async Task<string> GetProfileUploadUrlAsync(RequestOptions options)
         {
             RestResponse response = await SendAsync("POST", "me/profile_image_url", options).ConfigureAwait(false);
-            return response.ReadAsString();
+            return Regex.Unescape(response.ReadAsString().Trim('"'));
+        }
+
+        internal async Task<string> GetProfileUrlAsync(RequestOptions options)
+        {
+            RestResponse response = await SendAsync("GET", "me/profile_image_url", options).ConfigureAwait(false);
+            return Regex.Unescape(response.ReadAsString().Trim('"'));
         }
 
         internal async Task UploadProfileImageAsync(string url, Stream picStream, RequestOptions options)
         {
-            throw new NotImplementedException();
+            options = options ?? RequestOptions.CreateFromDefaults(Config);
+            options.UseAccessToken = false;
+            RestResponse response = await SendBinaryStreamAsync("PUT", url, picStream, options).ConfigureAwait(false);
         }
 
         internal async Task<ProfileImageUploadStatus> GetProfileImageUploadStatusAsync(string ticket, RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", $"me/profile_image_url/status/{ticket}", options).ConfigureAwait(false);
-            return (ProfileImageUploadStatus)Enum.Parse(typeof(ProfileImageUploadStatus), response.ReadAsString(), true);
+            return (ProfileImageUploadStatus)Enum.Parse(typeof(ProfileImageUploadStatus), response.ReadAsString().Trim('"'), true);
         }
 
-        internal async Task<ClientAccountAuthResponse> CreateAccountAsync(object notImplemented, RequestOptions options)
+        internal async Task<ClientAccountAuthResponse> CreateAccountAsync(AccountCreationRequest account, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendJsonAsync("POST", "users", account, options);
+            return response.ReadAsJson<ClientAccountAuthResponse>(Config);
         }
 
         internal async Task FollowUserAsync(string userId, RequestOptions options)
@@ -468,7 +484,6 @@ namespace Gfycat.API
 
         internal async Task<UploadKey> CreateGfyFromFetchUrlAsync(string url, GfyCreationParameters parameters, RequestOptions options)
         {
-            parameters.FetchUrl = url;
             return await GetUploadKeyAsync(parameters, options);
         }
 
@@ -489,7 +504,7 @@ namespace Gfycat.API
 
         internal async Task PostGfyStreamAsync(UploadKey key, Stream stream, RequestOptions options)
         {
-            RestResponse response = await SendStreamAsync("POST", "https://filedrop.gfycat.com/", key.Secret, stream, key.Gfycat, options); // uploads as multipart
+            RestResponse response = await SendStreamAsync("POST", "https://filedrop.gfycat.com/", stream, key.Gfycat, options); // uploads as multipart
         }
 
         #endregion

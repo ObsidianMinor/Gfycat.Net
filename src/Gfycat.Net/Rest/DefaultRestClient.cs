@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -50,11 +51,20 @@ namespace Gfycat.Rest
             }
         }
 
+        public async Task<RestResponse> SendAsync(string method, string endpoint, Stream stream, CancellationToken token)
+        {
+            using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), new Uri(_baseUri, endpoint)))
+            {
+                request.Content = new StreamContent(stream);
+                return await SendInternalAsync(request, token);
+            }
+        }
+
         public async Task<RestResponse> SendAsync(string method, string endpoint, IDictionary<string, object> multipart, CancellationToken token)
         {
             using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), new Uri(_baseUri, endpoint)))
             {
-                MultipartFormDataContent content = new MultipartFormDataContent("Upload----" + DateTime.UtcNow.ToString(CultureInfo.InvariantCulture));
+                MultipartFormDataContent content = new MultipartFormDataContent();
                 foreach(KeyValuePair<string, object> param in multipart)
                 {
                     switch(param.Value)
@@ -84,6 +94,7 @@ namespace Gfycat.Rest
         {
             while (true)
             {
+                Debug.WriteLine($"{message.Method} {message.RequestUri}");
                 token = CancellationTokenSource.CreateLinkedTokenSource(_parentToken, token).Token;
                 HttpResponseMessage response = await _client.SendAsync(message, token).ConfigureAwait(false);
 

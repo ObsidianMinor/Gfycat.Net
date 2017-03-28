@@ -18,8 +18,6 @@ namespace Gfycat.API.Models
         internal string Name { get; set; }
         [JsonProperty("views")]
         internal int Views { get; set; }
-        [JsonProperty("emailVerified")]
-        internal bool EmailVerified { get; set; }
         [JsonProperty("url")]
         internal string Url { get; set; }
         [JsonProperty("createDate"), JsonConverter(typeof(UnixTimeConverter))]

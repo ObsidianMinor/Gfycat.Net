@@ -16,6 +16,9 @@ namespace Gfycat
     {
         internal GfycatApiClient ApiClient { get; }
 
+        const string TwitterProvider = "twitter";
+        const string FacebookProvider = "facebook";
+
         public GfycatClient(string clientId, string clientSecret) : this(new GfycatClientConfig(clientId, clientSecret))
         {
         }
@@ -335,6 +338,72 @@ namespace Gfycat
             return CurrentUser.Create(this, currentUserModel);
         }
 
+        public async Task CreateAccountAsync(string username, string password, string email = null, bool loginWhenComplete = true, RequestOptions options = null)
+        {
+            ClientAccountAuthResponse response = await ApiClient.CreateAccountAsync(new AccountCreationRequest()
+            {
+                Username = username,
+                Password = password,
+                Email = email
+            }, options);
+
+            if (loginWhenComplete)
+            {
+                AccessToken = response.AccessToken;
+                RefreshToken = response.RefreshToken;
+            }
+        }
+
+        public async Task CreateAccountAsync(string username, AccountTokenType tokenType, string token, string password = null, string email = null, bool loginWhenComplete = true, RequestOptions options = null)
+        {
+            AccountCreationRequest request = new AccountCreationRequest()
+            {
+                Username = username,
+                Password = password,
+                Email = email,
+            };
+
+            switch(tokenType)
+            {
+                case AccountTokenType.FacebookAuthCode:
+                    request.Provider = FacebookProvider;
+                    request.AuthCode = token;
+                    break;
+                case AccountTokenType.FacebookAccessToken:
+                    request.Provider = FacebookProvider;
+                    request.AccessToken = token;
+                    break;
+                case AccountTokenType.TwitterToken:
+                    request.Provider = TwitterProvider;
+                    request.Token = token;
+                    break;
+                case AccountTokenType.TwitterVerifier:
+                    request.Provider = TwitterProvider;
+                    request.Verifier = token;
+                    break;
+                case AccountTokenType.TwitterOauthToken:
+                    request.Provider = TwitterProvider;
+                    request.OauthToken = token;
+                    break;
+                case AccountTokenType.TwitterOauthTokenSecret:
+                    request.Provider = TwitterProvider;
+                    request.OauthTokenSecret = token;
+                    break;
+                case AccountTokenType.Secret:
+                    request.Provider = TwitterProvider;
+                    request.Secret = token;
+                    break;
+            }
+
+            ClientAccountAuthResponse response = await ApiClient.CreateAccountAsync(request, options);
+
+            if (loginWhenComplete)
+            {
+                AccessToken = response.AccessToken;
+                RefreshToken = response.RefreshToken;
+            }
+        }
+        
         #endregion
 
         public async Task<Gfy> GetGfyAsync(string gfycat, RequestOptions options = null)
@@ -369,7 +438,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<string> CreateGfyAsync(string remoteUrl, GfyCreationParameters parameters = null, RequestOptions options = null)
         {
-            UploadKey key = await ApiClient.CreateGfyFromFetchUrlAsync(remoteUrl, parameters ?? new GfyCreationParameters(), options);
+            UploadKey key = await ApiClient.CreateGfyFromFetchUrlAsync(remoteUrl, parameters ?? new GfyCreationParameters(remoteUrl), options);
             return key.Gfycat;
         }
 
