@@ -6,6 +6,8 @@ namespace Gfycat
     {
         internal readonly GfycatClient _client;
         internal readonly RequestOptions _options;
+        string IFeed<Gfy>.Cursor => _cursor;
+        internal string _cursor { get; set; }
 
         internal GfyFeed(GfycatClient client, RequestOptions defaultOptions)
         {
@@ -14,9 +16,7 @@ namespace Gfycat
         }
 
         public IReadOnlyCollection<Gfy> Content { get; internal set; }
-
-        public string Cursor { get; internal set; }
-
+        
         public abstract IAsyncEnumerator<Gfy> GetEnumerator();
     }
 }

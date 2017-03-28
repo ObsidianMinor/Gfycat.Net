@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -34,7 +35,7 @@ namespace Gfycat
         internal static Exception CreateFromResponse(Rest.RestResponse restResponse)
         {
             string result = restResponse.ReadAsString();
-            if (!string.IsNullOrWhiteSpace(result) && !result.StartsWith("<html>"))
+            if (!string.IsNullOrWhiteSpace(result) && !result.StartsWith("<"))
             {
                 JToken jsonObject = JToken.Parse(result);
                 if (jsonObject.Type == JTokenType.Array)
@@ -57,7 +58,17 @@ namespace Gfycat
                     {
                         JToken gfyException = jsonObject["errorMessage"];
                         if (gfyException.Type == JTokenType.String)
-                            return new GfycatException(gfyException.Value<string>(), restResponse.Status);
+                        {
+                            try
+                            {
+                                JToken internalMessage = JToken.Parse(gfyException.Value<string>());
+                                return new GfycatException(internalMessage.Value<string>("code"), internalMessage.Value<string>("description"), restResponse.Status);
+                            }
+                            catch(JsonReaderException)
+                            {
+                                return new GfycatException(gfyException.Value<string>(), restResponse.Status);
+                            }
+                        }
                         else
                             return new GfycatException(gfyException.Value<string>("code"), gfyException.Value<string>("description"), restResponse.Status);
                     }

@@ -529,6 +529,11 @@ namespace Gfycat
 
         #endregion
 
+        public async Task<ReactionTagsFeed> GetReactionGfysAsync(ReactionLanguage language = ReactionLanguage.English, RequestOptions options = null)
+        {
+            return ReactionTagsFeed.Create(this, options, await ApiClient.GetReactionGifsPopulatedAsync(language, null, options), language);
+        }
+
         /// <summary>
         /// Searches the Gfycat website using the provided search text
         /// </summary>

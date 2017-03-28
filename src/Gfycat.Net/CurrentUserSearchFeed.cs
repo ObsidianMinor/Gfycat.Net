@@ -18,7 +18,7 @@ namespace Gfycat
             return new CurrentUserSearchFeed(client, searchText, options)
             {
                 Content = model.Gfycats.Select(g => Gfy.Create(client, g)).ToReadOnlyCollection(),
-                Cursor = model.Cursor
+                _cursor = model.Cursor
             };
         }
 

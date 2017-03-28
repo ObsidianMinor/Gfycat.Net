@@ -18,7 +18,7 @@ namespace Gfycat
             return new UserGfyFeed(client, defaultOptions, userId)
             {
                 Content = feed.Gfycats.Select(g => Gfy.Create(client, g)).ToReadOnlyCollection(),
-                Cursor = feed.Cursor
+                _cursor = feed.Cursor
             };
         }
 
