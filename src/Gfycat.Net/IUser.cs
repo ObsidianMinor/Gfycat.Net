@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Gfycat
@@ -21,7 +22,7 @@ namespace Gfycat
         int PublishedGfys { get; }
         int PublishedAlbums { get; }
 
-        Task<IAlbumInfo> GetAlbumsAsync(RequestOptions options = null);
+        Task<IEnumerable<IAlbumInfo>> GetAlbumsAsync(RequestOptions options = null);
         Task<GfyFeed> GetGfyFeedAsync(RequestOptions options = null);
         Task FollowAsync(RequestOptions options = null);
         Task UnfollowAsync(RequestOptions options = null);

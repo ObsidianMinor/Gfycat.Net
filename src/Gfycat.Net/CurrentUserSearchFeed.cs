@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Model = Gfycat.API.Models.Feed;
 
 namespace Gfycat
@@ -24,7 +26,12 @@ namespace Gfycat
 
         public override IAsyncEnumerator<Gfy> GetEnumerator()
         {
-            return new CurrentUserSearchEnumerator(_client, _searchText, _options, this);
+            return new FeedEnumerator<Gfy>(_client, this, _options);
+        }
+
+        public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
+        {
+            return Create(_client, await _client.ApiClient.SearchCurrentUserAsync(_searchText, _cursor, options), _searchText, options);
         }
     }
 }

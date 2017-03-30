@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,6 +7,9 @@ using Model = Gfycat.API.Models.User;
 
 namespace Gfycat
 {
+    /// <summary>
+    /// Represents a user on Gfycat
+    /// </summary>
     [DebuggerDisplay("Username: {Username}")]
     public class User : Entity, IUser, IUpdatable
     {
@@ -63,10 +67,12 @@ namespace Gfycat
             Update(await Client.ApiClient.GetUserAsync(Id, options));
         }
 
-        public async Task<IAlbumInfo> GetAlbumsAsync(RequestOptions options = null)
+        public async Task<IEnumerable<AlbumInfo>> GetAlbumsAsync(RequestOptions options = null)
         {
-            return Utils.CreateAlbum(Client, (await Client.ApiClient.GetAlbumsForUserAsync(Id, options)).FirstOrDefault(), Id);
+            return (await Client.ApiClient.GetAlbumsForUserAsync(Id, options)).Select(album => AlbumInfo.Create(Client, album, Id));
         }
+
+        async Task<IEnumerable<IAlbumInfo>> IUser.GetAlbumsAsync(RequestOptions options) => await GetAlbumsAsync(options);
 
         public async Task<GfyFeed> GetGfyFeedAsync(RequestOptions options = null)
         {

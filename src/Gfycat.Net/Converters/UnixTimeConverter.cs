@@ -14,7 +14,7 @@ namespace Gfycat.Converters
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            return _epoch.AddSeconds(ulong.Parse((string)reader.Value));
+            return _epoch.AddSeconds(ulong.Parse(reader.Value.ToString()));
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)

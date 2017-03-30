@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 
 namespace Gfycat
@@ -34,52 +35,41 @@ namespace Gfycat
         
         internal static Exception CreateFromResponse(Rest.RestResponse restResponse)
         {
+            GfycatException ParseGfycatException(JToken gfyException)
+            {
+                if (gfyException.Type == JTokenType.String)
+                {
+                    try
+                    {
+                        JToken internalMessage = JToken.Parse(gfyException.Value<string>());
+                        return new GfycatException(internalMessage.Value<string>("code"), internalMessage.Value<string>("description"), restResponse.Status);
+                    }
+                    catch (JsonReaderException)
+                    {
+                        return new GfycatException(gfyException.Value<string>(), restResponse.Status);
+                    }
+                }
+                else
+                    return new GfycatException(gfyException.Value<string>("code"), gfyException.Value<string>("description"), restResponse.Status);
+            }
+
             string result = restResponse.ReadAsString();
             if (!string.IsNullOrWhiteSpace(result) && !result.StartsWith("<"))
             {
                 JToken jsonObject = JToken.Parse(result);
                 if (jsonObject.Type == JTokenType.Array)
-                {
-                    List<GfycatException> exceptions = new List<GfycatException>();
-                    foreach (JToken token in jsonObject.Values<JToken>())
-                    {
-                        JToken gfyException = token["errorMessage"];
-                        if (gfyException.Type == JTokenType.String)
-                            exceptions.Add(new GfycatException(gfyException.Value<string>(), restResponse.Status));
-                        else
-                            exceptions.Add(new GfycatException(gfyException["code"].Value<string>(), gfyException["description"].Value<string>(), restResponse.Status));
-                    }
-                    return new AggregateException("Gfycat returned multiple errors", exceptions);
-                }
+                    return new AggregateException("Gfycat returned multiple errors", jsonObject.Values<JToken>().Select(token => ParseGfycatException(token["errorMessage"])));
                 else
                 {
                     JToken message = jsonObject["message"];
                     if (message == null)
-                    {
-                        JToken gfyException = jsonObject["errorMessage"];
-                        if (gfyException.Type == JTokenType.String)
-                        {
-                            try
-                            {
-                                JToken internalMessage = JToken.Parse(gfyException.Value<string>());
-                                return new GfycatException(internalMessage.Value<string>("code"), internalMessage.Value<string>("description"), restResponse.Status);
-                            }
-                            catch(JsonReaderException)
-                            {
-                                return new GfycatException(gfyException.Value<string>(), restResponse.Status);
-                            }
-                        }
-                        else
-                            return new GfycatException(gfyException.Value<string>("code"), gfyException.Value<string>("description"), restResponse.Status);
-                    }
+                        return ParseGfycatException(jsonObject["errorMessage"]);
                     else
                         return new InvalidResourceException(message.Value<string>());
                 }
             }
             else
-            {
                 return new GfycatException(restResponse.Status);
-            }
         }
     }
 }

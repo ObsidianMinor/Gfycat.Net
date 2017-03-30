@@ -1,11 +1,53 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 using Gfycat.Converters;
+using System.Linq;
 
 namespace Gfycat
 {
     public class GfyCreationParameters
     {
+        internal API.Models.GfyParameters CreateModel()
+        {
+            return new API.Models.GfyParameters()
+            {
+                Captions = Captions.Select(cap => new API.Models.Caption()
+                {
+                    Duration = cap.Duration,
+                    FontHeight = cap.FontHeight,
+                    RelativeFontHeight = cap.RelativeFontHeight,
+                    RelativeX = cap.RelativeX,
+                    RelativeY = cap.RelativeY,
+                    StartSeconds = cap.StartSeconds,
+                    Text = cap.Text,
+                    X = cap.X,
+                    Y = cap.Y,
+                }),
+                Crop = new API.Models.Crop()
+                {
+                    H = Crop.H,
+                    W = Crop.W,
+                    X = Crop.X,
+                    Y = Crop.Y
+                },
+                Cut = new API.Models.Cut()
+                {
+                    Duration = Cut.Duration,
+                    Start = Cut.Start
+                },
+                Description = Description,
+                FetchHours = FetchHours,
+                FetchMinutes = FetchMinutes,
+                FetchSeconds = FetchSeconds,
+                FetchUrl = FetchUrl,
+                NoMd5 = NoMd5,
+                Nsfw = Nsfw,
+                Private = Private,
+                Tags = Tags,
+                Title = Title
+            };
+        }
+
         public string FetchUrl { get; internal set; }
         public string Title { get; set; }
         public string Description { get; set; }

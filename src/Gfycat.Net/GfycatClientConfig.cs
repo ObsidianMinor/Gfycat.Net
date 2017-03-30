@@ -8,7 +8,7 @@ namespace Gfycat
     {
         public const int ApiVersion = 1;
         public static readonly string BaseUrl = $"https://api.gfycat.com/v{ApiVersion}/";
-        internal JsonSerializerSettings SerializerSettings = new JsonSerializerSettings() // for future things, if we need it
+        internal readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings() // for future things, if we need it
         {
             NullValueHandling = NullValueHandling.Ignore
         };

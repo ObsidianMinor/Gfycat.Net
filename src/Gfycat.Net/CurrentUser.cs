@@ -147,7 +147,6 @@ namespace Gfycat
         /// <summary>
         /// Gets the status of an uploading profile pic
         /// </summary>
-        /// <param name="ticket"></param>
         /// <param name="options"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
@@ -193,6 +192,21 @@ namespace Gfycat
             return (await Client.ApiClient.GetFollowersAsync(options)).Followers;
         }
 
+        /// <summary>
+        /// Returns an enumerable of the users the current user is following
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public async Task<IEnumerable<User>> GetFollowingUsersPopulatedAsync(RequestOptions options = null)
+        {
+            return await Task.WhenAll((await GetFollowingUsersAsync(options)).Select(following => Client.GetUserAsync(following, options)));
+        }
+
+        public async Task<IEnumerable<User>> GetFollowersPopulatedAsync(RequestOptions options = null)
+        {
+            return await Task.WhenAll((await GetFollowersAsync(options)).Select(following => Client.GetUserAsync(following, options)));
+        }
+
         #endregion
 
         #region User feeds
@@ -205,8 +219,6 @@ namespace Gfycat
         /// <summary>
         /// Returns a timeline list of all published Gfycats in the users you follow
         /// </summary>
-        /// <param name="count">The number of Gfys to return</param>
-        /// <param name="cursor">The cursor from the previous request, used to fetch the next page of gfys</param>
         /// <param name="options"></param>
         /// <returns></returns>
         public async Task<GfyFeed> GetTimelineFeedAsync(RequestOptions options = null)
@@ -231,7 +243,6 @@ namespace Gfycat
         /// Creates a folder for the current user using the specified name with a parent if specified
         /// </summary>
         /// <param name="folderName"></param>
-        /// <param name="parent"></param>
         /// <param name="options"></param>
         /// <returns></returns>
         public async Task CreateFolderAsync(string folderName, RequestOptions options = null)
@@ -258,9 +269,9 @@ namespace Gfycat
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task<IAlbumInfo> GetAlbumsAsync(RequestOptions options = null)
+        public async Task<IEnumerable<IAlbumInfo>> GetAlbumsAsync(RequestOptions options = null)
         {
-            return Utils.CreateAlbum(Client, (await Client.ApiClient.GetAlbumsAsync(options)).FirstOrDefault(), null);
+            return (await Client.ApiClient.GetAlbumsAsync(options)).Select(album => Utils.CreateAlbum(Client, album, null));
         }
         
         #endregion

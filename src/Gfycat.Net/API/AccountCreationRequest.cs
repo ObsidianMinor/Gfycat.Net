@@ -24,7 +24,5 @@ namespace Gfycat.API
         internal string OauthToken { get; set; }
         [JsonProperty("oauth_token_secret")]
         internal string OauthTokenSecret { get; set; }
-        [JsonProperty("secret")]
-        internal string Secret { get; set; }
     }
 }

@@ -6,7 +6,7 @@ namespace Gfycat
 {
     public class RequestOptions
     {
-        public int? Timeout { get; set; }
+        public int Timeout { get; set; }
         public CancellationToken CancellationToken { get; set; } = CancellationToken.None;
         public RetryMode RetryMode { get; set; }
 
@@ -20,6 +20,11 @@ namespace Gfycat
                 Timeout = config.DefaultTimeout,
                 RetryMode = config.DefaultRetryMode,
             };
+        }
+        
+        internal RequestOptions Clone()
+        {
+            return (RequestOptions)MemberwiseClone();
         }
     }
 }

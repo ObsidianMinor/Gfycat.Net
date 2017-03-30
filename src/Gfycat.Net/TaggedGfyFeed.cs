@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using Model = Gfycat.API.Models.TrendingFeed;
 
 namespace Gfycat
@@ -29,7 +31,12 @@ namespace Gfycat
 
         public override IAsyncEnumerator<Gfy> GetEnumerator()
         {
-            return new TaggedGfyFeedEnumerator(_client, this, Tag, _options);
+            return new FeedEnumerator<Gfy>(_client, this, _options);
+        }
+
+        public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
+        {
+            return Create(_client, await _client.ApiClient.GetTrendingFeedAsync(Tag, _cursor, options), options);
         }
     }
 }

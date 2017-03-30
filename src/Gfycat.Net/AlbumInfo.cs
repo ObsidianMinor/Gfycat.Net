@@ -20,7 +20,7 @@ namespace Gfycat
             return new AlbumInfo(client, albumInfo.Id, ownerId)
             {
                 Title = albumInfo.Title,
-                Subfolders = albumInfo.Nodes.Select(a => Create(client, a, ownerId)).ToReadOnlyCollection(),
+                Subfolders = albumInfo.Nodes?.Select(a => Create(client, a, ownerId)).ToReadOnlyCollection(),
                 Published = albumInfo.Published,
                 CoverImageUrl = albumInfo.CoverImageUrl,
                 CoverImageUrlMobile = albumInfo.CoverImageUrlMobile,

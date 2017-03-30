@@ -17,8 +17,8 @@ namespace Gfycat.API.Models
         internal string LinkText { get; set; }
         [JsonProperty("nsfw")]
         internal NsfwSetting Nsfw { get; set; }
-        [JsonProperty("published", ItemConverterType = typeof(Converters.NumericalBooleanConverter))]
-        internal bool Published { get; set; }
+        [JsonProperty("published"), JsonConverter(typeof(Converters.NumericalBooleanConverter))]
+        internal bool Published { get; set; } = true; // published until proven otherwise
         [JsonProperty("order")]
         internal int Order { get; set; }
         [JsonProperty("publishedGfys")]

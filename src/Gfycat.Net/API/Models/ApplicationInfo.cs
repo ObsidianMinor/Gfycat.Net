@@ -14,13 +14,13 @@ namespace Gfycat.API.Models
         internal string WebUrl { get; set; }
         [JsonProperty("company")]
         internal string Company { get; set; }
-        [JsonProperty("createDate", ItemConverterType = typeof(UnixTimeConverter))]
+        [JsonProperty("createDate"), JsonConverter(typeof(UnixTimeConverter))]
         internal DateTime CreationDate { get; set; }
         [JsonProperty("app_name")]
         internal string AppName { get; set; }
         [JsonProperty("redirect_uris")]
         internal IEnumerable<string> RedirectUris { get; set; }
-        [JsonProperty("app_type", ItemConverterType = typeof(StringEnumConverter))]
+        [JsonProperty("app_type"), JsonConverter(typeof(StringEnumConverter))]
         internal AppType AppType { get; set; }
         [JsonProperty("username")]
         internal string Username { get; set; }

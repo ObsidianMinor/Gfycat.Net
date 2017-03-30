@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Gfycat
 {
@@ -16,7 +17,9 @@ namespace Gfycat
         }
 
         public IReadOnlyCollection<Gfy> Content { get; internal set; }
-        
+
+        public abstract Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null);
+
         public abstract IAsyncEnumerator<Gfy> GetEnumerator();
     }
 }

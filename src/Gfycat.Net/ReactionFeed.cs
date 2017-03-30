@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-
+using System.Threading.Tasks;
 using Model = Gfycat.API.Models.Feed;
 
 namespace Gfycat
 {
     public class ReactionFeed : GfyFeed
     {
+        public Gfy CoverGfy => Content.FirstOrDefault();
         public string Tag { get; }
 
         internal ReactionFeed(GfycatClient client, string searchText, RequestOptions options) : base(client, options)
@@ -24,7 +25,12 @@ namespace Gfycat
 
         public override IAsyncEnumerator<Gfy> GetEnumerator()
         {
-            return new SiteSearchEnumerator(_client, Tag, _options, this);
+            return new FeedEnumerator<Gfy>(_client, this, _options);
+        }
+
+        public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
+        {
+            return SiteSearchFeed.Create(_client, await _client.ApiClient.SearchSiteAsync(Tag, null, options), Tag, options);
         }
     }
 }

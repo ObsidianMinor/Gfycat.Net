@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Model = Gfycat.API.Models.TrendingTagsFeed;
 
 namespace Gfycat
@@ -32,7 +33,12 @@ namespace Gfycat
 
         public IAsyncEnumerator<ReactionFeed> GetEnumerator()
         {
-            return new ReactionTagsFeedEnumerator(_client, this, _defaultOptions, _language);
+            return new FeedEnumerator<ReactionFeed>(_client, this, _defaultOptions);
+        }
+
+        public async Task<IFeed<ReactionFeed>> GetNextPageAsync(RequestOptions options = null)
+        {
+            return Create(_client, options, await _client.ApiClient.GetReactionGifsPopulatedAsync(_language, _cursor, options), _language);
         }
     }
 }

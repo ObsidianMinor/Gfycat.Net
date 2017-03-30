@@ -11,7 +11,6 @@ namespace Gfycat
         TwitterToken,
         TwitterVerifier,
         TwitterOauthToken,
-        TwitterOauthTokenSecret,
-        Secret
+        TwitterOauthTokenSecret
     }
 }

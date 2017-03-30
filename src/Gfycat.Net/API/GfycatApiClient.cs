@@ -63,7 +63,7 @@ namespace Gfycat.API
             while (retry)
             {
                 Task<RestResponse> taskResponse = RestFunction();
-                bool taskTimedout = !taskResponse.Wait(options.Timeout ?? -1);
+                bool taskTimedout = !taskResponse.Wait(options.Timeout);
                 if (taskTimedout && options.RetryMode != RetryMode.RetryTimeouts) // the blocking wait call will complete the task, so in the following checks we can just access the result normally
                     throw new TimeoutException($"The request timed out");
                 else if (taskResponse.Result.Status == HttpStatusCode.BadGateway && !options.RetryMode.HasFlag(RetryMode.Retry502))
@@ -72,6 +72,7 @@ namespace Gfycat.API
                     if (options.UseAccessToken && (first401 && options.RetryMode.HasFlag(RetryMode.RetryFirst401))) // make sure we don't get in a refresh loop due to not having an access token when using an invalid client ID
                     {
                         await Client.RefreshTokenAsync();
+                        RestClient.SetHeader("Authorization", options.UseAccessToken ? $"Bearer {Client.AccessToken}" : null);
                         first401 = false;
                     }
                     else
@@ -381,8 +382,8 @@ namespace Gfycat.API
 
         internal async Task<IEnumerable<Models.AlbumInfo>> GetAlbumsForUserAsync(string userId, RequestOptions options)
         {
-            RestResponse response = await SendAsync("GET", $"users/{userId}/album-folders", options);
-            return response.ReadAsJson<IEnumerable<Models.AlbumInfo>>(Config);
+            RestResponse response = await SendAsync("GET", $"users/{userId}/albums", options);
+            return (response.ReadAsJson<UserAlbumsResponse>(Config)).Items;
         }
 
         internal async Task<Models.Album> GetAlbumContentsAsync(string albumId, RequestOptions options)
@@ -490,7 +491,7 @@ namespace Gfycat.API
 
         internal async Task<UploadKey> CreateGfyFromFetchUrlAsync(string url, GfyCreationParameters parameters, RequestOptions options)
         {
-            return await GetUploadKeyAsync(parameters, options);
+            return await GetUploadKeyAsync(parameters.CreateModel(), options);
         }
 
         internal async Task<Status> GetGfyStatusAsync(string gfyId, RequestOptions options)
@@ -502,7 +503,7 @@ namespace Gfycat.API
             return tempStatus;
         }
 
-        internal async Task<UploadKey> GetUploadKeyAsync(GfyCreationParameters parameters, RequestOptions options)
+        internal async Task<UploadKey> GetUploadKeyAsync(GfyParameters parameters, RequestOptions options)
         {
             RestResponse response = await SendJsonAsync("POST", "gfycats", parameters, options);
             return response.ReadAsJson<UploadKey>(Config);
