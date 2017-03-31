@@ -11,8 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		build.cmd = build.cmd
 		build.sh = build.sh
-		..\LICENSE.txt = ..\LICENSE.txt
-		..\README.md = ..\README.md
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D97AFB24-A86D-4B21-B3A7-0B943E48812C}"

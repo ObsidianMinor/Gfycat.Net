@@ -4,12 +4,6 @@ An unofficial wrapper around the Gfycat API written for .NET Standard 1.2
 ## Progress:
 Adding documentation, running tests, writing samples.
 
-## FUTURE:
-Add support for analytics endpoints (maybe namespace Gfycat.Analytics?)
-
-### Unimplemented features:
-1. Secret endpoints not covered by documentation (like fetching, creating, and modifying API keys)
-
 ### Compatible frameworks (if you don't know the table)
 * .NET Core 1.0 (and up)
 * .NET Framework 4.5.1 (and up)
@@ -50,3 +44,15 @@ and not
 IAsyncEnumerable<Gfy> gfySearchFeed = await client.SearchAsync("stop");
 gfySearchFeed.ForEach(gfy => ...);
 ```
+
+### Using Analytics
+Gfycat.Net also supports the analytics and impression endpoints under the project "Gfycat.Net.Analytics" or namespace "Gfycat.Analytics".
+
+Creating an analytics client
+```csharp
+using Gfycat.Analytics;
+...
+string userTrackingCookie = GfycatAnalyticsClientConfig.GenerateCookie(); // not required
+GfycatAnalyticsClient client = new GfycatAnalyticsClient("replace_with_app_name", "replace_with_any_app_identification", replaceWithAppVersion, userTrackingCookie); // the cookie may also be null
+```
+Session ID will be auto generated, or you can provide one in a GfycatAnalyticsClientConfig
