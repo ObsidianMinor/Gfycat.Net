@@ -234,9 +234,9 @@ namespace Gfycat
         /// Retrieves a list of folder information for the current user
         /// </summary>
         /// <returns></returns>
-        public async Task<FolderInfo> GetFoldersAsync(RequestOptions options = null)
+        public async Task<IEnumerable<FolderInfo>> GetFoldersAsync(RequestOptions options = null)
         {
-            return FolderInfo.Create(Client, (await Client.ApiClient.GetCurrentUserFoldersAsync(options)).FirstOrDefault()); // skip the first one,
+            return (await Client.ApiClient.GetCurrentUserFoldersAsync(options)).Select(folder => FolderInfo.Create(Client, folder));
         }
 
         /// <summary>
@@ -257,9 +257,9 @@ namespace Gfycat
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task<BookmarkFolderInfo> GetBookmarkFoldersAsync(RequestOptions options = null)
+        public async Task<IEnumerable<BookmarkFolderInfo>> GetBookmarkFoldersAsync(RequestOptions options = null)
         {
-            return BookmarkFolderInfo.Create(Client, (await Client.ApiClient.GetCurrentUserBookmarkFoldersAsync(options)).FirstOrDefault());
+            return (await Client.ApiClient.GetCurrentUserBookmarkFoldersAsync(options)).Select(folder => BookmarkFolderInfo.Create(Client, folder));
         }
 
         #region Albums

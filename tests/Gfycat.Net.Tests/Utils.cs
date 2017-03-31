@@ -9,13 +9,14 @@ namespace Gfycat.Net.Tests
         const string clientId = "fakeClientId";
         const string clientSecret = "fakeClientSecret";
 
-        internal static GfycatClient MakeClient()
+        internal static (GfycatClient, MockRestClient) MakeClient()
         {
+            MockRestClient restClient = new MockRestClient();
             GfycatClientConfig config = new GfycatClientConfig(clientId, clientSecret)
             {
-                RestClient = new MockRestClient()
+                RestClient = restClient
             };
-            return new GfycatClient(config);
+            return (new GfycatClient(config), restClient);
         }
     }
 }

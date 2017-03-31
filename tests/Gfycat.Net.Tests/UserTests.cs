@@ -5,26 +5,25 @@ namespace Gfycat.Net.Tests
 {
     public class UserTests
     {
-        [Fact(DisplayName = "Invalid user returns null")]
-        public async void InvalidUser()
+        [Fact(DisplayName = "Invalid user throws")]
+        public async void InvalidUserAsync()
         {
-            GfycatClient client = Utils.MakeClient();
-            User user = await client.GetUserAsync("invalidUser");
-            Assert.Null(user);
+            (GfycatClient client, MockRestClient rest) = Utils.MakeClient();
+            await Assert.ThrowsAsync(typeof(GfycatException), async () => await client.GetUserAsync("invalidUser"));
         }
 
         [Fact(DisplayName = "Valid user isn't null")]
-        public async void ValidUser()
+        public async void ValidUserAsync()
         {
-            GfycatClient client = Utils.MakeClient();
+            (GfycatClient client, MockRestClient rest) = Utils.MakeClient();
             User user = await client.GetUserAsync("validUser");
             Assert.NotNull(user);
         }
 
         [Fact(DisplayName = "Valid user has correct info")]
-        public async void ValidUserInfo()
+        public async void ValidUserInfoAsync()
         {
-            GfycatClient client = Utils.MakeClient();
+            (GfycatClient client, MockRestClient rest) = Utils.MakeClient();
             User user = await client.GetUserAsync("validUser");
             Assert.Equal("validUser", user.Username);
             Assert.Equal("validUser", user.Id);
@@ -44,11 +43,36 @@ namespace Gfycat.Net.Tests
         }
 
         [Fact(DisplayName = "Isn't following valid user")]
-        public async void ValidUserFollowing()
+        public async void ValidUserFollowingAsync()
         {
-            GfycatClient client = Utils.MakeClient();
-            User user = await client.GetUserAsync("validUser");
+            (GfycatClient client, MockRestClient rest) = Utils.MakeClient();
+            User user = await client.GetUserAsync(MockRestClient.ValidUser);
             Assert.Equal(false, await user.GetFollowingUser());
+        }
+
+        [Fact(DisplayName = "Follow user")]
+        public async void FollowValidUserAsync()
+        {
+            (GfycatClient client, MockRestClient rest) = Utils.MakeClient();
+            User user = await client.GetUserAsync(MockRestClient.ValidUser);
+            await user.FollowAsync();
+            Assert.True(rest.State.FollowUserSuccess);
+        }
+
+        [Fact(DisplayName = "Unfollow user")]
+        public async void UnfollowValidUserAsync()
+        {
+            (GfycatClient client, MockRestClient rest) = Utils.MakeClient();
+            User user = await client.GetUserAsync(MockRestClient.ValidUser);
+            await user.UnfollowAsync();
+            Assert.True(rest.State.UnfollowUserSuccess);
+        }
+
+        public async void UserFeedValidAsync()
+        {
+            (GfycatClient client, MockRestClient rest) = Utils.MakeClient();
+            User user = await client.GetUserAsync(MockRestClient.ValidUser);
+            GfyFeed feed = await user.GetGfyFeedAsync();
         }
     }
 }

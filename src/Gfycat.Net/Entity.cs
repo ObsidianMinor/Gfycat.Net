@@ -1,10 +1,13 @@
-﻿namespace Gfycat
+﻿using System.Diagnostics;
+
+namespace Gfycat
 {
     /// <summary>
     /// Exposes the GfycatClient to objects
     /// </summary>
     public abstract class Entity
     {
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         protected internal GfycatClient Client { get; }
 
         public string Id { get; internal set; }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Gfycat.Rest;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -33,43 +34,43 @@ namespace Gfycat
             HttpCode = status;
         }
         
-        internal static Exception CreateFromResponse(Rest.RestResponse restResponse)
+internal static Exception CreateFromResponse(Rest.RestResponse restResponse)
+{
+    GfycatException ParseGfycatException(JToken gfyException)
+    {
+        if (gfyException.Type == JTokenType.String)
         {
-            GfycatException ParseGfycatException(JToken gfyException)
+            try
             {
-                if (gfyException.Type == JTokenType.String)
-                {
-                    try
-                    {
-                        JToken internalMessage = JToken.Parse(gfyException.Value<string>());
-                        return new GfycatException(internalMessage.Value<string>("code"), internalMessage.Value<string>("description"), restResponse.Status);
-                    }
-                    catch (JsonReaderException)
-                    {
-                        return new GfycatException(gfyException.Value<string>(), restResponse.Status);
-                    }
-                }
-                else
-                    return new GfycatException(gfyException.Value<string>("code"), gfyException.Value<string>("description"), restResponse.Status);
+                JToken internalMessage = JToken.Parse(gfyException.Value<string>());
+                return new GfycatException(internalMessage.Value<string>("code"), internalMessage.Value<string>("description"), restResponse.Status);
             }
-
-            string result = restResponse.ReadAsString();
-            if (!string.IsNullOrWhiteSpace(result) && !result.StartsWith("<"))
+            catch (JsonReaderException)
             {
-                JToken jsonObject = JToken.Parse(result);
-                if (jsonObject.Type == JTokenType.Array)
-                    return new AggregateException("Gfycat returned multiple errors", jsonObject.Values<JToken>().Select(token => ParseGfycatException(token["errorMessage"])));
-                else
-                {
-                    JToken message = jsonObject["message"];
-                    if (message == null)
-                        return ParseGfycatException(jsonObject["errorMessage"]);
-                    else
-                        return new InvalidResourceException(message.Value<string>());
-                }
+                return new GfycatException(gfyException.Value<string>(), restResponse.Status);
             }
-            else
-                return new GfycatException(restResponse.Status);
         }
+        else
+            return new GfycatException(gfyException.Value<string>("code"), gfyException.Value<string>("description"), restResponse.Status);
+    }
+
+    string result = restResponse.ReadAsString();
+    if (!string.IsNullOrWhiteSpace(result) && !result.StartsWith("<"))
+    {
+        JToken jsonObject = JToken.Parse(result);
+        if (jsonObject.Type == JTokenType.Array)
+            return new AggregateException("Gfycat returned multiple errors", jsonObject.Values<JToken>().Select(token => ParseGfycatException(token["errorMessage"])));
+        else
+        {
+            JToken message = jsonObject["message"];
+            if (message == null)
+                return ParseGfycatException(jsonObject["errorMessage"]);
+            else
+                return new InvalidResourceException($"Invalid resource: {restResponse.RequestMethod} method on endpoint \"{restResponse.RequestUri.AbsolutePath}\" does not exist!");
+        }
+    }
+    else
+        return new GfycatException(restResponse.Status);
+}
     }
 }

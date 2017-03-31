@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.2</TargetFramework>
+    <RootNamespace>Gfycat.Analytics</RootNamespace>
+    <ApplicationIcon />
+    <OutputTypeEx>library</OutputTypeEx>
+    <StartupObject />
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>ObsidianMinor</Authors>
+    <Company />
+    <Description>An unofficial wrapper around the Gfycat analytics API</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gfycat.Net\Gfycat.Net.csproj" />
+  </ItemGroup>
+
+</Project>

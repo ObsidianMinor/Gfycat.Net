@@ -101,12 +101,7 @@ namespace Gfycat.Rest
                 Dictionary<string, string> headers = response.Headers.ToDictionary(k => k.Key, k => k.Value.FirstOrDefault());
                 Stream contentStream = (message.Method != HttpMethod.Head) ? await response.Content.ReadAsStreamAsync().ConfigureAwait(false) : null;
 
-                return new RestResponse()
-                {
-                    Headers = headers,
-                    Status = response.StatusCode,
-                    Content = contentStream
-                };
+                return new RestResponse(response.StatusCode, headers, contentStream, message.Method, message.RequestUri);
             }
         }
 

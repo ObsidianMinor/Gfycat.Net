@@ -363,31 +363,70 @@ namespace Gfycat
 
         #region Users
 
+        /// <summary>
+        /// Returns a bool for whether or not a user account exists on that username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task<bool> GetUserExistsAsync(string username, RequestOptions options = null)
         {
             return (await ApiClient.GetUsernameStatusAsync(username, options)) == HttpStatusCode.OK;
         }
 
+        /// <summary>
+        /// Sends a password reset email for the user with the specified username or email address
+        /// </summary>
+        /// <param name="usernameOrEmail"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task SendPasswordResetEmailAsync(string usernameOrEmail, RequestOptions options = null)
         {
             await ApiClient.SendPasswordResetEmailAsync(usernameOrEmail, options);
         }
 
+        /// <summary>
+        /// Tries to get the user with the given Id. If the user isn't found, this throws a <see cref="GfycatException"/>
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        /// <exception cref="GfycatException"></exception>
         public async Task<User> GetUserAsync(string userId, RequestOptions options = null)
         {
             API.Models.User userModel = await ApiClient.GetUserAsync(userId, options);
             return User.Create(this, userModel);
         }
 
+        /// <summary>
+        /// Tries to get the user with the given ID. If the user isn't found, this returns null
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task<User> TryGetUserAsync(string userId, RequestOptions options = null) 
             => (await GetUserExistsAsync(userId, options)) ? await GetUserAsync(userId, options) : null;
 
+        /// <summary>
+        /// Attempts to get the current user
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task<CurrentUser> GetCurrentUserAsync(RequestOptions options = null)
         {
             API.Models.CurrentUser currentUserModel = await ApiClient.GetCurrentUserAsync(options);
             return CurrentUser.Create(this, currentUserModel);
         }
 
+        /// <summary>
+        /// Creates a new user account using the specified username, password, and email
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="email"></param>
+        /// <param name="loginWhenComplete"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task CreateAccountAsync(string username, string password, string email = null, bool loginWhenComplete = true, RequestOptions options = null)
         {
             ClientAccountAuthResponse response = await ApiClient.CreateAccountAsync(new AccountCreationRequest()
@@ -404,6 +443,17 @@ namespace Gfycat
             }
         }
 
+        /// <summary>
+        /// Creates a new account using the specified username, provider token, password, and email
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="tokenType"></param>
+        /// <param name="token"></param>
+        /// <param name="password"></param>
+        /// <param name="email"></param>
+        /// <param name="loginWhenComplete"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task CreateAccountAsync(string username, AccountTokenType tokenType, string token, string password = null, string email = null, bool loginWhenComplete = true, RequestOptions options = null)
         {
             AccountCreationRequest request = new AccountCreationRequest()
@@ -484,7 +534,7 @@ namespace Gfycat
         #region Creating Gfycats
 
         /// <summary>
-        /// Creates a Gfycat using a remote url and returns the Gfy name
+        /// Creates a Gfy using a remote url and returns the Gfy status
         /// </summary>
         /// <param name="remoteUrl"></param>
         /// <param name="parameters"></param>
@@ -493,9 +543,16 @@ namespace Gfycat
         public async Task<GfyStatus> CreateGfyAsync(string remoteUrl, GfyCreationParameters parameters = null, RequestOptions options = null)
         {
             UploadKey key = await ApiClient.CreateGfyFromFetchUrlAsync(remoteUrl, parameters ?? new GfyCreationParameters(), options);
+            await Task.Delay(500);
             return await GetGfyUploadStatusAsync(key.Gfycat, options);
         }
 
+        /// <summary>
+        /// Retrieves the upload status of the specified gfy
+        /// </summary>
+        /// <param name="gfycat"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task<GfyStatus> GetGfyUploadStatusAsync(string gfycat, RequestOptions options = null)
         {
             Status status = await ApiClient.GetGfyStatusAsync(gfycat, options);
@@ -506,6 +563,13 @@ namespace Gfycat
             return new GfyStatus(this, status);
         }
 
+        /// <summary>
+        /// Creates a Gfycat using the specified file stream and upload parameters
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="parameters"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task<GfyStatus> CreateGfyAsync(Stream data, GfyCreationParameters parameters = null, RequestOptions options = null)
         {
             UploadKey uploadKey = await ApiClient.GetUploadKeyAsync(parameters.CreateModel(), options);
@@ -519,16 +583,32 @@ namespace Gfycat
 
         #region Trending feeds
 
-        public async Task<TaggedGfyFeed> GetTrendingGfysAsync(string tag = null, RequestOptions options = null)
+        /// <summary>
+        /// Retrieves trending gfys for the specified tag. If no tag is specified, the "Trending" tag is used
+        /// </summary>
+        /// <param name="tag"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public async Task<TaggedGfyFeed> GetTrendingGfysAsync(string tag = "Trending", RequestOptions options = null)
         {
             return TaggedGfyFeed.Create(this, (await ApiClient.GetTrendingFeedAsync(tag, null, options)), options);
         }
 
+        /// <summary>
+        /// Returns an enumerable of all trending tags
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<string>> GetTrendingTagsAsync(RequestOptions options = null)
         {
             return await ApiClient.GetTrendingTagsAsync(null, options);
         }
 
+        /// <summary>
+        /// Retrieves trending tags populated with gfys
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task<PopulatedTagFeed> GetTrendingTagsPopulatedAsync(RequestOptions options = null)
         {
             return PopulatedTagFeed.Create(this, options, await ApiClient.GetTrendingTagsPopulatedAsync(null, options));
@@ -536,6 +616,12 @@ namespace Gfycat
 
         #endregion
 
+        /// <summary>
+        /// Retrieves a feed of all reaction tag feeds in the specified language. The default language is english
+        /// </summary>
+        /// <param name="language"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task<ReactionTagsFeed> GetReactionGfysAsync(ReactionLanguage language = ReactionLanguage.English, RequestOptions options = null)
         {
             return ReactionTagsFeed.Create(this, options, await ApiClient.GetReactionGifsPopulatedAsync(language, null, options), language);

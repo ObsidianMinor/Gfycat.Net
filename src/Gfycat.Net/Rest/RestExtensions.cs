@@ -3,7 +3,7 @@ using System.IO;
 using Gfycat.Rest;
 using System.Diagnostics;
 
-namespace Gfycat
+namespace Gfycat.Rest
 {
     internal static class RestExtensions
     {

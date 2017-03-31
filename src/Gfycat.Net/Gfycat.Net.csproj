@@ -10,7 +10,7 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>gfycat</PackageTags>
     <PackageReleaseNotes>Initial release. Supports all non-testing endpoints.</PackageReleaseNotes>
-    <DefineConstants>TRACE;DEBUG;SUPER_DEBUG_MODE;NETSTANDARD1_2</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD1_2;TESTING</DefineConstants>
     <Optimize>False</Optimize>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>Gfycat.Net</PackageId>
