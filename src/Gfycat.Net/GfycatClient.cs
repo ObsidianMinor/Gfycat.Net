@@ -96,10 +96,7 @@ namespace Gfycat
                     },
                     options).ConfigureAwait(false);
                 ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
-
-                Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
-                Debug.WriteLine($"Recieved access token {auth.AccessToken}");
-
+                
                 AccessToken = auth.AccessToken;
                 RefreshToken = auth.RefreshToken;
                 return true;
@@ -126,8 +123,7 @@ namespace Gfycat
                 },
                 options).ConfigureAwait(false);
             ClientCredentialsAuthResponse auth = response.ReadAsJson<ClientCredentialsAuthResponse>(ApiClient.Config);
-
-            Debug.WriteLine($"Recieved access token {auth.AccessToken}");
+            
             AccessToken = auth.AccessToken;
             _clientAuth = true;
         }
@@ -157,10 +153,7 @@ namespace Gfycat
                 },
                 options).ConfigureAwait(false);
             ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
-
-            Debug.WriteLine($"Logged in as {username}");
-            Debug.WriteLine($"Recieved access token {auth.AccessToken}");
-
+            
             AccessToken = auth.AccessToken;
             RefreshToken = auth.RefreshToken;
             _clientAuth = false;
@@ -216,10 +209,7 @@ namespace Gfycat
                             },
                             options).ConfigureAwait(false);
                         ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
-
-                        Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
-                        Debug.WriteLine($"Recieved access token {auth.AccessToken}");
-
+                        
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
                     }
@@ -239,10 +229,7 @@ namespace Gfycat
                             },
                             options).ConfigureAwait(false);
                         ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
-
-                        Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
-                        Debug.WriteLine($"Recieved access token {auth.AccessToken}");
-
+                        
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
                     }
@@ -282,10 +269,7 @@ namespace Gfycat
                             },
                             options).ConfigureAwait(false);
                         ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
-
-                        Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
-                        Debug.WriteLine($"Recieved access token {auth.AccessToken}");
-
+                        
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
                     }
@@ -306,10 +290,7 @@ namespace Gfycat
                             },
                             options).ConfigureAwait(false);
                         ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
-
-                        Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
-                        Debug.WriteLine($"Recieved access token {auth.AccessToken}");
-
+                        
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
                     }
@@ -330,10 +311,7 @@ namespace Gfycat
                             },
                             options).ConfigureAwait(false);
                         ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
-
-                        Debug.WriteLine($"Logged in as {auth.ResourceOwner}");
-                        Debug.WriteLine($"Recieved access token {auth.AccessToken}");
-
+                        
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
                     }
