@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace Gfycat
     /// Enumerates the contents of an <see cref="IFeed{T}"/>
     /// </summary>
     /// <typeparam name="T">The type of item to enumerate</typeparam>
-    public struct FeedEnumerator<T> : IAsyncEnumerator<T>
+    public class FeedEnumerator<T> : IAsyncEnumerator<T>
     {
         internal FeedEnumerator(GfycatClient client, IFeed<T> feed, RequestOptions defaultOptions)
         {
@@ -17,8 +18,10 @@ namespace Gfycat
             _currentFeed = feed;
             _currentEnumerator = _currentFeed.Content.GetEnumerator();
         }
-        internal readonly RequestOptions _options;
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         internal readonly GfycatClient _client;
+
+        internal readonly RequestOptions _options;
         IFeed<T> _currentFeed;
         IEnumerator<T> _currentEnumerator;
 
@@ -38,7 +41,10 @@ namespace Gfycat
         {
             if (!_currentEnumerator.MoveNext())
             {
-                RequestOptions newOptions = _options.Clone();
+                if (string.IsNullOrWhiteSpace(_currentFeed.Cursor))
+                    return false;
+
+                RequestOptions newOptions = _options?.Clone() ?? RequestOptions.CreateFromDefaults(_client.ApiClient.Config);
                 newOptions.CancellationToken = cancellationToken;
 
                 _currentFeed = await _currentFeed.GetNextPageAsync(newOptions);
