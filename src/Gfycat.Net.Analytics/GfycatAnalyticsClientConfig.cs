@@ -48,12 +48,12 @@ namespace Gfycat.Analytics
             Random random = new Random();
             string GenerateString(int length)
             {
-                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
                 return new string(Enumerable.Repeat(chars, length)
                   .Select(s => s[random.Next(s.Length)]).ToArray());
             }
 
-            return $"{GenerateString(8)} - {GenerateString(4)} - {GenerateString(4)} - {GenerateString(4)} - {GenerateString(12)}";
+            return $"{GenerateString(8)}-{GenerateString(4)}-{GenerateString(4)}-{GenerateString(4)}-{GenerateString(12)}";
         }
     }
 }
