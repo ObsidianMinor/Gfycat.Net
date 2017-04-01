@@ -40,11 +40,11 @@ namespace Gfycat.Analytics
             {
                 impression = impressions.ElementAt(i);
                 queryStringEnumerable.Concat(new(string, object)[] {
-                    ("gfyid", impression.GfycatId),
-                    ("context", impression.Context),
-                    ("keyword", impression.Keyword),
-                    ("flow", impression.Flow),
-                    ("viewtag", impression.ViewTag)
+                    ($"gfyid_{i}", impression.GfycatId),
+                    ($"context_{i}", impression.Context),
+                    ($"keyword_{i}", impression.Keyword),
+                    ($"flow_{i}", impression.Flow),
+                    ($"viewtag_{i}", impression.ViewTag)
                 });
             }
 
