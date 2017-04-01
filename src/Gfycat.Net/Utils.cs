@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Diagnostics;
 
 namespace Gfycat
 {
@@ -11,8 +12,10 @@ namespace Gfycat
     {
         internal static IEnumerable<HttpStatusCode> Ignore404 => new[] { HttpStatusCode.NotFound };
 
+        [DebuggerStepThrough]
         internal static bool IsSuccessfulStatus(this HttpStatusCode code) => ((int)code >= 200 && (int)code <= 299);
         
+        [DebuggerStepThrough]
         internal static string CreateQueryString(IDictionary<string, object> dictionary)
         {
             var nullParsedDictionary = dictionary.Where(kv => (kv.Key != null && !string.IsNullOrWhiteSpace(kv.Key)) && kv.Value != null);
@@ -34,9 +37,11 @@ namespace Gfycat
             return result.ToString();
         }
 
+        [DebuggerStepThrough]
         internal static string CreateQueryString(params (string Name, object Value)[] parameters)
             => CreateQueryString(new Dictionary<string, object>(parameters.ToDictionary(t => t.Name, t => t.Value)));
 
+        [DebuggerStepThrough]
         internal static IReadOnlyCollection<T> ToReadOnlyCollection<T>(this IEnumerable<T> enumerable)
             => new ReadOnlyCollection<T>(enumerable?.ToList() ?? new List<T>());
 

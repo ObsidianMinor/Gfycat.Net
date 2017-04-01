@@ -3,6 +3,10 @@ using System.Threading.Tasks;
 
 namespace Gfycat
 {
+    /// <summary>
+    /// Represents a page in a feed of content from Gfycat
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public interface IFeed<T> : IAsyncEnumerable<T>
     {
         /// <summary>

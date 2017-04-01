@@ -1,13 +1,13 @@
 ﻿using Gfycat.API;
 using Gfycat.API.Models;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.IO;
-using System.Net;
-using System.Threading.Tasks;
 using Gfycat.Rest;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace Gfycat
 {
@@ -644,6 +644,5 @@ namespace Gfycat
         public string GetBrowserAuthUrl(string state, string redirectUri, bool codeResponse) => $"https://gfycat.com/oauth/authorize?client_id={ClientId}&scope=all&state={state}&response_type={(codeResponse ? "code" : "token")}&redirect_uri={redirectUri}";
 
         #endregion
-
     }
 }

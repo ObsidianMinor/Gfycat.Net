@@ -40,20 +40,9 @@ namespace Gfycat
         public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
             await Client.ApiClient.ModifyFolderTitleAsync(Id, newTitle, options);
-            Title = newTitle;
+            await UpdateAsync();
         }
-
-        /// <summary>
-        /// Move a folder (and contents) to a new location in the tree
-        /// </summary>
-        /// <param name="parent"></param>
-        /// <param name="options"></param>
-        /// <returns></returns>
-        public async Task MoveFolderAsync(Folder parent, RequestOptions options = null)
-        {
-            await Client.ApiClient.MoveFolderAsync(Id, parent.Id, options);
-        }
-
+        
         /// <summary>
         /// Move some of the gfycats within a folder to another folder
         /// </summary>
@@ -65,17 +54,7 @@ namespace Gfycat
         {
             await Client.ApiClient.MoveGfysAsync(Id, new API.GfyFolderAction() { Action = "move_contents", GfycatIds = gfysToMove.Select(g => g.Id), ParentId = folderToMoveTo.Id }, options);
             await UpdateAsync();
-        }
-
-        /// <summary>
-        /// Create a new folder inside this folder
-        /// </summary>
-        /// <param name="folderName"></param>
-        /// <param name="options"></param>
-        /// <returns></returns>
-        public async Task CreateNewFolderAsync(string folderName, RequestOptions options = null)
-        {
-            await Client.ApiClient.CreateFolderAsync(Id, folderName, options);
+            await folderToMoveTo.UpdateAsync();
         }
 
         public async Task DeleteAsync(RequestOptions options = null)

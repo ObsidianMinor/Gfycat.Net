@@ -18,6 +18,7 @@ namespace Gfycat
             _currentFeed = feed;
             _currentEnumerator = _currentFeed.Content.GetEnumerator();
         }
+
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         internal readonly GfycatClient _client;
 
@@ -25,8 +26,14 @@ namespace Gfycat
         IFeed<T> _currentFeed;
         IEnumerator<T> _currentEnumerator;
 
+        /// <summary>
+        /// Gets the element in the collection at the current position of the enumerator
+        /// </summary>
         public T Current => _currentEnumerator.Current;
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
         public void Dispose()
         {
             // we don't need to do anything

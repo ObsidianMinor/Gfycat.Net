@@ -1,10 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Gfycat
 {
+    /// <summary>
+    /// Represents a basic gfy feed
+    /// </summary>
     public abstract class GfyFeed : IFeed<Gfy>
     {
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         internal readonly GfycatClient _client;
         internal readonly RequestOptions _options;
         string IFeed<Gfy>.Cursor => _cursor;

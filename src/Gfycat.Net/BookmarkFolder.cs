@@ -31,27 +31,18 @@ namespace Gfycat
         public int Count { get; private set; }
 
         public IReadOnlyCollection<Gfy> Content { get; private set; }
-
-        public async Task CreateNewFolderAsync(string folderName, RequestOptions options = null)
-        {
-            await Client.ApiClient.CreateBookmarkFolderAsync(Id, folderName, options);
-        }
-
+        
         public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
             await Client.ApiClient.ModifyBookmarkFolderTitleAsync(Id, newTitle, options);
             await UpdateAsync(options);
         }
 
-        public async Task MoveFolderAsync(BookmarkFolder parent, RequestOptions options = null)
-        {
-            await Client.ApiClient.MoveBookmarkFolderAsync(Id, parent.Id, options);
-        }
-
         public async Task MoveGfysAsync(BookmarkFolder folderToMoveTo, IEnumerable<Gfy> gfysToMove, RequestOptions options = null)
         {
             await Client.ApiClient.MoveBookmarkedGfysAsync(Id, new API.GfyFolderAction() { Action = "", GfycatIds = gfysToMove.Select(g => g.Id), ParentId = folderToMoveTo.Id }, options);
             await UpdateAsync(options);
+            await folderToMoveTo.UpdateAsync();
         }
 
         public async Task DeleteAsync(RequestOptions options = null)
