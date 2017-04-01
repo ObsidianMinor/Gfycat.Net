@@ -40,7 +40,7 @@ namespace Gfycat
 
         public async Task MoveGfysAsync(BookmarkFolder folderToMoveTo, IEnumerable<Gfy> gfysToMove, RequestOptions options = null)
         {
-            await Client.ApiClient.MoveBookmarkedGfysAsync(Id, new API.GfyFolderAction() { Action = "", GfycatIds = gfysToMove.Select(g => g.Id), ParentId = folderToMoveTo.Id }, options);
+            await Client.ApiClient.MoveBookmarkedGfysAsync(Id, new API.GfyFolderAction() { Action = "move_contents", GfycatIds = gfysToMove.Select(g => g.Id), ParentId = folderToMoveTo.Id }, options);
             await UpdateAsync(options);
             await folderToMoveTo.UpdateAsync();
         }
