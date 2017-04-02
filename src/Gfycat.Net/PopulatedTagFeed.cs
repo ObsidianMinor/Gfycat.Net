@@ -30,7 +30,10 @@ namespace Gfycat
                 _cursor = model.Cursor
             };
         }
-
+        /// <summary>
+        /// Returns an enumerator to enumerate through this feed
+        /// </summary>
+        /// <returns></returns>
         public IAsyncEnumerator<TaggedGfyFeed> GetEnumerator()
         {
             return new FeedEnumerator<TaggedGfyFeed>(_client, this, _defaultOptions);

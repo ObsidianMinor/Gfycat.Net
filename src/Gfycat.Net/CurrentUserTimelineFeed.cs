@@ -11,7 +11,10 @@ namespace Gfycat
         internal CurrentUserTimelineFeed(GfycatClient client, RequestOptions defaultOptions) : base(client, defaultOptions)
         {
         }
-
+        /// <summary>
+        /// Returns an enumerator to enumerate through this feed
+        /// </summary>
+        /// <returns></returns>
         public override IAsyncEnumerator<Gfy> GetEnumerator()
         {
             return new FeedEnumerator<Gfy>(_client, this, _options);

@@ -542,7 +542,7 @@ namespace Gfycat
         }
 
         /// <summary>
-        /// Creates a Gfycat using the specified file stream and upload parameters
+        /// Creates a Gfycat using the specified stream and upload parameters
         /// </summary>
         /// <param name="data"></param>
         /// <param name="parameters"></param>

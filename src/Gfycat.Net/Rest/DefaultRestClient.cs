@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -96,6 +95,7 @@ namespace Gfycat.Rest
             {
                 Debug.WriteLine($"{message.Method} {message.RequestUri}");
                 token = CancellationTokenSource.CreateLinkedTokenSource(_parentToken, token).Token;
+                
                 HttpResponseMessage response = await _client.SendAsync(message, token).ConfigureAwait(false);
 
                 Dictionary<string, string> headers = response.Headers.ToDictionary(k => k.Key, k => k.Value.FirstOrDefault());
