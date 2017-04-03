@@ -14,6 +14,14 @@
     <Authors>ObsidianMinor</Authors>
     <Company />
     <Description>An unofficial wrapper around the Gfycat analytics API</Description>
+    <PackageId>Gfycat.Net.Analytics</PackageId>
+    <PackageProjectUrl>https://github.com/ObsidianMinor/Gfycat.Net</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>git://github.com/ObsidianMinor/Gfycat.Net</RepositoryUrl>
+    <PackageTags>gfycat;netstandard;analytics</PackageTags>
+    <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageIconUrl>https://gfycat.com/images/logo-300x300.png</PackageIconUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

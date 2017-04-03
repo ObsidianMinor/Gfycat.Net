@@ -52,4 +52,4 @@ using Gfycat.Analytics;
 string userTrackingCookie = GfycatAnalyticsClientConfig.GenerateCookie(); // not required
 GfycatAnalyticsClient client = new GfycatAnalyticsClient("replace_with_app_name", "replace_with_any_app_identification", replaceWithAppVersion, userTrackingCookie); // the cookie may also be null
 ```
-Session ID will be auto generated, or you can provide one in a GfycatAnalyticsClientConfig
+Session cookie will be auto generated, or you can provide one in a GfycatAnalyticsClientConfig

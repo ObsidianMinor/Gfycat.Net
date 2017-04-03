@@ -5,12 +5,12 @@
     <Authors>ObsidianMinor</Authors>
     <Company>
 </Company>
-    <Description>Gfycat.Net is a complete wrapper around the Gfycat API built for the .NET Standard</Description>
+    <Description>A complete wrapper around the Gfycat API built for the .NET Standard</Description>
     <Copyright></Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageTags>gfycat</PackageTags>
+    <PackageTags>gfycat;netstandard</PackageTags>
     <PackageReleaseNotes>Initial release. Supports all non-testing endpoints.</PackageReleaseNotes>
-    <DefineConstants>TRACE;DEBUG;NETSTANDARD1_2;TESTING</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD1_2;</DefineConstants>
     <Optimize>False</Optimize>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>Gfycat.Net</PackageId>
@@ -19,7 +19,7 @@
     <PackageIconUrl>https://gfycat.com/images/logo-300x300.png</PackageIconUrl>
     <PackageProjectUrl>https://github.com/ObsidianMinor/Gfycat.Net</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageLicenseUrl>https://github.com/ObsidianMinor/Gfycat.Net/LICENSE.txt</PackageLicenseUrl>
+    <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
     <AssemblyName>Gfycat.Net</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.2|AnyCPU'">
@@ -33,8 +33,7 @@
     <None Remove="Auth\**" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard1.2'">
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
-    <PackageReference Include="System.Threading.Timer" Version="4.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Rest\RestExtensions.cs" />
