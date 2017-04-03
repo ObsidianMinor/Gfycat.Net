@@ -1,4 +1,6 @@
 # Gfycat.Net
+[![Gfycat.Net](https://badge.fury.io/nu/Gfycat.Net.svg)](https://badge.fury.io/nu/Gfycat.Net)
+
 An unofficial wrapper around the Gfycat API written for .NET Standard 1.2
 
 ### Compatible frameworks (if you don't know the table)
@@ -43,6 +45,8 @@ gfySearchFeed.ForEach(gfy => ...);
 ```
 
 ### Using Analytics
+[![NuGet version](https://badge.fury.io/nu/Gfycat.Net.Analytics.svg)](https://badge.fury.io/nu/Gfycat.Net.Analytics)
+
 Gfycat.Net also supports the analytics and impression endpoints under the project "Gfycat.Net.Analytics" or namespace "Gfycat.Analytics".
 
 Creating an analytics client
