@@ -21,11 +21,17 @@
     <PackageTags>gfycat;netstandard;analytics</PackageTags>
     <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <PackageIconUrl>https://gfycat.com/images/logo-300x300.png</PackageIconUrl>
+    <PackageIconUrl></PackageIconUrl>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\Debug\netstandard1.2\.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard1.2\Gfycat.Net.Analytics.xml</DocumentationFile>
+    <DefineConstants>RELEASE;NETSTANDARD1_2</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
