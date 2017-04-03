@@ -18,7 +18,7 @@ namespace Gfycat
         /// </summary>
         string Cursor { get; }
         /// <summary>
-        /// Returns the next page of the current feed
+        /// Returns the next page of this feed
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>

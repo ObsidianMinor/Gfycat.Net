@@ -1,9 +1,6 @@
 # Gfycat.Net
 An unofficial wrapper around the Gfycat API written for .NET Standard 1.2
 
-## Progress:
-Adding documentation, writing samples.
-
 ### Compatible frameworks (if you don't know the table)
 * .NET Core 1.0 (and up)
 * .NET Framework 4.5.1 (and up)

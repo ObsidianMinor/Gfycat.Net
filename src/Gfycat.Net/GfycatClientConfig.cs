@@ -4,16 +4,30 @@ using System;
 
 namespace Gfycat
 {
+    /// <summary>
+    /// Defines a configuration for a <see cref="GfycatClient"/>
+    /// </summary>
     public class GfycatClientConfig
     {
+        /// <summary>
+        /// Gets the Gfycat API version used by the client
+        /// </summary>
         public const int ApiVersion = 1;
+        /// <summary>
+        /// Gets the base url for all requests made by the rest client
+        /// </summary>
         public static readonly string BaseUrl = $"https://api.gfycat.com/v{ApiVersion}/";
         internal readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings() // for future things, if we need it
         {
             NullValueHandling = NullValueHandling.Ignore
         };
-
+        /// <summary>
+        /// Gets the client Id of this config
+        /// </summary>
         public string ClientId { get; }
+        /// <summary>
+        /// Gets the client secret of this config
+        /// </summary>
         public string ClientSecret { get; }
 
         /// <summary>
@@ -29,7 +43,11 @@ namespace Gfycat
         /// Sets the default timeout for all requests.
         /// </summary>
         public int DefaultTimeout { get; set; } = -1;
-
+        /// <summary>
+        /// Constructs a <see cref="GfycatClientConfig"/> using the specified client Id and client secret
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <param name="clientSecret"></param>
         public GfycatClientConfig(string clientId, string clientSecret)
         {
             ClientId = clientId;

@@ -29,7 +29,11 @@ namespace Gfycat
                 _cursor = feed.Cursor
             };
         }
-
+        /// <summary>
+        /// Returns the next page of this feed
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
         {
             return Create(_client, options, await _client.ApiClient.GetCurrentUserGfyFeedAsync(_cursor, options));

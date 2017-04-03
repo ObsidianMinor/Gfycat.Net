@@ -31,7 +31,11 @@ namespace Gfycat
         {
             return new FeedEnumerator<Gfy>(_client, this, _options);
         }
-
+        /// <summary>
+        /// Returns the next page of this feed
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
         {
             return Create(_client, await _client.ApiClient.SearchCurrentUserAsync(_searchText, _cursor, options), _searchText, options);

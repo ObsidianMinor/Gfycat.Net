@@ -11,28 +11,64 @@ namespace Gfycat
     /// Represents a user on Gfycat
     /// </summary>
     [DebuggerDisplay("Username: {Username}")]
-    public class User : Entity, IUser, IUpdatable
+    public class User : Entity, IUser
     {
-        public string Username { get; internal set; }
-        public string Description { get; internal set; }
         /// <summary>
-        /// The linked website on a user's profile page
+        /// The username of this user
         /// </summary>
-        public string ProfileUrl { get; internal set; }
-        public string Name { get; internal set; }
-        public int Views { get; internal set; }
+        public string Username { get; private set; }
         /// <summary>
-        /// A link to the user's Gfycat profile url
+        /// The description of this user
         /// </summary>
-        public string Url { get; internal set; }
-        public DateTime CreationDate { get; internal set; }
-        public string ProfileImageUrl { get; internal set; }
-        public bool Verified { get; internal set; }
-        public int Followers { get; internal set; }
-        public int Following { get; internal set; }
-        public bool IframeProfileImageVisible { get; internal set; }
-        public int PublishedGfys { get; internal set; }
-        public int PublishedAlbums { get; internal set; }
+        public string Description { get; private set; }
+        /// <summary>
+        /// Gets the URL provided on the user's profile
+        /// </summary>
+        public string ProfileUrl { get; private set; }
+        /// <summary>
+        /// Gets this user's name provided on their profile
+        /// </summary>
+        public string Name { get; private set; }
+        /// <summary>
+        /// Gets the total number of Gfy views this user has recieved
+        /// </summary>
+        public int Views { get; private set; }
+        /// <summary>
+        /// Gets a browser friendly URL to this user's profile
+        /// </summary>
+        public string Url { get; private set; }
+        /// <summary>
+        /// Gets the date and time of this user's account creation
+        /// </summary>
+        public DateTime CreationDate { get; private set; }
+        /// <summary>
+        /// Gets this user's profile image url
+        /// </summary>
+        public string ProfileImageUrl { get; private set; }
+        /// <summary>
+        /// Gets whether this user is verified
+        /// </summary>
+        public bool Verified { get; private set; }
+        /// <summary>
+        /// Gets the number of users following this user
+        /// </summary>
+        public int Followers { get; private set; }
+        /// <summary>
+        /// Gets the number of users this user is following
+        /// </summary>
+        public int Following { get; private set; }
+        /// <summary>
+        /// Gets the user’s profile image visibility on the iframe
+        /// </summary>
+        public bool IframeProfileImageVisible { get; private set; }
+        /// <summary>
+        /// Gets the number of Gfys this user has published on their account
+        /// </summary>
+        public int PublishedGfys { get; private set; }
+        /// <summary>
+        /// Gets the number of albums this user had published on their account
+        /// </summary>
+        public int PublishedAlbums { get; private set; }
 
         internal User(GfycatClient client, string id) : base(client, id)
         { }
@@ -61,34 +97,58 @@ namespace Gfycat
             user.Update(model);
             return user;
         }
-
+        /// <summary>
+        /// Updates this object with the latest server information
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task UpdateAsync(RequestOptions options)
         {
             Update(await Client.ApiClient.GetUserAsync(Id, options));
         }
-
+        /// <summary>
+        /// Returns all public albums for this user
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<AlbumInfo>> GetAlbumsAsync(RequestOptions options = null)
         {
             return (await Client.ApiClient.GetAlbumsForUserAsync(Id, options)).Select(album => AlbumInfo.Create(Client, album, Id));
         }
 
         async Task<IEnumerable<IAlbumInfo>> IUser.GetAlbumsAsync(RequestOptions options) => await GetAlbumsAsync(options);
-
+        /// <summary>
+        /// Returns the public gfy feed for this user
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task<GfyFeed> GetGfyFeedAsync(RequestOptions options = null)
         {
             return UserGfyFeed.Create(Client, options, Id, await Client.ApiClient.GetUserGfyFeedAsync(Id, null, options));
         }
-
+        /// <summary>
+        /// Follows this user
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task FollowAsync(RequestOptions options = null)
         {
             await Client.ApiClient.FollowUserAsync(Id, options);
         }
-
+        /// <summary>
+        /// Unfollows this user
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task UnfollowAsync(RequestOptions options = null)
         {
             await Client.ApiClient.UnfollowUserAsync(Id, options);
         }
-
+        /// <summary>
+        /// Gets whether the current user is following this user
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task<bool> GetFollowingUser(RequestOptions options = null)
         {
             return (await Client.ApiClient.GetFollowingUserAsync(Id, options)) == System.Net.HttpStatusCode.OK;

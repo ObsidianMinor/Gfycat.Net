@@ -45,7 +45,11 @@ namespace Gfycat
         {
             return new FeedEnumerator<ReactionFeed>(_client, this, _defaultOptions);
         }
-
+        /// <summary>
+        /// Returns the next page of this feed
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task<IFeed<ReactionFeed>> GetNextPageAsync(RequestOptions options = null)
         {
             return Create(_client, options, await _client.ApiClient.GetReactionGifsPopulatedAsync(_language, _cursor, options), _language);

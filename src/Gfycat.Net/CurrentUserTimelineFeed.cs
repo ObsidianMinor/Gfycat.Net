@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Gfycat.API.Models;
 using System.Linq;
-using System;
 using System.Threading.Tasks;
 
 namespace Gfycat
@@ -28,7 +27,11 @@ namespace Gfycat
                 _cursor = feed.Cursor
             };
         }
-
+        /// <summary>
+        /// Returns the next page of this feed
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
         {
             return Create(_client, options, await _client.ApiClient.GetFollowsGfyFeedAsync(_cursor, options));

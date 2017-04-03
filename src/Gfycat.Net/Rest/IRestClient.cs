@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#pragma warning disable CS1591
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -45,7 +46,7 @@ namespace Gfycat.Rest
         /// <returns></returns>
         Task<RestResponse> SendAsync(string method, string endpoint, Stream stream, CancellationToken token);
         /// <summary>
-        /// Sends a request with mulipart content to the given endpoint
+        /// Sends a request with multipart content to the given endpoint
         /// </summary>
         /// <param name="method"></param>
         /// <param name="endpoint"></param>

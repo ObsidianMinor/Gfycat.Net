@@ -8,6 +8,9 @@ using Model = Gfycat.API.Models.Gfy;
 
 namespace Gfycat
 {
+    /// <summary>
+    /// An object representation of a short, looped, soundless video moment
+    /// </summary>
     [DebuggerDisplay("{Name} : {Title}")]
     public class Gfy : Entity, IUpdatable
     {
@@ -68,28 +71,79 @@ namespace Gfycat
         }
 
         public long Number { get; private set; }
+        /// <summary>
+        /// Gets the webm url for this gfy
+        /// </summary>
         public string WebmUrl { get; private set; }
+        /// <summary>
+        /// Gets the gif url for this gfy
+        /// </summary>
         public string GifUrl { get; private set; }
+        /// <summary>
+        /// Gets the mobile url for this gfy
+        /// </summary>
         public string MobileUrl { get; private set; }
+        /// <summary>
+        /// Gets the mobile cover image for this gfy
+        /// </summary>
         public string MobilePosterUrl { get; private set; }
+        /// <summary>
+        /// Gets the cover image for this gfy
+        /// </summary>
         public string PosterUrl { get; private set; }
+        /// <summary>
+        /// Gets the 360mb thumbnail url for this gfy
+        /// </summary>
         public string Thumb360Url { get; private set; }
+        /// <summary>
+        /// Gets the 360mb thumbnail cover url for this gfy
+        /// </summary>
         public string Thumb360PosterUrl { get; private set; }
+        /// <summary>
+        /// Gets the 100mb thumbnail cover url for this gfy
+        /// </summary>
         public string Thumb100PosterUrl { get; private set; }
+        /// <summary>
+        /// Gets the 5mb gif url for this gfy
+        /// </summary>
         public string Max5MbGif { get; private set; }
+        /// <summary>
+        /// Gets the 2mb gif url for this gfy
+        /// </summary>
         public string Max2MbGif { get; private set; }
+        /// <summary>
+        /// Gets the 1mb gif url for this gfy
+        /// </summary>
         public string Max1MbGif { get; private set; }
+        /// <summary>
+        /// Gets the mjpg url for this gfy
+        /// </summary>
         public string MjpgUrl { get; private set; }
+        /// <summary>
+        /// Gets the width of the cover image for this gfy
+        /// </summary>
         public int Width { get; private set; }
+        /// <summary>
+        /// Gets the height of the cover image for this gfy
+        /// </summary>
         public int Height { get; private set; }
+        /// <summary>
+        /// Gets the average color for this gfy
+        /// </summary>
         public string AverageColor { get; private set; }
+        /// <summary>
+        /// Gets the framerate for this gfy
+        /// </summary>
         public int FrameRate { get; private set; }
+        /// <summary>
+        /// Gets the number of frames for this gfy
+        /// </summary>
         public int NumberOfFrames { get; private set; }
         public int Mp4Size { get; private set; }
         public int WebmSize { get; private set; }
         public int GifSize { get; private set; }
         public string Source { get; private set; }
-        public long CreationDate { get; private set; }
+        public DateTime CreationDate { get; private set; }
         public NsfwSetting Nsfw { get; private set; }
         public string Mp4Url { get; private set; }
         public int Likes { get; private set; }

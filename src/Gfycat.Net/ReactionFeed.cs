@@ -5,9 +5,18 @@ using Model = Gfycat.API.Models.Feed;
 
 namespace Gfycat
 {
+    /// <summary>
+    /// Represents a collection of gfys based on a particular reaction
+    /// </summary>
     public class ReactionFeed : GfyFeed
     {
+        /// <summary>
+        /// Gets the cover gfy of this reaction feed
+        /// </summary>
         public Gfy CoverGfy => Content.FirstOrDefault();
+        /// <summary>
+        /// Gets the tag of this reaction feed
+        /// </summary>
         public string Tag { get; }
 
         internal ReactionFeed(GfycatClient client, string searchText, RequestOptions options) : base(client, options)
@@ -30,7 +39,11 @@ namespace Gfycat
         {
             return new FeedEnumerator<Gfy>(_client, this, _options);
         }
-
+        /// <summary>
+        /// Returns the next page of this feed
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
         {
             return SiteSearchFeed.Create(_client, await _client.ApiClient.SearchSiteAsync(Tag, null, options), Tag, options);

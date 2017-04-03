@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿#pragma warning disable CS1591
+using System.IO;
 
 namespace Gfycat.Rest
 {

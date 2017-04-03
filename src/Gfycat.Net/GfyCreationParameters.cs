@@ -25,10 +25,10 @@ namespace Gfycat
                 }),
                 Crop = new API.Models.Crop()
                 {
-                    H = Crop.H,
-                    W = Crop.W,
-                    X = Crop.X,
-                    Y = Crop.Y
+                    H = Crop.Height,
+                    W = Crop.Width,
+                    X = Crop.XPosition,
+                    Y = Crop.YPosition
                 },
                 Cut = new API.Models.Cut()
                 {
@@ -111,17 +111,17 @@ namespace Gfycat
     
     public class Crop
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int W { get; set; }
-        public int H { get; set; }
+        public int XPosition { get; set; }
+        public int YPosition { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
 
         public Crop(int xpos, int ypos, int width, int height)
         {
-            X = xpos;
-            Y = ypos;
-            W = width;
-            H = height;
+            XPosition = xpos;
+            YPosition = ypos;
+            Width = width;
+            Height = height;
         }
     }
 }

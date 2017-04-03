@@ -6,6 +6,9 @@ using Model = Gfycat.API.Models.TrendingTagsFeed;
 
 namespace Gfycat
 {
+    /// <summary>
+    /// Returns a feed of <see cref="TaggedGfyFeed"/>s
+    /// </summary>
     [DebuggerDisplay("Tag count: {Content.Count}")]
     public class PopulatedTagFeed : IFeed<TaggedGfyFeed>
     {
@@ -19,7 +22,9 @@ namespace Gfycat
             _defaultOptions = defaultOptions;
             _client = client;
         }
-
+        /// <summary>
+        /// Contains the current page of content for this feed
+        /// </summary>
         public IReadOnlyCollection<TaggedGfyFeed> Content { get; private set; }
         
         internal static PopulatedTagFeed Create(GfycatClient client, RequestOptions options, Model model)
@@ -38,7 +43,11 @@ namespace Gfycat
         {
             return new FeedEnumerator<TaggedGfyFeed>(_client, this, _defaultOptions);
         }
-
+        /// <summary>
+        /// Returns the next page of this feed
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task<IFeed<TaggedGfyFeed>> GetNextPageAsync(RequestOptions options = null)
         {
             return Create(_client, options, await _client.ApiClient.GetTrendingTagsPopulatedAsync(_cursor, options));

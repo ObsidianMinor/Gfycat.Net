@@ -3,17 +3,17 @@
 namespace Gfycat
 {
     /// <summary>
-    /// Represents a basic Gfycat folder with an id and title
+    /// Defines a basic Gfycat folder with an id and title
     /// </summary>
     public interface IFolder
     {
         /// <summary>
-        /// The id of this Gfycat folder
+        /// Gets the id of this Gfycat folder
         /// </summary>
         string Id { get; }
 
         /// <summary>
-        /// The title of this Gfycat folder
+        /// Gets the title of this Gfycat folder
         /// </summary>
         string Title { get; }
 

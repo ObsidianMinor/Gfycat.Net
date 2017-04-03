@@ -13,6 +13,9 @@ namespace Gfycat
     [DebuggerDisplay("Tag: {Tag}")]
     public class TaggedGfyFeed : GfyFeed
     {
+        /// <summary>
+        /// Gets the tag of this feed
+        /// </summary>
         public string Tag { get; private set; }
 
         internal TaggedGfyFeed(GfycatClient client, RequestOptions options) : base(client, options)
@@ -36,7 +39,11 @@ namespace Gfycat
         {
             return new FeedEnumerator<Gfy>(_client, this, _options);
         }
-
+        /// <summary>
+        /// Returns the next page of this gfy feed
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
         {
             return Create(_client, await _client.ApiClient.GetTrendingFeedAsync(Tag, _cursor, options), options);

@@ -1,5 +1,6 @@
 ﻿using Gfycat.Converters;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace Gfycat.API.Models
@@ -52,8 +53,8 @@ namespace Gfycat.API.Models
         internal int GifSize { get; set; }
         [JsonProperty("source")]
         internal string Source { get; set; }
-        [JsonProperty("createDate", ItemConverterType = typeof(UnixTimeConverter))]
-        internal long CreationDate { get; set; }
+        [JsonProperty("createDate"), JsonConverter(typeof(UnixTimeConverter))]
+        internal DateTime CreationDate { get; set; }
         [JsonProperty("nsfw")]
         internal NsfwSetting Nsfw { get; set; }
         [JsonProperty("mp4Url")]

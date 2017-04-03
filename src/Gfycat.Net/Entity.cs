@@ -8,8 +8,10 @@ namespace Gfycat
     public abstract class Entity
     {
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        protected internal GfycatClient Client { get; }
-
+        internal GfycatClient Client { get; }
+        /// <summary>
+        /// Gets the id of this entity
+        /// </summary>
         public string Id { get; internal set; }
 
         internal Entity(GfycatClient client, string id)

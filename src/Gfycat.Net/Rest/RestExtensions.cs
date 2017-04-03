@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
-using Gfycat.Rest;
 using System.Diagnostics;
 
 namespace Gfycat.Rest
@@ -10,6 +9,9 @@ namespace Gfycat.Rest
         internal static T ReadAsJson<T>(this RestResponse response, GfycatClientConfig config)
         {
             string responseContentAsString = response.ReadAsString();
+            if (GfycatException.ContainsError(responseContentAsString))
+                throw GfycatException.CreateFromResponse(response, responseContentAsString);
+
             T resultObject = JsonConvert.DeserializeObject<T>(responseContentAsString, config.SerializerSettings);
             return resultObject;
         }
