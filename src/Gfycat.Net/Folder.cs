@@ -7,13 +7,22 @@ using Model = Gfycat.API.Models.Folder;
 
 namespace Gfycat
 {
-    public class Folder : Entity, IFolderContent, IUpdatable
-    {
+    /// <summary>
+    /// Represents a gfy folder on the current user's account
+    /// </summary>
+    public class Folder : Entity, IFolderContent
+    {   
+        /// <summary>
+        /// Gets the title of this Gfycat folder
+        /// </summary>
         public string Title { get; private set; }
         /// <summary>
         /// The number of <see cref="Gfy"/>s in this folder
         /// </summary>
         public int Count { get; private set; }
+        /// <summary>
+        /// Gets the content of this folder
+        /// </summary>
         public IReadOnlyCollection<Gfy> Content { get; private set; }
 
         internal Folder(GfycatClient client, string id) : base(client, id)
@@ -33,10 +42,19 @@ namespace Gfycat
             folder.Update(model);
             return folder;
         }
-
+        /// <summary>
+        /// Updates this folder with the most recent server information
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task UpdateAsync(RequestOptions options = null)
             => Update(await Client.ApiClient.GetFolderContentsAsync(Id, options));
-
+        /// <summary>
+        /// Changes the title of this folder to the provided string
+        /// </summary>
+        /// <param name="newTitle"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
             await Client.ApiClient.ModifyFolderTitleAsync(Id, newTitle, options);
@@ -56,7 +74,11 @@ namespace Gfycat
             await UpdateAsync();
             await folderToMoveTo.UpdateAsync();
         }
-
+        /// <summary>
+        /// Deletes this folder on Gfycat
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public async Task DeleteAsync(RequestOptions options = null)
         {
             await Client.ApiClient.DeleteFolderAsync(Id, options);

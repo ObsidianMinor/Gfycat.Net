@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Gfycat
 {
+    /// <summary>
+    /// Defines extension methods to help with Gfycat folders
+    /// </summary>
     public static class FolderExtensions
     {
         /// <summary>

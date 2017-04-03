@@ -6,7 +6,7 @@ namespace Gfycat
     /// <summary>
     /// Defines a folder's content
     /// </summary>
-    public interface IFolderContent : IFolder
+    public interface IFolderContent : IFolder, IUpdatable
     {
         /// <summary>
         /// Gets the number of gfys in this folder

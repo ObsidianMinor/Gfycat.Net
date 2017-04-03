@@ -4,14 +4,35 @@ using System.Linq;
 
 namespace Gfycat.Analytics
 {
+    /// <summary>
+    /// Represents a configuration for a <see cref="GfycatAnalyticsClient"/>
+    /// </summary>
     public class GfycatAnalyticsClientConfig
     {
+        /// <summary>
+        /// Gets the base impressions url
+        /// </summary>
         public const string BaseImpressionsUrl = "https://px.gfycat.com/px.gif";
+        /// <summary>
+        /// Gets the base analytics url
+        /// </summary>
         public const string BaseAnalyticsUrl = "https://metrics.gfycat.com";
 
+        /// <summary>
+        /// Gets the app Id for this config
+        /// </summary>
         public string AppId { get; }
+        /// <summary>
+        /// Gets the app name for this config
+        /// </summary>
         public string AppName { get; }
+        /// <summary>
+        /// Gets the app version for this config
+        /// </summary>
         public Version AppVersion { get; }
+        /// <summary>
+        /// Gets the session Id for this config
+        /// </summary>
         public string SessionId { get; }
         
         /// <summary>
@@ -29,8 +50,21 @@ namespace Gfycat.Analytics
         /// </summary>
         public int DefaultTimeout { get; set; } = -1;
 
+        /// <summary>
+        /// Creates a new config using the specified app name, id, and version
+        /// </summary>
+        /// <param name="appName"></param>
+        /// <param name="appId"></param>
+        /// <param name="appVersion"></param>
         public GfycatAnalyticsClientConfig(string appName, string appId, Version appVersion) : this(appName, appId, appVersion, GenerateCookie()) { }
 
+        /// <summary>
+        /// Creates a new config using the specified app name, id, version, and session Id
+        /// </summary>
+        /// <param name="appName"></param>
+        /// <param name="appId"></param>
+        /// <param name="appVersion"></param>
+        /// <param name="sessionId"></param>
         public GfycatAnalyticsClientConfig(string appName, string appId, Version appVersion, string sessionId)
         {
             AppId = appId;

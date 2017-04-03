@@ -491,6 +491,7 @@ namespace Gfycat.API
 
         internal async Task<UploadKey> CreateGfyFromFetchUrlAsync(string url, GfyCreationParameters parameters, RequestOptions options)
         {
+            parameters.FetchUrl = url;
             return await GetUploadKeyAsync(parameters.CreateModel(), options).ConfigureAwait(false);
         }
 

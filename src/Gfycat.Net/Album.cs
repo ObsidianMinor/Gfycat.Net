@@ -1,4 +1,5 @@
-﻿using System;
+﻿#pragma warning disable CS1591
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -37,31 +38,31 @@ namespace Gfycat
         }
 
         /// <summary>
-        /// The title of this album
+        /// Gets the title of this album
         /// </summary>
         public string Title { get; private set; }
         /// <summary>
-        /// The number of <see cref="Gfy"/>s in this album
+        /// Gets the number of <see cref="Gfy"/>s in this album
         /// </summary>
         public int Count { get; private set; }
         /// <summary>
-        /// All <see cref="Gfy"/>s in this album
+        /// Gets the <see cref="Gfy"/>s in this album
         /// </summary>
         public IReadOnlyCollection<Gfy> Content { get; private set; }
         /// <summary>
-        /// The cover image this album uses on gfycat.com
+        /// Gets the cover image this album uses on gfycat.com
         /// </summary>
         public string CoverImageUrl { get; private set; }
         /// <summary>
-        /// The mobile cover image this album uses on gfycat.com
+        /// Gets the mobile cover image this album uses on gfycat.com
         /// </summary>
         public string CoverImageUrlMobile { get; private set; }
         /// <summary>
-        /// The current NSFW (Not Safe For Work) setting
+        /// Gets the current NSFW (Not Safe For Work) setting
         /// </summary>
         public NsfwSetting NsfwSetting { get; private set; }
         /// <summary>
-        /// The current published setting. If true, the album is public
+        /// Gets the current published setting. If true, the album is public
         /// </summary>
         public bool Published { get; private set; }
         public int Order { get; private set; }

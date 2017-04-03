@@ -16,6 +16,10 @@
     <Description>An unofficial wrapper around the Gfycat analytics API</Description>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard1.2\.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Gfycat.Net\Gfycat.Net.csproj" />
   </ItemGroup>
