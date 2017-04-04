@@ -12,7 +12,7 @@ namespace Gfycat
         {
             return new API.Models.GfyParameters()
             {
-                Captions = Captions.Select(cap => new API.Models.Caption()
+                Captions = Captions?.Select(cap => (cap == null) ? null : new API.Models.Caption()
                 {
                     Duration = cap.Duration,
                     FontHeight = cap.FontHeight,
@@ -24,14 +24,14 @@ namespace Gfycat
                     X = cap.XPosition,
                     Y = cap.YPosition,
                 }),
-                Crop = new API.Models.Crop()
+                Crop = (Crop == null) ? null : new API.Models.Crop()
                 {
                     H = Crop.Height,
                     W = Crop.Width,
                     X = Crop.XPosition,
                     Y = Crop.YPosition
                 },
-                Cut = new API.Models.Cut()
+                Cut = (Cut == null) ? null : new API.Models.Cut()
                 {
                     Duration = Cut.Duration,
                     Start = Cut.Start
