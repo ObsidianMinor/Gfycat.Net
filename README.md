@@ -1,5 +1,5 @@
 # Gfycat.Net
-[![Gfycat.Net](https://badge.fury.io/nu/Gfycat.Net.svg)](https://badge.fury.io/nu/Gfycat.Net)
+[![Gfycat.Net](https://badge.fury.io/nu/Gfycat.Net.svg)](https://badge.fury.io/nu/Gfycat.Net) [Join us on Discord](https://discord.gg/spvBGyn)
 
 An unofficial wrapper around the Gfycat API written for .NET Standard 1.2
 
