@@ -1,0 +1,218 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.AccountTokenType
+  commentId: T:Gfycat.AccountTokenType
+  id: AccountTokenType
+  parent: Gfycat
+  children:
+  - Gfycat.AccountTokenType.FacebookAccessToken
+  - Gfycat.AccountTokenType.FacebookAuthCode
+  - Gfycat.AccountTokenType.TwitterOauthToken
+  - Gfycat.AccountTokenType.TwitterOauthTokenSecret
+  - Gfycat.AccountTokenType.TwitterToken
+  - Gfycat.AccountTokenType.TwitterVerifier
+  langs:
+  - csharp
+  - vb
+  name: AccountTokenType
+  nameWithType: AccountTokenType
+  fullName: Gfycat.AccountTokenType
+  type: Enum
+  source:
+    id: AccountTokenType
+    path: ''
+    startLine: 3
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public enum AccountTokenType
+    content.vb: Public Enum AccountTokenType
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Gfycat.AccountTokenType.FacebookAuthCode
+  commentId: F:Gfycat.AccountTokenType.FacebookAuthCode
+  id: FacebookAuthCode
+  parent: Gfycat.AccountTokenType
+  langs:
+  - csharp
+  - vb
+  name: FacebookAuthCode
+  nameWithType: AccountTokenType.FacebookAuthCode
+  fullName: Gfycat.AccountTokenType.FacebookAuthCode
+  type: Field
+  source:
+    id: FacebookAuthCode
+    path: ''
+    startLine: 5
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: FacebookAuthCode = 0
+    return:
+      type: Gfycat.AccountTokenType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.AccountTokenType.FacebookAccessToken
+  commentId: F:Gfycat.AccountTokenType.FacebookAccessToken
+  id: FacebookAccessToken
+  parent: Gfycat.AccountTokenType
+  langs:
+  - csharp
+  - vb
+  name: FacebookAccessToken
+  nameWithType: AccountTokenType.FacebookAccessToken
+  fullName: Gfycat.AccountTokenType.FacebookAccessToken
+  type: Field
+  source:
+    id: FacebookAccessToken
+    path: ''
+    startLine: 6
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: FacebookAccessToken = 1
+    return:
+      type: Gfycat.AccountTokenType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.AccountTokenType.TwitterToken
+  commentId: F:Gfycat.AccountTokenType.TwitterToken
+  id: TwitterToken
+  parent: Gfycat.AccountTokenType
+  langs:
+  - csharp
+  - vb
+  name: TwitterToken
+  nameWithType: AccountTokenType.TwitterToken
+  fullName: Gfycat.AccountTokenType.TwitterToken
+  type: Field
+  source:
+    id: TwitterToken
+    path: ''
+    startLine: 7
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: TwitterToken = 2
+    return:
+      type: Gfycat.AccountTokenType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.AccountTokenType.TwitterVerifier
+  commentId: F:Gfycat.AccountTokenType.TwitterVerifier
+  id: TwitterVerifier
+  parent: Gfycat.AccountTokenType
+  langs:
+  - csharp
+  - vb
+  name: TwitterVerifier
+  nameWithType: AccountTokenType.TwitterVerifier
+  fullName: Gfycat.AccountTokenType.TwitterVerifier
+  type: Field
+  source:
+    id: TwitterVerifier
+    path: ''
+    startLine: 8
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: TwitterVerifier = 3
+    return:
+      type: Gfycat.AccountTokenType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.AccountTokenType.TwitterOauthToken
+  commentId: F:Gfycat.AccountTokenType.TwitterOauthToken
+  id: TwitterOauthToken
+  parent: Gfycat.AccountTokenType
+  langs:
+  - csharp
+  - vb
+  name: TwitterOauthToken
+  nameWithType: AccountTokenType.TwitterOauthToken
+  fullName: Gfycat.AccountTokenType.TwitterOauthToken
+  type: Field
+  source:
+    id: TwitterOauthToken
+    path: ''
+    startLine: 9
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: TwitterOauthToken = 4
+    return:
+      type: Gfycat.AccountTokenType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.AccountTokenType.TwitterOauthTokenSecret
+  commentId: F:Gfycat.AccountTokenType.TwitterOauthTokenSecret
+  id: TwitterOauthTokenSecret
+  parent: Gfycat.AccountTokenType
+  langs:
+  - csharp
+  - vb
+  name: TwitterOauthTokenSecret
+  nameWithType: AccountTokenType.TwitterOauthTokenSecret
+  fullName: Gfycat.AccountTokenType.TwitterOauthTokenSecret
+  type: Field
+  source:
+    id: TwitterOauthTokenSecret
+    path: ''
+    startLine: 10
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: TwitterOauthTokenSecret = 5
+    return:
+      type: Gfycat.AccountTokenType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Gfycat
+  commentId: N:Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Gfycat
+  fullName: Gfycat
+- uid: Gfycat.AccountTokenType
+  commentId: T:Gfycat.AccountTokenType
+  parent: Gfycat
+  isExternal: false
+  name: AccountTokenType
+  nameWithType: AccountTokenType
+  fullName: Gfycat.AccountTokenType

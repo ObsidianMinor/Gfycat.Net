@@ -1,0 +1,756 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.GfyStatus
+  commentId: T:Gfycat.GfyStatus
+  id: GfyStatus
+  parent: Gfycat
+  children:
+  - Gfycat.GfyStatus.GetGfyAsync(Gfycat.RequestOptions)
+  - Gfycat.GfyStatus.GetGfyWhenCompleteAsync(Gfycat.RequestOptions)
+  - Gfycat.GfyStatus.GfyName
+  - Gfycat.GfyStatus.Task
+  - Gfycat.GfyStatus.Time
+  - Gfycat.GfyStatus.UpdateAsync(Gfycat.RequestOptions)
+  langs:
+  - csharp
+  - vb
+  name: GfyStatus
+  nameWithType: GfyStatus
+  fullName: Gfycat.GfyStatus
+  type: Class
+  source:
+    id: GfyStatus
+    path: ''
+    startLine: 3269
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nRepresents a Gfy's upload status\n"
+  example: []
+  syntax:
+    content: 'public class GfyStatus : IUpdatable'
+    content.vb: >-
+      Public Class GfyStatus
+          Implements IUpdatable
+  inheritance:
+  - System.Object
+  implements:
+  - Gfycat.IUpdatable
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Gfycat.GfyStatus.Task
+  commentId: P:Gfycat.GfyStatus.Task
+  id: Task
+  parent: Gfycat.GfyStatus
+  langs:
+  - csharp
+  - vb
+  name: Task
+  nameWithType: GfyStatus.Task
+  fullName: Gfycat.GfyStatus.Task
+  type: Property
+  source:
+    id: Task
+    path: ''
+    startLine: 3277
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nThe current upload task of the gfy\n"
+  example: []
+  syntax:
+    content: public UploadTask Task { get; }
+    parameters: []
+    return:
+      type: Gfycat.UploadTask
+    content.vb: Public ReadOnly Property Task As UploadTask
+  overload: Gfycat.GfyStatus.Task*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.GfyStatus.Time
+  commentId: P:Gfycat.GfyStatus.Time
+  id: Time
+  parent: Gfycat.GfyStatus
+  langs:
+  - csharp
+  - vb
+  name: Time
+  nameWithType: GfyStatus.Time
+  fullName: Gfycat.GfyStatus.Time
+  type: Property
+  source:
+    id: Time
+    path: ''
+    startLine: 3281
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nThe current time remaining in seconds\n"
+  example: []
+  syntax:
+    content: public int Time { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Time As Integer
+  overload: Gfycat.GfyStatus.Time*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.GfyStatus.GfyName
+  commentId: P:Gfycat.GfyStatus.GfyName
+  id: GfyName
+  parent: Gfycat.GfyStatus
+  langs:
+  - csharp
+  - vb
+  name: GfyName
+  nameWithType: GfyStatus.GfyName
+  fullName: Gfycat.GfyStatus.GfyName
+  type: Property
+  source:
+    id: GfyName
+    path: ''
+    startLine: 3285
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nThe current gfy name for getting the current status\n"
+  example: []
+  syntax:
+    content: public string GfyName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property GfyName As String
+  overload: Gfycat.GfyStatus.GfyName*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.GfyStatus.UpdateAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfyStatus.UpdateAsync(Gfycat.RequestOptions)
+  id: UpdateAsync(Gfycat.RequestOptions)
+  parent: Gfycat.GfyStatus
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(RequestOptions)
+  nameWithType: GfyStatus.UpdateAsync(RequestOptions)
+  fullName: Gfycat.GfyStatus.UpdateAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: UpdateAsync
+    path: ''
+    startLine: 3307
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nUpdates gfy's upload status\n"
+  example: []
+  syntax:
+    content: public Task UpdateAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function UpdateAsync(options As RequestOptions = Nothing) As Task
+  overload: Gfycat.GfyStatus.UpdateAsync*
+  implements:
+  - Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfyStatus.GetGfyAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfyStatus.GetGfyAsync(Gfycat.RequestOptions)
+  id: GetGfyAsync(Gfycat.RequestOptions)
+  parent: Gfycat.GfyStatus
+  langs:
+  - csharp
+  - vb
+  name: GetGfyAsync(RequestOptions)
+  nameWithType: GfyStatus.GetGfyAsync(RequestOptions)
+  fullName: Gfycat.GfyStatus.GetGfyAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetGfyAsync
+    path: ''
+    startLine: 3316
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the <xref href=\"Gfycat.Gfy\" data-throw-if-not-resolved=\"false\"></xref> this status is checking if it's upload task is complete\n"
+  example: []
+  syntax:
+    content: public Task<Gfy> GetGfyAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.Gfy}
+      description: An awaitable <xref href="Gfycat.Gfy" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Function GetGfyAsync(options As RequestOptions = Nothing) As Task(Of Gfy)
+  overload: Gfycat.GfyStatus.GetGfyAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfyStatus.GetGfyWhenCompleteAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfyStatus.GetGfyWhenCompleteAsync(Gfycat.RequestOptions)
+  id: GetGfyWhenCompleteAsync(Gfycat.RequestOptions)
+  parent: Gfycat.GfyStatus
+  langs:
+  - csharp
+  - vb
+  name: GetGfyWhenCompleteAsync(RequestOptions)
+  nameWithType: GfyStatus.GetGfyWhenCompleteAsync(RequestOptions)
+  fullName: Gfycat.GfyStatus.GetGfyWhenCompleteAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetGfyWhenCompleteAsync
+    path: ''
+    startLine: 3329
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nWaits for the gfy to finish uploading and retrieves it when it's done. This task is long running.\n"
+  example: []
+  syntax:
+    content: public Task<Gfy> GetGfyWhenCompleteAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.Gfy}
+      description: ''
+    content.vb: Public Function GetGfyWhenCompleteAsync(options As RequestOptions = Nothing) As Task(Of Gfy)
+  overload: Gfycat.GfyStatus.GetGfyWhenCompleteAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Gfycat
+  commentId: N:Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Gfycat
+  fullName: Gfycat
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Gfycat.IUpdatable
+  commentId: T:Gfycat.IUpdatable
+  parent: Gfycat
+  isExternal: false
+  name: IUpdatable
+  nameWithType: IUpdatable
+  fullName: Gfycat.IUpdatable
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Gfycat.GfyStatus.Task*
+  commentId: Overload:Gfycat.GfyStatus.Task
+  isExternal: false
+  name: Task
+  nameWithType: GfyStatus.Task
+  fullName: Gfycat.GfyStatus.Task
+- uid: Gfycat.UploadTask
+  commentId: T:Gfycat.UploadTask
+  parent: Gfycat
+  isExternal: false
+  name: UploadTask
+  nameWithType: UploadTask
+  fullName: Gfycat.UploadTask
+- uid: Gfycat.GfyStatus.Time*
+  commentId: Overload:Gfycat.GfyStatus.Time
+  isExternal: false
+  name: Time
+  nameWithType: GfyStatus.Time
+  fullName: Gfycat.GfyStatus.Time
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Gfycat.GfyStatus.GfyName*
+  commentId: Overload:Gfycat.GfyStatus.GfyName
+  isExternal: false
+  name: GfyName
+  nameWithType: GfyStatus.GfyName
+  fullName: Gfycat.GfyStatus.GfyName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Gfycat.GfyStatus.UpdateAsync*
+  commentId: Overload:Gfycat.GfyStatus.UpdateAsync
+  isExternal: false
+  name: UpdateAsync
+  nameWithType: GfyStatus.UpdateAsync
+  fullName: Gfycat.GfyStatus.UpdateAsync
+- uid: Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+  parent: Gfycat.IUpdatable
+  isExternal: false
+  name: UpdateAsync(RequestOptions)
+  nameWithType: IUpdatable.UpdateAsync(RequestOptions)
+  fullName: Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+  spec.csharp:
+  - uid: Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+    name: UpdateAsync
+    nameWithType: IUpdatable.UpdateAsync
+    fullName: Gfycat.IUpdatable.UpdateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+    name: UpdateAsync
+    nameWithType: IUpdatable.UpdateAsync
+    fullName: Gfycat.IUpdatable.UpdateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.RequestOptions
+  commentId: T:Gfycat.RequestOptions
+  parent: Gfycat
+  isExternal: false
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Gfycat.RequestOptions
+- uid: Task
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: Task
+- uid: Gfycat.Gfy
+  commentId: T:Gfycat.Gfy
+  parent: Gfycat
+  isExternal: false
+  name: Gfy
+  nameWithType: Gfy
+  fullName: Gfycat.Gfy
+- uid: Gfycat.GfyStatus.GetGfyAsync*
+  commentId: Overload:Gfycat.GfyStatus.GetGfyAsync
+  isExternal: false
+  name: GetGfyAsync
+  nameWithType: GfyStatus.GetGfyAsync
+  fullName: Gfycat.GfyStatus.GetGfyAsync
+- uid: Task{Gfycat.Gfy}
+  commentId: '!:Task{Gfycat.Gfy}'
+  definition: Task`1
+  name: Task<Gfy>
+  nameWithType: Task<Gfy>
+  fullName: Task<Gfycat.Gfy>
+  nameWithType.vb: Task(Of Gfy)
+  fullName.vb: Task(Of Gfycat.Gfy)
+  name.vb: Task(Of Gfy)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.Gfy
+    name: Gfy
+    nameWithType: Gfy
+    fullName: Gfycat.Gfy
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.Gfy
+    name: Gfy
+    nameWithType: Gfy
+    fullName: Gfycat.Gfy
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task`1
+  isExternal: true
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.GfyStatus.GetGfyWhenCompleteAsync*
+  commentId: Overload:Gfycat.GfyStatus.GetGfyWhenCompleteAsync
+  isExternal: false
+  name: GetGfyWhenCompleteAsync
+  nameWithType: GfyStatus.GetGfyWhenCompleteAsync
+  fullName: Gfycat.GfyStatus.GetGfyWhenCompleteAsync

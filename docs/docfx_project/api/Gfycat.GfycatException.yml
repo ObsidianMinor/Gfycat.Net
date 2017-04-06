@@ -1,0 +1,180 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.GfycatException
+  commentId: T:Gfycat.GfycatException
+  id: GfycatException
+  parent: Gfycat
+  children:
+  - Gfycat.GfycatException.Code
+  - Gfycat.GfycatException.Description
+  - Gfycat.GfycatException.HttpCode
+  langs:
+  - csharp
+  - vb
+  name: GfycatException
+  nameWithType: GfycatException
+  fullName: Gfycat.GfycatException
+  type: Class
+  source:
+    id: GfycatException
+    path: ''
+    startLine: 2798
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: 'public class GfycatException : Exception'
+    content.vb: >-
+      Public Class GfycatException
+          Inherits Exception
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Gfycat.GfycatException.HttpCode
+  commentId: P:Gfycat.GfycatException.HttpCode
+  id: HttpCode
+  parent: Gfycat.GfycatException
+  langs:
+  - csharp
+  - vb
+  name: HttpCode
+  nameWithType: GfycatException.HttpCode
+  fullName: Gfycat.GfycatException.HttpCode
+  type: Property
+  source:
+    id: HttpCode
+    path: ''
+    startLine: 2800
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public HttpStatusCode HttpCode { get; set; }
+    parameters: []
+    return:
+      type: HttpStatusCode
+    content.vb: Public Property HttpCode As HttpStatusCode
+  overload: Gfycat.GfycatException.HttpCode*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatException.Code
+  commentId: P:Gfycat.GfycatException.Code
+  id: Code
+  parent: Gfycat.GfycatException
+  langs:
+  - csharp
+  - vb
+  name: Code
+  nameWithType: GfycatException.Code
+  fullName: Gfycat.GfycatException.Code
+  type: Property
+  source:
+    id: Code
+    path: ''
+    startLine: 2802
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public string Code { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Code As String
+  overload: Gfycat.GfycatException.Code*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatException.Description
+  commentId: P:Gfycat.GfycatException.Description
+  id: Description
+  parent: Gfycat.GfycatException
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: GfycatException.Description
+  fullName: Gfycat.GfycatException.Description
+  type: Property
+  source:
+    id: Description
+    path: ''
+    startLine: 2804
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: Gfycat.GfycatException.Description*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: Gfycat
+  commentId: N:Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Gfycat
+  fullName: Gfycat
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Gfycat.GfycatException.HttpCode*
+  commentId: Overload:Gfycat.GfycatException.HttpCode
+  isExternal: false
+  name: HttpCode
+  nameWithType: GfycatException.HttpCode
+  fullName: Gfycat.GfycatException.HttpCode
+- uid: HttpStatusCode
+  isExternal: true
+  name: HttpStatusCode
+  nameWithType: HttpStatusCode
+  fullName: HttpStatusCode
+- uid: Gfycat.GfycatException.Code*
+  commentId: Overload:Gfycat.GfycatException.Code
+  isExternal: false
+  name: Code
+  nameWithType: GfycatException.Code
+  fullName: Gfycat.GfycatException.Code
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Gfycat.GfycatException.Description*
+  commentId: Overload:Gfycat.GfycatException.Description
+  isExternal: false
+  name: Description
+  nameWithType: GfycatException.Description
+  fullName: Gfycat.GfycatException.Description

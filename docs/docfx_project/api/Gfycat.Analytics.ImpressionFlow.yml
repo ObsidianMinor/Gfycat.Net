@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.Analytics.ImpressionFlow
+  commentId: T:Gfycat.Analytics.ImpressionFlow
+  id: ImpressionFlow
+  parent: Gfycat.Analytics
+  children:
+  - Gfycat.Analytics.ImpressionFlow.Full
+  - Gfycat.Analytics.ImpressionFlow.Half
+  - Gfycat.Analytics.ImpressionFlow.None
+  langs:
+  - csharp
+  - vb
+  name: ImpressionFlow
+  nameWithType: ImpressionFlow
+  fullName: Gfycat.Analytics.ImpressionFlow
+  type: Enum
+  source:
+    id: ImpressionFlow
+    path: ''
+    startLine: 6723
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Analytics
+  syntax:
+    content: public enum ImpressionFlow
+    content.vb: Public Enum ImpressionFlow
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Gfycat.Analytics.ImpressionFlow.None
+  commentId: F:Gfycat.Analytics.ImpressionFlow.None
+  id: None
+  parent: Gfycat.Analytics.ImpressionFlow
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: ImpressionFlow.None
+  fullName: Gfycat.Analytics.ImpressionFlow.None
+  type: Field
+  source:
+    id: None
+    path: ''
+    startLine: 6725
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Analytics
+  syntax:
+    content: None = 0
+    return:
+      type: Gfycat.Analytics.ImpressionFlow
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.Analytics.ImpressionFlow.Half
+  commentId: F:Gfycat.Analytics.ImpressionFlow.Half
+  id: Half
+  parent: Gfycat.Analytics.ImpressionFlow
+  langs:
+  - csharp
+  - vb
+  name: Half
+  nameWithType: ImpressionFlow.Half
+  fullName: Gfycat.Analytics.ImpressionFlow.Half
+  type: Field
+  source:
+    id: Half
+    path: ''
+    startLine: 6726
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Analytics
+  syntax:
+    content: Half = 1
+    return:
+      type: Gfycat.Analytics.ImpressionFlow
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.Analytics.ImpressionFlow.Full
+  commentId: F:Gfycat.Analytics.ImpressionFlow.Full
+  id: Full
+  parent: Gfycat.Analytics.ImpressionFlow
+  langs:
+  - csharp
+  - vb
+  name: Full
+  nameWithType: ImpressionFlow.Full
+  fullName: Gfycat.Analytics.ImpressionFlow.Full
+  type: Field
+  source:
+    id: Full
+    path: ''
+    startLine: 6727
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Analytics
+  syntax:
+    content: Full = 2
+    return:
+      type: Gfycat.Analytics.ImpressionFlow
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Gfycat.Analytics
+  commentId: N:Gfycat.Analytics
+  isExternal: false
+  name: Gfycat.Analytics
+  nameWithType: Gfycat.Analytics
+  fullName: Gfycat.Analytics
+- uid: Gfycat.Analytics.ImpressionFlow
+  commentId: T:Gfycat.Analytics.ImpressionFlow
+  parent: Gfycat.Analytics
+  isExternal: false
+  name: ImpressionFlow
+  nameWithType: ImpressionFlow
+  fullName: Gfycat.Analytics.ImpressionFlow

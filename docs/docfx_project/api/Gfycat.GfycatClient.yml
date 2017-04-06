@@ -1,0 +1,2364 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.GfycatClient
+  commentId: T:Gfycat.GfycatClient
+  id: GfycatClient
+  parent: Gfycat
+  children:
+  - Gfycat.GfycatClient.#ctor(Gfycat.GfycatClientConfig)
+  - Gfycat.GfycatClient.#ctor(System.String,System.String)
+  - Gfycat.GfycatClient.AccessToken
+  - Gfycat.GfycatClient.AuthenticateAsync(Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.AuthenticateAsync(Gfycat.TokenType,System.String,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.AuthenticateAsync(Gfycat.TokenType,System.String,System.String,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.AuthenticateAsync(System.String,System.Boolean)
+  - Gfycat.GfycatClient.AuthenticateAsync(System.String,System.String,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.ClientId
+  - Gfycat.GfycatClient.CreateAccountAsync(System.String,Gfycat.AccountTokenType,System.String,System.String,System.String,System.Boolean,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.CreateAccountAsync(System.String,System.String,System.String,System.Boolean,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.CreateGfyAsync(Stream,Gfycat.GfyCreationParameters,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.CreateGfyAsync(System.String,Gfycat.GfyCreationParameters,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.GetBrowserAuthUrl(System.String,System.String,System.Boolean)
+  - Gfycat.GfycatClient.GetCurrentUserAsync(Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.GetGfyAsync(System.String,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.GetGfyFromUrlAsync(System.String,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.GetGfyUploadStatusAsync(System.String,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.GetReactionGfysAsync(Gfycat.ReactionLanguage,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.GetTrendingGfysAsync(System.String,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.GetTrendingTagsAsync(Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync(Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.GetTwitterRequestTokenAsync(Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.GetTwitterRequestTokenUrl(System.String)
+  - Gfycat.GfycatClient.GetUserAsync(System.String,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.GetUserExistsAsync(System.String,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.RefreshToken
+  - Gfycat.GfycatClient.RefreshTokenAsync(System.String,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.SearchAsync(System.String,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.SendPasswordResetEmailAsync(System.String,Gfycat.RequestOptions)
+  - Gfycat.GfycatClient.TryGetUserAsync(System.String,Gfycat.RequestOptions)
+  langs:
+  - csharp
+  - vb
+  name: GfycatClient
+  nameWithType: GfycatClient
+  fullName: Gfycat.GfycatClient
+  type: Class
+  source:
+    id: GfycatClient
+    path: ''
+    startLine: 2097
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nRepresents a client for communicating with the Gfycat API\n"
+  example: []
+  syntax:
+    content: 'public class GfycatClient : ISearchable'
+    content.vb: >-
+      Public Class GfycatClient
+          Implements ISearchable
+  inheritance:
+  - System.Object
+  implements:
+  - Gfycat.ISearchable
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Gfycat.GfycatClient.#ctor(System.String,System.String)
+  commentId: M:Gfycat.GfycatClient.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: GfycatClient(String, String)
+  nameWithType: GfycatClient.GfycatClient(String, String)
+  fullName: Gfycat.GfycatClient.GfycatClient(System.String, System.String)
+  type: Constructor
+  source:
+    id: .ctor
+    path: ''
+    startLine: 2111
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nCreates a <xref href=\"Gfycat.GfycatClient\" data-throw-if-not-resolved=\"false\"></xref> using the provided client ID and client secret\n"
+  example: []
+  syntax:
+    content: public GfycatClient(string clientId, string clientSecret)
+    parameters:
+    - id: clientId
+      type: System.String
+      description: ''
+    - id: clientSecret
+      type: System.String
+      description: ''
+    content.vb: Public Sub New(clientId As String, clientSecret As String)
+  overload: Gfycat.GfycatClient.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.#ctor(Gfycat.GfycatClientConfig)
+  commentId: M:Gfycat.GfycatClient.#ctor(Gfycat.GfycatClientConfig)
+  id: '#ctor(Gfycat.GfycatClientConfig)'
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: GfycatClient(GfycatClientConfig)
+  nameWithType: GfycatClient.GfycatClient(GfycatClientConfig)
+  fullName: Gfycat.GfycatClient.GfycatClient(Gfycat.GfycatClientConfig)
+  type: Constructor
+  source:
+    id: .ctor
+    path: ''
+    startLine: 2119
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nCreates a <xref href=\"Gfycat.GfycatClient\" data-throw-if-not-resolved=\"false\"></xref> using the provided <xref href=\"Gfycat.GfycatClientConfig\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public GfycatClient(GfycatClientConfig config)
+    parameters:
+    - id: config
+      type: Gfycat.GfycatClientConfig
+      description: ''
+    content.vb: Public Sub New(config As GfycatClientConfig)
+  overload: Gfycat.GfycatClient.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.ClientId
+  commentId: P:Gfycat.GfycatClient.ClientId
+  id: ClientId
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: ClientId
+  nameWithType: GfycatClient.ClientId
+  fullName: Gfycat.GfycatClient.ClientId
+  type: Property
+  source:
+    id: ClientId
+    path: ''
+    startLine: 2131
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nThis client's ID provided during construction\n"
+  example: []
+  syntax:
+    content: public string ClientId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ClientId As String
+  overload: Gfycat.GfycatClient.ClientId*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.GfycatClient.AccessToken
+  commentId: P:Gfycat.GfycatClient.AccessToken
+  id: AccessToken
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: AccessToken
+  nameWithType: GfycatClient.AccessToken
+  fullName: Gfycat.GfycatClient.AccessToken
+  type: Property
+  source:
+    id: AccessToken
+    path: ''
+    startLine: 2137
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nThe current access token being used for all requests\n"
+  example: []
+  syntax:
+    content: public string AccessToken { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property AccessToken As String
+  overload: Gfycat.GfycatClient.AccessToken*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.GfycatClient.RefreshToken
+  commentId: P:Gfycat.GfycatClient.RefreshToken
+  id: RefreshToken
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: RefreshToken
+  nameWithType: GfycatClient.RefreshToken
+  fullName: Gfycat.GfycatClient.RefreshToken
+  type: Property
+  source:
+    id: RefreshToken
+    path: ''
+    startLine: 2142
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nThe current refresh token being used for refreshing the access token when it expires\n"
+  example: []
+  syntax:
+    content: public string RefreshToken { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property RefreshToken As String
+  overload: Gfycat.GfycatClient.RefreshToken*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.GfycatClient.RefreshTokenAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.RefreshTokenAsync(System.String,Gfycat.RequestOptions)
+  id: RefreshTokenAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: RefreshTokenAsync(String, RequestOptions)
+  nameWithType: GfycatClient.RefreshTokenAsync(String, RequestOptions)
+  fullName: Gfycat.GfycatClient.RefreshTokenAsync(System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: RefreshTokenAsync
+    path: ''
+    startLine: 2150
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nAttempts to refresh the access token using the current refresh token or with a provided access token. If the current refresh token is null or an refresh token isn't provided, this will perform client credential authentication\n"
+  example: []
+  syntax:
+    content: public Task<bool> RefreshTokenAsync(string providedRefreshToken = null, RequestOptions options = null)
+    parameters:
+    - id: providedRefreshToken
+      type: System.String
+    - id: options
+      type: Gfycat.RequestOptions
+    return:
+      type: Task{System.Boolean}
+      description: ''
+    content.vb: Public Function RefreshTokenAsync(providedRefreshToken As String = Nothing, options As RequestOptions = Nothing) As Task(Of Boolean)
+  overload: Gfycat.GfycatClient.RefreshTokenAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.AuthenticateAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.AuthenticateAsync(Gfycat.RequestOptions)
+  id: AuthenticateAsync(Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: AuthenticateAsync(RequestOptions)
+  nameWithType: GfycatClient.AuthenticateAsync(RequestOptions)
+  fullName: Gfycat.GfycatClient.AuthenticateAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: AuthenticateAsync
+    path: ''
+    startLine: 2190
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nAuthenticates this instance using client credentials\n"
+  example: []
+  syntax:
+    content: public Task AuthenticateAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+    return:
+      type: Task
+      description: An awaitable task
+    content.vb: Public Function AuthenticateAsync(options As RequestOptions = Nothing) As Task
+  overload: Gfycat.GfycatClient.AuthenticateAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.AuthenticateAsync(System.String,System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.AuthenticateAsync(System.String,System.String,Gfycat.RequestOptions)
+  id: AuthenticateAsync(System.String,System.String,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: AuthenticateAsync(String, String, RequestOptions)
+  nameWithType: GfycatClient.AuthenticateAsync(String, String, RequestOptions)
+  fullName: Gfycat.GfycatClient.AuthenticateAsync(System.String, System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: AuthenticateAsync
+    path: ''
+    startLine: 2218
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nAllows the owner of this client to log in with their username and password\n"
+  example: []
+  syntax:
+    content: public Task AuthenticateAsync(string username, string password, RequestOptions options = null)
+    parameters:
+    - id: username
+      type: System.String
+      description: ''
+    - id: password
+      type: System.String
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: An awaitable task
+    content.vb: Public Function AuthenticateAsync(username As String, password As String, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.GfycatClient.AuthenticateAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.GetTwitterRequestTokenAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.GetTwitterRequestTokenAsync(Gfycat.RequestOptions)
+  id: GetTwitterRequestTokenAsync(Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: GetTwitterRequestTokenAsync(RequestOptions)
+  nameWithType: GfycatClient.GetTwitterRequestTokenAsync(RequestOptions)
+  fullName: Gfycat.GfycatClient.GetTwitterRequestTokenAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetTwitterRequestTokenAsync
+    path: ''
+    startLine: 2247
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nRetrieves a Twitter request token for the Twitter Request token auth flow\n"
+  example: []
+  syntax:
+    content: public Task<string> GetTwitterRequestTokenAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{System.String}
+      description: ''
+    content.vb: Public Function GetTwitterRequestTokenAsync(options As RequestOptions = Nothing) As Task(Of String)
+  overload: Gfycat.GfycatClient.GetTwitterRequestTokenAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.AuthenticateAsync(Gfycat.TokenType,System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.AuthenticateAsync(Gfycat.TokenType,System.String,Gfycat.RequestOptions)
+  id: AuthenticateAsync(Gfycat.TokenType,System.String,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: AuthenticateAsync(TokenType, String, RequestOptions)
+  nameWithType: GfycatClient.AuthenticateAsync(TokenType, String, RequestOptions)
+  fullName: Gfycat.GfycatClient.AuthenticateAsync(Gfycat.TokenType, System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: AuthenticateAsync
+    path: ''
+    startLine: 2271
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nAllows authentication with either a facebook access token or facebook auth code\n"
+  example: []
+  syntax:
+    content: public Task AuthenticateAsync(TokenType type, string token, RequestOptions options = null)
+    parameters:
+    - id: type
+      type: Gfycat.TokenType
+      description: ''
+    - id: token
+      type: System.String
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function AuthenticateAsync(type As TokenType, token As String, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.GfycatClient.AuthenticateAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.AuthenticateAsync(Gfycat.TokenType,System.String,System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.AuthenticateAsync(Gfycat.TokenType,System.String,System.String,Gfycat.RequestOptions)
+  id: AuthenticateAsync(Gfycat.TokenType,System.String,System.String,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: AuthenticateAsync(TokenType, String, String, RequestOptions)
+  nameWithType: GfycatClient.AuthenticateAsync(TokenType, String, String, RequestOptions)
+  fullName: Gfycat.GfycatClient.AuthenticateAsync(Gfycat.TokenType, System.String, System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: AuthenticateAsync
+    path: ''
+    startLine: 2331
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nAuthenticates using a browser auth code and redirect uri, twitter token and secret, or twitter token and verifier\n"
+  example: []
+  syntax:
+    content: public Task AuthenticateAsync(TokenType type, string tokenOrCode, string verifierSecretRedirectUri, RequestOptions options = null)
+    parameters:
+    - id: type
+      type: Gfycat.TokenType
+      description: The type of the provided tokens
+    - id: tokenOrCode
+      type: System.String
+      description: A twitter token or browser auth code
+    - id: verifierSecretRedirectUri
+      type: System.String
+      description: A twitter secret, verifier, or browser redirect uri
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function AuthenticateAsync(type As TokenType, tokenOrCode As String, verifierSecretRedirectUri As String, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.GfycatClient.AuthenticateAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.AuthenticateAsync(System.String,System.Boolean)
+  commentId: M:Gfycat.GfycatClient.AuthenticateAsync(System.String,System.Boolean)
+  id: AuthenticateAsync(System.String,System.Boolean)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: AuthenticateAsync(String, Boolean)
+  nameWithType: GfycatClient.AuthenticateAsync(String, Boolean)
+  fullName: Gfycat.GfycatClient.AuthenticateAsync(System.String, System.Boolean)
+  type: Method
+  source:
+    id: AuthenticateAsync
+    path: ''
+    startLine: 2412
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nAuthenticates using an given access token\n"
+  example: []
+  syntax:
+    content: public Task AuthenticateAsync(string accessToken, bool verifyToken = true)
+    parameters:
+    - id: accessToken
+      type: System.String
+      description: ''
+    - id: verifyToken
+      type: System.Boolean
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function AuthenticateAsync(accessToken As String, verifyToken As Boolean = True) As Task
+  overload: Gfycat.GfycatClient.AuthenticateAsync*
+  exceptions:
+  - type: Gfycat.GfycatException
+    commentId: T:Gfycat.GfycatException
+    description: If verifyToken is true, this will attempt to get the current user which will return 401 unauthorized if the access token is invalid
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.GetUserExistsAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.GetUserExistsAsync(System.String,Gfycat.RequestOptions)
+  id: GetUserExistsAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: GetUserExistsAsync(String, RequestOptions)
+  nameWithType: GfycatClient.GetUserExistsAsync(String, RequestOptions)
+  fullName: Gfycat.GfycatClient.GetUserExistsAsync(System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetUserExistsAsync
+    path: ''
+    startLine: 2430
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nReturns a bool for whether or not a user account exists on that username\n"
+  example: []
+  syntax:
+    content: public Task<bool> GetUserExistsAsync(string username, RequestOptions options = null)
+    parameters:
+    - id: username
+      type: System.String
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{System.Boolean}
+      description: ''
+    content.vb: Public Function GetUserExistsAsync(username As String, options As RequestOptions = Nothing) As Task(Of Boolean)
+  overload: Gfycat.GfycatClient.GetUserExistsAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.SendPasswordResetEmailAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.SendPasswordResetEmailAsync(System.String,Gfycat.RequestOptions)
+  id: SendPasswordResetEmailAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: SendPasswordResetEmailAsync(String, RequestOptions)
+  nameWithType: GfycatClient.SendPasswordResetEmailAsync(String, RequestOptions)
+  fullName: Gfycat.GfycatClient.SendPasswordResetEmailAsync(System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: SendPasswordResetEmailAsync
+    path: ''
+    startLine: 2441
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nSends a password reset email for the user with the specified username or email address\n"
+  example: []
+  syntax:
+    content: public Task SendPasswordResetEmailAsync(string usernameOrEmail, RequestOptions options = null)
+    parameters:
+    - id: usernameOrEmail
+      type: System.String
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function SendPasswordResetEmailAsync(usernameOrEmail As String, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.GfycatClient.SendPasswordResetEmailAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.GetUserAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.GetUserAsync(System.String,Gfycat.RequestOptions)
+  id: GetUserAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: GetUserAsync(String, RequestOptions)
+  nameWithType: GfycatClient.GetUserAsync(String, RequestOptions)
+  fullName: Gfycat.GfycatClient.GetUserAsync(System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetUserAsync
+    path: ''
+    startLine: 2453
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nTries to get the user with the given Id. If the user isn't found, this throws a <xref href=\"Gfycat.GfycatException\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public Task<User> GetUserAsync(string userId, RequestOptions options = null)
+    parameters:
+    - id: userId
+      type: System.String
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.User}
+      description: ''
+    content.vb: Public Function GetUserAsync(userId As String, options As RequestOptions = Nothing) As Task(Of User)
+  overload: Gfycat.GfycatClient.GetUserAsync*
+  exceptions:
+  - type: Gfycat.GfycatException
+    commentId: T:Gfycat.GfycatException
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.TryGetUserAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.TryGetUserAsync(System.String,Gfycat.RequestOptions)
+  id: TryGetUserAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: TryGetUserAsync(String, RequestOptions)
+  nameWithType: GfycatClient.TryGetUserAsync(String, RequestOptions)
+  fullName: Gfycat.GfycatClient.TryGetUserAsync(System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: TryGetUserAsync
+    path: ''
+    startLine: 2465
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nTries to get the user with the given ID. If the user isn't found, this returns null\n"
+  example: []
+  syntax:
+    content: public Task<User> TryGetUserAsync(string userId, RequestOptions options = null)
+    parameters:
+    - id: userId
+      type: System.String
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.User}
+      description: ''
+    content.vb: Public Function TryGetUserAsync(userId As String, options As RequestOptions = Nothing) As Task(Of User)
+  overload: Gfycat.GfycatClient.TryGetUserAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.GetCurrentUserAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.GetCurrentUserAsync(Gfycat.RequestOptions)
+  id: GetCurrentUserAsync(Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: GetCurrentUserAsync(RequestOptions)
+  nameWithType: GfycatClient.GetCurrentUserAsync(RequestOptions)
+  fullName: Gfycat.GfycatClient.GetCurrentUserAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetCurrentUserAsync
+    path: ''
+    startLine: 2473
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nAttempts to get the current user\n"
+  example: []
+  syntax:
+    content: public Task<CurrentUser> GetCurrentUserAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.CurrentUser}
+      description: ''
+    content.vb: Public Function GetCurrentUserAsync(options As RequestOptions = Nothing) As Task(Of CurrentUser)
+  overload: Gfycat.GfycatClient.GetCurrentUserAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.CreateAccountAsync(System.String,System.String,System.String,System.Boolean,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.CreateAccountAsync(System.String,System.String,System.String,System.Boolean,Gfycat.RequestOptions)
+  id: CreateAccountAsync(System.String,System.String,System.String,System.Boolean,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAccountAsync(String, String, String, Boolean, RequestOptions)
+  nameWithType: GfycatClient.CreateAccountAsync(String, String, String, Boolean, RequestOptions)
+  fullName: Gfycat.GfycatClient.CreateAccountAsync(System.String, System.String, System.String, System.Boolean, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: CreateAccountAsync
+    path: ''
+    startLine: 2488
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nCreates a new user account using the specified username, password, and email\n"
+  example: []
+  syntax:
+    content: public Task CreateAccountAsync(string username, string password, string email = null, bool loginWhenComplete = true, RequestOptions options = null)
+    parameters:
+    - id: username
+      type: System.String
+      description: ''
+    - id: password
+      type: System.String
+      description: ''
+    - id: email
+      type: System.String
+      description: ''
+    - id: loginWhenComplete
+      type: System.Boolean
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function CreateAccountAsync(username As String, password As String, email As String = Nothing, loginWhenComplete As Boolean = True, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.GfycatClient.CreateAccountAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.CreateAccountAsync(System.String,Gfycat.AccountTokenType,System.String,System.String,System.String,System.Boolean,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.CreateAccountAsync(System.String,Gfycat.AccountTokenType,System.String,System.String,System.String,System.Boolean,Gfycat.RequestOptions)
+  id: CreateAccountAsync(System.String,Gfycat.AccountTokenType,System.String,System.String,System.String,System.Boolean,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAccountAsync(String, AccountTokenType, String, String, String, Boolean, RequestOptions)
+  nameWithType: GfycatClient.CreateAccountAsync(String, AccountTokenType, String, String, String, Boolean, RequestOptions)
+  fullName: Gfycat.GfycatClient.CreateAccountAsync(System.String, Gfycat.AccountTokenType, System.String, System.String, System.String, System.Boolean, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: CreateAccountAsync
+    path: ''
+    startLine: 2515
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nCreates a new account using the specified username, provider token, password, and email\n"
+  example: []
+  syntax:
+    content: public Task CreateAccountAsync(string username, AccountTokenType tokenType, string token, string password = null, string email = null, bool loginWhenComplete = true, RequestOptions options = null)
+    parameters:
+    - id: username
+      type: System.String
+      description: ''
+    - id: tokenType
+      type: Gfycat.AccountTokenType
+      description: ''
+    - id: token
+      type: System.String
+      description: ''
+    - id: password
+      type: System.String
+      description: ''
+    - id: email
+      type: System.String
+      description: ''
+    - id: loginWhenComplete
+      type: System.Boolean
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function CreateAccountAsync(username As String, tokenType As AccountTokenType, token As String, password As String = Nothing, email As String = Nothing, loginWhenComplete As Boolean = True, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.GfycatClient.CreateAccountAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.GetGfyAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.GetGfyAsync(System.String,Gfycat.RequestOptions)
+  id: GetGfyAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: GetGfyAsync(String, RequestOptions)
+  nameWithType: GfycatClient.GetGfyAsync(String, RequestOptions)
+  fullName: Gfycat.GfycatClient.GetGfyAsync(System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetGfyAsync
+    path: ''
+    startLine: 2569
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets info for a single Gfy\n"
+  example: []
+  syntax:
+    content: public Task<Gfy> GetGfyAsync(string gfycat, RequestOptions options = null)
+    parameters:
+    - id: gfycat
+      type: System.String
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.Gfy}
+      description: ''
+    content.vb: Public Function GetGfyAsync(gfycat As String, options As RequestOptions = Nothing) As Task(Of Gfy)
+  overload: Gfycat.GfycatClient.GetGfyAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.GetGfyFromUrlAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.GetGfyFromUrlAsync(System.String,Gfycat.RequestOptions)
+  id: GetGfyFromUrlAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: GetGfyFromUrlAsync(String, RequestOptions)
+  nameWithType: GfycatClient.GetGfyFromUrlAsync(String, RequestOptions)
+  fullName: Gfycat.GfycatClient.GetGfyFromUrlAsync(System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetGfyFromUrlAsync
+    path: ''
+    startLine: 2584
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nAttempts to get info for a single Gfy using a url string. If the URI isn't in a valid format or the gfy does not exist, this returns null\n"
+  example: []
+  syntax:
+    content: public Task<Gfy> GetGfyFromUrlAsync(string gfycatUrl, RequestOptions options = null)
+    parameters:
+    - id: gfycatUrl
+      type: System.String
+      description: The gfycat url
+    - id: options
+      type: Gfycat.RequestOptions
+      description: Optional request parameters
+    return:
+      type: Task{Gfycat.Gfy}
+      description: An awaitable Gfy
+    content.vb: Public Function GetGfyFromUrlAsync(gfycatUrl As String, options As RequestOptions = Nothing) As Task(Of Gfy)
+  overload: Gfycat.GfycatClient.GetGfyFromUrlAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.CreateGfyAsync(System.String,Gfycat.GfyCreationParameters,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.CreateGfyAsync(System.String,Gfycat.GfyCreationParameters,Gfycat.RequestOptions)
+  id: CreateGfyAsync(System.String,Gfycat.GfyCreationParameters,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: CreateGfyAsync(String, GfyCreationParameters, RequestOptions)
+  nameWithType: GfycatClient.CreateGfyAsync(String, GfyCreationParameters, RequestOptions)
+  fullName: Gfycat.GfycatClient.CreateGfyAsync(System.String, Gfycat.GfyCreationParameters, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: CreateGfyAsync
+    path: ''
+    startLine: 2601
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nCreates a Gfy using a remote url and returns the Gfy status\n"
+  example: []
+  syntax:
+    content: public Task<GfyStatus> CreateGfyAsync(string remoteUrl, GfyCreationParameters parameters = null, RequestOptions options = null)
+    parameters:
+    - id: remoteUrl
+      type: System.String
+      description: ''
+    - id: parameters
+      type: Gfycat.GfyCreationParameters
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.GfyStatus}
+      description: ''
+    content.vb: Public Function CreateGfyAsync(remoteUrl As String, parameters As GfyCreationParameters = Nothing, options As RequestOptions = Nothing) As Task(Of GfyStatus)
+  overload: Gfycat.GfycatClient.CreateGfyAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.GetGfyUploadStatusAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.GetGfyUploadStatusAsync(System.String,Gfycat.RequestOptions)
+  id: GetGfyUploadStatusAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: GetGfyUploadStatusAsync(String, RequestOptions)
+  nameWithType: GfycatClient.GetGfyUploadStatusAsync(String, RequestOptions)
+  fullName: Gfycat.GfycatClient.GetGfyUploadStatusAsync(System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetGfyUploadStatusAsync
+    path: ''
+    startLine: 2614
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nRetrieves the upload status of the specified gfy\n"
+  example: []
+  syntax:
+    content: public Task<GfyStatus> GetGfyUploadStatusAsync(string gfycat, RequestOptions options = null)
+    parameters:
+    - id: gfycat
+      type: System.String
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.GfyStatus}
+      description: ''
+    content.vb: Public Function GetGfyUploadStatusAsync(gfycat As String, options As RequestOptions = Nothing) As Task(Of GfyStatus)
+  overload: Gfycat.GfycatClient.GetGfyUploadStatusAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.CreateGfyAsync(Stream,Gfycat.GfyCreationParameters,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.CreateGfyAsync(Stream,Gfycat.GfyCreationParameters,Gfycat.RequestOptions)
+  id: CreateGfyAsync(Stream,Gfycat.GfyCreationParameters,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: CreateGfyAsync(Stream, GfyCreationParameters, RequestOptions)
+  nameWithType: GfycatClient.CreateGfyAsync(Stream, GfyCreationParameters, RequestOptions)
+  fullName: Gfycat.GfycatClient.CreateGfyAsync(Stream, Gfycat.GfyCreationParameters, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: CreateGfyAsync
+    path: ''
+    startLine: 2631
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nCreates a Gfycat using the specified stream and upload parameters\n"
+  example: []
+  syntax:
+    content: public Task<GfyStatus> CreateGfyAsync(Stream data, GfyCreationParameters parameters = null, RequestOptions options = null)
+    parameters:
+    - id: data
+      type: Stream
+      description: ''
+    - id: parameters
+      type: Gfycat.GfyCreationParameters
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.GfyStatus}
+      description: ''
+    content.vb: Public Function CreateGfyAsync(data As Stream, parameters As GfyCreationParameters = Nothing, options As RequestOptions = Nothing) As Task(Of GfyStatus)
+  overload: Gfycat.GfycatClient.CreateGfyAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.GetTrendingGfysAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.GetTrendingGfysAsync(System.String,Gfycat.RequestOptions)
+  id: GetTrendingGfysAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: GetTrendingGfysAsync(String, RequestOptions)
+  nameWithType: GfycatClient.GetTrendingGfysAsync(String, RequestOptions)
+  fullName: Gfycat.GfycatClient.GetTrendingGfysAsync(System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetTrendingGfysAsync
+    path: ''
+    startLine: 2650
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nRetrieves trending gfys for the specified tag. If no tag is specified, the \"Trending\" tag is used\n"
+  example: []
+  syntax:
+    content: public Task<TaggedGfyFeed> GetTrendingGfysAsync(string tag = "Trending", RequestOptions options = null)
+    parameters:
+    - id: tag
+      type: System.String
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.TaggedGfyFeed}
+      description: ''
+    content.vb: Public Function GetTrendingGfysAsync(tag As String = "Trending", options As RequestOptions = Nothing) As Task(Of TaggedGfyFeed)
+  overload: Gfycat.GfycatClient.GetTrendingGfysAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.GetTrendingTagsAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.GetTrendingTagsAsync(Gfycat.RequestOptions)
+  id: GetTrendingTagsAsync(Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: GetTrendingTagsAsync(RequestOptions)
+  nameWithType: GfycatClient.GetTrendingTagsAsync(RequestOptions)
+  fullName: Gfycat.GfycatClient.GetTrendingTagsAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetTrendingTagsAsync
+    path: ''
+    startLine: 2660
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nReturns an enumerable of all trending tags\n"
+  example: []
+  syntax:
+    content: public Task<IEnumerable<string>> GetTrendingTagsAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{IEnumerable{System.String}}
+      description: ''
+    content.vb: Public Function GetTrendingTagsAsync(options As RequestOptions = Nothing) As Task(Of IEnumerable(Of String))
+  overload: Gfycat.GfycatClient.GetTrendingTagsAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync(Gfycat.RequestOptions)
+  id: GetTrendingTagsPopulatedAsync(Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: GetTrendingTagsPopulatedAsync(RequestOptions)
+  nameWithType: GfycatClient.GetTrendingTagsPopulatedAsync(RequestOptions)
+  fullName: Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetTrendingTagsPopulatedAsync
+    path: ''
+    startLine: 2670
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nRetrieves trending tags populated with gfys\n"
+  example: []
+  syntax:
+    content: public Task<PopulatedTagFeed> GetTrendingTagsPopulatedAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.PopulatedTagFeed}
+      description: ''
+    content.vb: Public Function GetTrendingTagsPopulatedAsync(options As RequestOptions = Nothing) As Task(Of PopulatedTagFeed)
+  overload: Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.GetReactionGfysAsync(Gfycat.ReactionLanguage,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.GetReactionGfysAsync(Gfycat.ReactionLanguage,Gfycat.RequestOptions)
+  id: GetReactionGfysAsync(Gfycat.ReactionLanguage,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: GetReactionGfysAsync(ReactionLanguage, RequestOptions)
+  nameWithType: GfycatClient.GetReactionGfysAsync(ReactionLanguage, RequestOptions)
+  fullName: Gfycat.GfycatClient.GetReactionGfysAsync(Gfycat.ReactionLanguage, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetReactionGfysAsync
+    path: ''
+    startLine: 2683
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nRetrieves a feed of all reaction tag feeds in the specified language. The default language is english\n"
+  example: []
+  syntax:
+    content: public Task<ReactionTagsFeed> GetReactionGfysAsync(ReactionLanguage language = ReactionLanguage.English, RequestOptions options = null)
+    parameters:
+    - id: language
+      type: Gfycat.ReactionLanguage
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.ReactionTagsFeed}
+      description: ''
+    content.vb: Public Function GetReactionGfysAsync(language As ReactionLanguage = ReactionLanguage.English, options As RequestOptions = Nothing) As Task(Of ReactionTagsFeed)
+  overload: Gfycat.GfycatClient.GetReactionGfysAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.SearchAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfycatClient.SearchAsync(System.String,Gfycat.RequestOptions)
+  id: SearchAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: SearchAsync(String, RequestOptions)
+  nameWithType: GfycatClient.SearchAsync(String, RequestOptions)
+  fullName: Gfycat.GfycatClient.SearchAsync(System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: SearchAsync
+    path: ''
+    startLine: 2695
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nSearches the Gfycat website using the provided search text\n"
+  example: []
+  syntax:
+    content: public Task<GfyFeed> SearchAsync(string searchText, RequestOptions options = null)
+    parameters:
+    - id: searchText
+      type: System.String
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.GfyFeed}
+      description: ''
+    content.vb: Public Function SearchAsync(searchText As String, options As RequestOptions = Nothing) As Task(Of GfyFeed)
+  overload: Gfycat.GfycatClient.SearchAsync*
+  implements:
+  - Gfycat.ISearchable.SearchAsync(System.String,Gfycat.RequestOptions)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClient.GetTwitterRequestTokenUrl(System.String)
+  commentId: M:Gfycat.GfycatClient.GetTwitterRequestTokenUrl(System.String)
+  id: GetTwitterRequestTokenUrl(System.String)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: GetTwitterRequestTokenUrl(String)
+  nameWithType: GfycatClient.GetTwitterRequestTokenUrl(String)
+  fullName: Gfycat.GfycatClient.GetTwitterRequestTokenUrl(System.String)
+  type: Method
+  source:
+    id: GetTwitterRequestTokenUrl
+    path: ''
+    startLine: 2715
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nFormats a request token into a Twitter oauth url\n"
+  example: []
+  syntax:
+    content: public static string GetTwitterRequestTokenUrl(string requestToken)
+    parameters:
+    - id: requestToken
+      type: System.String
+      description: ''
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Shared Function GetTwitterRequestTokenUrl(requestToken As String) As String
+  overload: Gfycat.GfycatClient.GetTwitterRequestTokenUrl*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Gfycat.GfycatClient.GetBrowserAuthUrl(System.String,System.String,System.Boolean)
+  commentId: M:Gfycat.GfycatClient.GetBrowserAuthUrl(System.String,System.String,System.Boolean)
+  id: GetBrowserAuthUrl(System.String,System.String,System.Boolean)
+  parent: Gfycat.GfycatClient
+  langs:
+  - csharp
+  - vb
+  name: GetBrowserAuthUrl(String, String, Boolean)
+  nameWithType: GfycatClient.GetBrowserAuthUrl(String, String, Boolean)
+  fullName: Gfycat.GfycatClient.GetBrowserAuthUrl(System.String, System.String, System.Boolean)
+  type: Method
+  source:
+    id: GetBrowserAuthUrl
+    path: ''
+    startLine: 2724
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nCreates an authorization URL given a state and a redirect URI\n"
+  example: []
+  syntax:
+    content: public string GetBrowserAuthUrl(string state, string redirectUri, bool codeResponse)
+    parameters:
+    - id: state
+      type: System.String
+      description: ''
+    - id: redirectUri
+      type: System.String
+      description: ''
+    - id: codeResponse
+      type: System.Boolean
+      description: True to return a code response (for authorization response), false to return a token response (implicit authorization)
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Function GetBrowserAuthUrl(state As String, redirectUri As String, codeResponse As Boolean) As String
+  overload: Gfycat.GfycatClient.GetBrowserAuthUrl*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Gfycat
+  commentId: N:Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Gfycat
+  fullName: Gfycat
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Gfycat.ISearchable
+  commentId: T:Gfycat.ISearchable
+  parent: Gfycat
+  isExternal: false
+  name: ISearchable
+  nameWithType: ISearchable
+  fullName: Gfycat.ISearchable
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Gfycat.GfycatClient
+  commentId: T:Gfycat.GfycatClient
+  isExternal: false
+  name: GfycatClient
+  nameWithType: GfycatClient
+  fullName: Gfycat.GfycatClient
+- uid: Gfycat.GfycatClient.#ctor*
+  commentId: Overload:Gfycat.GfycatClient.#ctor
+  isExternal: false
+  name: GfycatClient
+  nameWithType: GfycatClient.GfycatClient
+  fullName: Gfycat.GfycatClient.GfycatClient
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Gfycat.GfycatClientConfig
+  commentId: T:Gfycat.GfycatClientConfig
+  parent: Gfycat
+  isExternal: false
+  name: GfycatClientConfig
+  nameWithType: GfycatClientConfig
+  fullName: Gfycat.GfycatClientConfig
+- uid: Gfycat.GfycatClient.ClientId*
+  commentId: Overload:Gfycat.GfycatClient.ClientId
+  isExternal: false
+  name: ClientId
+  nameWithType: GfycatClient.ClientId
+  fullName: Gfycat.GfycatClient.ClientId
+- uid: Gfycat.GfycatClient.AccessToken*
+  commentId: Overload:Gfycat.GfycatClient.AccessToken
+  isExternal: false
+  name: AccessToken
+  nameWithType: GfycatClient.AccessToken
+  fullName: Gfycat.GfycatClient.AccessToken
+- uid: Gfycat.GfycatClient.RefreshToken*
+  commentId: Overload:Gfycat.GfycatClient.RefreshToken
+  isExternal: false
+  name: RefreshToken
+  nameWithType: GfycatClient.RefreshToken
+  fullName: Gfycat.GfycatClient.RefreshToken
+- uid: Gfycat.GfycatClient.RefreshTokenAsync*
+  commentId: Overload:Gfycat.GfycatClient.RefreshTokenAsync
+  isExternal: false
+  name: RefreshTokenAsync
+  nameWithType: GfycatClient.RefreshTokenAsync
+  fullName: Gfycat.GfycatClient.RefreshTokenAsync
+- uid: Gfycat.RequestOptions
+  commentId: T:Gfycat.RequestOptions
+  parent: Gfycat
+  isExternal: false
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Gfycat.RequestOptions
+- uid: Task{System.Boolean}
+  commentId: '!:Task{System.Boolean}'
+  definition: Task`1
+  name: Task<Boolean>
+  nameWithType: Task<Boolean>
+  fullName: Task<System.Boolean>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: Task(Of System.Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task`1
+  isExternal: true
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.GfycatClient.AuthenticateAsync*
+  commentId: Overload:Gfycat.GfycatClient.AuthenticateAsync
+  isExternal: false
+  name: AuthenticateAsync
+  nameWithType: GfycatClient.AuthenticateAsync
+  fullName: Gfycat.GfycatClient.AuthenticateAsync
+- uid: Task
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: Task
+- uid: Gfycat.GfycatClient.GetTwitterRequestTokenAsync*
+  commentId: Overload:Gfycat.GfycatClient.GetTwitterRequestTokenAsync
+  isExternal: false
+  name: GetTwitterRequestTokenAsync
+  nameWithType: GfycatClient.GetTwitterRequestTokenAsync
+  fullName: Gfycat.GfycatClient.GetTwitterRequestTokenAsync
+- uid: Task{System.String}
+  commentId: '!:Task{System.String}'
+  definition: Task`1
+  name: Task<String>
+  nameWithType: Task<String>
+  fullName: Task<System.String>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: Task(Of System.String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.TokenType
+  commentId: T:Gfycat.TokenType
+  parent: Gfycat
+  isExternal: false
+  name: TokenType
+  nameWithType: TokenType
+  fullName: Gfycat.TokenType
+- uid: Gfycat.GfycatException
+  commentId: T:Gfycat.GfycatException
+  isExternal: false
+  name: GfycatException
+  nameWithType: GfycatException
+  fullName: Gfycat.GfycatException
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Gfycat.GfycatClient.GetUserExistsAsync*
+  commentId: Overload:Gfycat.GfycatClient.GetUserExistsAsync
+  isExternal: false
+  name: GetUserExistsAsync
+  nameWithType: GfycatClient.GetUserExistsAsync
+  fullName: Gfycat.GfycatClient.GetUserExistsAsync
+- uid: Gfycat.GfycatClient.SendPasswordResetEmailAsync*
+  commentId: Overload:Gfycat.GfycatClient.SendPasswordResetEmailAsync
+  isExternal: false
+  name: SendPasswordResetEmailAsync
+  nameWithType: GfycatClient.SendPasswordResetEmailAsync
+  fullName: Gfycat.GfycatClient.SendPasswordResetEmailAsync
+- uid: Gfycat.GfycatClient.GetUserAsync*
+  commentId: Overload:Gfycat.GfycatClient.GetUserAsync
+  isExternal: false
+  name: GetUserAsync
+  nameWithType: GfycatClient.GetUserAsync
+  fullName: Gfycat.GfycatClient.GetUserAsync
+- uid: Task{Gfycat.User}
+  commentId: '!:Task{Gfycat.User}'
+  definition: Task`1
+  name: Task<User>
+  nameWithType: Task<User>
+  fullName: Task<Gfycat.User>
+  nameWithType.vb: Task(Of User)
+  fullName.vb: Task(Of Gfycat.User)
+  name.vb: Task(Of User)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.User
+    name: User
+    nameWithType: User
+    fullName: Gfycat.User
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.User
+    name: User
+    nameWithType: User
+    fullName: Gfycat.User
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.GfycatClient.TryGetUserAsync*
+  commentId: Overload:Gfycat.GfycatClient.TryGetUserAsync
+  isExternal: false
+  name: TryGetUserAsync
+  nameWithType: GfycatClient.TryGetUserAsync
+  fullName: Gfycat.GfycatClient.TryGetUserAsync
+- uid: Gfycat.GfycatClient.GetCurrentUserAsync*
+  commentId: Overload:Gfycat.GfycatClient.GetCurrentUserAsync
+  isExternal: false
+  name: GetCurrentUserAsync
+  nameWithType: GfycatClient.GetCurrentUserAsync
+  fullName: Gfycat.GfycatClient.GetCurrentUserAsync
+- uid: Task{Gfycat.CurrentUser}
+  commentId: '!:Task{Gfycat.CurrentUser}'
+  definition: Task`1
+  name: Task<CurrentUser>
+  nameWithType: Task<CurrentUser>
+  fullName: Task<Gfycat.CurrentUser>
+  nameWithType.vb: Task(Of CurrentUser)
+  fullName.vb: Task(Of Gfycat.CurrentUser)
+  name.vb: Task(Of CurrentUser)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.CurrentUser
+    name: CurrentUser
+    nameWithType: CurrentUser
+    fullName: Gfycat.CurrentUser
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.CurrentUser
+    name: CurrentUser
+    nameWithType: CurrentUser
+    fullName: Gfycat.CurrentUser
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.GfycatClient.CreateAccountAsync*
+  commentId: Overload:Gfycat.GfycatClient.CreateAccountAsync
+  isExternal: false
+  name: CreateAccountAsync
+  nameWithType: GfycatClient.CreateAccountAsync
+  fullName: Gfycat.GfycatClient.CreateAccountAsync
+- uid: Gfycat.AccountTokenType
+  commentId: T:Gfycat.AccountTokenType
+  parent: Gfycat
+  isExternal: false
+  name: AccountTokenType
+  nameWithType: AccountTokenType
+  fullName: Gfycat.AccountTokenType
+- uid: Gfycat.GfycatClient.GetGfyAsync*
+  commentId: Overload:Gfycat.GfycatClient.GetGfyAsync
+  isExternal: false
+  name: GetGfyAsync
+  nameWithType: GfycatClient.GetGfyAsync
+  fullName: Gfycat.GfycatClient.GetGfyAsync
+- uid: Task{Gfycat.Gfy}
+  commentId: '!:Task{Gfycat.Gfy}'
+  definition: Task`1
+  name: Task<Gfy>
+  nameWithType: Task<Gfy>
+  fullName: Task<Gfycat.Gfy>
+  nameWithType.vb: Task(Of Gfy)
+  fullName.vb: Task(Of Gfycat.Gfy)
+  name.vb: Task(Of Gfy)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.Gfy
+    name: Gfy
+    nameWithType: Gfy
+    fullName: Gfycat.Gfy
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.Gfy
+    name: Gfy
+    nameWithType: Gfy
+    fullName: Gfycat.Gfy
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.GfycatClient.GetGfyFromUrlAsync*
+  commentId: Overload:Gfycat.GfycatClient.GetGfyFromUrlAsync
+  isExternal: false
+  name: GetGfyFromUrlAsync
+  nameWithType: GfycatClient.GetGfyFromUrlAsync
+  fullName: Gfycat.GfycatClient.GetGfyFromUrlAsync
+- uid: Gfycat.GfycatClient.CreateGfyAsync*
+  commentId: Overload:Gfycat.GfycatClient.CreateGfyAsync
+  isExternal: false
+  name: CreateGfyAsync
+  nameWithType: GfycatClient.CreateGfyAsync
+  fullName: Gfycat.GfycatClient.CreateGfyAsync
+- uid: Gfycat.GfyCreationParameters
+  commentId: T:Gfycat.GfyCreationParameters
+  parent: Gfycat
+  isExternal: false
+  name: GfyCreationParameters
+  nameWithType: GfyCreationParameters
+  fullName: Gfycat.GfyCreationParameters
+- uid: Task{Gfycat.GfyStatus}
+  commentId: '!:Task{Gfycat.GfyStatus}'
+  definition: Task`1
+  name: Task<GfyStatus>
+  nameWithType: Task<GfyStatus>
+  fullName: Task<Gfycat.GfyStatus>
+  nameWithType.vb: Task(Of GfyStatus)
+  fullName.vb: Task(Of Gfycat.GfyStatus)
+  name.vb: Task(Of GfyStatus)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.GfyStatus
+    name: GfyStatus
+    nameWithType: GfyStatus
+    fullName: Gfycat.GfyStatus
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.GfyStatus
+    name: GfyStatus
+    nameWithType: GfyStatus
+    fullName: Gfycat.GfyStatus
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.GfycatClient.GetGfyUploadStatusAsync*
+  commentId: Overload:Gfycat.GfycatClient.GetGfyUploadStatusAsync
+  isExternal: false
+  name: GetGfyUploadStatusAsync
+  nameWithType: GfycatClient.GetGfyUploadStatusAsync
+  fullName: Gfycat.GfycatClient.GetGfyUploadStatusAsync
+- uid: Stream
+  isExternal: true
+  name: Stream
+  nameWithType: Stream
+  fullName: Stream
+- uid: Gfycat.GfycatClient.GetTrendingGfysAsync*
+  commentId: Overload:Gfycat.GfycatClient.GetTrendingGfysAsync
+  isExternal: false
+  name: GetTrendingGfysAsync
+  nameWithType: GfycatClient.GetTrendingGfysAsync
+  fullName: Gfycat.GfycatClient.GetTrendingGfysAsync
+- uid: Task{Gfycat.TaggedGfyFeed}
+  commentId: '!:Task{Gfycat.TaggedGfyFeed}'
+  definition: Task`1
+  name: Task<TaggedGfyFeed>
+  nameWithType: Task<TaggedGfyFeed>
+  fullName: Task<Gfycat.TaggedGfyFeed>
+  nameWithType.vb: Task(Of TaggedGfyFeed)
+  fullName.vb: Task(Of Gfycat.TaggedGfyFeed)
+  name.vb: Task(Of TaggedGfyFeed)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.TaggedGfyFeed
+    name: TaggedGfyFeed
+    nameWithType: TaggedGfyFeed
+    fullName: Gfycat.TaggedGfyFeed
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.TaggedGfyFeed
+    name: TaggedGfyFeed
+    nameWithType: TaggedGfyFeed
+    fullName: Gfycat.TaggedGfyFeed
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.GfycatClient.GetTrendingTagsAsync*
+  commentId: Overload:Gfycat.GfycatClient.GetTrendingTagsAsync
+  isExternal: false
+  name: GetTrendingTagsAsync
+  nameWithType: GfycatClient.GetTrendingTagsAsync
+  fullName: Gfycat.GfycatClient.GetTrendingTagsAsync
+- uid: Task{IEnumerable{System.String}}
+  commentId: '!:Task{IEnumerable{System.String}}'
+  definition: Task`1
+  name: Task<IEnumerable<String>>
+  nameWithType: Task<IEnumerable<String>>
+  fullName: Task<IEnumerable<System.String>>
+  nameWithType.vb: Task(Of IEnumerable(Of String))
+  fullName.vb: Task(Of IEnumerable(Of System.String))
+  name.vb: Task(Of IEnumerable(Of String))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync*
+  commentId: Overload:Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync
+  isExternal: false
+  name: GetTrendingTagsPopulatedAsync
+  nameWithType: GfycatClient.GetTrendingTagsPopulatedAsync
+  fullName: Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync
+- uid: Task{Gfycat.PopulatedTagFeed}
+  commentId: '!:Task{Gfycat.PopulatedTagFeed}'
+  definition: Task`1
+  name: Task<PopulatedTagFeed>
+  nameWithType: Task<PopulatedTagFeed>
+  fullName: Task<Gfycat.PopulatedTagFeed>
+  nameWithType.vb: Task(Of PopulatedTagFeed)
+  fullName.vb: Task(Of Gfycat.PopulatedTagFeed)
+  name.vb: Task(Of PopulatedTagFeed)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.PopulatedTagFeed
+    name: PopulatedTagFeed
+    nameWithType: PopulatedTagFeed
+    fullName: Gfycat.PopulatedTagFeed
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.PopulatedTagFeed
+    name: PopulatedTagFeed
+    nameWithType: PopulatedTagFeed
+    fullName: Gfycat.PopulatedTagFeed
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.GfycatClient.GetReactionGfysAsync*
+  commentId: Overload:Gfycat.GfycatClient.GetReactionGfysAsync
+  isExternal: false
+  name: GetReactionGfysAsync
+  nameWithType: GfycatClient.GetReactionGfysAsync
+  fullName: Gfycat.GfycatClient.GetReactionGfysAsync
+- uid: Gfycat.ReactionLanguage
+  commentId: T:Gfycat.ReactionLanguage
+  parent: Gfycat
+  isExternal: false
+  name: ReactionLanguage
+  nameWithType: ReactionLanguage
+  fullName: Gfycat.ReactionLanguage
+- uid: Task{Gfycat.ReactionTagsFeed}
+  commentId: '!:Task{Gfycat.ReactionTagsFeed}'
+  definition: Task`1
+  name: Task<ReactionTagsFeed>
+  nameWithType: Task<ReactionTagsFeed>
+  fullName: Task<Gfycat.ReactionTagsFeed>
+  nameWithType.vb: Task(Of ReactionTagsFeed)
+  fullName.vb: Task(Of Gfycat.ReactionTagsFeed)
+  name.vb: Task(Of ReactionTagsFeed)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.ReactionTagsFeed
+    name: ReactionTagsFeed
+    nameWithType: ReactionTagsFeed
+    fullName: Gfycat.ReactionTagsFeed
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.ReactionTagsFeed
+    name: ReactionTagsFeed
+    nameWithType: ReactionTagsFeed
+    fullName: Gfycat.ReactionTagsFeed
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.GfycatClient.SearchAsync*
+  commentId: Overload:Gfycat.GfycatClient.SearchAsync
+  isExternal: false
+  name: SearchAsync
+  nameWithType: GfycatClient.SearchAsync
+  fullName: Gfycat.GfycatClient.SearchAsync
+- uid: Gfycat.ISearchable.SearchAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.ISearchable.SearchAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.ISearchable
+  isExternal: true
+  name: SearchAsync(String, RequestOptions)
+  nameWithType: ISearchable.SearchAsync(String, RequestOptions)
+  fullName: Gfycat.ISearchable.SearchAsync(System.String, Gfycat.RequestOptions)
+  spec.csharp:
+  - uid: Gfycat.ISearchable.SearchAsync(System.String,Gfycat.RequestOptions)
+    name: SearchAsync
+    nameWithType: ISearchable.SearchAsync
+    fullName: Gfycat.ISearchable.SearchAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Gfycat.ISearchable.SearchAsync(System.String,Gfycat.RequestOptions)
+    name: SearchAsync
+    nameWithType: ISearchable.SearchAsync
+    fullName: Gfycat.ISearchable.SearchAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task{Gfycat.GfyFeed}
+  commentId: '!:Task{Gfycat.GfyFeed}'
+  definition: Task`1
+  name: Task<GfyFeed>
+  nameWithType: Task<GfyFeed>
+  fullName: Task<Gfycat.GfyFeed>
+  nameWithType.vb: Task(Of GfyFeed)
+  fullName.vb: Task(Of Gfycat.GfyFeed)
+  name.vb: Task(Of GfyFeed)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.GfyFeed
+    name: GfyFeed
+    nameWithType: GfyFeed
+    fullName: Gfycat.GfyFeed
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.GfyFeed
+    name: GfyFeed
+    nameWithType: GfyFeed
+    fullName: Gfycat.GfyFeed
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.GfycatClient.GetTwitterRequestTokenUrl*
+  commentId: Overload:Gfycat.GfycatClient.GetTwitterRequestTokenUrl
+  isExternal: false
+  name: GetTwitterRequestTokenUrl
+  nameWithType: GfycatClient.GetTwitterRequestTokenUrl
+  fullName: Gfycat.GfycatClient.GetTwitterRequestTokenUrl
+- uid: Gfycat.GfycatClient.GetBrowserAuthUrl*
+  commentId: Overload:Gfycat.GfycatClient.GetBrowserAuthUrl
+  isExternal: false
+  name: GetBrowserAuthUrl
+  nameWithType: GfycatClient.GetBrowserAuthUrl
+  fullName: Gfycat.GfycatClient.GetBrowserAuthUrl

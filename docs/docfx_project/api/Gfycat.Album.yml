@@ -1,0 +1,1577 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.Album
+  commentId: T:Gfycat.Album
+  id: Album
+  parent: Gfycat
+  children:
+  - Gfycat.Album.AddGfysAsync(IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  - Gfycat.Album.Content
+  - Gfycat.Album.Count
+  - Gfycat.Album.CoverImageUrl
+  - Gfycat.Album.CoverImageUrlMobile
+  - Gfycat.Album.DeleteAsync(Gfycat.RequestOptions)
+  - Gfycat.Album.Gfycat#IFolderContent#MoveGfysAsync(Gfycat.IFolderContent,IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  - Gfycat.Album.ModifyNsfwSettingAsync(Gfycat.NsfwSetting,Gfycat.RequestOptions)
+  - Gfycat.Album.ModifyPublishSettingAsync(System.Boolean,Gfycat.RequestOptions)
+  - Gfycat.Album.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+  - Gfycat.Album.MoveGfysAsync(Gfycat.Album,IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  - Gfycat.Album.NsfwSetting
+  - Gfycat.Album.Order
+  - Gfycat.Album.Published
+  - Gfycat.Album.RemoveGfysAsync(IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  - Gfycat.Album.Title
+  - Gfycat.Album.UpdateAsync(Gfycat.RequestOptions)
+  langs:
+  - csharp
+  - vb
+  name: Album
+  nameWithType: Album
+  fullName: Gfycat.Album
+  type: Class
+  source:
+    id: Album
+    path: ''
+    startLine: 27
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nRepresents a user album on Gfycat\n"
+  example: []
+  syntax:
+    content: 'public class Album : Entity, IFolderContent, IFolder, IUpdatable'
+    content.vb: >-
+      Public Class Album
+          Inherits Entity
+          Implements IFolderContent, IFolder, IUpdatable
+  inheritance:
+  - System.Object
+  - Gfycat.Entity
+  implements:
+  - Gfycat.IFolderContent
+  - Gfycat.IFolder
+  - Gfycat.IUpdatable
+  inheritedMembers:
+  - Gfycat.Entity.Id
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Gfycat.Album.Title
+  commentId: P:Gfycat.Album.Title
+  id: Title
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: Album.Title
+  fullName: Gfycat.Album.Title
+  type: Property
+  source:
+    id: Title
+    path: ''
+    startLine: 56
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the title of this album\n"
+  example: []
+  syntax:
+    content: public string Title { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Title As String
+  overload: Gfycat.Album.Title*
+  implements:
+  - Gfycat.IFolder.Title
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Album.Count
+  commentId: P:Gfycat.Album.Count
+  id: Count
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: Album.Count
+  fullName: Gfycat.Album.Count
+  type: Property
+  source:
+    id: Count
+    path: ''
+    startLine: 60
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the number of <xref href=\"Gfycat.Gfy\" data-throw-if-not-resolved=\"false\"></xref>s in this album\n"
+  example: []
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: Gfycat.Album.Count*
+  implements:
+  - Gfycat.IFolderContent.Count
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Album.Content
+  commentId: P:Gfycat.Album.Content
+  id: Content
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: Album.Content
+  fullName: Gfycat.Album.Content
+  type: Property
+  source:
+    id: Content
+    path: ''
+    startLine: 64
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the <xref href=\"Gfycat.Gfy\" data-throw-if-not-resolved=\"false\"></xref>s in this album\n"
+  example: []
+  syntax:
+    content: public IReadOnlyCollection<Gfy> Content { get; }
+    parameters: []
+    return:
+      type: IReadOnlyCollection{Gfycat.Gfy}
+    content.vb: Public ReadOnly Property Content As IReadOnlyCollection(Of Gfy)
+  overload: Gfycat.Album.Content*
+  implements:
+  - Gfycat.IFolderContent.Content
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Album.CoverImageUrl
+  commentId: P:Gfycat.Album.CoverImageUrl
+  id: CoverImageUrl
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: CoverImageUrl
+  nameWithType: Album.CoverImageUrl
+  fullName: Gfycat.Album.CoverImageUrl
+  type: Property
+  source:
+    id: CoverImageUrl
+    path: ''
+    startLine: 68
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the cover image this album uses on gfycat.com\n"
+  example: []
+  syntax:
+    content: public string CoverImageUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property CoverImageUrl As String
+  overload: Gfycat.Album.CoverImageUrl*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Album.CoverImageUrlMobile
+  commentId: P:Gfycat.Album.CoverImageUrlMobile
+  id: CoverImageUrlMobile
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: CoverImageUrlMobile
+  nameWithType: Album.CoverImageUrlMobile
+  fullName: Gfycat.Album.CoverImageUrlMobile
+  type: Property
+  source:
+    id: CoverImageUrlMobile
+    path: ''
+    startLine: 72
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the mobile cover image this album uses on gfycat.com\n"
+  example: []
+  syntax:
+    content: public string CoverImageUrlMobile { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property CoverImageUrlMobile As String
+  overload: Gfycat.Album.CoverImageUrlMobile*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Album.NsfwSetting
+  commentId: P:Gfycat.Album.NsfwSetting
+  id: NsfwSetting
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: NsfwSetting
+  nameWithType: Album.NsfwSetting
+  fullName: Gfycat.Album.NsfwSetting
+  type: Property
+  source:
+    id: NsfwSetting
+    path: ''
+    startLine: 76
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the current NSFW (Not Safe For Work) setting\n"
+  example: []
+  syntax:
+    content: public NsfwSetting NsfwSetting { get; }
+    parameters: []
+    return:
+      type: Gfycat.NsfwSetting
+    content.vb: Public ReadOnly Property NsfwSetting As NsfwSetting
+  overload: Gfycat.Album.NsfwSetting*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Album.Published
+  commentId: P:Gfycat.Album.Published
+  id: Published
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: Published
+  nameWithType: Album.Published
+  fullName: Gfycat.Album.Published
+  type: Property
+  source:
+    id: Published
+    path: ''
+    startLine: 80
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the current published setting. If true, the album is public\n"
+  example: []
+  syntax:
+    content: public bool Published { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property Published As Boolean
+  overload: Gfycat.Album.Published*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Album.Order
+  commentId: P:Gfycat.Album.Order
+  id: Order
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: Order
+  nameWithType: Album.Order
+  fullName: Gfycat.Album.Order
+  type: Property
+  source:
+    id: Order
+    path: ''
+    startLine: 81
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public int Order { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Order As Integer
+  overload: Gfycat.Album.Order*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Album.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.Album.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+  id: ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: ModifyTitleAsync(String, RequestOptions)
+  nameWithType: Album.ModifyTitleAsync(String, RequestOptions)
+  fullName: Gfycat.Album.ModifyTitleAsync(System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: ModifyTitleAsync
+    path: ''
+    startLine: 89
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nChanges the title of the album on Gfycat to the specified string\n"
+  example: []
+  syntax:
+    content: public Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
+    parameters:
+    - id: newTitle
+      type: System.String
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function ModifyTitleAsync(newTitle As String, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Album.ModifyTitleAsync*
+  implements:
+  - Gfycat.IFolder.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Album.ModifyNsfwSettingAsync(Gfycat.NsfwSetting,Gfycat.RequestOptions)
+  commentId: M:Gfycat.Album.ModifyNsfwSettingAsync(Gfycat.NsfwSetting,Gfycat.RequestOptions)
+  id: ModifyNsfwSettingAsync(Gfycat.NsfwSetting,Gfycat.RequestOptions)
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: ModifyNsfwSettingAsync(NsfwSetting, RequestOptions)
+  nameWithType: Album.ModifyNsfwSettingAsync(NsfwSetting, RequestOptions)
+  fullName: Gfycat.Album.ModifyNsfwSettingAsync(Gfycat.NsfwSetting, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: ModifyNsfwSettingAsync
+    path: ''
+    startLine: 100
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nChanges the NSFW (Not Safe For Work) setting of the album on Gfycat to the specified setting\n"
+  example: []
+  syntax:
+    content: public Task ModifyNsfwSettingAsync(NsfwSetting newSetting, RequestOptions options = null)
+    parameters:
+    - id: newSetting
+      type: Gfycat.NsfwSetting
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function ModifyNsfwSettingAsync(newSetting As NsfwSetting, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Album.ModifyNsfwSettingAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Album.ModifyPublishSettingAsync(System.Boolean,Gfycat.RequestOptions)
+  commentId: M:Gfycat.Album.ModifyPublishSettingAsync(System.Boolean,Gfycat.RequestOptions)
+  id: ModifyPublishSettingAsync(System.Boolean,Gfycat.RequestOptions)
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: ModifyPublishSettingAsync(Boolean, RequestOptions)
+  nameWithType: Album.ModifyPublishSettingAsync(Boolean, RequestOptions)
+  fullName: Gfycat.Album.ModifyPublishSettingAsync(System.Boolean, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: ModifyPublishSettingAsync
+    path: ''
+    startLine: 112
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nChanges the published setting of the album on Gfycat to the specified setting\n"
+  example: []
+  syntax:
+    content: public Task ModifyPublishSettingAsync(bool published, RequestOptions options = null)
+    parameters:
+    - id: published
+      type: System.Boolean
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function ModifyPublishSettingAsync(published As Boolean, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Album.ModifyPublishSettingAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Album.AddGfysAsync(IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  commentId: M:Gfycat.Album.AddGfysAsync(IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  id: AddGfysAsync(IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: AddGfysAsync(IEnumerable<Gfy>, RequestOptions)
+  nameWithType: Album.AddGfysAsync(IEnumerable<Gfy>, RequestOptions)
+  fullName: Gfycat.Album.AddGfysAsync(IEnumerable<Gfycat.Gfy>, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: AddGfysAsync
+    path: ''
+    startLine: 124
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nAdds the specified <xref href=\"Gfycat.Gfy\" data-throw-if-not-resolved=\"false\"></xref>s to the album on Gfycat\n"
+  example: []
+  syntax:
+    content: public Task AddGfysAsync(IEnumerable<Gfy> gfysToAdd, RequestOptions options = null)
+    parameters:
+    - id: gfysToAdd
+      type: IEnumerable{Gfycat.Gfy}
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function AddGfysAsync(gfysToAdd As IEnumerable(Of Gfy), options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Album.AddGfysAsync*
+  nameWithType.vb: Album.AddGfysAsync(IEnumerable(Of Gfy), RequestOptions)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Gfycat.Album.AddGfysAsync(IEnumerable(Of Gfycat.Gfy), Gfycat.RequestOptions)
+  name.vb: AddGfysAsync(IEnumerable(Of Gfy), RequestOptions)
+- uid: Gfycat.Album.MoveGfysAsync(Gfycat.Album,IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  commentId: M:Gfycat.Album.MoveGfysAsync(Gfycat.Album,IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  id: MoveGfysAsync(Gfycat.Album,IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: MoveGfysAsync(Album, IEnumerable<Gfy>, RequestOptions)
+  nameWithType: Album.MoveGfysAsync(Album, IEnumerable<Gfy>, RequestOptions)
+  fullName: Gfycat.Album.MoveGfysAsync(Gfycat.Album, IEnumerable<Gfycat.Gfy>, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: MoveGfysAsync
+    path: ''
+    startLine: 137
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nMoves the specified <xref href=\"Gfycat.Gfy\" data-throw-if-not-resolved=\"false\"></xref>s to the specified album on Gfycat\n"
+  example: []
+  syntax:
+    content: public Task MoveGfysAsync(Album folderToMoveTo, IEnumerable<Gfy> gfysToMove, RequestOptions options = null)
+    parameters:
+    - id: folderToMoveTo
+      type: Gfycat.Album
+      description: ''
+    - id: gfysToMove
+      type: IEnumerable{Gfycat.Gfy}
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function MoveGfysAsync(folderToMoveTo As Album, gfysToMove As IEnumerable(Of Gfy), options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Album.MoveGfysAsync*
+  nameWithType.vb: Album.MoveGfysAsync(Album, IEnumerable(Of Gfy), RequestOptions)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Gfycat.Album.MoveGfysAsync(Gfycat.Album, IEnumerable(Of Gfycat.Gfy), Gfycat.RequestOptions)
+  name.vb: MoveGfysAsync(Album, IEnumerable(Of Gfy), RequestOptions)
+- uid: Gfycat.Album.RemoveGfysAsync(IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  commentId: M:Gfycat.Album.RemoveGfysAsync(IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  id: RemoveGfysAsync(IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: RemoveGfysAsync(IEnumerable<Gfy>, RequestOptions)
+  nameWithType: Album.RemoveGfysAsync(IEnumerable<Gfy>, RequestOptions)
+  fullName: Gfycat.Album.RemoveGfysAsync(IEnumerable<Gfycat.Gfy>, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: RemoveGfysAsync
+    path: ''
+    startLine: 150
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nRemoves the specified <xref href=\"Gfycat.Gfy\" data-throw-if-not-resolved=\"false\"></xref>s from the album on Gfycat\n"
+  example: []
+  syntax:
+    content: public Task RemoveGfysAsync(IEnumerable<Gfy> gfysToRemove, RequestOptions options = null)
+    parameters:
+    - id: gfysToRemove
+      type: IEnumerable{Gfycat.Gfy}
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function RemoveGfysAsync(gfysToRemove As IEnumerable(Of Gfy), options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Album.RemoveGfysAsync*
+  nameWithType.vb: Album.RemoveGfysAsync(IEnumerable(Of Gfy), RequestOptions)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Gfycat.Album.RemoveGfysAsync(IEnumerable(Of Gfycat.Gfy), Gfycat.RequestOptions)
+  name.vb: RemoveGfysAsync(IEnumerable(Of Gfy), RequestOptions)
+- uid: Gfycat.Album.DeleteAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.Album.DeleteAsync(Gfycat.RequestOptions)
+  id: DeleteAsync(Gfycat.RequestOptions)
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync(RequestOptions)
+  nameWithType: Album.DeleteAsync(RequestOptions)
+  fullName: Gfycat.Album.DeleteAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: DeleteAsync
+    path: ''
+    startLine: 161
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nDeletes the album on Gfycat\n"
+  example: []
+  syntax:
+    content: public Task DeleteAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function DeleteAsync(options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Album.DeleteAsync*
+  implements:
+  - Gfycat.IFolder.DeleteAsync(Gfycat.RequestOptions)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Album.UpdateAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.Album.UpdateAsync(Gfycat.RequestOptions)
+  id: UpdateAsync(Gfycat.RequestOptions)
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(RequestOptions)
+  nameWithType: Album.UpdateAsync(RequestOptions)
+  fullName: Gfycat.Album.UpdateAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: UpdateAsync
+    path: ''
+    startLine: 171
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nUpdates this object with the data on Gfycat\n"
+  example: []
+  syntax:
+    content: public Task UpdateAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function UpdateAsync(options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Album.UpdateAsync*
+  implements:
+  - Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Album.Gfycat#IFolderContent#MoveGfysAsync(Gfycat.IFolderContent,IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  commentId: M:Gfycat.Album.Gfycat#IFolderContent#MoveGfysAsync(Gfycat.IFolderContent,IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  id: Gfycat#IFolderContent#MoveGfysAsync(Gfycat.IFolderContent,IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  isEii: true
+  parent: Gfycat.Album
+  langs:
+  - csharp
+  - vb
+  name: IFolderContent.MoveGfysAsync(IFolderContent, IEnumerable<Gfy>, RequestOptions)
+  nameWithType: Album.IFolderContent.MoveGfysAsync(IFolderContent, IEnumerable<Gfy>, RequestOptions)
+  fullName: Gfycat.Album.Gfycat.IFolderContent.MoveGfysAsync(Gfycat.IFolderContent, IEnumerable<Gfycat.Gfy>, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: Gfycat.IFolderContent.MoveGfysAsync
+    path: ''
+    startLine: 174
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: Task IFolderContent.MoveGfysAsync(IFolderContent folderToMoveTo, IEnumerable<Gfy> gfysToMove, RequestOptions options)
+    parameters:
+    - id: folderToMoveTo
+      type: Gfycat.IFolderContent
+    - id: gfysToMove
+      type: IEnumerable{Gfycat.Gfy}
+    - id: options
+      type: Gfycat.RequestOptions
+    return:
+      type: Task
+    content.vb: Function Gfycat.IFolderContent.MoveGfysAsync(folderToMoveTo As IFolderContent, gfysToMove As IEnumerable(Of Gfy), options As RequestOptions) As Task Implements IFolderContent.MoveGfysAsync
+  overload: Gfycat.Album.Gfycat#IFolderContent#MoveGfysAsync*
+  implements:
+  - Gfycat.IFolderContent.MoveGfysAsync(Gfycat.IFolderContent,IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  nameWithType.vb: Album.Gfycat.IFolderContent.MoveGfysAsync(IFolderContent, IEnumerable(Of Gfy), RequestOptions)
+  fullName.vb: Gfycat.Album.Gfycat.IFolderContent.MoveGfysAsync(Gfycat.IFolderContent, IEnumerable(Of Gfycat.Gfy), Gfycat.RequestOptions)
+  name.vb: Gfycat.IFolderContent.MoveGfysAsync(IFolderContent, IEnumerable(Of Gfy), RequestOptions)
+references:
+- uid: Gfycat
+  commentId: N:Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Gfycat
+  fullName: Gfycat
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Gfycat.Entity
+  commentId: T:Gfycat.Entity
+  parent: Gfycat
+  isExternal: false
+  name: Entity
+  nameWithType: Entity
+  fullName: Gfycat.Entity
+- uid: Gfycat.IFolderContent
+  commentId: T:Gfycat.IFolderContent
+  parent: Gfycat
+  isExternal: false
+  name: IFolderContent
+  nameWithType: IFolderContent
+  fullName: Gfycat.IFolderContent
+- uid: Gfycat.IFolder
+  commentId: T:Gfycat.IFolder
+  parent: Gfycat
+  isExternal: false
+  name: IFolder
+  nameWithType: IFolder
+  fullName: Gfycat.IFolder
+- uid: Gfycat.IUpdatable
+  commentId: T:Gfycat.IUpdatable
+  parent: Gfycat
+  isExternal: false
+  name: IUpdatable
+  nameWithType: IUpdatable
+  fullName: Gfycat.IUpdatable
+- uid: Gfycat.Entity.Id
+  commentId: P:Gfycat.Entity.Id
+  parent: Gfycat.Entity
+  isExternal: false
+  name: Id
+  nameWithType: Entity.Id
+  fullName: Gfycat.Entity.Id
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Gfycat.Album.Title*
+  commentId: Overload:Gfycat.Album.Title
+  isExternal: false
+  name: Title
+  nameWithType: Album.Title
+  fullName: Gfycat.Album.Title
+- uid: Gfycat.IFolder.Title
+  commentId: P:Gfycat.IFolder.Title
+  parent: Gfycat.IFolder
+  isExternal: false
+  name: Title
+  nameWithType: IFolder.Title
+  fullName: Gfycat.IFolder.Title
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Gfycat.Gfy
+  commentId: T:Gfycat.Gfy
+  parent: Gfycat
+  isExternal: false
+  name: Gfy
+  nameWithType: Gfy
+  fullName: Gfycat.Gfy
+- uid: Gfycat.Album.Count*
+  commentId: Overload:Gfycat.Album.Count
+  isExternal: false
+  name: Count
+  nameWithType: Album.Count
+  fullName: Gfycat.Album.Count
+- uid: Gfycat.IFolderContent.Count
+  commentId: P:Gfycat.IFolderContent.Count
+  parent: Gfycat.IFolderContent
+  isExternal: false
+  name: Count
+  nameWithType: IFolderContent.Count
+  fullName: Gfycat.IFolderContent.Count
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Gfycat.Album.Content*
+  commentId: Overload:Gfycat.Album.Content
+  isExternal: false
+  name: Content
+  nameWithType: Album.Content
+  fullName: Gfycat.Album.Content
+- uid: Gfycat.IFolderContent.Content
+  commentId: P:Gfycat.IFolderContent.Content
+  parent: Gfycat.IFolderContent
+  isExternal: false
+  name: Content
+  nameWithType: IFolderContent.Content
+  fullName: Gfycat.IFolderContent.Content
+- uid: IReadOnlyCollection{Gfycat.Gfy}
+  commentId: '!:IReadOnlyCollection{Gfycat.Gfy}'
+  definition: IReadOnlyCollection`1
+  name: IReadOnlyCollection<Gfy>
+  nameWithType: IReadOnlyCollection<Gfy>
+  fullName: IReadOnlyCollection<Gfycat.Gfy>
+  nameWithType.vb: IReadOnlyCollection(Of Gfy)
+  fullName.vb: IReadOnlyCollection(Of Gfycat.Gfy)
+  name.vb: IReadOnlyCollection(Of Gfy)
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.Gfy
+    name: Gfy
+    nameWithType: Gfy
+    fullName: Gfycat.Gfy
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.Gfy
+    name: Gfy
+    nameWithType: Gfy
+    fullName: Gfycat.Gfy
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IReadOnlyCollection`1
+  isExternal: true
+  name: IReadOnlyCollection<>
+  nameWithType: IReadOnlyCollection<>
+  fullName: IReadOnlyCollection<>
+  nameWithType.vb: IReadOnlyCollection(Of )
+  fullName.vb: IReadOnlyCollection(Of )
+  name.vb: IReadOnlyCollection(Of )
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.Album.CoverImageUrl*
+  commentId: Overload:Gfycat.Album.CoverImageUrl
+  isExternal: false
+  name: CoverImageUrl
+  nameWithType: Album.CoverImageUrl
+  fullName: Gfycat.Album.CoverImageUrl
+- uid: Gfycat.Album.CoverImageUrlMobile*
+  commentId: Overload:Gfycat.Album.CoverImageUrlMobile
+  isExternal: false
+  name: CoverImageUrlMobile
+  nameWithType: Album.CoverImageUrlMobile
+  fullName: Gfycat.Album.CoverImageUrlMobile
+- uid: Gfycat.Album.NsfwSetting*
+  commentId: Overload:Gfycat.Album.NsfwSetting
+  isExternal: false
+  name: NsfwSetting
+  nameWithType: Album.NsfwSetting
+  fullName: Gfycat.Album.NsfwSetting
+- uid: Gfycat.NsfwSetting
+  commentId: T:Gfycat.NsfwSetting
+  parent: Gfycat
+  isExternal: false
+  name: NsfwSetting
+  nameWithType: NsfwSetting
+  fullName: Gfycat.NsfwSetting
+- uid: Gfycat.Album.Published*
+  commentId: Overload:Gfycat.Album.Published
+  isExternal: false
+  name: Published
+  nameWithType: Album.Published
+  fullName: Gfycat.Album.Published
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Gfycat.Album.Order*
+  commentId: Overload:Gfycat.Album.Order
+  isExternal: false
+  name: Order
+  nameWithType: Album.Order
+  fullName: Gfycat.Album.Order
+- uid: Gfycat.Album.ModifyTitleAsync*
+  commentId: Overload:Gfycat.Album.ModifyTitleAsync
+  isExternal: false
+  name: ModifyTitleAsync
+  nameWithType: Album.ModifyTitleAsync
+  fullName: Gfycat.Album.ModifyTitleAsync
+- uid: Gfycat.IFolder.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.IFolder.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.IFolder
+  isExternal: true
+  name: ModifyTitleAsync(String, RequestOptions)
+  nameWithType: IFolder.ModifyTitleAsync(String, RequestOptions)
+  fullName: Gfycat.IFolder.ModifyTitleAsync(System.String, Gfycat.RequestOptions)
+  spec.csharp:
+  - uid: Gfycat.IFolder.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+    name: ModifyTitleAsync
+    nameWithType: IFolder.ModifyTitleAsync
+    fullName: Gfycat.IFolder.ModifyTitleAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Gfycat.IFolder.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+    name: ModifyTitleAsync
+    nameWithType: IFolder.ModifyTitleAsync
+    fullName: Gfycat.IFolder.ModifyTitleAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.RequestOptions
+  commentId: T:Gfycat.RequestOptions
+  parent: Gfycat
+  isExternal: false
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Gfycat.RequestOptions
+- uid: Task
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: Task
+- uid: Gfycat.Album.ModifyNsfwSettingAsync*
+  commentId: Overload:Gfycat.Album.ModifyNsfwSettingAsync
+  isExternal: false
+  name: ModifyNsfwSettingAsync
+  nameWithType: Album.ModifyNsfwSettingAsync
+  fullName: Gfycat.Album.ModifyNsfwSettingAsync
+- uid: Gfycat.Album.ModifyPublishSettingAsync*
+  commentId: Overload:Gfycat.Album.ModifyPublishSettingAsync
+  isExternal: false
+  name: ModifyPublishSettingAsync
+  nameWithType: Album.ModifyPublishSettingAsync
+  fullName: Gfycat.Album.ModifyPublishSettingAsync
+- uid: Gfycat.Album.AddGfysAsync*
+  commentId: Overload:Gfycat.Album.AddGfysAsync
+  isExternal: false
+  name: AddGfysAsync
+  nameWithType: Album.AddGfysAsync
+  fullName: Gfycat.Album.AddGfysAsync
+- uid: IEnumerable{Gfycat.Gfy}
+  commentId: '!:IEnumerable{Gfycat.Gfy}'
+  definition: IEnumerable`1
+  name: IEnumerable<Gfy>
+  nameWithType: IEnumerable<Gfy>
+  fullName: IEnumerable<Gfycat.Gfy>
+  nameWithType.vb: IEnumerable(Of Gfy)
+  fullName.vb: IEnumerable(Of Gfycat.Gfy)
+  name.vb: IEnumerable(Of Gfy)
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.Gfy
+    name: Gfy
+    nameWithType: Gfy
+    fullName: Gfycat.Gfy
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.Gfy
+    name: Gfy
+    nameWithType: Gfy
+    fullName: Gfycat.Gfy
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IEnumerable`1
+  isExternal: true
+  name: IEnumerable<>
+  nameWithType: IEnumerable<>
+  fullName: IEnumerable<>
+  nameWithType.vb: IEnumerable(Of )
+  fullName.vb: IEnumerable(Of )
+  name.vb: IEnumerable(Of )
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.Album.MoveGfysAsync*
+  commentId: Overload:Gfycat.Album.MoveGfysAsync
+  isExternal: false
+  name: MoveGfysAsync
+  nameWithType: Album.MoveGfysAsync
+  fullName: Gfycat.Album.MoveGfysAsync
+- uid: Gfycat.Album
+  commentId: T:Gfycat.Album
+  parent: Gfycat
+  isExternal: false
+  name: Album
+  nameWithType: Album
+  fullName: Gfycat.Album
+- uid: Gfycat.Album.RemoveGfysAsync*
+  commentId: Overload:Gfycat.Album.RemoveGfysAsync
+  isExternal: false
+  name: RemoveGfysAsync
+  nameWithType: Album.RemoveGfysAsync
+  fullName: Gfycat.Album.RemoveGfysAsync
+- uid: Gfycat.Album.DeleteAsync*
+  commentId: Overload:Gfycat.Album.DeleteAsync
+  isExternal: false
+  name: DeleteAsync
+  nameWithType: Album.DeleteAsync
+  fullName: Gfycat.Album.DeleteAsync
+- uid: Gfycat.IFolder.DeleteAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.IFolder.DeleteAsync(Gfycat.RequestOptions)
+  parent: Gfycat.IFolder
+  isExternal: false
+  name: DeleteAsync(RequestOptions)
+  nameWithType: IFolder.DeleteAsync(RequestOptions)
+  fullName: Gfycat.IFolder.DeleteAsync(Gfycat.RequestOptions)
+  spec.csharp:
+  - uid: Gfycat.IFolder.DeleteAsync(Gfycat.RequestOptions)
+    name: DeleteAsync
+    nameWithType: IFolder.DeleteAsync
+    fullName: Gfycat.IFolder.DeleteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Gfycat.IFolder.DeleteAsync(Gfycat.RequestOptions)
+    name: DeleteAsync
+    nameWithType: IFolder.DeleteAsync
+    fullName: Gfycat.IFolder.DeleteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.Album.UpdateAsync*
+  commentId: Overload:Gfycat.Album.UpdateAsync
+  isExternal: false
+  name: UpdateAsync
+  nameWithType: Album.UpdateAsync
+  fullName: Gfycat.Album.UpdateAsync
+- uid: Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+  parent: Gfycat.IUpdatable
+  isExternal: false
+  name: UpdateAsync(RequestOptions)
+  nameWithType: IUpdatable.UpdateAsync(RequestOptions)
+  fullName: Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+  spec.csharp:
+  - uid: Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+    name: UpdateAsync
+    nameWithType: IUpdatable.UpdateAsync
+    fullName: Gfycat.IUpdatable.UpdateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+    name: UpdateAsync
+    nameWithType: IUpdatable.UpdateAsync
+    fullName: Gfycat.IUpdatable.UpdateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.Album.Gfycat#IFolderContent#MoveGfysAsync*
+  commentId: Overload:Gfycat.Album.Gfycat#IFolderContent#MoveGfysAsync
+  isExternal: false
+  name: IFolderContent.MoveGfysAsync
+  nameWithType: Album.IFolderContent.MoveGfysAsync
+  fullName: Gfycat.Album.Gfycat.IFolderContent.MoveGfysAsync
+  nameWithType.vb: Album.Gfycat.IFolderContent.MoveGfysAsync
+  name.vb: Gfycat.IFolderContent.MoveGfysAsync
+- uid: Gfycat.IFolderContent.MoveGfysAsync(Gfycat.IFolderContent,IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  commentId: M:Gfycat.IFolderContent.MoveGfysAsync(Gfycat.IFolderContent,IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+  parent: Gfycat.IFolderContent
+  isExternal: true
+  name: MoveGfysAsync(IFolderContent, IEnumerable<Gfy>, RequestOptions)
+  nameWithType: IFolderContent.MoveGfysAsync(IFolderContent, IEnumerable<Gfy>, RequestOptions)
+  fullName: Gfycat.IFolderContent.MoveGfysAsync(Gfycat.IFolderContent, IEnumerable<Gfycat.Gfy>, Gfycat.RequestOptions)
+  nameWithType.vb: IFolderContent.MoveGfysAsync(IFolderContent, IEnumerable(Of Gfy), RequestOptions)
+  fullName.vb: Gfycat.IFolderContent.MoveGfysAsync(Gfycat.IFolderContent, IEnumerable(Of Gfycat.Gfy), Gfycat.RequestOptions)
+  name.vb: MoveGfysAsync(IFolderContent, IEnumerable(Of Gfy), RequestOptions)
+  spec.csharp:
+  - uid: Gfycat.IFolderContent.MoveGfysAsync(Gfycat.IFolderContent,IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+    name: MoveGfysAsync
+    nameWithType: IFolderContent.MoveGfysAsync
+    fullName: Gfycat.IFolderContent.MoveGfysAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Gfycat.IFolderContent
+    name: IFolderContent
+    nameWithType: IFolderContent
+    fullName: Gfycat.IFolderContent
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.Gfy
+    name: Gfy
+    nameWithType: Gfy
+    fullName: Gfycat.Gfy
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Gfycat.IFolderContent.MoveGfysAsync(Gfycat.IFolderContent,IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
+    name: MoveGfysAsync
+    nameWithType: IFolderContent.MoveGfysAsync
+    fullName: Gfycat.IFolderContent.MoveGfysAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Gfycat.IFolderContent
+    name: IFolderContent
+    nameWithType: IFolderContent
+    fullName: Gfycat.IFolderContent
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.Gfy
+    name: Gfy
+    nameWithType: Gfy
+    fullName: Gfycat.Gfy
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )

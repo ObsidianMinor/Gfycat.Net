@@ -1,0 +1,325 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.InternalServerException
+  commentId: T:Gfycat.InternalServerException
+  id: InternalServerException
+  parent: Gfycat
+  children:
+  - Gfycat.InternalServerException.ErrorMessage
+  - Gfycat.InternalServerException.ErrorType
+  - Gfycat.InternalServerException.RequestMethod
+  - Gfycat.InternalServerException.RequestUri
+  - Gfycat.InternalServerException.ServerStackTrace
+  - Gfycat.InternalServerException.ToString
+  langs:
+  - csharp
+  - vb
+  name: InternalServerException
+  nameWithType: InternalServerException
+  fullName: Gfycat.InternalServerException
+  type: Class
+  source:
+    id: InternalServerException
+    path: ''
+    startLine: 3507
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nRepresents an internal Gfycat server error with message, type, and stack trace\n"
+  example: []
+  syntax:
+    content: 'public class InternalServerException : Exception'
+    content.vb: >-
+      Public Class InternalServerException
+          Inherits Exception
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Gfycat.InternalServerException.ErrorMessage
+  commentId: P:Gfycat.InternalServerException.ErrorMessage
+  id: ErrorMessage
+  parent: Gfycat.InternalServerException
+  langs:
+  - csharp
+  - vb
+  name: ErrorMessage
+  nameWithType: InternalServerException.ErrorMessage
+  fullName: Gfycat.InternalServerException.ErrorMessage
+  type: Property
+  source:
+    id: ErrorMessage
+    path: ''
+    startLine: 3509
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public string ErrorMessage { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ErrorMessage As String
+  overload: Gfycat.InternalServerException.ErrorMessage*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.InternalServerException.ErrorType
+  commentId: P:Gfycat.InternalServerException.ErrorType
+  id: ErrorType
+  parent: Gfycat.InternalServerException
+  langs:
+  - csharp
+  - vb
+  name: ErrorType
+  nameWithType: InternalServerException.ErrorType
+  fullName: Gfycat.InternalServerException.ErrorType
+  type: Property
+  source:
+    id: ErrorType
+    path: ''
+    startLine: 3511
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public string ErrorType { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ErrorType As String
+  overload: Gfycat.InternalServerException.ErrorType*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.InternalServerException.ServerStackTrace
+  commentId: P:Gfycat.InternalServerException.ServerStackTrace
+  id: ServerStackTrace
+  parent: Gfycat.InternalServerException
+  langs:
+  - csharp
+  - vb
+  name: ServerStackTrace
+  nameWithType: InternalServerException.ServerStackTrace
+  fullName: Gfycat.InternalServerException.ServerStackTrace
+  type: Property
+  source:
+    id: ServerStackTrace
+    path: ''
+    startLine: 3513
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public string[] ServerStackTrace { get; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public ReadOnly Property ServerStackTrace As String()
+  overload: Gfycat.InternalServerException.ServerStackTrace*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.InternalServerException.RequestUri
+  commentId: P:Gfycat.InternalServerException.RequestUri
+  id: RequestUri
+  parent: Gfycat.InternalServerException
+  langs:
+  - csharp
+  - vb
+  name: RequestUri
+  nameWithType: InternalServerException.RequestUri
+  fullName: Gfycat.InternalServerException.RequestUri
+  type: Property
+  source:
+    id: RequestUri
+    path: ''
+    startLine: 3515
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public Uri RequestUri { get; }
+    parameters: []
+    return:
+      type: Uri
+    content.vb: Public ReadOnly Property RequestUri As Uri
+  overload: Gfycat.InternalServerException.RequestUri*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.InternalServerException.RequestMethod
+  commentId: P:Gfycat.InternalServerException.RequestMethod
+  id: RequestMethod
+  parent: Gfycat.InternalServerException
+  langs:
+  - csharp
+  - vb
+  name: RequestMethod
+  nameWithType: InternalServerException.RequestMethod
+  fullName: Gfycat.InternalServerException.RequestMethod
+  type: Property
+  source:
+    id: RequestMethod
+    path: ''
+    startLine: 3517
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public HttpMethod RequestMethod { get; }
+    parameters: []
+    return:
+      type: HttpMethod
+    content.vb: Public ReadOnly Property RequestMethod As HttpMethod
+  overload: Gfycat.InternalServerException.RequestMethod*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.InternalServerException.ToString
+  commentId: M:Gfycat.InternalServerException.ToString
+  id: ToString
+  parent: Gfycat.InternalServerException
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: InternalServerException.ToString()
+  fullName: Gfycat.InternalServerException.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: ''
+    startLine: 3528
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString As String
+  overload: Gfycat.InternalServerException.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: Gfycat
+  commentId: N:Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Gfycat
+  fullName: Gfycat
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Gfycat.InternalServerException.ErrorMessage*
+  commentId: Overload:Gfycat.InternalServerException.ErrorMessage
+  isExternal: false
+  name: ErrorMessage
+  nameWithType: InternalServerException.ErrorMessage
+  fullName: Gfycat.InternalServerException.ErrorMessage
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Gfycat.InternalServerException.ErrorType*
+  commentId: Overload:Gfycat.InternalServerException.ErrorType
+  isExternal: false
+  name: ErrorType
+  nameWithType: InternalServerException.ErrorType
+  fullName: Gfycat.InternalServerException.ErrorType
+- uid: Gfycat.InternalServerException.ServerStackTrace*
+  commentId: Overload:Gfycat.InternalServerException.ServerStackTrace
+  isExternal: false
+  name: ServerStackTrace
+  nameWithType: InternalServerException.ServerStackTrace
+  fullName: Gfycat.InternalServerException.ServerStackTrace
+- uid: System.String[]
+  name: String[]
+  nameWithType: String[]
+  fullName: System.String[]
+  nameWithType.vb: String()
+  fullName.vb: System.String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Gfycat.InternalServerException.RequestUri*
+  commentId: Overload:Gfycat.InternalServerException.RequestUri
+  isExternal: false
+  name: RequestUri
+  nameWithType: InternalServerException.RequestUri
+  fullName: Gfycat.InternalServerException.RequestUri
+- uid: Uri
+  isExternal: true
+  name: Uri
+  nameWithType: Uri
+  fullName: Uri
+- uid: Gfycat.InternalServerException.RequestMethod*
+  commentId: Overload:Gfycat.InternalServerException.RequestMethod
+  isExternal: false
+  name: RequestMethod
+  nameWithType: InternalServerException.RequestMethod
+  fullName: Gfycat.InternalServerException.RequestMethod
+- uid: HttpMethod
+  isExternal: true
+  name: HttpMethod
+  nameWithType: HttpMethod
+  fullName: HttpMethod
+- uid: Gfycat.InternalServerException.ToString*
+  commentId: Overload:Gfycat.InternalServerException.ToString
+  isExternal: false
+  name: ToString
+  nameWithType: InternalServerException.ToString
+  fullName: Gfycat.InternalServerException.ToString

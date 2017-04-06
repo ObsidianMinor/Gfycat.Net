@@ -1,0 +1,211 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.RetryMode
+  commentId: T:Gfycat.RetryMode
+  id: RetryMode
+  parent: Gfycat
+  children:
+  - Gfycat.RetryMode.AlwaysFail
+  - Gfycat.RetryMode.AlwaysRetry
+  - Gfycat.RetryMode.Retry502
+  - Gfycat.RetryMode.RetryFirst401
+  - Gfycat.RetryMode.RetryTimeouts
+  langs:
+  - csharp
+  - vb
+  name: RetryMode
+  nameWithType: RetryMode
+  fullName: Gfycat.RetryMode
+  type: Enum
+  source:
+    id: RetryMode
+    path: ''
+    startLine: 3913
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nSpecifies retry modes for requests in the event they fail for any particular reason\n"
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum RetryMode
+    content.vb: >-
+      <Flags>
+
+      Public Enum RetryMode
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Gfycat.RetryMode.AlwaysFail
+  commentId: F:Gfycat.RetryMode.AlwaysFail
+  id: AlwaysFail
+  parent: Gfycat.RetryMode
+  langs:
+  - csharp
+  - vb
+  name: AlwaysFail
+  nameWithType: RetryMode.AlwaysFail
+  fullName: Gfycat.RetryMode.AlwaysFail
+  type: Field
+  source:
+    id: AlwaysFail
+    path: ''
+    startLine: 3919
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nAll responses don't retry\n"
+  example: []
+  syntax:
+    content: AlwaysFail = 1
+    return:
+      type: Gfycat.RetryMode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.RetryMode.RetryTimeouts
+  commentId: F:Gfycat.RetryMode.RetryTimeouts
+  id: RetryTimeouts
+  parent: Gfycat.RetryMode
+  langs:
+  - csharp
+  - vb
+  name: RetryTimeouts
+  nameWithType: RetryMode.RetryTimeouts
+  fullName: Gfycat.RetryMode.RetryTimeouts
+  type: Field
+  source:
+    id: RetryTimeouts
+    path: ''
+    startLine: 3923
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nIn the event of a task timeout, the request is attempted again\n"
+  example: []
+  syntax:
+    content: RetryTimeouts = 2
+    return:
+      type: Gfycat.RetryMode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.RetryMode.Retry502
+  commentId: F:Gfycat.RetryMode.Retry502
+  id: Retry502
+  parent: Gfycat.RetryMode
+  langs:
+  - csharp
+  - vb
+  name: Retry502
+  nameWithType: RetryMode.Retry502
+  fullName: Gfycat.RetryMode.Retry502
+  type: Field
+  source:
+    id: Retry502
+    path: ''
+    startLine: 3927
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nIn the event of 502 (Bad Gateway), the request is attempted again\n"
+  example: []
+  syntax:
+    content: Retry502 = 4
+    return:
+      type: Gfycat.RetryMode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.RetryMode.RetryFirst401
+  commentId: F:Gfycat.RetryMode.RetryFirst401
+  id: RetryFirst401
+  parent: Gfycat.RetryMode
+  langs:
+  - csharp
+  - vb
+  name: RetryFirst401
+  nameWithType: RetryMode.RetryFirst401
+  fullName: Gfycat.RetryMode.RetryFirst401
+  type: Field
+  source:
+    id: RetryFirst401
+    path: ''
+    startLine: 3931
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nIn the event of 401, this will refresh the access token if possible and retry the request. If that request fails, an exception is thrown\n"
+  example: []
+  syntax:
+    content: RetryFirst401 = 8
+    return:
+      type: Gfycat.RetryMode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.RetryMode.AlwaysRetry
+  commentId: F:Gfycat.RetryMode.AlwaysRetry
+  id: AlwaysRetry
+  parent: Gfycat.RetryMode
+  langs:
+  - csharp
+  - vb
+  name: AlwaysRetry
+  nameWithType: RetryMode.AlwaysRetry
+  fullName: Gfycat.RetryMode.AlwaysRetry
+  type: Field
+  source:
+    id: AlwaysRetry
+    path: ''
+    startLine: 3935
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nRetries the request if it times out, if it has a bad gateway, and on the first 401\n"
+  example: []
+  syntax:
+    content: AlwaysRetry = 14
+    return:
+      type: Gfycat.RetryMode
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Gfycat
+  commentId: N:Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Gfycat
+  fullName: Gfycat
+- uid: Gfycat.RetryMode
+  commentId: T:Gfycat.RetryMode
+  parent: Gfycat
+  isExternal: false
+  name: RetryMode
+  nameWithType: RetryMode
+  fullName: Gfycat.RetryMode

@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.Rest
+  commentId: N:Gfycat.Rest
+  id: Gfycat.Rest
+  children:
+  - Gfycat.Rest.IRestClient
+  - Gfycat.Rest.MultipartFile
+  - Gfycat.Rest.RestResponse
+  langs:
+  - csharp
+  - vb
+  name: Gfycat.Rest
+  nameWithType: Gfycat.Rest
+  fullName: Gfycat.Rest
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+references:
+- uid: Gfycat.Rest.IRestClient
+  commentId: T:Gfycat.Rest.IRestClient
+  isExternal: false
+  name: IRestClient
+  nameWithType: IRestClient
+  fullName: Gfycat.Rest.IRestClient
+- uid: Gfycat.Rest.MultipartFile
+  commentId: T:Gfycat.Rest.MultipartFile
+  isExternal: false
+  name: MultipartFile
+  nameWithType: MultipartFile
+  fullName: Gfycat.Rest.MultipartFile
+- uid: Gfycat.Rest.RestResponse
+  commentId: T:Gfycat.Rest.RestResponse
+  isExternal: false
+  name: RestResponse
+  nameWithType: RestResponse
+  fullName: Gfycat.Rest.RestResponse

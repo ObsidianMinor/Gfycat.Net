@@ -1,0 +1,1038 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.IUser
+  commentId: T:Gfycat.IUser
+  id: IUser
+  parent: Gfycat
+  children:
+  - Gfycat.IUser.CreationDate
+  - Gfycat.IUser.Description
+  - Gfycat.IUser.FollowAsync(Gfycat.RequestOptions)
+  - Gfycat.IUser.Followers
+  - Gfycat.IUser.Following
+  - Gfycat.IUser.GetAlbumsAsync(Gfycat.RequestOptions)
+  - Gfycat.IUser.GetFollowingUser(Gfycat.RequestOptions)
+  - Gfycat.IUser.GetGfyFeedAsync(Gfycat.RequestOptions)
+  - Gfycat.IUser.IframeProfileImageVisible
+  - Gfycat.IUser.Name
+  - Gfycat.IUser.ProfileImageUrl
+  - Gfycat.IUser.ProfileUrl
+  - Gfycat.IUser.PublishedAlbums
+  - Gfycat.IUser.PublishedGfys
+  - Gfycat.IUser.UnfollowAsync(Gfycat.RequestOptions)
+  - Gfycat.IUser.Url
+  - Gfycat.IUser.Username
+  - Gfycat.IUser.Verified
+  - Gfycat.IUser.Views
+  langs:
+  - csharp
+  - vb
+  name: IUser
+  nameWithType: IUser
+  fullName: Gfycat.IUser
+  type: Interface
+  source:
+    id: IUser
+    path: ''
+    startLine: 3599
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nRepresents a basic Gfycat user\n"
+  example: []
+  syntax:
+    content: 'public interface IUser : IUpdatable'
+    content.vb: >-
+      Public Interface IUser
+          Inherits IUpdatable
+  inheritedMembers:
+  - Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Gfycat.IUser.Username
+  commentId: P:Gfycat.IUser.Username
+  id: Username
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: Username
+  nameWithType: IUser.Username
+  fullName: Gfycat.IUser.Username
+  type: Property
+  source:
+    id: Username
+    path: ''
+    startLine: 3604
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nThe username of this user\n"
+  example: []
+  syntax:
+    content: string Username { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Username As String
+  overload: Gfycat.IUser.Username*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Gfycat.IUser.Description
+  commentId: P:Gfycat.IUser.Description
+  id: Description
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: IUser.Description
+  fullName: Gfycat.IUser.Description
+  type: Property
+  source:
+    id: Description
+    path: ''
+    startLine: 3608
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nThe description of this user\n"
+  example: []
+  syntax:
+    content: string Description { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Description As String
+  overload: Gfycat.IUser.Description*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Gfycat.IUser.ProfileUrl
+  commentId: P:Gfycat.IUser.ProfileUrl
+  id: ProfileUrl
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: ProfileUrl
+  nameWithType: IUser.ProfileUrl
+  fullName: Gfycat.IUser.ProfileUrl
+  type: Property
+  source:
+    id: ProfileUrl
+    path: ''
+    startLine: 3612
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the URL provided on the user's profile\n"
+  example: []
+  syntax:
+    content: string ProfileUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property ProfileUrl As String
+  overload: Gfycat.IUser.ProfileUrl*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Gfycat.IUser.Name
+  commentId: P:Gfycat.IUser.Name
+  id: Name
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IUser.Name
+  fullName: Gfycat.IUser.Name
+  type: Property
+  source:
+    id: Name
+    path: ''
+    startLine: 3616
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets this user's name provided on their profile\n"
+  example: []
+  syntax:
+    content: string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Name As String
+  overload: Gfycat.IUser.Name*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Gfycat.IUser.Views
+  commentId: P:Gfycat.IUser.Views
+  id: Views
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: Views
+  nameWithType: IUser.Views
+  fullName: Gfycat.IUser.Views
+  type: Property
+  source:
+    id: Views
+    path: ''
+    startLine: 3620
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the total number of Gfy views this user has recieved\n"
+  example: []
+  syntax:
+    content: int Views { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property Views As Integer
+  overload: Gfycat.IUser.Views*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Gfycat.IUser.Url
+  commentId: P:Gfycat.IUser.Url
+  id: Url
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: Url
+  nameWithType: IUser.Url
+  fullName: Gfycat.IUser.Url
+  type: Property
+  source:
+    id: Url
+    path: ''
+    startLine: 3624
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets a browser friendly URL to this user's profile\n"
+  example: []
+  syntax:
+    content: string Url { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Url As String
+  overload: Gfycat.IUser.Url*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Gfycat.IUser.CreationDate
+  commentId: P:Gfycat.IUser.CreationDate
+  id: CreationDate
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: CreationDate
+  nameWithType: IUser.CreationDate
+  fullName: Gfycat.IUser.CreationDate
+  type: Property
+  source:
+    id: CreationDate
+    path: ''
+    startLine: 3628
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the date and time of this user's account creation\n"
+  example: []
+  syntax:
+    content: DateTime CreationDate { get; }
+    parameters: []
+    return:
+      type: DateTime
+    content.vb: ReadOnly Property CreationDate As DateTime
+  overload: Gfycat.IUser.CreationDate*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Gfycat.IUser.ProfileImageUrl
+  commentId: P:Gfycat.IUser.ProfileImageUrl
+  id: ProfileImageUrl
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: ProfileImageUrl
+  nameWithType: IUser.ProfileImageUrl
+  fullName: Gfycat.IUser.ProfileImageUrl
+  type: Property
+  source:
+    id: ProfileImageUrl
+    path: ''
+    startLine: 3632
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets this user's profile image url\n"
+  example: []
+  syntax:
+    content: string ProfileImageUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property ProfileImageUrl As String
+  overload: Gfycat.IUser.ProfileImageUrl*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Gfycat.IUser.Verified
+  commentId: P:Gfycat.IUser.Verified
+  id: Verified
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: Verified
+  nameWithType: IUser.Verified
+  fullName: Gfycat.IUser.Verified
+  type: Property
+  source:
+    id: Verified
+    path: ''
+    startLine: 3636
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets whether this user is verified\n"
+  example: []
+  syntax:
+    content: bool Verified { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property Verified As Boolean
+  overload: Gfycat.IUser.Verified*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Gfycat.IUser.Followers
+  commentId: P:Gfycat.IUser.Followers
+  id: Followers
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: Followers
+  nameWithType: IUser.Followers
+  fullName: Gfycat.IUser.Followers
+  type: Property
+  source:
+    id: Followers
+    path: ''
+    startLine: 3640
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the number of users following this user\n"
+  example: []
+  syntax:
+    content: int Followers { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property Followers As Integer
+  overload: Gfycat.IUser.Followers*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Gfycat.IUser.Following
+  commentId: P:Gfycat.IUser.Following
+  id: Following
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: Following
+  nameWithType: IUser.Following
+  fullName: Gfycat.IUser.Following
+  type: Property
+  source:
+    id: Following
+    path: ''
+    startLine: 3644
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the number of users this user is following\n"
+  example: []
+  syntax:
+    content: int Following { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property Following As Integer
+  overload: Gfycat.IUser.Following*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Gfycat.IUser.IframeProfileImageVisible
+  commentId: P:Gfycat.IUser.IframeProfileImageVisible
+  id: IframeProfileImageVisible
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: IframeProfileImageVisible
+  nameWithType: IUser.IframeProfileImageVisible
+  fullName: Gfycat.IUser.IframeProfileImageVisible
+  type: Property
+  source:
+    id: IframeProfileImageVisible
+    path: ''
+    startLine: 3648
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the user’s profile image visibility on the iframe\n"
+  example: []
+  syntax:
+    content: bool IframeProfileImageVisible { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IframeProfileImageVisible As Boolean
+  overload: Gfycat.IUser.IframeProfileImageVisible*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Gfycat.IUser.PublishedGfys
+  commentId: P:Gfycat.IUser.PublishedGfys
+  id: PublishedGfys
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: PublishedGfys
+  nameWithType: IUser.PublishedGfys
+  fullName: Gfycat.IUser.PublishedGfys
+  type: Property
+  source:
+    id: PublishedGfys
+    path: ''
+    startLine: 3652
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the number of Gfys this user has published on their account\n"
+  example: []
+  syntax:
+    content: int PublishedGfys { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property PublishedGfys As Integer
+  overload: Gfycat.IUser.PublishedGfys*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Gfycat.IUser.PublishedAlbums
+  commentId: P:Gfycat.IUser.PublishedAlbums
+  id: PublishedAlbums
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: PublishedAlbums
+  nameWithType: IUser.PublishedAlbums
+  fullName: Gfycat.IUser.PublishedAlbums
+  type: Property
+  source:
+    id: PublishedAlbums
+    path: ''
+    startLine: 3656
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the number of albums this user had published on their account\n"
+  example: []
+  syntax:
+    content: int PublishedAlbums { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property PublishedAlbums As Integer
+  overload: Gfycat.IUser.PublishedAlbums*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Gfycat.IUser.GetAlbumsAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.IUser.GetAlbumsAsync(Gfycat.RequestOptions)
+  id: GetAlbumsAsync(Gfycat.RequestOptions)
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: GetAlbumsAsync(RequestOptions)
+  nameWithType: IUser.GetAlbumsAsync(RequestOptions)
+  fullName: Gfycat.IUser.GetAlbumsAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetAlbumsAsync
+    path: ''
+    startLine: 3663
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the albums of this user\n"
+  example: []
+  syntax:
+    content: Task<IEnumerable<IAlbumInfo>> GetAlbumsAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{IEnumerable{Gfycat.IAlbumInfo}}
+      description: ''
+    content.vb: Function GetAlbumsAsync(options As RequestOptions = Nothing) As Task(Of IEnumerable(Of IAlbumInfo))
+  overload: Gfycat.IUser.GetAlbumsAsync*
+- uid: Gfycat.IUser.GetGfyFeedAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.IUser.GetGfyFeedAsync(Gfycat.RequestOptions)
+  id: GetGfyFeedAsync(Gfycat.RequestOptions)
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: GetGfyFeedAsync(RequestOptions)
+  nameWithType: IUser.GetGfyFeedAsync(RequestOptions)
+  fullName: Gfycat.IUser.GetGfyFeedAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetGfyFeedAsync
+    path: ''
+    startLine: 3669
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the feed of gfys for this user\n"
+  example: []
+  syntax:
+    content: Task<GfyFeed> GetGfyFeedAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.GfyFeed}
+      description: ''
+    content.vb: Function GetGfyFeedAsync(options As RequestOptions = Nothing) As Task(Of GfyFeed)
+  overload: Gfycat.IUser.GetGfyFeedAsync*
+- uid: Gfycat.IUser.FollowAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.IUser.FollowAsync(Gfycat.RequestOptions)
+  id: FollowAsync(Gfycat.RequestOptions)
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: FollowAsync(RequestOptions)
+  nameWithType: IUser.FollowAsync(RequestOptions)
+  fullName: Gfycat.IUser.FollowAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: FollowAsync
+    path: ''
+    startLine: 3675
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nFollows this user\n"
+  example: []
+  syntax:
+    content: Task FollowAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Function FollowAsync(options As RequestOptions = Nothing) As Task
+  overload: Gfycat.IUser.FollowAsync*
+- uid: Gfycat.IUser.UnfollowAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.IUser.UnfollowAsync(Gfycat.RequestOptions)
+  id: UnfollowAsync(Gfycat.RequestOptions)
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: UnfollowAsync(RequestOptions)
+  nameWithType: IUser.UnfollowAsync(RequestOptions)
+  fullName: Gfycat.IUser.UnfollowAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: UnfollowAsync
+    path: ''
+    startLine: 3681
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nUnfollows this user\n"
+  example: []
+  syntax:
+    content: Task UnfollowAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Function UnfollowAsync(options As RequestOptions = Nothing) As Task
+  overload: Gfycat.IUser.UnfollowAsync*
+- uid: Gfycat.IUser.GetFollowingUser(Gfycat.RequestOptions)
+  commentId: M:Gfycat.IUser.GetFollowingUser(Gfycat.RequestOptions)
+  id: GetFollowingUser(Gfycat.RequestOptions)
+  parent: Gfycat.IUser
+  langs:
+  - csharp
+  - vb
+  name: GetFollowingUser(RequestOptions)
+  nameWithType: IUser.GetFollowingUser(RequestOptions)
+  fullName: Gfycat.IUser.GetFollowingUser(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetFollowingUser
+    path: ''
+    startLine: 3687
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets if the current user is following this user\n"
+  example: []
+  syntax:
+    content: Task<bool> GetFollowingUser(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{System.Boolean}
+      description: ''
+    content.vb: Function GetFollowingUser(options As RequestOptions = Nothing) As Task(Of Boolean)
+  overload: Gfycat.IUser.GetFollowingUser*
+references:
+- uid: Gfycat
+  commentId: N:Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Gfycat
+  fullName: Gfycat
+- uid: Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+  parent: Gfycat.IUpdatable
+  isExternal: false
+  name: UpdateAsync(RequestOptions)
+  nameWithType: IUpdatable.UpdateAsync(RequestOptions)
+  fullName: Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+  spec.csharp:
+  - uid: Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+    name: UpdateAsync
+    nameWithType: IUpdatable.UpdateAsync
+    fullName: Gfycat.IUpdatable.UpdateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+    name: UpdateAsync
+    nameWithType: IUpdatable.UpdateAsync
+    fullName: Gfycat.IUpdatable.UpdateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.IUpdatable
+  commentId: T:Gfycat.IUpdatable
+  parent: Gfycat
+  isExternal: false
+  name: IUpdatable
+  nameWithType: IUpdatable
+  fullName: Gfycat.IUpdatable
+- uid: Gfycat.IUser.Username*
+  commentId: Overload:Gfycat.IUser.Username
+  isExternal: false
+  name: Username
+  nameWithType: IUser.Username
+  fullName: Gfycat.IUser.Username
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Gfycat.IUser.Description*
+  commentId: Overload:Gfycat.IUser.Description
+  isExternal: false
+  name: Description
+  nameWithType: IUser.Description
+  fullName: Gfycat.IUser.Description
+- uid: Gfycat.IUser.ProfileUrl*
+  commentId: Overload:Gfycat.IUser.ProfileUrl
+  isExternal: false
+  name: ProfileUrl
+  nameWithType: IUser.ProfileUrl
+  fullName: Gfycat.IUser.ProfileUrl
+- uid: Gfycat.IUser.Name*
+  commentId: Overload:Gfycat.IUser.Name
+  isExternal: false
+  name: Name
+  nameWithType: IUser.Name
+  fullName: Gfycat.IUser.Name
+- uid: Gfycat.IUser.Views*
+  commentId: Overload:Gfycat.IUser.Views
+  isExternal: false
+  name: Views
+  nameWithType: IUser.Views
+  fullName: Gfycat.IUser.Views
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Gfycat.IUser.Url*
+  commentId: Overload:Gfycat.IUser.Url
+  isExternal: false
+  name: Url
+  nameWithType: IUser.Url
+  fullName: Gfycat.IUser.Url
+- uid: Gfycat.IUser.CreationDate*
+  commentId: Overload:Gfycat.IUser.CreationDate
+  isExternal: false
+  name: CreationDate
+  nameWithType: IUser.CreationDate
+  fullName: Gfycat.IUser.CreationDate
+- uid: DateTime
+  isExternal: true
+  name: DateTime
+  nameWithType: DateTime
+  fullName: DateTime
+- uid: Gfycat.IUser.ProfileImageUrl*
+  commentId: Overload:Gfycat.IUser.ProfileImageUrl
+  isExternal: false
+  name: ProfileImageUrl
+  nameWithType: IUser.ProfileImageUrl
+  fullName: Gfycat.IUser.ProfileImageUrl
+- uid: Gfycat.IUser.Verified*
+  commentId: Overload:Gfycat.IUser.Verified
+  isExternal: false
+  name: Verified
+  nameWithType: IUser.Verified
+  fullName: Gfycat.IUser.Verified
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Gfycat.IUser.Followers*
+  commentId: Overload:Gfycat.IUser.Followers
+  isExternal: false
+  name: Followers
+  nameWithType: IUser.Followers
+  fullName: Gfycat.IUser.Followers
+- uid: Gfycat.IUser.Following*
+  commentId: Overload:Gfycat.IUser.Following
+  isExternal: false
+  name: Following
+  nameWithType: IUser.Following
+  fullName: Gfycat.IUser.Following
+- uid: Gfycat.IUser.IframeProfileImageVisible*
+  commentId: Overload:Gfycat.IUser.IframeProfileImageVisible
+  isExternal: false
+  name: IframeProfileImageVisible
+  nameWithType: IUser.IframeProfileImageVisible
+  fullName: Gfycat.IUser.IframeProfileImageVisible
+- uid: Gfycat.IUser.PublishedGfys*
+  commentId: Overload:Gfycat.IUser.PublishedGfys
+  isExternal: false
+  name: PublishedGfys
+  nameWithType: IUser.PublishedGfys
+  fullName: Gfycat.IUser.PublishedGfys
+- uid: Gfycat.IUser.PublishedAlbums*
+  commentId: Overload:Gfycat.IUser.PublishedAlbums
+  isExternal: false
+  name: PublishedAlbums
+  nameWithType: IUser.PublishedAlbums
+  fullName: Gfycat.IUser.PublishedAlbums
+- uid: Gfycat.IUser.GetAlbumsAsync*
+  commentId: Overload:Gfycat.IUser.GetAlbumsAsync
+  isExternal: false
+  name: GetAlbumsAsync
+  nameWithType: IUser.GetAlbumsAsync
+  fullName: Gfycat.IUser.GetAlbumsAsync
+- uid: Gfycat.RequestOptions
+  commentId: T:Gfycat.RequestOptions
+  parent: Gfycat
+  isExternal: false
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Gfycat.RequestOptions
+- uid: Task{IEnumerable{Gfycat.IAlbumInfo}}
+  commentId: '!:Task{IEnumerable{Gfycat.IAlbumInfo}}'
+  definition: Task`1
+  name: Task<IEnumerable<IAlbumInfo>>
+  nameWithType: Task<IEnumerable<IAlbumInfo>>
+  fullName: Task<IEnumerable<Gfycat.IAlbumInfo>>
+  nameWithType.vb: Task(Of IEnumerable(Of IAlbumInfo))
+  fullName.vb: Task(Of IEnumerable(Of Gfycat.IAlbumInfo))
+  name.vb: Task(Of IEnumerable(Of IAlbumInfo))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.IAlbumInfo
+    name: IAlbumInfo
+    nameWithType: IAlbumInfo
+    fullName: Gfycat.IAlbumInfo
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.IAlbumInfo
+    name: IAlbumInfo
+    nameWithType: IAlbumInfo
+    fullName: Gfycat.IAlbumInfo
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task`1
+  isExternal: true
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.IUser.GetGfyFeedAsync*
+  commentId: Overload:Gfycat.IUser.GetGfyFeedAsync
+  isExternal: false
+  name: GetGfyFeedAsync
+  nameWithType: IUser.GetGfyFeedAsync
+  fullName: Gfycat.IUser.GetGfyFeedAsync
+- uid: Task{Gfycat.GfyFeed}
+  commentId: '!:Task{Gfycat.GfyFeed}'
+  definition: Task`1
+  name: Task<GfyFeed>
+  nameWithType: Task<GfyFeed>
+  fullName: Task<Gfycat.GfyFeed>
+  nameWithType.vb: Task(Of GfyFeed)
+  fullName.vb: Task(Of Gfycat.GfyFeed)
+  name.vb: Task(Of GfyFeed)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.GfyFeed
+    name: GfyFeed
+    nameWithType: GfyFeed
+    fullName: Gfycat.GfyFeed
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.GfyFeed
+    name: GfyFeed
+    nameWithType: GfyFeed
+    fullName: Gfycat.GfyFeed
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.IUser.FollowAsync*
+  commentId: Overload:Gfycat.IUser.FollowAsync
+  isExternal: false
+  name: FollowAsync
+  nameWithType: IUser.FollowAsync
+  fullName: Gfycat.IUser.FollowAsync
+- uid: Task
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: Task
+- uid: Gfycat.IUser.UnfollowAsync*
+  commentId: Overload:Gfycat.IUser.UnfollowAsync
+  isExternal: false
+  name: UnfollowAsync
+  nameWithType: IUser.UnfollowAsync
+  fullName: Gfycat.IUser.UnfollowAsync
+- uid: Gfycat.IUser.GetFollowingUser*
+  commentId: Overload:Gfycat.IUser.GetFollowingUser
+  isExternal: false
+  name: GetFollowingUser
+  nameWithType: IUser.GetFollowingUser
+  fullName: Gfycat.IUser.GetFollowingUser
+- uid: Task{System.Boolean}
+  commentId: '!:Task{System.Boolean}'
+  definition: Task`1
+  name: Task<Boolean>
+  nameWithType: Task<Boolean>
+  fullName: Task<System.Boolean>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: Task(Of System.Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )

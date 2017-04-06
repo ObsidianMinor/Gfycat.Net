@@ -1,0 +1,505 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.IFolderInfo
+  commentId: T:Gfycat.IFolderInfo
+  id: IFolderInfo
+  parent: Gfycat
+  children:
+  - Gfycat.IFolderInfo.CreateNewFolderAsync(System.String,Gfycat.RequestOptions)
+  - Gfycat.IFolderInfo.GetContentsAsync(Gfycat.RequestOptions)
+  - Gfycat.IFolderInfo.MoveFolderAsync(Gfycat.IFolderInfo,Gfycat.RequestOptions)
+  - Gfycat.IFolderInfo.Subfolders
+  langs:
+  - csharp
+  - vb
+  name: IFolderInfo
+  nameWithType: IFolderInfo
+  fullName: Gfycat.IFolderInfo
+  type: Interface
+  source:
+    id: IFolderInfo
+    path: ''
+    startLine: 3467
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nDefines a folder with basic information in a folder tree\n"
+  example: []
+  syntax:
+    content: 'public interface IFolderInfo : IFolder'
+    content.vb: >-
+      Public Interface IFolderInfo
+          Inherits IFolder
+  inheritedMembers:
+  - Gfycat.IFolder.Id
+  - Gfycat.IFolder.Title
+  - Gfycat.IFolder.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+  - Gfycat.IFolder.DeleteAsync(Gfycat.RequestOptions)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Gfycat.IFolderInfo.Subfolders
+  commentId: P:Gfycat.IFolderInfo.Subfolders
+  id: Subfolders
+  parent: Gfycat.IFolderInfo
+  langs:
+  - csharp
+  - vb
+  name: Subfolders
+  nameWithType: IFolderInfo.Subfolders
+  fullName: Gfycat.IFolderInfo.Subfolders
+  type: Property
+  source:
+    id: Subfolders
+    path: ''
+    startLine: 3472
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets all folders inside this folder\n"
+  example: []
+  syntax:
+    content: IReadOnlyCollection<IFolderInfo> Subfolders { get; }
+    parameters: []
+    return:
+      type: IReadOnlyCollection{Gfycat.IFolderInfo}
+    content.vb: ReadOnly Property Subfolders As IReadOnlyCollection(Of IFolderInfo)
+  overload: Gfycat.IFolderInfo.Subfolders*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Gfycat.IFolderInfo.GetContentsAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.IFolderInfo.GetContentsAsync(Gfycat.RequestOptions)
+  id: GetContentsAsync(Gfycat.RequestOptions)
+  parent: Gfycat.IFolderInfo
+  langs:
+  - csharp
+  - vb
+  name: GetContentsAsync(RequestOptions)
+  nameWithType: IFolderInfo.GetContentsAsync(RequestOptions)
+  fullName: Gfycat.IFolderInfo.GetContentsAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetContentsAsync
+    path: ''
+    startLine: 3479
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the contents of this folder\n"
+  example: []
+  syntax:
+    content: Task<IFolderContent> GetContentsAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.IFolderContent}
+      description: ''
+    content.vb: Function GetContentsAsync(options As RequestOptions = Nothing) As Task(Of IFolderContent)
+  overload: Gfycat.IFolderInfo.GetContentsAsync*
+- uid: Gfycat.IFolderInfo.MoveFolderAsync(Gfycat.IFolderInfo,Gfycat.RequestOptions)
+  commentId: M:Gfycat.IFolderInfo.MoveFolderAsync(Gfycat.IFolderInfo,Gfycat.RequestOptions)
+  id: MoveFolderAsync(Gfycat.IFolderInfo,Gfycat.RequestOptions)
+  parent: Gfycat.IFolderInfo
+  langs:
+  - csharp
+  - vb
+  name: MoveFolderAsync(IFolderInfo, RequestOptions)
+  nameWithType: IFolderInfo.MoveFolderAsync(IFolderInfo, RequestOptions)
+  fullName: Gfycat.IFolderInfo.MoveFolderAsync(Gfycat.IFolderInfo, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: MoveFolderAsync
+    path: ''
+    startLine: 3486
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nMoves this folder to somewhere else in the folder tree\n"
+  example: []
+  syntax:
+    content: Task MoveFolderAsync(IFolderInfo parent, RequestOptions options = null)
+    parameters:
+    - id: parent
+      type: Gfycat.IFolderInfo
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Function MoveFolderAsync(parent As IFolderInfo, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.IFolderInfo.MoveFolderAsync*
+- uid: Gfycat.IFolderInfo.CreateNewFolderAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.IFolderInfo.CreateNewFolderAsync(System.String,Gfycat.RequestOptions)
+  id: CreateNewFolderAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.IFolderInfo
+  langs:
+  - csharp
+  - vb
+  name: CreateNewFolderAsync(String, RequestOptions)
+  nameWithType: IFolderInfo.CreateNewFolderAsync(String, RequestOptions)
+  fullName: Gfycat.IFolderInfo.CreateNewFolderAsync(System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: CreateNewFolderAsync
+    path: ''
+    startLine: 3493
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nCreates a new folder inside this folder\n"
+  example: []
+  syntax:
+    content: Task CreateNewFolderAsync(string folderName, RequestOptions options = null)
+    parameters:
+    - id: folderName
+      type: System.String
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Function CreateNewFolderAsync(folderName As String, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.IFolderInfo.CreateNewFolderAsync*
+references:
+- uid: Gfycat
+  commentId: N:Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Gfycat
+  fullName: Gfycat
+- uid: Gfycat.IFolder.Id
+  commentId: P:Gfycat.IFolder.Id
+  parent: Gfycat.IFolder
+  isExternal: false
+  name: Id
+  nameWithType: IFolder.Id
+  fullName: Gfycat.IFolder.Id
+- uid: Gfycat.IFolder.Title
+  commentId: P:Gfycat.IFolder.Title
+  parent: Gfycat.IFolder
+  isExternal: false
+  name: Title
+  nameWithType: IFolder.Title
+  fullName: Gfycat.IFolder.Title
+- uid: Gfycat.IFolder.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.IFolder.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.IFolder
+  isExternal: true
+  name: ModifyTitleAsync(String, RequestOptions)
+  nameWithType: IFolder.ModifyTitleAsync(String, RequestOptions)
+  fullName: Gfycat.IFolder.ModifyTitleAsync(System.String, Gfycat.RequestOptions)
+  spec.csharp:
+  - uid: Gfycat.IFolder.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+    name: ModifyTitleAsync
+    nameWithType: IFolder.ModifyTitleAsync
+    fullName: Gfycat.IFolder.ModifyTitleAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Gfycat.IFolder.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+    name: ModifyTitleAsync
+    nameWithType: IFolder.ModifyTitleAsync
+    fullName: Gfycat.IFolder.ModifyTitleAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.IFolder.DeleteAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.IFolder.DeleteAsync(Gfycat.RequestOptions)
+  parent: Gfycat.IFolder
+  isExternal: false
+  name: DeleteAsync(RequestOptions)
+  nameWithType: IFolder.DeleteAsync(RequestOptions)
+  fullName: Gfycat.IFolder.DeleteAsync(Gfycat.RequestOptions)
+  spec.csharp:
+  - uid: Gfycat.IFolder.DeleteAsync(Gfycat.RequestOptions)
+    name: DeleteAsync
+    nameWithType: IFolder.DeleteAsync
+    fullName: Gfycat.IFolder.DeleteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Gfycat.IFolder.DeleteAsync(Gfycat.RequestOptions)
+    name: DeleteAsync
+    nameWithType: IFolder.DeleteAsync
+    fullName: Gfycat.IFolder.DeleteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.IFolder
+  commentId: T:Gfycat.IFolder
+  parent: Gfycat
+  isExternal: false
+  name: IFolder
+  nameWithType: IFolder
+  fullName: Gfycat.IFolder
+- uid: Gfycat.IFolderInfo.Subfolders*
+  commentId: Overload:Gfycat.IFolderInfo.Subfolders
+  isExternal: false
+  name: Subfolders
+  nameWithType: IFolderInfo.Subfolders
+  fullName: Gfycat.IFolderInfo.Subfolders
+- uid: IReadOnlyCollection{Gfycat.IFolderInfo}
+  commentId: '!:IReadOnlyCollection{Gfycat.IFolderInfo}'
+  definition: IReadOnlyCollection`1
+  name: IReadOnlyCollection<IFolderInfo>
+  nameWithType: IReadOnlyCollection<IFolderInfo>
+  fullName: IReadOnlyCollection<Gfycat.IFolderInfo>
+  nameWithType.vb: IReadOnlyCollection(Of IFolderInfo)
+  fullName.vb: IReadOnlyCollection(Of Gfycat.IFolderInfo)
+  name.vb: IReadOnlyCollection(Of IFolderInfo)
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.IFolderInfo
+    name: IFolderInfo
+    nameWithType: IFolderInfo
+    fullName: Gfycat.IFolderInfo
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.IFolderInfo
+    name: IFolderInfo
+    nameWithType: IFolderInfo
+    fullName: Gfycat.IFolderInfo
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IReadOnlyCollection`1
+  isExternal: true
+  name: IReadOnlyCollection<>
+  nameWithType: IReadOnlyCollection<>
+  fullName: IReadOnlyCollection<>
+  nameWithType.vb: IReadOnlyCollection(Of )
+  fullName.vb: IReadOnlyCollection(Of )
+  name.vb: IReadOnlyCollection(Of )
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.IFolderInfo.GetContentsAsync*
+  commentId: Overload:Gfycat.IFolderInfo.GetContentsAsync
+  isExternal: false
+  name: GetContentsAsync
+  nameWithType: IFolderInfo.GetContentsAsync
+  fullName: Gfycat.IFolderInfo.GetContentsAsync
+- uid: Gfycat.RequestOptions
+  commentId: T:Gfycat.RequestOptions
+  parent: Gfycat
+  isExternal: false
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Gfycat.RequestOptions
+- uid: Task{Gfycat.IFolderContent}
+  commentId: '!:Task{Gfycat.IFolderContent}'
+  definition: Task`1
+  name: Task<IFolderContent>
+  nameWithType: Task<IFolderContent>
+  fullName: Task<Gfycat.IFolderContent>
+  nameWithType.vb: Task(Of IFolderContent)
+  fullName.vb: Task(Of Gfycat.IFolderContent)
+  name.vb: Task(Of IFolderContent)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.IFolderContent
+    name: IFolderContent
+    nameWithType: IFolderContent
+    fullName: Gfycat.IFolderContent
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.IFolderContent
+    name: IFolderContent
+    nameWithType: IFolderContent
+    fullName: Gfycat.IFolderContent
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task`1
+  isExternal: true
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.IFolderInfo.MoveFolderAsync*
+  commentId: Overload:Gfycat.IFolderInfo.MoveFolderAsync
+  isExternal: false
+  name: MoveFolderAsync
+  nameWithType: IFolderInfo.MoveFolderAsync
+  fullName: Gfycat.IFolderInfo.MoveFolderAsync
+- uid: Gfycat.IFolderInfo
+  commentId: T:Gfycat.IFolderInfo
+  parent: Gfycat
+  isExternal: false
+  name: IFolderInfo
+  nameWithType: IFolderInfo
+  fullName: Gfycat.IFolderInfo
+- uid: Task
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: Task
+- uid: Gfycat.IFolderInfo.CreateNewFolderAsync*
+  commentId: Overload:Gfycat.IFolderInfo.CreateNewFolderAsync
+  isExternal: false
+  name: CreateNewFolderAsync
+  nameWithType: IFolderInfo.CreateNewFolderAsync
+  fullName: Gfycat.IFolderInfo.CreateNewFolderAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System

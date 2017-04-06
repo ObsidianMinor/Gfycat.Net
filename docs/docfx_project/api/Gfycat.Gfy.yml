@@ -1,0 +1,3482 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.Gfy
+  commentId: T:Gfycat.Gfy
+  id: Gfy
+  parent: Gfycat
+  children:
+  - Gfycat.Gfy.AverageColor
+  - Gfycat.Gfy.BookmarkAsync(Gfycat.BookmarkFolder,Gfycat.RequestOptions)
+  - Gfycat.Gfy.CreationDate
+  - Gfycat.Gfy.DeleteAsync(Gfycat.RequestOptions)
+  - Gfycat.Gfy.DeleteDescriptionAsync(Gfycat.RequestOptions)
+  - Gfycat.Gfy.DeleteDomainWhitelistAsync(Gfycat.RequestOptions)
+  - Gfycat.Gfy.DeleteGeoWhitelistAsync(Gfycat.RequestOptions)
+  - Gfycat.Gfy.DeleteTitleAsync(Gfycat.RequestOptions)
+  - Gfycat.Gfy.Description
+  - Gfycat.Gfy.Dislikes
+  - Gfycat.Gfy.DomainWhitelist
+  - Gfycat.Gfy.FrameRate
+  - Gfycat.Gfy.GetBookmarkStatusAsync(Gfycat.RequestOptions)
+  - Gfycat.Gfy.GetDomainWhitelistAsync(Gfycat.RequestOptions)
+  - Gfycat.Gfy.GetGeoWhitelistAsync(Gfycat.RequestOptions)
+  - Gfycat.Gfy.GetUserAsync(Gfycat.RequestOptions)
+  - Gfycat.Gfy.GifSize
+  - Gfycat.Gfy.GifUrl
+  - Gfycat.Gfy.Height
+  - Gfycat.Gfy.LanguageCategories
+  - Gfycat.Gfy.LanguageText
+  - Gfycat.Gfy.Likes
+  - Gfycat.Gfy.Max1MbGif
+  - Gfycat.Gfy.Max2MbGif
+  - Gfycat.Gfy.Max5MbGif
+  - Gfycat.Gfy.Md5
+  - Gfycat.Gfy.MjpgUrl
+  - Gfycat.Gfy.MobilePosterUrl
+  - Gfycat.Gfy.MobileUrl
+  - Gfycat.Gfy.ModifyDescriptionAsync(System.String,Gfycat.RequestOptions)
+  - Gfycat.Gfy.ModifyDomainWhitelistAsync(IEnumerable{System.String},Gfycat.RequestOptions)
+  - Gfycat.Gfy.ModifyGeoWhitelistAsync(IEnumerable{RegionInfo},Gfycat.RequestOptions)
+  - Gfycat.Gfy.ModifyNsfwSettingAsync(Gfycat.NsfwSetting,Gfycat.RequestOptions)
+  - Gfycat.Gfy.ModifyPublishSettingAsync(System.Boolean,Gfycat.RequestOptions)
+  - Gfycat.Gfy.ModifyTagsAsync(IEnumerable{System.String},Gfycat.RequestOptions)
+  - Gfycat.Gfy.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+  - Gfycat.Gfy.Mp4Size
+  - Gfycat.Gfy.Mp4Url
+  - Gfycat.Gfy.Name
+  - Gfycat.Gfy.Nsfw
+  - Gfycat.Gfy.Number
+  - Gfycat.Gfy.NumberOfFrames
+  - Gfycat.Gfy.PosterUrl
+  - Gfycat.Gfy.Published
+  - Gfycat.Gfy.RedditId
+  - Gfycat.Gfy.RedditIdText
+  - Gfycat.Gfy.ShareOnTwitterAsync(System.String,Gfycat.RequestOptions)
+  - Gfycat.Gfy.ShareOnTwitterAsync(System.String,System.String,System.String,Gfycat.RequestOptions)
+  - Gfycat.Gfy.Source
+  - Gfycat.Gfy.Subreddit
+  - Gfycat.Gfy.Tags
+  - Gfycat.Gfy.Thumb100PosterUrl
+  - Gfycat.Gfy.Thumb360PosterUrl
+  - Gfycat.Gfy.Thumb360Url
+  - Gfycat.Gfy.Title
+  - Gfycat.Gfy.UnbookmarkAsync(Gfycat.BookmarkFolder,Gfycat.RequestOptions)
+  - Gfycat.Gfy.UpdateAsync(Gfycat.RequestOptions)
+  - Gfycat.Gfy.Username
+  - Gfycat.Gfy.Views
+  - Gfycat.Gfy.WebmSize
+  - Gfycat.Gfy.WebmUrl
+  - Gfycat.Gfy.Width
+  langs:
+  - csharp
+  - vb
+  name: Gfy
+  nameWithType: Gfy
+  fullName: Gfycat.Gfy
+  type: Class
+  source:
+    id: Gfy
+    path: ''
+    startLine: 1646
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nAn object representation of a short, looped, soundless video moment\n"
+  example: []
+  syntax:
+    content: 'public class Gfy : Entity, IUpdatable'
+    content.vb: >-
+      Public Class Gfy
+          Inherits Entity
+          Implements IUpdatable
+  inheritance:
+  - System.Object
+  - Gfycat.Entity
+  implements:
+  - Gfycat.IUpdatable
+  inheritedMembers:
+  - Gfycat.Entity.Id
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Gfycat.Gfy.Number
+  commentId: P:Gfycat.Gfy.Number
+  id: Number
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Number
+  nameWithType: Gfy.Number
+  fullName: Gfycat.Gfy.Number
+  type: Property
+  source:
+    id: Number
+    path: ''
+    startLine: 1705
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public long Number { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property Number As Long
+  overload: Gfycat.Gfy.Number*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.WebmUrl
+  commentId: P:Gfycat.Gfy.WebmUrl
+  id: WebmUrl
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: WebmUrl
+  nameWithType: Gfy.WebmUrl
+  fullName: Gfycat.Gfy.WebmUrl
+  type: Property
+  source:
+    id: WebmUrl
+    path: ''
+    startLine: 1709
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the webm url for this gfy\n"
+  example: []
+  syntax:
+    content: public string WebmUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property WebmUrl As String
+  overload: Gfycat.Gfy.WebmUrl*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.GifUrl
+  commentId: P:Gfycat.Gfy.GifUrl
+  id: GifUrl
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: GifUrl
+  nameWithType: Gfy.GifUrl
+  fullName: Gfycat.Gfy.GifUrl
+  type: Property
+  source:
+    id: GifUrl
+    path: ''
+    startLine: 1713
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the gif url for this gfy\n"
+  example: []
+  syntax:
+    content: public string GifUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property GifUrl As String
+  overload: Gfycat.Gfy.GifUrl*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.MobileUrl
+  commentId: P:Gfycat.Gfy.MobileUrl
+  id: MobileUrl
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: MobileUrl
+  nameWithType: Gfy.MobileUrl
+  fullName: Gfycat.Gfy.MobileUrl
+  type: Property
+  source:
+    id: MobileUrl
+    path: ''
+    startLine: 1717
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the mobile url for this gfy\n"
+  example: []
+  syntax:
+    content: public string MobileUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property MobileUrl As String
+  overload: Gfycat.Gfy.MobileUrl*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.MobilePosterUrl
+  commentId: P:Gfycat.Gfy.MobilePosterUrl
+  id: MobilePosterUrl
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: MobilePosterUrl
+  nameWithType: Gfy.MobilePosterUrl
+  fullName: Gfycat.Gfy.MobilePosterUrl
+  type: Property
+  source:
+    id: MobilePosterUrl
+    path: ''
+    startLine: 1721
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the mobile cover image for this gfy\n"
+  example: []
+  syntax:
+    content: public string MobilePosterUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property MobilePosterUrl As String
+  overload: Gfycat.Gfy.MobilePosterUrl*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.PosterUrl
+  commentId: P:Gfycat.Gfy.PosterUrl
+  id: PosterUrl
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: PosterUrl
+  nameWithType: Gfy.PosterUrl
+  fullName: Gfycat.Gfy.PosterUrl
+  type: Property
+  source:
+    id: PosterUrl
+    path: ''
+    startLine: 1725
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the cover image for this gfy\n"
+  example: []
+  syntax:
+    content: public string PosterUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property PosterUrl As String
+  overload: Gfycat.Gfy.PosterUrl*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Thumb360Url
+  commentId: P:Gfycat.Gfy.Thumb360Url
+  id: Thumb360Url
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Thumb360Url
+  nameWithType: Gfy.Thumb360Url
+  fullName: Gfycat.Gfy.Thumb360Url
+  type: Property
+  source:
+    id: Thumb360Url
+    path: ''
+    startLine: 1729
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the 360mb thumbnail url for this gfy\n"
+  example: []
+  syntax:
+    content: public string Thumb360Url { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Thumb360Url As String
+  overload: Gfycat.Gfy.Thumb360Url*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Thumb360PosterUrl
+  commentId: P:Gfycat.Gfy.Thumb360PosterUrl
+  id: Thumb360PosterUrl
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Thumb360PosterUrl
+  nameWithType: Gfy.Thumb360PosterUrl
+  fullName: Gfycat.Gfy.Thumb360PosterUrl
+  type: Property
+  source:
+    id: Thumb360PosterUrl
+    path: ''
+    startLine: 1733
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the 360mb thumbnail cover url for this gfy\n"
+  example: []
+  syntax:
+    content: public string Thumb360PosterUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Thumb360PosterUrl As String
+  overload: Gfycat.Gfy.Thumb360PosterUrl*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Thumb100PosterUrl
+  commentId: P:Gfycat.Gfy.Thumb100PosterUrl
+  id: Thumb100PosterUrl
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Thumb100PosterUrl
+  nameWithType: Gfy.Thumb100PosterUrl
+  fullName: Gfycat.Gfy.Thumb100PosterUrl
+  type: Property
+  source:
+    id: Thumb100PosterUrl
+    path: ''
+    startLine: 1737
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the 100mb thumbnail cover url for this gfy\n"
+  example: []
+  syntax:
+    content: public string Thumb100PosterUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Thumb100PosterUrl As String
+  overload: Gfycat.Gfy.Thumb100PosterUrl*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Max5MbGif
+  commentId: P:Gfycat.Gfy.Max5MbGif
+  id: Max5MbGif
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Max5MbGif
+  nameWithType: Gfy.Max5MbGif
+  fullName: Gfycat.Gfy.Max5MbGif
+  type: Property
+  source:
+    id: Max5MbGif
+    path: ''
+    startLine: 1741
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the 5mb gif url for this gfy\n"
+  example: []
+  syntax:
+    content: public string Max5MbGif { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Max5MbGif As String
+  overload: Gfycat.Gfy.Max5MbGif*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Max2MbGif
+  commentId: P:Gfycat.Gfy.Max2MbGif
+  id: Max2MbGif
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Max2MbGif
+  nameWithType: Gfy.Max2MbGif
+  fullName: Gfycat.Gfy.Max2MbGif
+  type: Property
+  source:
+    id: Max2MbGif
+    path: ''
+    startLine: 1745
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the 2mb gif url for this gfy\n"
+  example: []
+  syntax:
+    content: public string Max2MbGif { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Max2MbGif As String
+  overload: Gfycat.Gfy.Max2MbGif*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Max1MbGif
+  commentId: P:Gfycat.Gfy.Max1MbGif
+  id: Max1MbGif
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Max1MbGif
+  nameWithType: Gfy.Max1MbGif
+  fullName: Gfycat.Gfy.Max1MbGif
+  type: Property
+  source:
+    id: Max1MbGif
+    path: ''
+    startLine: 1749
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the 1mb gif url for this gfy\n"
+  example: []
+  syntax:
+    content: public string Max1MbGif { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Max1MbGif As String
+  overload: Gfycat.Gfy.Max1MbGif*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.MjpgUrl
+  commentId: P:Gfycat.Gfy.MjpgUrl
+  id: MjpgUrl
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: MjpgUrl
+  nameWithType: Gfy.MjpgUrl
+  fullName: Gfycat.Gfy.MjpgUrl
+  type: Property
+  source:
+    id: MjpgUrl
+    path: ''
+    startLine: 1753
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the mjpg url for this gfy\n"
+  example: []
+  syntax:
+    content: public string MjpgUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property MjpgUrl As String
+  overload: Gfycat.Gfy.MjpgUrl*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Width
+  commentId: P:Gfycat.Gfy.Width
+  id: Width
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Width
+  nameWithType: Gfy.Width
+  fullName: Gfycat.Gfy.Width
+  type: Property
+  source:
+    id: Width
+    path: ''
+    startLine: 1757
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the width of the cover image for this gfy\n"
+  example: []
+  syntax:
+    content: public int Width { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Width As Integer
+  overload: Gfycat.Gfy.Width*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Height
+  commentId: P:Gfycat.Gfy.Height
+  id: Height
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Height
+  nameWithType: Gfy.Height
+  fullName: Gfycat.Gfy.Height
+  type: Property
+  source:
+    id: Height
+    path: ''
+    startLine: 1761
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the height of the cover image for this gfy\n"
+  example: []
+  syntax:
+    content: public int Height { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Height As Integer
+  overload: Gfycat.Gfy.Height*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.AverageColor
+  commentId: P:Gfycat.Gfy.AverageColor
+  id: AverageColor
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: AverageColor
+  nameWithType: Gfy.AverageColor
+  fullName: Gfycat.Gfy.AverageColor
+  type: Property
+  source:
+    id: AverageColor
+    path: ''
+    startLine: 1765
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the average color for this gfy\n"
+  example: []
+  syntax:
+    content: public string AverageColor { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property AverageColor As String
+  overload: Gfycat.Gfy.AverageColor*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.FrameRate
+  commentId: P:Gfycat.Gfy.FrameRate
+  id: FrameRate
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: FrameRate
+  nameWithType: Gfy.FrameRate
+  fullName: Gfycat.Gfy.FrameRate
+  type: Property
+  source:
+    id: FrameRate
+    path: ''
+    startLine: 1769
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the framerate for this gfy\n"
+  example: []
+  syntax:
+    content: public int FrameRate { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property FrameRate As Integer
+  overload: Gfycat.Gfy.FrameRate*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.NumberOfFrames
+  commentId: P:Gfycat.Gfy.NumberOfFrames
+  id: NumberOfFrames
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: NumberOfFrames
+  nameWithType: Gfy.NumberOfFrames
+  fullName: Gfycat.Gfy.NumberOfFrames
+  type: Property
+  source:
+    id: NumberOfFrames
+    path: ''
+    startLine: 1773
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the number of frames for this gfy\n"
+  example: []
+  syntax:
+    content: public int NumberOfFrames { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property NumberOfFrames As Integer
+  overload: Gfycat.Gfy.NumberOfFrames*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Mp4Size
+  commentId: P:Gfycat.Gfy.Mp4Size
+  id: Mp4Size
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Mp4Size
+  nameWithType: Gfy.Mp4Size
+  fullName: Gfycat.Gfy.Mp4Size
+  type: Property
+  source:
+    id: Mp4Size
+    path: ''
+    startLine: 1777
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the size of the mp4 version of this gfy in megabytes\n"
+  example: []
+  syntax:
+    content: public int Mp4Size { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Mp4Size As Integer
+  overload: Gfycat.Gfy.Mp4Size*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.WebmSize
+  commentId: P:Gfycat.Gfy.WebmSize
+  id: WebmSize
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: WebmSize
+  nameWithType: Gfy.WebmSize
+  fullName: Gfycat.Gfy.WebmSize
+  type: Property
+  source:
+    id: WebmSize
+    path: ''
+    startLine: 1781
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the size of the webm version of this gfy in megabytes\n"
+  example: []
+  syntax:
+    content: public int WebmSize { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property WebmSize As Integer
+  overload: Gfycat.Gfy.WebmSize*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.GifSize
+  commentId: P:Gfycat.Gfy.GifSize
+  id: GifSize
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: GifSize
+  nameWithType: Gfy.GifSize
+  fullName: Gfycat.Gfy.GifSize
+  type: Property
+  source:
+    id: GifSize
+    path: ''
+    startLine: 1785
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the size of the gif version of this gfy in megabytes\n"
+  example: []
+  syntax:
+    content: public int GifSize { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property GifSize As Integer
+  overload: Gfycat.Gfy.GifSize*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Source
+  commentId: P:Gfycat.Gfy.Source
+  id: Source
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: Gfy.Source
+  fullName: Gfycat.Gfy.Source
+  type: Property
+  source:
+    id: Source
+    path: ''
+    startLine: 1786
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public string Source { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Source As String
+  overload: Gfycat.Gfy.Source*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.CreationDate
+  commentId: P:Gfycat.Gfy.CreationDate
+  id: CreationDate
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: CreationDate
+  nameWithType: Gfy.CreationDate
+  fullName: Gfycat.Gfy.CreationDate
+  type: Property
+  source:
+    id: CreationDate
+    path: ''
+    startLine: 1790
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the creation date of this gfy\n"
+  example: []
+  syntax:
+    content: public DateTime CreationDate { get; }
+    parameters: []
+    return:
+      type: DateTime
+    content.vb: Public ReadOnly Property CreationDate As DateTime
+  overload: Gfycat.Gfy.CreationDate*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Nsfw
+  commentId: P:Gfycat.Gfy.Nsfw
+  id: Nsfw
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Nsfw
+  nameWithType: Gfy.Nsfw
+  fullName: Gfycat.Gfy.Nsfw
+  type: Property
+  source:
+    id: Nsfw
+    path: ''
+    startLine: 1794
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the current nsfw setting of this gfy\n"
+  example: []
+  syntax:
+    content: public NsfwSetting Nsfw { get; }
+    parameters: []
+    return:
+      type: Gfycat.NsfwSetting
+    content.vb: Public ReadOnly Property Nsfw As NsfwSetting
+  overload: Gfycat.Gfy.Nsfw*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Mp4Url
+  commentId: P:Gfycat.Gfy.Mp4Url
+  id: Mp4Url
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Mp4Url
+  nameWithType: Gfy.Mp4Url
+  fullName: Gfycat.Gfy.Mp4Url
+  type: Property
+  source:
+    id: Mp4Url
+    path: ''
+    startLine: 1798
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the mp4 url of this gfy\n"
+  example: []
+  syntax:
+    content: public string Mp4Url { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Mp4Url As String
+  overload: Gfycat.Gfy.Mp4Url*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Likes
+  commentId: P:Gfycat.Gfy.Likes
+  id: Likes
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Likes
+  nameWithType: Gfy.Likes
+  fullName: Gfycat.Gfy.Likes
+  type: Property
+  source:
+    id: Likes
+    path: ''
+    startLine: 1802
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the number of likes for this gfy\n"
+  example: []
+  syntax:
+    content: public int Likes { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Likes As Integer
+  overload: Gfycat.Gfy.Likes*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Published
+  commentId: P:Gfycat.Gfy.Published
+  id: Published
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Published
+  nameWithType: Gfy.Published
+  fullName: Gfycat.Gfy.Published
+  type: Property
+  source:
+    id: Published
+    path: ''
+    startLine: 1806
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets whether this gfy is publicly available\n"
+  example: []
+  syntax:
+    content: public bool Published { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property Published As Boolean
+  overload: Gfycat.Gfy.Published*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Dislikes
+  commentId: P:Gfycat.Gfy.Dislikes
+  id: Dislikes
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Dislikes
+  nameWithType: Gfy.Dislikes
+  fullName: Gfycat.Gfy.Dislikes
+  type: Property
+  source:
+    id: Dislikes
+    path: ''
+    startLine: 1810
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the number of dislikes for this gfy\n"
+  example: []
+  syntax:
+    content: public int Dislikes { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Dislikes As Integer
+  overload: Gfycat.Gfy.Dislikes*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Md5
+  commentId: P:Gfycat.Gfy.Md5
+  id: Md5
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Md5
+  nameWithType: Gfy.Md5
+  fullName: Gfycat.Gfy.Md5
+  type: Property
+  source:
+    id: Md5
+    path: ''
+    startLine: 1814
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the md5 hash of this gfy\n"
+  example: []
+  syntax:
+    content: public string Md5 { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Md5 As String
+  overload: Gfycat.Gfy.Md5*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Views
+  commentId: P:Gfycat.Gfy.Views
+  id: Views
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Views
+  nameWithType: Gfy.Views
+  fullName: Gfycat.Gfy.Views
+  type: Property
+  source:
+    id: Views
+    path: ''
+    startLine: 1818
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the number of view for this gfy\n"
+  example: []
+  syntax:
+    content: public int Views { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Views As Integer
+  overload: Gfycat.Gfy.Views*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Tags
+  commentId: P:Gfycat.Gfy.Tags
+  id: Tags
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Tags
+  nameWithType: Gfy.Tags
+  fullName: Gfycat.Gfy.Tags
+  type: Property
+  source:
+    id: Tags
+    path: ''
+    startLine: 1822
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the tags of this gfy\n"
+  example: []
+  syntax:
+    content: public IReadOnlyCollection<string> Tags { get; }
+    parameters: []
+    return:
+      type: IReadOnlyCollection{System.String}
+    content.vb: Public ReadOnly Property Tags As IReadOnlyCollection(Of String)
+  overload: Gfycat.Gfy.Tags*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Username
+  commentId: P:Gfycat.Gfy.Username
+  id: Username
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Username
+  nameWithType: Gfy.Username
+  fullName: Gfycat.Gfy.Username
+  type: Property
+  source:
+    id: Username
+    path: ''
+    startLine: 1826
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the username of the owner of this gfy\n"
+  example: []
+  syntax:
+    content: public string Username { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Username As String
+  overload: Gfycat.Gfy.Username*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Name
+  commentId: P:Gfycat.Gfy.Name
+  id: Name
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Gfy.Name
+  fullName: Gfycat.Gfy.Name
+  type: Property
+  source:
+    id: Name
+    path: ''
+    startLine: 1830
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the randomly generated URL name for this gfy\n"
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: Gfycat.Gfy.Name*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Title
+  commentId: P:Gfycat.Gfy.Title
+  id: Title
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: Gfy.Title
+  fullName: Gfycat.Gfy.Title
+  type: Property
+  source:
+    id: Title
+    path: ''
+    startLine: 1834
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the title of this gfy\n"
+  example: []
+  syntax:
+    content: public string Title { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Title As String
+  overload: Gfycat.Gfy.Title*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Description
+  commentId: P:Gfycat.Gfy.Description
+  id: Description
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: Gfy.Description
+  fullName: Gfycat.Gfy.Description
+  type: Property
+  source:
+    id: Description
+    path: ''
+    startLine: 1838
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the description of this gfy\n"
+  example: []
+  syntax:
+    content: public string Description { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Description As String
+  overload: Gfycat.Gfy.Description*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.LanguageText
+  commentId: P:Gfycat.Gfy.LanguageText
+  id: LanguageText
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: LanguageText
+  nameWithType: Gfy.LanguageText
+  fullName: Gfycat.Gfy.LanguageText
+  type: Property
+  source:
+    id: LanguageText
+    path: ''
+    startLine: 1839
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public string LanguageText { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property LanguageText As String
+  overload: Gfycat.Gfy.LanguageText*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.LanguageCategories
+  commentId: P:Gfycat.Gfy.LanguageCategories
+  id: LanguageCategories
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: LanguageCategories
+  nameWithType: Gfy.LanguageCategories
+  fullName: Gfycat.Gfy.LanguageCategories
+  type: Property
+  source:
+    id: LanguageCategories
+    path: ''
+    startLine: 1840
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public IEnumerable<string> LanguageCategories { get; }
+    parameters: []
+    return:
+      type: IEnumerable{System.String}
+    content.vb: Public ReadOnly Property LanguageCategories As IEnumerable(Of String)
+  overload: Gfycat.Gfy.LanguageCategories*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.Subreddit
+  commentId: P:Gfycat.Gfy.Subreddit
+  id: Subreddit
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: Subreddit
+  nameWithType: Gfy.Subreddit
+  fullName: Gfycat.Gfy.Subreddit
+  type: Property
+  source:
+    id: Subreddit
+    path: ''
+    startLine: 1844
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the subreddit this gfy came from\n"
+  example: []
+  syntax:
+    content: public string Subreddit { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Subreddit As String
+  overload: Gfycat.Gfy.Subreddit*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.RedditId
+  commentId: P:Gfycat.Gfy.RedditId
+  id: RedditId
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: RedditId
+  nameWithType: Gfy.RedditId
+  fullName: Gfycat.Gfy.RedditId
+  type: Property
+  source:
+    id: RedditId
+    path: ''
+    startLine: 1845
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public string RedditId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property RedditId As String
+  overload: Gfycat.Gfy.RedditId*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.RedditIdText
+  commentId: P:Gfycat.Gfy.RedditIdText
+  id: RedditIdText
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: RedditIdText
+  nameWithType: Gfy.RedditIdText
+  fullName: Gfycat.Gfy.RedditIdText
+  type: Property
+  source:
+    id: RedditIdText
+    path: ''
+    startLine: 1846
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public string RedditIdText { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property RedditIdText As String
+  overload: Gfycat.Gfy.RedditIdText*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.DomainWhitelist
+  commentId: P:Gfycat.Gfy.DomainWhitelist
+  id: DomainWhitelist
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: DomainWhitelist
+  nameWithType: Gfy.DomainWhitelist
+  fullName: Gfycat.Gfy.DomainWhitelist
+  type: Property
+  source:
+    id: DomainWhitelist
+    path: ''
+    startLine: 1850
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the whitelist of domains allowed to embed this gfy\n"
+  example: []
+  syntax:
+    content: public IReadOnlyCollection<string> DomainWhitelist { get; }
+    parameters: []
+    return:
+      type: IReadOnlyCollection{System.String}
+    content.vb: Public ReadOnly Property DomainWhitelist As IReadOnlyCollection(Of String)
+  overload: Gfycat.Gfy.DomainWhitelist*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Gfy.ShareOnTwitterAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.ShareOnTwitterAsync(System.String,Gfycat.RequestOptions)
+  id: ShareOnTwitterAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: ShareOnTwitterAsync(String, RequestOptions)
+  nameWithType: Gfy.ShareOnTwitterAsync(String, RequestOptions)
+  fullName: Gfycat.Gfy.ShareOnTwitterAsync(System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: ShareOnTwitterAsync
+    path: ''
+    startLine: 1858
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nShares this gfy on twitter using the specified post status\n"
+  example: []
+  syntax:
+    content: public Task ShareOnTwitterAsync(string postStatus, RequestOptions options = null)
+    parameters:
+    - id: postStatus
+      type: System.String
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function ShareOnTwitterAsync(postStatus As String, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.ShareOnTwitterAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.ShareOnTwitterAsync(System.String,System.String,System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.ShareOnTwitterAsync(System.String,System.String,System.String,Gfycat.RequestOptions)
+  id: ShareOnTwitterAsync(System.String,System.String,System.String,Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: ShareOnTwitterAsync(String, String, String, RequestOptions)
+  nameWithType: Gfy.ShareOnTwitterAsync(String, String, String, RequestOptions)
+  fullName: Gfycat.Gfy.ShareOnTwitterAsync(System.String, System.String, System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: ShareOnTwitterAsync
+    path: ''
+    startLine: 1871
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nShares this gfy on twitter using the specified post status with an account verifier and token\n"
+  example: []
+  syntax:
+    content: public Task ShareOnTwitterAsync(string postStatus, string verifier, string token, RequestOptions options = null)
+    parameters:
+    - id: postStatus
+      type: System.String
+      description: ''
+    - id: verifier
+      type: System.String
+      description: ''
+    - id: token
+      type: System.String
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function ShareOnTwitterAsync(postStatus As String, verifier As String, token As String, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.ShareOnTwitterAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+  id: ModifyTitleAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: ModifyTitleAsync(String, RequestOptions)
+  nameWithType: Gfy.ModifyTitleAsync(String, RequestOptions)
+  fullName: Gfycat.Gfy.ModifyTitleAsync(System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: ModifyTitleAsync
+    path: ''
+    startLine: 1882
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nModifies the title of this gfy\n"
+  example: []
+  syntax:
+    content: public Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
+    parameters:
+    - id: newTitle
+      type: System.String
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function ModifyTitleAsync(newTitle As String, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.ModifyTitleAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.DeleteTitleAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.DeleteTitleAsync(Gfycat.RequestOptions)
+  id: DeleteTitleAsync(Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: DeleteTitleAsync(RequestOptions)
+  nameWithType: Gfy.DeleteTitleAsync(RequestOptions)
+  fullName: Gfycat.Gfy.DeleteTitleAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: DeleteTitleAsync
+    path: ''
+    startLine: 1893
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nDeletes the title of this gfy\n"
+  example: []
+  syntax:
+    content: public Task DeleteTitleAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function DeleteTitleAsync(options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.DeleteTitleAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.ModifyTagsAsync(IEnumerable{System.String},Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.ModifyTagsAsync(IEnumerable{System.String},Gfycat.RequestOptions)
+  id: ModifyTagsAsync(IEnumerable{System.String},Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: ModifyTagsAsync(IEnumerable<String>, RequestOptions)
+  nameWithType: Gfy.ModifyTagsAsync(IEnumerable<String>, RequestOptions)
+  fullName: Gfycat.Gfy.ModifyTagsAsync(IEnumerable<System.String>, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: ModifyTagsAsync
+    path: ''
+    startLine: 1905
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nEdits the tags of this gfy. Tag counts over twenty throw argument exceptions\n"
+  example: []
+  syntax:
+    content: public Task ModifyTagsAsync(IEnumerable<string> tags, RequestOptions options = null)
+    parameters:
+    - id: tags
+      type: IEnumerable{System.String}
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function ModifyTagsAsync(tags As IEnumerable(Of String), options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.ModifyTagsAsync*
+  nameWithType.vb: Gfy.ModifyTagsAsync(IEnumerable(Of String), RequestOptions)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Gfycat.Gfy.ModifyTagsAsync(IEnumerable(Of System.String), Gfycat.RequestOptions)
+  name.vb: ModifyTagsAsync(IEnumerable(Of String), RequestOptions)
+- uid: Gfycat.Gfy.GetDomainWhitelistAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.GetDomainWhitelistAsync(Gfycat.RequestOptions)
+  id: GetDomainWhitelistAsync(Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: GetDomainWhitelistAsync(RequestOptions)
+  nameWithType: Gfy.GetDomainWhitelistAsync(RequestOptions)
+  fullName: Gfycat.Gfy.GetDomainWhitelistAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetDomainWhitelistAsync
+    path: ''
+    startLine: 1919
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the whitelist of domains allowed to embed this gfy\n"
+  example: []
+  syntax:
+    content: public Task<IEnumerable<string>> GetDomainWhitelistAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{IEnumerable{System.String}}
+      description: ''
+    content.vb: Public Function GetDomainWhitelistAsync(options As RequestOptions = Nothing) As Task(Of IEnumerable(Of String))
+  overload: Gfycat.Gfy.GetDomainWhitelistAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.ModifyDomainWhitelistAsync(IEnumerable{System.String},Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.ModifyDomainWhitelistAsync(IEnumerable{System.String},Gfycat.RequestOptions)
+  id: ModifyDomainWhitelistAsync(IEnumerable{System.String},Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: ModifyDomainWhitelistAsync(IEnumerable<String>, RequestOptions)
+  nameWithType: Gfy.ModifyDomainWhitelistAsync(IEnumerable<String>, RequestOptions)
+  fullName: Gfycat.Gfy.ModifyDomainWhitelistAsync(IEnumerable<System.String>, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: ModifyDomainWhitelistAsync
+    path: ''
+    startLine: 1929
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nChanges the whitelist of domains allowed to embed this gfy to the new list\n"
+  example: []
+  syntax:
+    content: public Task ModifyDomainWhitelistAsync(IEnumerable<string> newWhitelist, RequestOptions options = null)
+    parameters:
+    - id: newWhitelist
+      type: IEnumerable{System.String}
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function ModifyDomainWhitelistAsync(newWhitelist As IEnumerable(Of String), options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.ModifyDomainWhitelistAsync*
+  nameWithType.vb: Gfy.ModifyDomainWhitelistAsync(IEnumerable(Of String), RequestOptions)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Gfycat.Gfy.ModifyDomainWhitelistAsync(IEnumerable(Of System.String), Gfycat.RequestOptions)
+  name.vb: ModifyDomainWhitelistAsync(IEnumerable(Of String), RequestOptions)
+- uid: Gfycat.Gfy.DeleteDomainWhitelistAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.DeleteDomainWhitelistAsync(Gfycat.RequestOptions)
+  id: DeleteDomainWhitelistAsync(Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: DeleteDomainWhitelistAsync(RequestOptions)
+  nameWithType: Gfy.DeleteDomainWhitelistAsync(RequestOptions)
+  fullName: Gfycat.Gfy.DeleteDomainWhitelistAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: DeleteDomainWhitelistAsync
+    path: ''
+    startLine: 1940
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nDeletes the whitelist of domains allowed to embed this gfy\n"
+  example: []
+  syntax:
+    content: public Task DeleteDomainWhitelistAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function DeleteDomainWhitelistAsync(options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.DeleteDomainWhitelistAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.GetGeoWhitelistAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.GetGeoWhitelistAsync(Gfycat.RequestOptions)
+  id: GetGeoWhitelistAsync(Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: GetGeoWhitelistAsync(RequestOptions)
+  nameWithType: Gfy.GetGeoWhitelistAsync(RequestOptions)
+  fullName: Gfycat.Gfy.GetGeoWhitelistAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetGeoWhitelistAsync
+    path: ''
+    startLine: 1951
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the whitelist of regions allowed to embed this gfy\n"
+  example: []
+  syntax:
+    content: public Task<IEnumerable<RegionInfo>> GetGeoWhitelistAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{IEnumerable{RegionInfo}}
+      description: ''
+    content.vb: Public Function GetGeoWhitelistAsync(options As RequestOptions = Nothing) As Task(Of IEnumerable(Of RegionInfo))
+  overload: Gfycat.Gfy.GetGeoWhitelistAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.ModifyGeoWhitelistAsync(IEnumerable{RegionInfo},Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.ModifyGeoWhitelistAsync(IEnumerable{RegionInfo},Gfycat.RequestOptions)
+  id: ModifyGeoWhitelistAsync(IEnumerable{RegionInfo},Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: ModifyGeoWhitelistAsync(IEnumerable<RegionInfo>, RequestOptions)
+  nameWithType: Gfy.ModifyGeoWhitelistAsync(IEnumerable<RegionInfo>, RequestOptions)
+  fullName: Gfycat.Gfy.ModifyGeoWhitelistAsync(IEnumerable<RegionInfo>, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: ModifyGeoWhitelistAsync
+    path: ''
+    startLine: 1961
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nChanges the whitelist of regions allowed to embed this gfy to the new list\n"
+  example: []
+  syntax:
+    content: public Task ModifyGeoWhitelistAsync(IEnumerable<RegionInfo> newWhitelist, RequestOptions options = null)
+    parameters:
+    - id: newWhitelist
+      type: IEnumerable{RegionInfo}
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function ModifyGeoWhitelistAsync(newWhitelist As IEnumerable(Of RegionInfo), options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.ModifyGeoWhitelistAsync*
+  nameWithType.vb: Gfy.ModifyGeoWhitelistAsync(IEnumerable(Of RegionInfo), RequestOptions)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Gfycat.Gfy.ModifyGeoWhitelistAsync(IEnumerable(Of RegionInfo), Gfycat.RequestOptions)
+  name.vb: ModifyGeoWhitelistAsync(IEnumerable(Of RegionInfo), RequestOptions)
+- uid: Gfycat.Gfy.DeleteGeoWhitelistAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.DeleteGeoWhitelistAsync(Gfycat.RequestOptions)
+  id: DeleteGeoWhitelistAsync(Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: DeleteGeoWhitelistAsync(RequestOptions)
+  nameWithType: Gfy.DeleteGeoWhitelistAsync(RequestOptions)
+  fullName: Gfycat.Gfy.DeleteGeoWhitelistAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: DeleteGeoWhitelistAsync
+    path: ''
+    startLine: 1971
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nDeletes the whitelist of regions allowed to embed this gfy\n"
+  example: []
+  syntax:
+    content: public Task DeleteGeoWhitelistAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function DeleteGeoWhitelistAsync(options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.DeleteGeoWhitelistAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.ModifyDescriptionAsync(System.String,Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.ModifyDescriptionAsync(System.String,Gfycat.RequestOptions)
+  id: ModifyDescriptionAsync(System.String,Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: ModifyDescriptionAsync(String, RequestOptions)
+  nameWithType: Gfy.ModifyDescriptionAsync(String, RequestOptions)
+  fullName: Gfycat.Gfy.ModifyDescriptionAsync(System.String, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: ModifyDescriptionAsync
+    path: ''
+    startLine: 1982
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nModifies the description of this gfy to the new value\n"
+  example: []
+  syntax:
+    content: public Task ModifyDescriptionAsync(string newDescription, RequestOptions options = null)
+    parameters:
+    - id: newDescription
+      type: System.String
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function ModifyDescriptionAsync(newDescription As String, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.ModifyDescriptionAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.DeleteDescriptionAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.DeleteDescriptionAsync(Gfycat.RequestOptions)
+  id: DeleteDescriptionAsync(Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: DeleteDescriptionAsync(RequestOptions)
+  nameWithType: Gfy.DeleteDescriptionAsync(RequestOptions)
+  fullName: Gfycat.Gfy.DeleteDescriptionAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: DeleteDescriptionAsync
+    path: ''
+    startLine: 1992
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nDeletes the description of this gfy\n"
+  example: []
+  syntax:
+    content: public Task DeleteDescriptionAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function DeleteDescriptionAsync(options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.DeleteDescriptionAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.ModifyPublishSettingAsync(System.Boolean,Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.ModifyPublishSettingAsync(System.Boolean,Gfycat.RequestOptions)
+  id: ModifyPublishSettingAsync(System.Boolean,Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: ModifyPublishSettingAsync(Boolean, RequestOptions)
+  nameWithType: Gfy.ModifyPublishSettingAsync(Boolean, RequestOptions)
+  fullName: Gfycat.Gfy.ModifyPublishSettingAsync(System.Boolean, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: ModifyPublishSettingAsync
+    path: ''
+    startLine: 2003
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nModifies the published setting of this gfy to the new value\n"
+  example: []
+  syntax:
+    content: public Task ModifyPublishSettingAsync(bool published, RequestOptions options = null)
+    parameters:
+    - id: published
+      type: System.Boolean
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function ModifyPublishSettingAsync(published As Boolean, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.ModifyPublishSettingAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.ModifyNsfwSettingAsync(Gfycat.NsfwSetting,Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.ModifyNsfwSettingAsync(Gfycat.NsfwSetting,Gfycat.RequestOptions)
+  id: ModifyNsfwSettingAsync(Gfycat.NsfwSetting,Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: ModifyNsfwSettingAsync(NsfwSetting, RequestOptions)
+  nameWithType: Gfy.ModifyNsfwSettingAsync(NsfwSetting, RequestOptions)
+  fullName: Gfycat.Gfy.ModifyNsfwSettingAsync(Gfycat.NsfwSetting, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: ModifyNsfwSettingAsync
+    path: ''
+    startLine: 2015
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nModifies the NSFW setting of this gfy\n"
+  example: []
+  syntax:
+    content: public Task ModifyNsfwSettingAsync(NsfwSetting setting, RequestOptions options = null)
+    parameters:
+    - id: setting
+      type: Gfycat.NsfwSetting
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function ModifyNsfwSettingAsync(setting As NsfwSetting, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.ModifyNsfwSettingAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.DeleteAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.DeleteAsync(Gfycat.RequestOptions)
+  id: DeleteAsync(Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync(RequestOptions)
+  nameWithType: Gfy.DeleteAsync(RequestOptions)
+  fullName: Gfycat.Gfy.DeleteAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: DeleteAsync
+    path: ''
+    startLine: 2025
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nDeletes this gfy on Gfycat\n"
+  example: []
+  syntax:
+    content: public Task DeleteAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function DeleteAsync(options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.DeleteAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.GetBookmarkStatusAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.GetBookmarkStatusAsync(Gfycat.RequestOptions)
+  id: GetBookmarkStatusAsync(Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: GetBookmarkStatusAsync(RequestOptions)
+  nameWithType: Gfy.GetBookmarkStatusAsync(RequestOptions)
+  fullName: Gfycat.Gfy.GetBookmarkStatusAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetBookmarkStatusAsync
+    path: ''
+    startLine: 2034
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nReturns a boolean that says whether or not the current Gfy is or isn't bookmarked\n"
+  example: []
+  syntax:
+    content: public Task<bool> GetBookmarkStatusAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+    return:
+      type: Task{System.Boolean}
+      description: True if bookmarked, false otherwise
+    content.vb: Public Function GetBookmarkStatusAsync(options As RequestOptions = Nothing) As Task(Of Boolean)
+  overload: Gfycat.Gfy.GetBookmarkStatusAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.BookmarkAsync(Gfycat.BookmarkFolder,Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.BookmarkAsync(Gfycat.BookmarkFolder,Gfycat.RequestOptions)
+  id: BookmarkAsync(Gfycat.BookmarkFolder,Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: BookmarkAsync(BookmarkFolder, RequestOptions)
+  nameWithType: Gfy.BookmarkAsync(BookmarkFolder, RequestOptions)
+  fullName: Gfycat.Gfy.BookmarkAsync(Gfycat.BookmarkFolder, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: BookmarkAsync
+    path: ''
+    startLine: 2044
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nBookmarks this gfy using the specified bookmark folder\n"
+  example: []
+  syntax:
+    content: public Task BookmarkAsync(BookmarkFolder folder = null, RequestOptions options = null)
+    parameters:
+    - id: folder
+      type: Gfycat.BookmarkFolder
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function BookmarkAsync(folder As BookmarkFolder = Nothing, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.BookmarkAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.UnbookmarkAsync(Gfycat.BookmarkFolder,Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.UnbookmarkAsync(Gfycat.BookmarkFolder,Gfycat.RequestOptions)
+  id: UnbookmarkAsync(Gfycat.BookmarkFolder,Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: UnbookmarkAsync(BookmarkFolder, RequestOptions)
+  nameWithType: Gfy.UnbookmarkAsync(BookmarkFolder, RequestOptions)
+  fullName: Gfycat.Gfy.UnbookmarkAsync(Gfycat.BookmarkFolder, Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: UnbookmarkAsync
+    path: ''
+    startLine: 2054
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nUnbookmarks this gfy from the specified bookmark folder\n"
+  example: []
+  syntax:
+    content: public Task UnbookmarkAsync(BookmarkFolder folder = null, RequestOptions options = null)
+    parameters:
+    - id: folder
+      type: Gfycat.BookmarkFolder
+      description: ''
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function UnbookmarkAsync(folder As BookmarkFolder = Nothing, options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.UnbookmarkAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.UpdateAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.UpdateAsync(Gfycat.RequestOptions)
+  id: UpdateAsync(Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(RequestOptions)
+  nameWithType: Gfy.UpdateAsync(RequestOptions)
+  fullName: Gfycat.Gfy.UpdateAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: UpdateAsync
+    path: ''
+    startLine: 2064
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nUpdates this gfy's info using the latest data from the server\n"
+  example: []
+  syntax:
+    content: public Task UpdateAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task
+      description: ''
+    content.vb: Public Function UpdateAsync(options As RequestOptions = Nothing) As Task
+  overload: Gfycat.Gfy.UpdateAsync*
+  implements:
+  - Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Gfy.GetUserAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.Gfy.GetUserAsync(Gfycat.RequestOptions)
+  id: GetUserAsync(Gfycat.RequestOptions)
+  parent: Gfycat.Gfy
+  langs:
+  - csharp
+  - vb
+  name: GetUserAsync(RequestOptions)
+  nameWithType: Gfy.GetUserAsync(RequestOptions)
+  fullName: Gfycat.Gfy.GetUserAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetUserAsync
+    path: ''
+    startLine: 2074
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nReturns the creator of this <xref href=\"Gfycat.Gfy\" data-throw-if-not-resolved=\"false\"></xref>. If it was uploaded or created anonymously, this returns null\n"
+  example: []
+  syntax:
+    content: public Task<User> GetUserAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.User}
+      description: ''
+    content.vb: Public Function GetUserAsync(options As RequestOptions = Nothing) As Task(Of User)
+  overload: Gfycat.Gfy.GetUserAsync*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Gfycat
+  commentId: N:Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Gfycat
+  fullName: Gfycat
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Gfycat.Entity
+  commentId: T:Gfycat.Entity
+  parent: Gfycat
+  isExternal: false
+  name: Entity
+  nameWithType: Entity
+  fullName: Gfycat.Entity
+- uid: Gfycat.IUpdatable
+  commentId: T:Gfycat.IUpdatable
+  parent: Gfycat
+  isExternal: false
+  name: IUpdatable
+  nameWithType: IUpdatable
+  fullName: Gfycat.IUpdatable
+- uid: Gfycat.Entity.Id
+  commentId: P:Gfycat.Entity.Id
+  parent: Gfycat.Entity
+  isExternal: false
+  name: Id
+  nameWithType: Entity.Id
+  fullName: Gfycat.Entity.Id
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Gfycat.Gfy.Number*
+  commentId: Overload:Gfycat.Gfy.Number
+  isExternal: false
+  name: Number
+  nameWithType: Gfy.Number
+  fullName: Gfycat.Gfy.Number
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  name: Int64
+  nameWithType: Int64
+  fullName: System.Int64
+- uid: Gfycat.Gfy.WebmUrl*
+  commentId: Overload:Gfycat.Gfy.WebmUrl
+  isExternal: false
+  name: WebmUrl
+  nameWithType: Gfy.WebmUrl
+  fullName: Gfycat.Gfy.WebmUrl
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Gfycat.Gfy.GifUrl*
+  commentId: Overload:Gfycat.Gfy.GifUrl
+  isExternal: false
+  name: GifUrl
+  nameWithType: Gfy.GifUrl
+  fullName: Gfycat.Gfy.GifUrl
+- uid: Gfycat.Gfy.MobileUrl*
+  commentId: Overload:Gfycat.Gfy.MobileUrl
+  isExternal: false
+  name: MobileUrl
+  nameWithType: Gfy.MobileUrl
+  fullName: Gfycat.Gfy.MobileUrl
+- uid: Gfycat.Gfy.MobilePosterUrl*
+  commentId: Overload:Gfycat.Gfy.MobilePosterUrl
+  isExternal: false
+  name: MobilePosterUrl
+  nameWithType: Gfy.MobilePosterUrl
+  fullName: Gfycat.Gfy.MobilePosterUrl
+- uid: Gfycat.Gfy.PosterUrl*
+  commentId: Overload:Gfycat.Gfy.PosterUrl
+  isExternal: false
+  name: PosterUrl
+  nameWithType: Gfy.PosterUrl
+  fullName: Gfycat.Gfy.PosterUrl
+- uid: Gfycat.Gfy.Thumb360Url*
+  commentId: Overload:Gfycat.Gfy.Thumb360Url
+  isExternal: false
+  name: Thumb360Url
+  nameWithType: Gfy.Thumb360Url
+  fullName: Gfycat.Gfy.Thumb360Url
+- uid: Gfycat.Gfy.Thumb360PosterUrl*
+  commentId: Overload:Gfycat.Gfy.Thumb360PosterUrl
+  isExternal: false
+  name: Thumb360PosterUrl
+  nameWithType: Gfy.Thumb360PosterUrl
+  fullName: Gfycat.Gfy.Thumb360PosterUrl
+- uid: Gfycat.Gfy.Thumb100PosterUrl*
+  commentId: Overload:Gfycat.Gfy.Thumb100PosterUrl
+  isExternal: false
+  name: Thumb100PosterUrl
+  nameWithType: Gfy.Thumb100PosterUrl
+  fullName: Gfycat.Gfy.Thumb100PosterUrl
+- uid: Gfycat.Gfy.Max5MbGif*
+  commentId: Overload:Gfycat.Gfy.Max5MbGif
+  isExternal: false
+  name: Max5MbGif
+  nameWithType: Gfy.Max5MbGif
+  fullName: Gfycat.Gfy.Max5MbGif
+- uid: Gfycat.Gfy.Max2MbGif*
+  commentId: Overload:Gfycat.Gfy.Max2MbGif
+  isExternal: false
+  name: Max2MbGif
+  nameWithType: Gfy.Max2MbGif
+  fullName: Gfycat.Gfy.Max2MbGif
+- uid: Gfycat.Gfy.Max1MbGif*
+  commentId: Overload:Gfycat.Gfy.Max1MbGif
+  isExternal: false
+  name: Max1MbGif
+  nameWithType: Gfy.Max1MbGif
+  fullName: Gfycat.Gfy.Max1MbGif
+- uid: Gfycat.Gfy.MjpgUrl*
+  commentId: Overload:Gfycat.Gfy.MjpgUrl
+  isExternal: false
+  name: MjpgUrl
+  nameWithType: Gfy.MjpgUrl
+  fullName: Gfycat.Gfy.MjpgUrl
+- uid: Gfycat.Gfy.Width*
+  commentId: Overload:Gfycat.Gfy.Width
+  isExternal: false
+  name: Width
+  nameWithType: Gfy.Width
+  fullName: Gfycat.Gfy.Width
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Gfycat.Gfy.Height*
+  commentId: Overload:Gfycat.Gfy.Height
+  isExternal: false
+  name: Height
+  nameWithType: Gfy.Height
+  fullName: Gfycat.Gfy.Height
+- uid: Gfycat.Gfy.AverageColor*
+  commentId: Overload:Gfycat.Gfy.AverageColor
+  isExternal: false
+  name: AverageColor
+  nameWithType: Gfy.AverageColor
+  fullName: Gfycat.Gfy.AverageColor
+- uid: Gfycat.Gfy.FrameRate*
+  commentId: Overload:Gfycat.Gfy.FrameRate
+  isExternal: false
+  name: FrameRate
+  nameWithType: Gfy.FrameRate
+  fullName: Gfycat.Gfy.FrameRate
+- uid: Gfycat.Gfy.NumberOfFrames*
+  commentId: Overload:Gfycat.Gfy.NumberOfFrames
+  isExternal: false
+  name: NumberOfFrames
+  nameWithType: Gfy.NumberOfFrames
+  fullName: Gfycat.Gfy.NumberOfFrames
+- uid: Gfycat.Gfy.Mp4Size*
+  commentId: Overload:Gfycat.Gfy.Mp4Size
+  isExternal: false
+  name: Mp4Size
+  nameWithType: Gfy.Mp4Size
+  fullName: Gfycat.Gfy.Mp4Size
+- uid: Gfycat.Gfy.WebmSize*
+  commentId: Overload:Gfycat.Gfy.WebmSize
+  isExternal: false
+  name: WebmSize
+  nameWithType: Gfy.WebmSize
+  fullName: Gfycat.Gfy.WebmSize
+- uid: Gfycat.Gfy.GifSize*
+  commentId: Overload:Gfycat.Gfy.GifSize
+  isExternal: false
+  name: GifSize
+  nameWithType: Gfy.GifSize
+  fullName: Gfycat.Gfy.GifSize
+- uid: Gfycat.Gfy.Source*
+  commentId: Overload:Gfycat.Gfy.Source
+  isExternal: false
+  name: Source
+  nameWithType: Gfy.Source
+  fullName: Gfycat.Gfy.Source
+- uid: Gfycat.Gfy.CreationDate*
+  commentId: Overload:Gfycat.Gfy.CreationDate
+  isExternal: false
+  name: CreationDate
+  nameWithType: Gfy.CreationDate
+  fullName: Gfycat.Gfy.CreationDate
+- uid: DateTime
+  isExternal: true
+  name: DateTime
+  nameWithType: DateTime
+  fullName: DateTime
+- uid: Gfycat.Gfy.Nsfw*
+  commentId: Overload:Gfycat.Gfy.Nsfw
+  isExternal: false
+  name: Nsfw
+  nameWithType: Gfy.Nsfw
+  fullName: Gfycat.Gfy.Nsfw
+- uid: Gfycat.NsfwSetting
+  commentId: T:Gfycat.NsfwSetting
+  parent: Gfycat
+  isExternal: false
+  name: NsfwSetting
+  nameWithType: NsfwSetting
+  fullName: Gfycat.NsfwSetting
+- uid: Gfycat.Gfy.Mp4Url*
+  commentId: Overload:Gfycat.Gfy.Mp4Url
+  isExternal: false
+  name: Mp4Url
+  nameWithType: Gfy.Mp4Url
+  fullName: Gfycat.Gfy.Mp4Url
+- uid: Gfycat.Gfy.Likes*
+  commentId: Overload:Gfycat.Gfy.Likes
+  isExternal: false
+  name: Likes
+  nameWithType: Gfy.Likes
+  fullName: Gfycat.Gfy.Likes
+- uid: Gfycat.Gfy.Published*
+  commentId: Overload:Gfycat.Gfy.Published
+  isExternal: false
+  name: Published
+  nameWithType: Gfy.Published
+  fullName: Gfycat.Gfy.Published
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Gfycat.Gfy.Dislikes*
+  commentId: Overload:Gfycat.Gfy.Dislikes
+  isExternal: false
+  name: Dislikes
+  nameWithType: Gfy.Dislikes
+  fullName: Gfycat.Gfy.Dislikes
+- uid: Gfycat.Gfy.Md5*
+  commentId: Overload:Gfycat.Gfy.Md5
+  isExternal: false
+  name: Md5
+  nameWithType: Gfy.Md5
+  fullName: Gfycat.Gfy.Md5
+- uid: Gfycat.Gfy.Views*
+  commentId: Overload:Gfycat.Gfy.Views
+  isExternal: false
+  name: Views
+  nameWithType: Gfy.Views
+  fullName: Gfycat.Gfy.Views
+- uid: Gfycat.Gfy.Tags*
+  commentId: Overload:Gfycat.Gfy.Tags
+  isExternal: false
+  name: Tags
+  nameWithType: Gfy.Tags
+  fullName: Gfycat.Gfy.Tags
+- uid: IReadOnlyCollection{System.String}
+  commentId: '!:IReadOnlyCollection{System.String}'
+  definition: IReadOnlyCollection`1
+  name: IReadOnlyCollection<String>
+  nameWithType: IReadOnlyCollection<String>
+  fullName: IReadOnlyCollection<System.String>
+  nameWithType.vb: IReadOnlyCollection(Of String)
+  fullName.vb: IReadOnlyCollection(Of System.String)
+  name.vb: IReadOnlyCollection(Of String)
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IReadOnlyCollection`1
+  isExternal: true
+  name: IReadOnlyCollection<>
+  nameWithType: IReadOnlyCollection<>
+  fullName: IReadOnlyCollection<>
+  nameWithType.vb: IReadOnlyCollection(Of )
+  fullName.vb: IReadOnlyCollection(Of )
+  name.vb: IReadOnlyCollection(Of )
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.Gfy.Username*
+  commentId: Overload:Gfycat.Gfy.Username
+  isExternal: false
+  name: Username
+  nameWithType: Gfy.Username
+  fullName: Gfycat.Gfy.Username
+- uid: Gfycat.Gfy.Name*
+  commentId: Overload:Gfycat.Gfy.Name
+  isExternal: false
+  name: Name
+  nameWithType: Gfy.Name
+  fullName: Gfycat.Gfy.Name
+- uid: Gfycat.Gfy.Title*
+  commentId: Overload:Gfycat.Gfy.Title
+  isExternal: false
+  name: Title
+  nameWithType: Gfy.Title
+  fullName: Gfycat.Gfy.Title
+- uid: Gfycat.Gfy.Description*
+  commentId: Overload:Gfycat.Gfy.Description
+  isExternal: false
+  name: Description
+  nameWithType: Gfy.Description
+  fullName: Gfycat.Gfy.Description
+- uid: Gfycat.Gfy.LanguageText*
+  commentId: Overload:Gfycat.Gfy.LanguageText
+  isExternal: false
+  name: LanguageText
+  nameWithType: Gfy.LanguageText
+  fullName: Gfycat.Gfy.LanguageText
+- uid: Gfycat.Gfy.LanguageCategories*
+  commentId: Overload:Gfycat.Gfy.LanguageCategories
+  isExternal: false
+  name: LanguageCategories
+  nameWithType: Gfy.LanguageCategories
+  fullName: Gfycat.Gfy.LanguageCategories
+- uid: IEnumerable{System.String}
+  commentId: '!:IEnumerable{System.String}'
+  definition: IEnumerable`1
+  name: IEnumerable<String>
+  nameWithType: IEnumerable<String>
+  fullName: IEnumerable<System.String>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: IEnumerable(Of System.String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IEnumerable`1
+  isExternal: true
+  name: IEnumerable<>
+  nameWithType: IEnumerable<>
+  fullName: IEnumerable<>
+  nameWithType.vb: IEnumerable(Of )
+  fullName.vb: IEnumerable(Of )
+  name.vb: IEnumerable(Of )
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.Gfy.Subreddit*
+  commentId: Overload:Gfycat.Gfy.Subreddit
+  isExternal: false
+  name: Subreddit
+  nameWithType: Gfy.Subreddit
+  fullName: Gfycat.Gfy.Subreddit
+- uid: Gfycat.Gfy.RedditId*
+  commentId: Overload:Gfycat.Gfy.RedditId
+  isExternal: false
+  name: RedditId
+  nameWithType: Gfy.RedditId
+  fullName: Gfycat.Gfy.RedditId
+- uid: Gfycat.Gfy.RedditIdText*
+  commentId: Overload:Gfycat.Gfy.RedditIdText
+  isExternal: false
+  name: RedditIdText
+  nameWithType: Gfy.RedditIdText
+  fullName: Gfycat.Gfy.RedditIdText
+- uid: Gfycat.Gfy.DomainWhitelist*
+  commentId: Overload:Gfycat.Gfy.DomainWhitelist
+  isExternal: false
+  name: DomainWhitelist
+  nameWithType: Gfy.DomainWhitelist
+  fullName: Gfycat.Gfy.DomainWhitelist
+- uid: Gfycat.Gfy.ShareOnTwitterAsync*
+  commentId: Overload:Gfycat.Gfy.ShareOnTwitterAsync
+  isExternal: false
+  name: ShareOnTwitterAsync
+  nameWithType: Gfy.ShareOnTwitterAsync
+  fullName: Gfycat.Gfy.ShareOnTwitterAsync
+- uid: Gfycat.RequestOptions
+  commentId: T:Gfycat.RequestOptions
+  parent: Gfycat
+  isExternal: false
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Gfycat.RequestOptions
+- uid: Task
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: Task
+- uid: Gfycat.Gfy.ModifyTitleAsync*
+  commentId: Overload:Gfycat.Gfy.ModifyTitleAsync
+  isExternal: false
+  name: ModifyTitleAsync
+  nameWithType: Gfy.ModifyTitleAsync
+  fullName: Gfycat.Gfy.ModifyTitleAsync
+- uid: Gfycat.Gfy.DeleteTitleAsync*
+  commentId: Overload:Gfycat.Gfy.DeleteTitleAsync
+  isExternal: false
+  name: DeleteTitleAsync
+  nameWithType: Gfy.DeleteTitleAsync
+  fullName: Gfycat.Gfy.DeleteTitleAsync
+- uid: Gfycat.Gfy.ModifyTagsAsync*
+  commentId: Overload:Gfycat.Gfy.ModifyTagsAsync
+  isExternal: false
+  name: ModifyTagsAsync
+  nameWithType: Gfy.ModifyTagsAsync
+  fullName: Gfycat.Gfy.ModifyTagsAsync
+- uid: Gfycat.Gfy.GetDomainWhitelistAsync*
+  commentId: Overload:Gfycat.Gfy.GetDomainWhitelistAsync
+  isExternal: false
+  name: GetDomainWhitelistAsync
+  nameWithType: Gfy.GetDomainWhitelistAsync
+  fullName: Gfycat.Gfy.GetDomainWhitelistAsync
+- uid: Task{IEnumerable{System.String}}
+  commentId: '!:Task{IEnumerable{System.String}}'
+  definition: Task`1
+  name: Task<IEnumerable<String>>
+  nameWithType: Task<IEnumerable<String>>
+  fullName: Task<IEnumerable<System.String>>
+  nameWithType.vb: Task(Of IEnumerable(Of String))
+  fullName.vb: Task(Of IEnumerable(Of System.String))
+  name.vb: Task(Of IEnumerable(Of String))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task`1
+  isExternal: true
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.Gfy.ModifyDomainWhitelistAsync*
+  commentId: Overload:Gfycat.Gfy.ModifyDomainWhitelistAsync
+  isExternal: false
+  name: ModifyDomainWhitelistAsync
+  nameWithType: Gfy.ModifyDomainWhitelistAsync
+  fullName: Gfycat.Gfy.ModifyDomainWhitelistAsync
+- uid: Gfycat.Gfy.DeleteDomainWhitelistAsync*
+  commentId: Overload:Gfycat.Gfy.DeleteDomainWhitelistAsync
+  isExternal: false
+  name: DeleteDomainWhitelistAsync
+  nameWithType: Gfy.DeleteDomainWhitelistAsync
+  fullName: Gfycat.Gfy.DeleteDomainWhitelistAsync
+- uid: Gfycat.Gfy.GetGeoWhitelistAsync*
+  commentId: Overload:Gfycat.Gfy.GetGeoWhitelistAsync
+  isExternal: false
+  name: GetGeoWhitelistAsync
+  nameWithType: Gfy.GetGeoWhitelistAsync
+  fullName: Gfycat.Gfy.GetGeoWhitelistAsync
+- uid: Task{IEnumerable{RegionInfo}}
+  commentId: '!:Task{IEnumerable{RegionInfo}}'
+  definition: Task`1
+  name: Task<IEnumerable<RegionInfo>>
+  nameWithType: Task<IEnumerable<RegionInfo>>
+  fullName: Task<IEnumerable<RegionInfo>>
+  nameWithType.vb: Task(Of IEnumerable(Of RegionInfo))
+  fullName.vb: Task(Of IEnumerable(Of RegionInfo))
+  name.vb: Task(Of IEnumerable(Of RegionInfo))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: RegionInfo
+    name: RegionInfo
+    nameWithType: RegionInfo
+    fullName: RegionInfo
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: RegionInfo
+    name: RegionInfo
+    nameWithType: RegionInfo
+    fullName: RegionInfo
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.Gfy.ModifyGeoWhitelistAsync*
+  commentId: Overload:Gfycat.Gfy.ModifyGeoWhitelistAsync
+  isExternal: false
+  name: ModifyGeoWhitelistAsync
+  nameWithType: Gfy.ModifyGeoWhitelistAsync
+  fullName: Gfycat.Gfy.ModifyGeoWhitelistAsync
+- uid: IEnumerable{RegionInfo}
+  commentId: '!:IEnumerable{RegionInfo}'
+  definition: IEnumerable`1
+  name: IEnumerable<RegionInfo>
+  nameWithType: IEnumerable<RegionInfo>
+  fullName: IEnumerable<RegionInfo>
+  nameWithType.vb: IEnumerable(Of RegionInfo)
+  fullName.vb: IEnumerable(Of RegionInfo)
+  name.vb: IEnumerable(Of RegionInfo)
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: RegionInfo
+    name: RegionInfo
+    nameWithType: RegionInfo
+    fullName: RegionInfo
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: RegionInfo
+    name: RegionInfo
+    nameWithType: RegionInfo
+    fullName: RegionInfo
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.Gfy.DeleteGeoWhitelistAsync*
+  commentId: Overload:Gfycat.Gfy.DeleteGeoWhitelistAsync
+  isExternal: false
+  name: DeleteGeoWhitelistAsync
+  nameWithType: Gfy.DeleteGeoWhitelistAsync
+  fullName: Gfycat.Gfy.DeleteGeoWhitelistAsync
+- uid: Gfycat.Gfy.ModifyDescriptionAsync*
+  commentId: Overload:Gfycat.Gfy.ModifyDescriptionAsync
+  isExternal: false
+  name: ModifyDescriptionAsync
+  nameWithType: Gfy.ModifyDescriptionAsync
+  fullName: Gfycat.Gfy.ModifyDescriptionAsync
+- uid: Gfycat.Gfy.DeleteDescriptionAsync*
+  commentId: Overload:Gfycat.Gfy.DeleteDescriptionAsync
+  isExternal: false
+  name: DeleteDescriptionAsync
+  nameWithType: Gfy.DeleteDescriptionAsync
+  fullName: Gfycat.Gfy.DeleteDescriptionAsync
+- uid: Gfycat.Gfy.ModifyPublishSettingAsync*
+  commentId: Overload:Gfycat.Gfy.ModifyPublishSettingAsync
+  isExternal: false
+  name: ModifyPublishSettingAsync
+  nameWithType: Gfy.ModifyPublishSettingAsync
+  fullName: Gfycat.Gfy.ModifyPublishSettingAsync
+- uid: Gfycat.Gfy.ModifyNsfwSettingAsync*
+  commentId: Overload:Gfycat.Gfy.ModifyNsfwSettingAsync
+  isExternal: false
+  name: ModifyNsfwSettingAsync
+  nameWithType: Gfy.ModifyNsfwSettingAsync
+  fullName: Gfycat.Gfy.ModifyNsfwSettingAsync
+- uid: Gfycat.Gfy.DeleteAsync*
+  commentId: Overload:Gfycat.Gfy.DeleteAsync
+  isExternal: false
+  name: DeleteAsync
+  nameWithType: Gfy.DeleteAsync
+  fullName: Gfycat.Gfy.DeleteAsync
+- uid: Gfycat.Gfy.GetBookmarkStatusAsync*
+  commentId: Overload:Gfycat.Gfy.GetBookmarkStatusAsync
+  isExternal: false
+  name: GetBookmarkStatusAsync
+  nameWithType: Gfy.GetBookmarkStatusAsync
+  fullName: Gfycat.Gfy.GetBookmarkStatusAsync
+- uid: Task{System.Boolean}
+  commentId: '!:Task{System.Boolean}'
+  definition: Task`1
+  name: Task<Boolean>
+  nameWithType: Task<Boolean>
+  fullName: Task<System.Boolean>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: Task(Of System.Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.Gfy.BookmarkAsync*
+  commentId: Overload:Gfycat.Gfy.BookmarkAsync
+  isExternal: false
+  name: BookmarkAsync
+  nameWithType: Gfy.BookmarkAsync
+  fullName: Gfycat.Gfy.BookmarkAsync
+- uid: Gfycat.BookmarkFolder
+  commentId: T:Gfycat.BookmarkFolder
+  parent: Gfycat
+  isExternal: false
+  name: BookmarkFolder
+  nameWithType: BookmarkFolder
+  fullName: Gfycat.BookmarkFolder
+- uid: Gfycat.Gfy.UnbookmarkAsync*
+  commentId: Overload:Gfycat.Gfy.UnbookmarkAsync
+  isExternal: false
+  name: UnbookmarkAsync
+  nameWithType: Gfy.UnbookmarkAsync
+  fullName: Gfycat.Gfy.UnbookmarkAsync
+- uid: Gfycat.Gfy.UpdateAsync*
+  commentId: Overload:Gfycat.Gfy.UpdateAsync
+  isExternal: false
+  name: UpdateAsync
+  nameWithType: Gfy.UpdateAsync
+  fullName: Gfycat.Gfy.UpdateAsync
+- uid: Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+  parent: Gfycat.IUpdatable
+  isExternal: false
+  name: UpdateAsync(RequestOptions)
+  nameWithType: IUpdatable.UpdateAsync(RequestOptions)
+  fullName: Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+  spec.csharp:
+  - uid: Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+    name: UpdateAsync
+    nameWithType: IUpdatable.UpdateAsync
+    fullName: Gfycat.IUpdatable.UpdateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Gfycat.IUpdatable.UpdateAsync(Gfycat.RequestOptions)
+    name: UpdateAsync
+    nameWithType: IUpdatable.UpdateAsync
+    fullName: Gfycat.IUpdatable.UpdateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.Gfy
+  commentId: T:Gfycat.Gfy
+  parent: Gfycat
+  isExternal: false
+  name: Gfy
+  nameWithType: Gfy
+  fullName: Gfycat.Gfy
+- uid: Gfycat.Gfy.GetUserAsync*
+  commentId: Overload:Gfycat.Gfy.GetUserAsync
+  isExternal: false
+  name: GetUserAsync
+  nameWithType: Gfy.GetUserAsync
+  fullName: Gfycat.Gfy.GetUserAsync
+- uid: Task{Gfycat.User}
+  commentId: '!:Task{Gfycat.User}'
+  definition: Task`1
+  name: Task<User>
+  nameWithType: Task<User>
+  fullName: Task<Gfycat.User>
+  nameWithType.vb: Task(Of User)
+  fullName.vb: Task(Of Gfycat.User)
+  name.vb: Task(Of User)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.User
+    name: User
+    nameWithType: User
+    fullName: Gfycat.User
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.User
+    name: User
+    nameWithType: User
+    fullName: Gfycat.User
+  - name: )
+    nameWithType: )
+    fullName: )

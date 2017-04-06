@@ -1,0 +1,367 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.IFeed`1
+  commentId: T:Gfycat.IFeed`1
+  id: IFeed`1
+  parent: Gfycat
+  children:
+  - Gfycat.IFeed`1.Content
+  - Gfycat.IFeed`1.Cursor
+  - Gfycat.IFeed`1.GetNextPageAsync(Gfycat.RequestOptions)
+  langs:
+  - csharp
+  - vb
+  name: IFeed<T>
+  nameWithType: IFeed<T>
+  fullName: Gfycat.IFeed<T>
+  type: Interface
+  source:
+    id: IFeed
+    path: ''
+    startLine: 3375
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nRepresents a page in a feed of content from Gfycat\n"
+  example: []
+  syntax:
+    content: 'public interface IFeed<T> : IAsyncEnumerable<T>'
+    typeParameters:
+    - id: T
+      description: ''
+    content.vb: >-
+      Public Interface IFeed(Of T)
+          Inherits IAsyncEnumerable(Of T)
+  nameWithType.vb: IFeed(Of T)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+  fullName.vb: Gfycat.IFeed(Of T)
+  name.vb: IFeed(Of T)
+- uid: Gfycat.IFeed`1.Content
+  commentId: P:Gfycat.IFeed`1.Content
+  id: Content
+  parent: Gfycat.IFeed`1
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: IFeed<T>.Content
+  fullName: Gfycat.IFeed<T>.Content
+  type: Property
+  source:
+    id: Content
+    path: ''
+    startLine: 3380
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nContains the current page of content for this feed\n"
+  example: []
+  syntax:
+    content: IReadOnlyCollection<T> Content { get; }
+    parameters: []
+    return:
+      type: IReadOnlyCollection{{T}}
+    content.vb: ReadOnly Property Content As IReadOnlyCollection(Of T)
+  overload: Gfycat.IFeed`1.Content*
+  nameWithType.vb: IFeed(Of T).Content
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+  fullName.vb: Gfycat.IFeed(Of T).Content
+- uid: Gfycat.IFeed`1.Cursor
+  commentId: P:Gfycat.IFeed`1.Cursor
+  id: Cursor
+  parent: Gfycat.IFeed`1
+  langs:
+  - csharp
+  - vb
+  name: Cursor
+  nameWithType: IFeed<T>.Cursor
+  fullName: Gfycat.IFeed<T>.Cursor
+  type: Property
+  source:
+    id: Cursor
+    path: ''
+    startLine: 3384
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nThe cursor used to get the next feed\n"
+  example: []
+  syntax:
+    content: string Cursor { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Cursor As String
+  overload: Gfycat.IFeed`1.Cursor*
+  nameWithType.vb: IFeed(Of T).Cursor
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+  fullName.vb: Gfycat.IFeed(Of T).Cursor
+- uid: Gfycat.IFeed`1.GetNextPageAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.IFeed`1.GetNextPageAsync(Gfycat.RequestOptions)
+  id: GetNextPageAsync(Gfycat.RequestOptions)
+  parent: Gfycat.IFeed`1
+  langs:
+  - csharp
+  - vb
+  name: GetNextPageAsync(RequestOptions)
+  nameWithType: IFeed<T>.GetNextPageAsync(RequestOptions)
+  fullName: Gfycat.IFeed<T>.GetNextPageAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetNextPageAsync
+    path: ''
+    startLine: 3390
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nReturns the next page of this feed\n"
+  example: []
+  syntax:
+    content: Task<IFeed<T>> GetNextPageAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.IFeed`1}
+      description: ''
+    content.vb: Function GetNextPageAsync(options As RequestOptions = Nothing) As Task(Of IFeed(Of T))
+  overload: Gfycat.IFeed`1.GetNextPageAsync*
+  nameWithType.vb: IFeed(Of T).GetNextPageAsync(RequestOptions)
+  fullName.vb: Gfycat.IFeed(Of T).GetNextPageAsync(Gfycat.RequestOptions)
+references:
+- uid: Gfycat
+  commentId: N:Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Gfycat
+  fullName: Gfycat
+- uid: Gfycat.IFeed`1.Content*
+  commentId: Overload:Gfycat.IFeed`1.Content
+  isExternal: false
+  name: Content
+  nameWithType: IFeed<T>.Content
+  fullName: Gfycat.IFeed<T>.Content
+  nameWithType.vb: IFeed(Of T).Content
+  fullName.vb: Gfycat.IFeed(Of T).Content
+- uid: IReadOnlyCollection{{T}}
+  commentId: '!:IReadOnlyCollection{`0}'
+  definition: IReadOnlyCollection`1
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IReadOnlyCollection`1
+  isExternal: true
+  name: IReadOnlyCollection<>
+  nameWithType: IReadOnlyCollection<>
+  fullName: IReadOnlyCollection<>
+  nameWithType.vb: IReadOnlyCollection(Of )
+  fullName.vb: IReadOnlyCollection(Of )
+  name.vb: IReadOnlyCollection(Of )
+  spec.csharp:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    nameWithType: IReadOnlyCollection
+    fullName: IReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.IFeed`1.Cursor*
+  commentId: Overload:Gfycat.IFeed`1.Cursor
+  isExternal: false
+  name: Cursor
+  nameWithType: IFeed<T>.Cursor
+  fullName: Gfycat.IFeed<T>.Cursor
+  nameWithType.vb: IFeed(Of T).Cursor
+  fullName.vb: Gfycat.IFeed(Of T).Cursor
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Gfycat.IFeed`1.GetNextPageAsync*
+  commentId: Overload:Gfycat.IFeed`1.GetNextPageAsync
+  isExternal: false
+  name: GetNextPageAsync
+  nameWithType: IFeed<T>.GetNextPageAsync
+  fullName: Gfycat.IFeed<T>.GetNextPageAsync
+  nameWithType.vb: IFeed(Of T).GetNextPageAsync
+  fullName.vb: Gfycat.IFeed(Of T).GetNextPageAsync
+- uid: Gfycat.RequestOptions
+  commentId: T:Gfycat.RequestOptions
+  parent: Gfycat
+  isExternal: false
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Gfycat.RequestOptions
+- uid: Task{Gfycat.IFeed`1}
+  commentId: '!:Task{Gfycat.IFeed`1}'
+  definition: Task`1
+  name: Task<IFeed<T>>
+  nameWithType: Task<IFeed<T>>
+  fullName: Task<Gfycat.IFeed<T>>
+  nameWithType.vb: Task(Of IFeed(Of T))
+  fullName.vb: Task(Of Gfycat.IFeed(Of T))
+  name.vb: Task(Of IFeed(Of T))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.IFeed`1
+    name: IFeed
+    nameWithType: IFeed
+    fullName: Gfycat.IFeed
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.IFeed`1
+    name: IFeed
+    nameWithType: IFeed
+    fullName: Gfycat.IFeed
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task`1
+  isExternal: true
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )

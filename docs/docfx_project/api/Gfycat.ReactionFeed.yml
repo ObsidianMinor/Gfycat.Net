@@ -1,0 +1,880 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.ReactionFeed
+  commentId: T:Gfycat.ReactionFeed
+  id: ReactionFeed
+  parent: Gfycat
+  children:
+  - Gfycat.ReactionFeed.CoverGfy
+  - Gfycat.ReactionFeed.GetEnumerator
+  - Gfycat.ReactionFeed.GetNextPageAsync(Gfycat.RequestOptions)
+  - Gfycat.ReactionFeed.Tag
+  langs:
+  - csharp
+  - vb
+  name: ReactionFeed
+  nameWithType: ReactionFeed
+  fullName: Gfycat.ReactionFeed
+  type: Class
+  source:
+    id: ReactionFeed
+    path: ''
+    startLine: 3780
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nRepresents a collection of gfys based on a particular reaction\n"
+  example: []
+  syntax:
+    content: 'public class ReactionFeed : GfyFeed, IFeed<Gfy>, IAsyncEnumerable<Gfy>'
+    content.vb: >-
+      Public Class ReactionFeed
+          Inherits GfyFeed
+          Implements IFeed(Of Gfy), IAsyncEnumerable(Of Gfy)
+  inheritance:
+  - System.Object
+  - Gfycat.GfyFeed
+  implements:
+  - Gfycat.IFeed{Gfycat.Gfy}
+  inheritedMembers:
+  - Gfycat.GfyFeed.Gfycat#IFeed{Gfycat#Gfy}#Cursor
+  - Gfycat.GfyFeed.Content
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Gfycat.ReactionFeed.CoverGfy
+  commentId: P:Gfycat.ReactionFeed.CoverGfy
+  id: CoverGfy
+  parent: Gfycat.ReactionFeed
+  langs:
+  - csharp
+  - vb
+  name: CoverGfy
+  nameWithType: ReactionFeed.CoverGfy
+  fullName: Gfycat.ReactionFeed.CoverGfy
+  type: Property
+  source:
+    id: CoverGfy
+    path: ''
+    startLine: 3785
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the cover gfy of this reaction feed\n"
+  example: []
+  syntax:
+    content: public Gfy CoverGfy { get; }
+    parameters: []
+    return:
+      type: Gfycat.Gfy
+    content.vb: Public ReadOnly Property CoverGfy As Gfy
+  overload: Gfycat.ReactionFeed.CoverGfy*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.ReactionFeed.Tag
+  commentId: P:Gfycat.ReactionFeed.Tag
+  id: Tag
+  parent: Gfycat.ReactionFeed
+  langs:
+  - csharp
+  - vb
+  name: Tag
+  nameWithType: ReactionFeed.Tag
+  fullName: Gfycat.ReactionFeed.Tag
+  type: Property
+  source:
+    id: Tag
+    path: ''
+    startLine: 3789
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the tag of this reaction feed\n"
+  example: []
+  syntax:
+    content: public string Tag { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Tag As String
+  overload: Gfycat.ReactionFeed.Tag*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.ReactionFeed.GetEnumerator
+  commentId: M:Gfycat.ReactionFeed.GetEnumerator
+  id: GetEnumerator
+  parent: Gfycat.ReactionFeed
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: ReactionFeed.GetEnumerator()
+  fullName: Gfycat.ReactionFeed.GetEnumerator()
+  type: Method
+  source:
+    id: GetEnumerator
+    path: ''
+    startLine: 3807
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nReturns an enumerator to enumerate through this feed\n"
+  example: []
+  syntax:
+    content: public override IAsyncEnumerator<Gfy> GetEnumerator()
+    return:
+      type: IAsyncEnumerator{Gfycat.Gfy}
+      description: ''
+    content.vb: Public Overrides Function GetEnumerator As IAsyncEnumerator(Of Gfy)
+  overridden: Gfycat.GfyFeed.GetEnumerator
+  overload: Gfycat.ReactionFeed.GetEnumerator*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Gfycat.ReactionFeed.GetNextPageAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.ReactionFeed.GetNextPageAsync(Gfycat.RequestOptions)
+  id: GetNextPageAsync(Gfycat.RequestOptions)
+  parent: Gfycat.ReactionFeed
+  langs:
+  - csharp
+  - vb
+  name: GetNextPageAsync(RequestOptions)
+  nameWithType: ReactionFeed.GetNextPageAsync(RequestOptions)
+  fullName: Gfycat.ReactionFeed.GetNextPageAsync(Gfycat.RequestOptions)
+  type: Method
+  source:
+    id: GetNextPageAsync
+    path: ''
+    startLine: 3816
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nReturns the next page of this feed\n"
+  example: []
+  syntax:
+    content: public override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
+    parameters:
+    - id: options
+      type: Gfycat.RequestOptions
+      description: ''
+    return:
+      type: Task{Gfycat.IFeed{Gfycat.Gfy}}
+      description: ''
+    content.vb: Public Overrides Function GetNextPageAsync(options As RequestOptions = Nothing) As Task(Of IFeed(Of Gfy))
+  overridden: Gfycat.GfyFeed.GetNextPageAsync(Gfycat.RequestOptions)
+  overload: Gfycat.ReactionFeed.GetNextPageAsync*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: Gfycat
+  commentId: N:Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Gfycat
+  fullName: Gfycat
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Gfycat.GfyFeed
+  commentId: T:Gfycat.GfyFeed
+  parent: Gfycat
+  isExternal: false
+  name: GfyFeed
+  nameWithType: GfyFeed
+  fullName: Gfycat.GfyFeed
+- uid: Gfycat.IFeed{Gfycat.Gfy}
+  commentId: T:Gfycat.IFeed{Gfycat.Gfy}
+  parent: Gfycat
+  definition: Gfycat.IFeed`1
+  name: IFeed<Gfy>
+  nameWithType: IFeed<Gfy>
+  fullName: Gfycat.IFeed<Gfycat.Gfy>
+  nameWithType.vb: IFeed(Of Gfy)
+  fullName.vb: Gfycat.IFeed(Of Gfycat.Gfy)
+  name.vb: IFeed(Of Gfy)
+  spec.csharp:
+  - uid: Gfycat.IFeed`1
+    name: IFeed
+    nameWithType: IFeed
+    fullName: Gfycat.IFeed
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.Gfy
+    name: Gfy
+    nameWithType: Gfy
+    fullName: Gfycat.Gfy
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Gfycat.IFeed`1
+    name: IFeed
+    nameWithType: IFeed
+    fullName: Gfycat.IFeed
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.Gfy
+    name: Gfy
+    nameWithType: Gfy
+    fullName: Gfycat.Gfy
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.GfyFeed.Gfycat#IFeed{Gfycat#Gfy}#Cursor
+  commentId: P:Gfycat.GfyFeed.Gfycat#IFeed{Gfycat#Gfy}#Cursor
+  parent: Gfycat.GfyFeed
+  isExternal: false
+  name: IFeed<Gfy>.Cursor
+  nameWithType: GfyFeed.IFeed<Gfy>.Cursor
+  fullName: Gfycat.GfyFeed.Gfycat.IFeed<Gfycat.Gfy>.Cursor
+  nameWithType.vb: GfyFeed.Gfycat.IFeed<Gfycat.Gfy>.Cursor
+  name.vb: Gfycat.IFeed<Gfycat.Gfy>.Cursor
+- uid: Gfycat.GfyFeed.Content
+  commentId: P:Gfycat.GfyFeed.Content
+  parent: Gfycat.GfyFeed
+  isExternal: false
+  name: Content
+  nameWithType: GfyFeed.Content
+  fullName: Gfycat.GfyFeed.Content
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Gfycat.IFeed`1
+  commentId: T:Gfycat.IFeed`1
+  isExternal: false
+  name: IFeed<T>
+  nameWithType: IFeed<T>
+  fullName: Gfycat.IFeed<T>
+  nameWithType.vb: IFeed(Of T)
+  fullName.vb: Gfycat.IFeed(Of T)
+  name.vb: IFeed(Of T)
+  spec.csharp:
+  - uid: Gfycat.IFeed`1
+    name: IFeed
+    nameWithType: IFeed
+    fullName: Gfycat.IFeed
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Gfycat.IFeed`1
+    name: IFeed
+    nameWithType: IFeed
+    fullName: Gfycat.IFeed
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.ReactionFeed.CoverGfy*
+  commentId: Overload:Gfycat.ReactionFeed.CoverGfy
+  isExternal: false
+  name: CoverGfy
+  nameWithType: ReactionFeed.CoverGfy
+  fullName: Gfycat.ReactionFeed.CoverGfy
+- uid: Gfycat.Gfy
+  commentId: T:Gfycat.Gfy
+  parent: Gfycat
+  isExternal: false
+  name: Gfy
+  nameWithType: Gfy
+  fullName: Gfycat.Gfy
+- uid: Gfycat.ReactionFeed.Tag*
+  commentId: Overload:Gfycat.ReactionFeed.Tag
+  isExternal: false
+  name: Tag
+  nameWithType: ReactionFeed.Tag
+  fullName: Gfycat.ReactionFeed.Tag
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Gfycat.GfyFeed.GetEnumerator
+  commentId: M:Gfycat.GfyFeed.GetEnumerator
+  parent: Gfycat.GfyFeed
+  isExternal: false
+  name: GetEnumerator()
+  nameWithType: GfyFeed.GetEnumerator()
+  fullName: Gfycat.GfyFeed.GetEnumerator()
+  spec.csharp:
+  - uid: Gfycat.GfyFeed.GetEnumerator
+    name: GetEnumerator
+    nameWithType: GfyFeed.GetEnumerator
+    fullName: Gfycat.GfyFeed.GetEnumerator
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Gfycat.GfyFeed.GetEnumerator
+    name: GetEnumerator
+    nameWithType: GfyFeed.GetEnumerator
+    fullName: Gfycat.GfyFeed.GetEnumerator
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.ReactionFeed.GetEnumerator*
+  commentId: Overload:Gfycat.ReactionFeed.GetEnumerator
+  isExternal: false
+  name: GetEnumerator
+  nameWithType: ReactionFeed.GetEnumerator
+  fullName: Gfycat.ReactionFeed.GetEnumerator
+- uid: IAsyncEnumerator{Gfycat.Gfy}
+  commentId: '!:IAsyncEnumerator{Gfycat.Gfy}'
+  definition: IAsyncEnumerator`1
+  name: IAsyncEnumerator<Gfy>
+  nameWithType: IAsyncEnumerator<Gfy>
+  fullName: IAsyncEnumerator<Gfycat.Gfy>
+  nameWithType.vb: IAsyncEnumerator(Of Gfy)
+  fullName.vb: IAsyncEnumerator(Of Gfycat.Gfy)
+  name.vb: IAsyncEnumerator(Of Gfy)
+  spec.csharp:
+  - uid: IAsyncEnumerator`1
+    name: IAsyncEnumerator
+    nameWithType: IAsyncEnumerator
+    fullName: IAsyncEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.Gfy
+    name: Gfy
+    nameWithType: Gfy
+    fullName: Gfycat.Gfy
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IAsyncEnumerator`1
+    name: IAsyncEnumerator
+    nameWithType: IAsyncEnumerator
+    fullName: IAsyncEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.Gfy
+    name: Gfy
+    nameWithType: Gfy
+    fullName: Gfycat.Gfy
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IAsyncEnumerator`1
+  isExternal: true
+  name: IAsyncEnumerator<>
+  nameWithType: IAsyncEnumerator<>
+  fullName: IAsyncEnumerator<>
+  nameWithType.vb: IAsyncEnumerator(Of )
+  fullName.vb: IAsyncEnumerator(Of )
+  name.vb: IAsyncEnumerator(Of )
+  spec.csharp:
+  - uid: IAsyncEnumerator`1
+    name: IAsyncEnumerator
+    nameWithType: IAsyncEnumerator
+    fullName: IAsyncEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IAsyncEnumerator`1
+    name: IAsyncEnumerator
+    nameWithType: IAsyncEnumerator
+    fullName: IAsyncEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.GfyFeed.GetNextPageAsync(Gfycat.RequestOptions)
+  commentId: M:Gfycat.GfyFeed.GetNextPageAsync(Gfycat.RequestOptions)
+  parent: Gfycat.GfyFeed
+  isExternal: false
+  name: GetNextPageAsync(RequestOptions)
+  nameWithType: GfyFeed.GetNextPageAsync(RequestOptions)
+  fullName: Gfycat.GfyFeed.GetNextPageAsync(Gfycat.RequestOptions)
+  spec.csharp:
+  - uid: Gfycat.GfyFeed.GetNextPageAsync(Gfycat.RequestOptions)
+    name: GetNextPageAsync
+    nameWithType: GfyFeed.GetNextPageAsync
+    fullName: Gfycat.GfyFeed.GetNextPageAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Gfycat.GfyFeed.GetNextPageAsync(Gfycat.RequestOptions)
+    name: GetNextPageAsync
+    nameWithType: GfyFeed.GetNextPageAsync
+    fullName: Gfycat.GfyFeed.GetNextPageAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Gfycat.RequestOptions
+    name: RequestOptions
+    nameWithType: RequestOptions
+    fullName: Gfycat.RequestOptions
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.ReactionFeed.GetNextPageAsync*
+  commentId: Overload:Gfycat.ReactionFeed.GetNextPageAsync
+  isExternal: false
+  name: GetNextPageAsync
+  nameWithType: ReactionFeed.GetNextPageAsync
+  fullName: Gfycat.ReactionFeed.GetNextPageAsync
+- uid: Gfycat.RequestOptions
+  commentId: T:Gfycat.RequestOptions
+  parent: Gfycat
+  isExternal: false
+  name: RequestOptions
+  nameWithType: RequestOptions
+  fullName: Gfycat.RequestOptions
+- uid: Task{Gfycat.IFeed{Gfycat.Gfy}}
+  commentId: '!:Task{Gfycat.IFeed{Gfycat.Gfy}}'
+  definition: Task`1
+  name: Task<IFeed<Gfy>>
+  nameWithType: Task<IFeed<Gfy>>
+  fullName: Task<Gfycat.IFeed<Gfycat.Gfy>>
+  nameWithType.vb: Task(Of IFeed(Of Gfy))
+  fullName.vb: Task(Of Gfycat.IFeed(Of Gfycat.Gfy))
+  name.vb: Task(Of IFeed(Of Gfy))
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.IFeed`1
+    name: IFeed
+    nameWithType: IFeed
+    fullName: Gfycat.IFeed
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.Gfy
+    name: Gfy
+    nameWithType: Gfy
+    fullName: Gfycat.Gfy
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.IFeed`1
+    name: IFeed
+    nameWithType: IFeed
+    fullName: Gfycat.IFeed
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.Gfy
+    name: Gfy
+    nameWithType: Gfy
+    fullName: Gfycat.Gfy
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task`1
+  isExternal: true
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )

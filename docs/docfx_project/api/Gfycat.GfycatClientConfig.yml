@@ -1,0 +1,690 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.GfycatClientConfig
+  commentId: T:Gfycat.GfycatClientConfig
+  id: GfycatClientConfig
+  parent: Gfycat
+  children:
+  - Gfycat.GfycatClientConfig.#ctor(System.String,System.String)
+  - Gfycat.GfycatClientConfig.ApiVersion
+  - Gfycat.GfycatClientConfig.BaseUrl
+  - Gfycat.GfycatClientConfig.ClientId
+  - Gfycat.GfycatClientConfig.ClientSecret
+  - Gfycat.GfycatClientConfig.DefaultRetryMode
+  - Gfycat.GfycatClientConfig.DefaultTimeout
+  - Gfycat.GfycatClientConfig.RestClient
+  langs:
+  - csharp
+  - vb
+  name: GfycatClientConfig
+  nameWithType: GfycatClientConfig
+  fullName: Gfycat.GfycatClientConfig
+  type: Class
+  source:
+    id: GfycatClientConfig
+    path: ''
+    startLine: 2739
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nDefines a configuration for a <xref href=\"Gfycat.GfycatClient\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public class GfycatClientConfig
+    content.vb: Public Class GfycatClientConfig
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Gfycat.GfycatClientConfig.ApiVersion
+  commentId: F:Gfycat.GfycatClientConfig.ApiVersion
+  id: ApiVersion
+  parent: Gfycat.GfycatClientConfig
+  langs:
+  - csharp
+  - vb
+  name: ApiVersion
+  nameWithType: GfycatClientConfig.ApiVersion
+  fullName: Gfycat.GfycatClientConfig.ApiVersion
+  type: Field
+  source:
+    id: ApiVersion
+    path: ''
+    startLine: 2744
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the Gfycat API version used by the client\n"
+  example: []
+  syntax:
+    content: public const int ApiVersion = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const ApiVersion As Integer = 1
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.GfycatClientConfig.BaseUrl
+  commentId: F:Gfycat.GfycatClientConfig.BaseUrl
+  id: BaseUrl
+  parent: Gfycat.GfycatClientConfig
+  langs:
+  - csharp
+  - vb
+  name: BaseUrl
+  nameWithType: GfycatClientConfig.BaseUrl
+  fullName: Gfycat.GfycatClientConfig.BaseUrl
+  type: Field
+  source:
+    id: BaseUrl
+    path: ''
+    startLine: 2748
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the base url for all requests made by the rest client\n"
+  example: []
+  syntax:
+    content: public static readonly string BaseUrl
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly BaseUrl As String
+  modifiers.csharp:
+  - public
+  - static
+  - readonly
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: Gfycat.GfycatClientConfig.ClientId
+  commentId: P:Gfycat.GfycatClientConfig.ClientId
+  id: ClientId
+  parent: Gfycat.GfycatClientConfig
+  langs:
+  - csharp
+  - vb
+  name: ClientId
+  nameWithType: GfycatClientConfig.ClientId
+  fullName: Gfycat.GfycatClientConfig.ClientId
+  type: Property
+  source:
+    id: ClientId
+    path: ''
+    startLine: 2756
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the client Id of this config\n"
+  example: []
+  syntax:
+    content: public string ClientId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ClientId As String
+  overload: Gfycat.GfycatClientConfig.ClientId*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.GfycatClientConfig.ClientSecret
+  commentId: P:Gfycat.GfycatClientConfig.ClientSecret
+  id: ClientSecret
+  parent: Gfycat.GfycatClientConfig
+  langs:
+  - csharp
+  - vb
+  name: ClientSecret
+  nameWithType: GfycatClientConfig.ClientSecret
+  fullName: Gfycat.GfycatClientConfig.ClientSecret
+  type: Property
+  source:
+    id: ClientSecret
+    path: ''
+    startLine: 2760
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nGets the client secret of this config\n"
+  example: []
+  syntax:
+    content: public string ClientSecret { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ClientSecret As String
+  overload: Gfycat.GfycatClientConfig.ClientSecret*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.GfycatClientConfig.RestClient
+  commentId: P:Gfycat.GfycatClientConfig.RestClient
+  id: RestClient
+  parent: Gfycat.GfycatClientConfig
+  langs:
+  - csharp
+  - vb
+  name: RestClient
+  nameWithType: GfycatClientConfig.RestClient
+  fullName: Gfycat.GfycatClientConfig.RestClient
+  type: Property
+  source:
+    id: RestClient
+    path: ''
+    startLine: 2765
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nOverrides the rest client for this Gfycat client\n"
+  example: []
+  syntax:
+    content: public IRestClient RestClient { get; set; }
+    parameters: []
+    return:
+      type: IRestClient
+    content.vb: Public Property RestClient As IRestClient
+  overload: Gfycat.GfycatClientConfig.RestClient*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClientConfig.DefaultRetryMode
+  commentId: P:Gfycat.GfycatClientConfig.DefaultRetryMode
+  id: DefaultRetryMode
+  parent: Gfycat.GfycatClientConfig
+  langs:
+  - csharp
+  - vb
+  name: DefaultRetryMode
+  nameWithType: GfycatClientConfig.DefaultRetryMode
+  fullName: Gfycat.GfycatClientConfig.DefaultRetryMode
+  type: Property
+  source:
+    id: DefaultRetryMode
+    path: ''
+    startLine: 2770
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nSets the default retry mode for all requests, the default is <xref href=\"Gfycat.RetryMode.RetryFirst401\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public RetryMode DefaultRetryMode { get; set; }
+    parameters: []
+    return:
+      type: Gfycat.RetryMode
+    content.vb: Public Property DefaultRetryMode As RetryMode
+  overload: Gfycat.GfycatClientConfig.DefaultRetryMode*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClientConfig.DefaultTimeout
+  commentId: P:Gfycat.GfycatClientConfig.DefaultTimeout
+  id: DefaultTimeout
+  parent: Gfycat.GfycatClientConfig
+  langs:
+  - csharp
+  - vb
+  name: DefaultTimeout
+  nameWithType: GfycatClientConfig.DefaultTimeout
+  fullName: Gfycat.GfycatClientConfig.DefaultTimeout
+  type: Property
+  source:
+    id: DefaultTimeout
+    path: ''
+    startLine: 2774
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nSets the default timeout for all requests.\n"
+  example: []
+  syntax:
+    content: public int DefaultTimeout { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property DefaultTimeout As Integer
+  overload: Gfycat.GfycatClientConfig.DefaultTimeout*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Gfycat.GfycatClientConfig.#ctor(System.String,System.String)
+  commentId: M:Gfycat.GfycatClientConfig.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
+  parent: Gfycat.GfycatClientConfig
+  langs:
+  - csharp
+  - vb
+  name: GfycatClientConfig(String, String)
+  nameWithType: GfycatClientConfig.GfycatClientConfig(String, String)
+  fullName: Gfycat.GfycatClientConfig.GfycatClientConfig(System.String, System.String)
+  type: Constructor
+  source:
+    id: .ctor
+    path: ''
+    startLine: 2780
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  summary: "\nConstructs a <xref href=\"Gfycat.GfycatClientConfig\" data-throw-if-not-resolved=\"false\"></xref> using the specified client Id and client secret\n"
+  example: []
+  syntax:
+    content: public GfycatClientConfig(string clientId, string clientSecret)
+    parameters:
+    - id: clientId
+      type: System.String
+      description: ''
+    - id: clientSecret
+      type: System.String
+      description: ''
+    content.vb: Public Sub New(clientId As String, clientSecret As String)
+  overload: Gfycat.GfycatClientConfig.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Gfycat.GfycatClient
+  commentId: T:Gfycat.GfycatClient
+  isExternal: false
+  name: GfycatClient
+  nameWithType: GfycatClient
+  fullName: Gfycat.GfycatClient
+- uid: Gfycat
+  commentId: N:Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Gfycat
+  fullName: Gfycat
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Gfycat.GfycatClientConfig.ClientId*
+  commentId: Overload:Gfycat.GfycatClientConfig.ClientId
+  isExternal: false
+  name: ClientId
+  nameWithType: GfycatClientConfig.ClientId
+  fullName: Gfycat.GfycatClientConfig.ClientId
+- uid: Gfycat.GfycatClientConfig.ClientSecret*
+  commentId: Overload:Gfycat.GfycatClientConfig.ClientSecret
+  isExternal: false
+  name: ClientSecret
+  nameWithType: GfycatClientConfig.ClientSecret
+  fullName: Gfycat.GfycatClientConfig.ClientSecret
+- uid: Gfycat.GfycatClientConfig.RestClient*
+  commentId: Overload:Gfycat.GfycatClientConfig.RestClient
+  isExternal: false
+  name: RestClient
+  nameWithType: GfycatClientConfig.RestClient
+  fullName: Gfycat.GfycatClientConfig.RestClient
+- uid: IRestClient
+  isExternal: true
+  name: IRestClient
+  nameWithType: IRestClient
+  fullName: IRestClient
+- uid: Gfycat.RetryMode.RetryFirst401
+  commentId: F:Gfycat.RetryMode.RetryFirst401
+- uid: Gfycat.GfycatClientConfig.DefaultRetryMode*
+  commentId: Overload:Gfycat.GfycatClientConfig.DefaultRetryMode
+  isExternal: false
+  name: DefaultRetryMode
+  nameWithType: GfycatClientConfig.DefaultRetryMode
+  fullName: Gfycat.GfycatClientConfig.DefaultRetryMode
+- uid: Gfycat.RetryMode
+  commentId: T:Gfycat.RetryMode
+  parent: Gfycat
+  isExternal: false
+  name: RetryMode
+  nameWithType: RetryMode
+  fullName: Gfycat.RetryMode
+- uid: Gfycat.GfycatClientConfig.DefaultTimeout*
+  commentId: Overload:Gfycat.GfycatClientConfig.DefaultTimeout
+  isExternal: false
+  name: DefaultTimeout
+  nameWithType: GfycatClientConfig.DefaultTimeout
+  fullName: Gfycat.GfycatClientConfig.DefaultTimeout
+- uid: Gfycat.GfycatClientConfig
+  commentId: T:Gfycat.GfycatClientConfig
+  parent: Gfycat
+  isExternal: false
+  name: GfycatClientConfig
+  nameWithType: GfycatClientConfig
+  fullName: Gfycat.GfycatClientConfig
+- uid: Gfycat.GfycatClientConfig.#ctor*
+  commentId: Overload:Gfycat.GfycatClientConfig.#ctor
+  isExternal: false
+  name: GfycatClientConfig
+  nameWithType: GfycatClientConfig.GfycatClientConfig
+  fullName: Gfycat.GfycatClientConfig.GfycatClientConfig

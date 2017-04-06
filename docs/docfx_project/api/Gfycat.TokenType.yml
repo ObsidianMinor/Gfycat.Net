@@ -1,0 +1,189 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.TokenType
+  commentId: T:Gfycat.TokenType
+  id: TokenType
+  parent: Gfycat
+  children:
+  - Gfycat.TokenType.AuthorizationCode
+  - Gfycat.TokenType.FacebookAccessToken
+  - Gfycat.TokenType.FacebookAuthCode
+  - Gfycat.TokenType.TwitterTokenSecret
+  - Gfycat.TokenType.TwitterTokenVerifier
+  langs:
+  - csharp
+  - vb
+  name: TokenType
+  nameWithType: TokenType
+  fullName: Gfycat.TokenType
+  type: Enum
+  source:
+    id: TokenType
+    path: ''
+    startLine: 4040
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public enum TokenType
+    content.vb: Public Enum TokenType
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Gfycat.TokenType.AuthorizationCode
+  commentId: F:Gfycat.TokenType.AuthorizationCode
+  id: AuthorizationCode
+  parent: Gfycat.TokenType
+  langs:
+  - csharp
+  - vb
+  name: AuthorizationCode
+  nameWithType: TokenType.AuthorizationCode
+  fullName: Gfycat.TokenType.AuthorizationCode
+  type: Field
+  source:
+    id: AuthorizationCode
+    path: ''
+    startLine: 4042
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: AuthorizationCode = 0
+    return:
+      type: Gfycat.TokenType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.TokenType.FacebookAuthCode
+  commentId: F:Gfycat.TokenType.FacebookAuthCode
+  id: FacebookAuthCode
+  parent: Gfycat.TokenType
+  langs:
+  - csharp
+  - vb
+  name: FacebookAuthCode
+  nameWithType: TokenType.FacebookAuthCode
+  fullName: Gfycat.TokenType.FacebookAuthCode
+  type: Field
+  source:
+    id: FacebookAuthCode
+    path: ''
+    startLine: 4043
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: FacebookAuthCode = 1
+    return:
+      type: Gfycat.TokenType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.TokenType.FacebookAccessToken
+  commentId: F:Gfycat.TokenType.FacebookAccessToken
+  id: FacebookAccessToken
+  parent: Gfycat.TokenType
+  langs:
+  - csharp
+  - vb
+  name: FacebookAccessToken
+  nameWithType: TokenType.FacebookAccessToken
+  fullName: Gfycat.TokenType.FacebookAccessToken
+  type: Field
+  source:
+    id: FacebookAccessToken
+    path: ''
+    startLine: 4044
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: FacebookAccessToken = 2
+    return:
+      type: Gfycat.TokenType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.TokenType.TwitterTokenVerifier
+  commentId: F:Gfycat.TokenType.TwitterTokenVerifier
+  id: TwitterTokenVerifier
+  parent: Gfycat.TokenType
+  langs:
+  - csharp
+  - vb
+  name: TwitterTokenVerifier
+  nameWithType: TokenType.TwitterTokenVerifier
+  fullName: Gfycat.TokenType.TwitterTokenVerifier
+  type: Field
+  source:
+    id: TwitterTokenVerifier
+    path: ''
+    startLine: 4045
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: TwitterTokenVerifier = 3
+    return:
+      type: Gfycat.TokenType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.TokenType.TwitterTokenSecret
+  commentId: F:Gfycat.TokenType.TwitterTokenSecret
+  id: TwitterTokenSecret
+  parent: Gfycat.TokenType
+  langs:
+  - csharp
+  - vb
+  name: TwitterTokenSecret
+  nameWithType: TokenType.TwitterTokenSecret
+  fullName: Gfycat.TokenType.TwitterTokenSecret
+  type: Field
+  source:
+    id: TwitterTokenSecret
+    path: ''
+    startLine: 4046
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: TwitterTokenSecret = 4
+    return:
+      type: Gfycat.TokenType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Gfycat
+  commentId: N:Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Gfycat
+  fullName: Gfycat
+- uid: Gfycat.TokenType
+  commentId: T:Gfycat.TokenType
+  parent: Gfycat
+  isExternal: false
+  name: TokenType
+  nameWithType: TokenType
+  fullName: Gfycat.TokenType

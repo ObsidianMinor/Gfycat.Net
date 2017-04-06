@@ -1,0 +1,420 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class GfycatAnalyticsClient
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class GfycatAnalyticsClient
+   ">
+    <meta name="generator" content="docfx 2.15.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content">
+              
+              
+              <h1 id="Gfycat_Analytics_GfycatAnalyticsClient" data-uid="Gfycat.Analytics.GfycatAnalyticsClient">Class GfycatAnalyticsClient
+              </h1>
+              <div class="markdown level0 summary"><p>Represents a client for communicating with the Gfycat analytics API. See <a href="https://developers.gfycat.com/analytics">https://developers.gfycat.com/analytics</a> for info on when to use this client</p>
+</div>
+              <div class="markdown level0 conceptual"></div>
+              <div class="inheritance">
+                <h5>Inheritance</h5>
+                  <div class="level0"><span class="xref">System.Object</span></div>
+                  <div class="level1"><span class="xref">GfycatAnalyticsClient</span></div>
+              </div>
+              <div class="inheritedMembers">
+                <h5>Inherited Members</h5>
+                <div>
+                  <span class="xref">System.Object.ToString()</span>
+                </div>
+                <div>
+                  <span class="xref">System.Object.Equals(System.Object)</span>
+                </div>
+                <div>
+                  <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+                </div>
+                <div>
+                  <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+                </div>
+                <div>
+                  <span class="xref">System.Object.GetHashCode()</span>
+                </div>
+                <div>
+                  <span class="xref">System.Object.GetType()</span>
+                </div>
+                <div>
+                  <span class="xref">System.Object.MemberwiseClone()</span>
+                </div>
+              </div>
+              <h6><strong>Namespace</strong>:Gfycat.Analytics</h6>
+              <h6><strong>Assembly</strong>:cs.temp.dll.dll</h6>
+              <h5 id="Gfycat_Analytics_GfycatAnalyticsClient_syntax">Syntax</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public class GfycatAnalyticsClient</code></pre>
+              </div>
+              <h3 id="constructors">Constructors
+              </h3>
+              
+              
+              <a id="Gfycat_Analytics_GfycatAnalyticsClient__ctor_" data-uid="Gfycat.Analytics.GfycatAnalyticsClient.#ctor*"></a>
+              <h4 id="Gfycat_Analytics_GfycatAnalyticsClient__ctor_Gfycat_Analytics_GfycatAnalyticsClientConfig_System_String_" data-uid="Gfycat.Analytics.GfycatAnalyticsClient.#ctor(Gfycat.Analytics.GfycatAnalyticsClientConfig,System.String)">GfycatAnalyticsClient(GfycatAnalyticsClientConfig, String)</h4>
+              <div class="markdown level1 summary"><p>Creates a new client using the specified config and user tracking cookie</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public GfycatAnalyticsClient(GfycatAnalyticsClientConfig config, string userTrackingCookie)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Gfycat.Analytics.GfycatAnalyticsClientConfig.html">GfycatAnalyticsClientConfig</a></td>
+                    <td><span class="parametername">config</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">userTrackingCookie</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Gfycat_Analytics_GfycatAnalyticsClient__ctor_" data-uid="Gfycat.Analytics.GfycatAnalyticsClient.#ctor*"></a>
+              <h4 id="Gfycat_Analytics_GfycatAnalyticsClient__ctor_System_String_System_String_Version_System_String_" data-uid="Gfycat.Analytics.GfycatAnalyticsClient.#ctor(System.String,System.String,Version,System.String)">GfycatAnalyticsClient(String, String, Version, String)</h4>
+              <div class="markdown level1 summary"><p>Creates a new client using the specified app name, app Id, app version, and user tracking cookie</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public GfycatAnalyticsClient(string appName, string appId, Version appVersion, string userTrackingCookie)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">appName</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">appId</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">Version</span></td>
+                    <td><span class="parametername">appVersion</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">userTrackingCookie</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3 id="properties">Properties
+              </h3>
+              
+              
+              <a id="Gfycat_Analytics_GfycatAnalyticsClient_CurrentUserTrackingCookie_" data-uid="Gfycat.Analytics.GfycatAnalyticsClient.CurrentUserTrackingCookie*"></a>
+              <h4 id="Gfycat_Analytics_GfycatAnalyticsClient_CurrentUserTrackingCookie" data-uid="Gfycat.Analytics.GfycatAnalyticsClient.CurrentUserTrackingCookie">CurrentUserTrackingCookie</h4>
+              <div class="markdown level1 summary"><p>Gets the current user&#39;s tracking cookie</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public string CurrentUserTrackingCookie { get; }</code></pre>
+              </div>
+              <h5 class="propertyValue">Property Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3 id="methods">Methods
+              </h3>
+              
+              
+              <a id="Gfycat_Analytics_GfycatAnalyticsClient_SendImpressionAsync_" data-uid="Gfycat.Analytics.GfycatAnalyticsClient.SendImpressionAsync*"></a>
+              <h4 id="Gfycat_Analytics_GfycatAnalyticsClient_SendImpressionAsync_Gfycat_Analytics_Impression_Gfycat_RequestOptions_" data-uid="Gfycat.Analytics.GfycatAnalyticsClient.SendImpressionAsync(Gfycat.Analytics.Impression,Gfycat.RequestOptions)">SendImpressionAsync(Impression, RequestOptions)</h4>
+              <div class="markdown level1 summary"><p>Sends one impression to Gfycat impressions</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task SendImpressionAsync(Impression impression, RequestOptions options = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Gfycat.Analytics.Impression.html">Impression</a></td>
+                    <td><span class="parametername">impression</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Gfycat.RequestOptions.html">RequestOptions</a></td>
+                    <td><span class="parametername">options</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Gfycat_Analytics_GfycatAnalyticsClient_SendImpressionAsync_" data-uid="Gfycat.Analytics.GfycatAnalyticsClient.SendImpressionAsync*"></a>
+              <h4 id="Gfycat_Analytics_GfycatAnalyticsClient_SendImpressionAsync_Gfycat_Gfy_Gfycat_Analytics_ImpressionContext_Gfycat_Analytics_ImpressionFlow_System_String_System_String_Gfycat_RequestOptions_" data-uid="Gfycat.Analytics.GfycatAnalyticsClient.SendImpressionAsync(Gfycat.Gfy,Gfycat.Analytics.ImpressionContext,Gfycat.Analytics.ImpressionFlow,System.String,System.String,Gfycat.RequestOptions)">SendImpressionAsync(Gfy, ImpressionContext, ImpressionFlow, String, String, RequestOptions)</h4>
+              <div class="markdown level1 summary"><p>Sends an impression using the specified gfy, context, flow, view tag, and keyword</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task SendImpressionAsync(Gfy gfy, ImpressionContext context = ImpressionContext.None, ImpressionFlow flow = ImpressionFlow.None, string viewTag = null, string keyword = null, RequestOptions options = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Gfycat.Gfy.html">Gfy</a></td>
+                    <td><span class="parametername">gfy</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Gfycat.Analytics.ImpressionContext.html">ImpressionContext</a></td>
+                    <td><span class="parametername">context</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Gfycat.Analytics.ImpressionFlow.html">ImpressionFlow</a></td>
+                    <td><span class="parametername">flow</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">viewTag</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">keyword</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Gfycat.RequestOptions.html">RequestOptions</a></td>
+                    <td><span class="parametername">options</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Gfycat_Analytics_GfycatAnalyticsClient_SendImpressionsBulkAsync_" data-uid="Gfycat.Analytics.GfycatAnalyticsClient.SendImpressionsBulkAsync*"></a>
+              <h4 id="Gfycat_Analytics_GfycatAnalyticsClient_SendImpressionsBulkAsync_IEnumerable_Gfycat_Analytics_Impression__Gfycat_RequestOptions_" data-uid="Gfycat.Analytics.GfycatAnalyticsClient.SendImpressionsBulkAsync(IEnumerable{Gfycat.Analytics.Impression},Gfycat.RequestOptions)">SendImpressionsBulkAsync(IEnumerable&lt;Impression&gt;, RequestOptions)</h4>
+              <div class="markdown level1 summary"><p>Sends multiple impressions to Gfycat impressions</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task SendImpressionsBulkAsync(IEnumerable&lt;Impression&gt; impressions, RequestOptions options = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Gfycat.Analytics.Impression.html">Impression</a>&gt;</td>
+                    <td><span class="parametername">impressions</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Gfycat.RequestOptions.html">RequestOptions</a></td>
+                    <td><span class="parametername">options</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+                        </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2015-2016 Microsoft<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

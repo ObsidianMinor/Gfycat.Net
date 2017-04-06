@@ -1,0 +1,491 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.Rest.IRestClient
+  commentId: T:Gfycat.Rest.IRestClient
+  id: IRestClient
+  parent: Gfycat.Rest
+  children:
+  - Gfycat.Rest.IRestClient.SendAsync(System.String,System.String,CancellationToken)
+  - Gfycat.Rest.IRestClient.SendAsync(System.String,System.String,IDictionary{System.String,System.Object},CancellationToken)
+  - Gfycat.Rest.IRestClient.SendAsync(System.String,System.String,Stream,CancellationToken)
+  - Gfycat.Rest.IRestClient.SendAsync(System.String,System.String,System.String,CancellationToken)
+  - Gfycat.Rest.IRestClient.SetCancellationToken(CancellationToken)
+  - Gfycat.Rest.IRestClient.SetHeader(System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: IRestClient
+  nameWithType: IRestClient
+  fullName: Gfycat.Rest.IRestClient
+  type: Interface
+  source:
+    id: IRestClient
+    path: ''
+    startLine: 6056
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Rest
+  summary: "\nRepresents an abstract REST client for all Gfycat requests\n"
+  example: []
+  syntax:
+    content: public interface IRestClient
+    content.vb: Public Interface IRestClient
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Gfycat.Rest.IRestClient.SetHeader(System.String,System.String)
+  commentId: M:Gfycat.Rest.IRestClient.SetHeader(System.String,System.String)
+  id: SetHeader(System.String,System.String)
+  parent: Gfycat.Rest.IRestClient
+  langs:
+  - csharp
+  - vb
+  name: SetHeader(String, String)
+  nameWithType: IRestClient.SetHeader(String, String)
+  fullName: Gfycat.Rest.IRestClient.SetHeader(System.String, System.String)
+  type: Method
+  source:
+    id: SetHeader
+    path: ''
+    startLine: 6063
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Rest
+  summary: "\nSets the value of a header key in the default request headers\n"
+  example: []
+  syntax:
+    content: void SetHeader(string key, string value)
+    parameters:
+    - id: key
+      type: System.String
+      description: ''
+    - id: value
+      type: System.String
+      description: ''
+    content.vb: Sub SetHeader(key As String, value As String)
+  overload: Gfycat.Rest.IRestClient.SetHeader*
+- uid: Gfycat.Rest.IRestClient.SetCancellationToken(CancellationToken)
+  commentId: M:Gfycat.Rest.IRestClient.SetCancellationToken(CancellationToken)
+  id: SetCancellationToken(CancellationToken)
+  parent: Gfycat.Rest.IRestClient
+  langs:
+  - csharp
+  - vb
+  name: SetCancellationToken(CancellationToken)
+  nameWithType: IRestClient.SetCancellationToken(CancellationToken)
+  fullName: Gfycat.Rest.IRestClient.SetCancellationToken(CancellationToken)
+  type: Method
+  source:
+    id: SetCancellationToken
+    path: ''
+    startLine: 6064
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Rest
+  syntax:
+    content: void SetCancellationToken(CancellationToken token)
+    parameters:
+    - id: token
+      type: CancellationToken
+    content.vb: Sub SetCancellationToken(token As CancellationToken)
+  overload: Gfycat.Rest.IRestClient.SetCancellationToken*
+- uid: Gfycat.Rest.IRestClient.SendAsync(System.String,System.String,CancellationToken)
+  commentId: M:Gfycat.Rest.IRestClient.SendAsync(System.String,System.String,CancellationToken)
+  id: SendAsync(System.String,System.String,CancellationToken)
+  parent: Gfycat.Rest.IRestClient
+  langs:
+  - csharp
+  - vb
+  name: SendAsync(String, String, CancellationToken)
+  nameWithType: IRestClient.SendAsync(String, String, CancellationToken)
+  fullName: Gfycat.Rest.IRestClient.SendAsync(System.String, System.String, CancellationToken)
+  type: Method
+  source:
+    id: SendAsync
+    path: ''
+    startLine: 6073
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Rest
+  summary: "\nSends a request to the given endpoint\n"
+  example: []
+  syntax:
+    content: Task<RestResponse> SendAsync(string method, string endpoint, CancellationToken token)
+    parameters:
+    - id: method
+      type: System.String
+      description: ''
+    - id: endpoint
+      type: System.String
+      description: ''
+    - id: token
+      type: CancellationToken
+      description: ''
+    return:
+      type: Task{Gfycat.Rest.RestResponse}
+      description: ''
+    content.vb: Function SendAsync(method As String, endpoint As String, token As CancellationToken) As Task(Of RestResponse)
+  overload: Gfycat.Rest.IRestClient.SendAsync*
+- uid: Gfycat.Rest.IRestClient.SendAsync(System.String,System.String,System.String,CancellationToken)
+  commentId: M:Gfycat.Rest.IRestClient.SendAsync(System.String,System.String,System.String,CancellationToken)
+  id: SendAsync(System.String,System.String,System.String,CancellationToken)
+  parent: Gfycat.Rest.IRestClient
+  langs:
+  - csharp
+  - vb
+  name: SendAsync(String, String, String, CancellationToken)
+  nameWithType: IRestClient.SendAsync(String, String, String, CancellationToken)
+  fullName: Gfycat.Rest.IRestClient.SendAsync(System.String, System.String, System.String, CancellationToken)
+  type: Method
+  source:
+    id: SendAsync
+    path: ''
+    startLine: 6082
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Rest
+  summary: "\nSends a request with json content to the given endpoint\n"
+  example: []
+  syntax:
+    content: Task<RestResponse> SendAsync(string method, string endpoint, string json, CancellationToken token)
+    parameters:
+    - id: method
+      type: System.String
+      description: ''
+    - id: endpoint
+      type: System.String
+      description: ''
+    - id: json
+      type: System.String
+      description: ''
+    - id: token
+      type: CancellationToken
+      description: ''
+    return:
+      type: Task{Gfycat.Rest.RestResponse}
+      description: ''
+    content.vb: Function SendAsync(method As String, endpoint As String, json As String, token As CancellationToken) As Task(Of RestResponse)
+  overload: Gfycat.Rest.IRestClient.SendAsync*
+- uid: Gfycat.Rest.IRestClient.SendAsync(System.String,System.String,Stream,CancellationToken)
+  commentId: M:Gfycat.Rest.IRestClient.SendAsync(System.String,System.String,Stream,CancellationToken)
+  id: SendAsync(System.String,System.String,Stream,CancellationToken)
+  parent: Gfycat.Rest.IRestClient
+  langs:
+  - csharp
+  - vb
+  name: SendAsync(String, String, Stream, CancellationToken)
+  nameWithType: IRestClient.SendAsync(String, String, Stream, CancellationToken)
+  fullName: Gfycat.Rest.IRestClient.SendAsync(System.String, System.String, Stream, CancellationToken)
+  type: Method
+  source:
+    id: SendAsync
+    path: ''
+    startLine: 6091
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Rest
+  summary: "\nSends a request with stream content to the given endpoint\n"
+  example: []
+  syntax:
+    content: Task<RestResponse> SendAsync(string method, string endpoint, Stream stream, CancellationToken token)
+    parameters:
+    - id: method
+      type: System.String
+      description: ''
+    - id: endpoint
+      type: System.String
+      description: ''
+    - id: stream
+      type: Stream
+      description: ''
+    - id: token
+      type: CancellationToken
+      description: ''
+    return:
+      type: Task{Gfycat.Rest.RestResponse}
+      description: ''
+    content.vb: Function SendAsync(method As String, endpoint As String, stream As Stream, token As CancellationToken) As Task(Of RestResponse)
+  overload: Gfycat.Rest.IRestClient.SendAsync*
+- uid: Gfycat.Rest.IRestClient.SendAsync(System.String,System.String,IDictionary{System.String,System.Object},CancellationToken)
+  commentId: M:Gfycat.Rest.IRestClient.SendAsync(System.String,System.String,IDictionary{System.String,System.Object},CancellationToken)
+  id: SendAsync(System.String,System.String,IDictionary{System.String,System.Object},CancellationToken)
+  parent: Gfycat.Rest.IRestClient
+  langs:
+  - csharp
+  - vb
+  name: SendAsync(String, String, IDictionary<String, Object>, CancellationToken)
+  nameWithType: IRestClient.SendAsync(String, String, IDictionary<String, Object>, CancellationToken)
+  fullName: Gfycat.Rest.IRestClient.SendAsync(System.String, System.String, IDictionary<System.String, System.Object>, CancellationToken)
+  type: Method
+  source:
+    id: SendAsync
+    path: ''
+    startLine: 6100
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Rest
+  summary: "\nSends a request with multipart content to the given endpoint\n"
+  example: []
+  syntax:
+    content: Task<RestResponse> SendAsync(string method, string endpoint, IDictionary<string, object> multipart, CancellationToken token)
+    parameters:
+    - id: method
+      type: System.String
+      description: ''
+    - id: endpoint
+      type: System.String
+      description: ''
+    - id: multipart
+      type: IDictionary{System.String,System.Object}
+      description: ''
+    - id: token
+      type: CancellationToken
+      description: ''
+    return:
+      type: Task{Gfycat.Rest.RestResponse}
+      description: ''
+    content.vb: Function SendAsync(method As String, endpoint As String, multipart As IDictionary(Of String, Object), token As CancellationToken) As Task(Of RestResponse)
+  overload: Gfycat.Rest.IRestClient.SendAsync*
+  nameWithType.vb: IRestClient.SendAsync(String, String, IDictionary(Of String, Object), CancellationToken)
+  fullName.vb: Gfycat.Rest.IRestClient.SendAsync(System.String, System.String, IDictionary(Of System.String, System.Object), CancellationToken)
+  name.vb: SendAsync(String, String, IDictionary(Of String, Object), CancellationToken)
+references:
+- uid: Gfycat.Rest
+  commentId: N:Gfycat.Rest
+  isExternal: false
+  name: Gfycat.Rest
+  nameWithType: Gfycat.Rest
+  fullName: Gfycat.Rest
+- uid: Gfycat.Rest.IRestClient.SetHeader*
+  commentId: Overload:Gfycat.Rest.IRestClient.SetHeader
+  isExternal: false
+  name: SetHeader
+  nameWithType: IRestClient.SetHeader
+  fullName: Gfycat.Rest.IRestClient.SetHeader
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Gfycat.Rest.IRestClient.SetCancellationToken*
+  commentId: Overload:Gfycat.Rest.IRestClient.SetCancellationToken
+  isExternal: false
+  name: SetCancellationToken
+  nameWithType: IRestClient.SetCancellationToken
+  fullName: Gfycat.Rest.IRestClient.SetCancellationToken
+- uid: CancellationToken
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: CancellationToken
+- uid: Gfycat.Rest.IRestClient.SendAsync*
+  commentId: Overload:Gfycat.Rest.IRestClient.SendAsync
+  isExternal: false
+  name: SendAsync
+  nameWithType: IRestClient.SendAsync
+  fullName: Gfycat.Rest.IRestClient.SendAsync
+- uid: Task{Gfycat.Rest.RestResponse}
+  commentId: '!:Task{Gfycat.Rest.RestResponse}'
+  definition: Task`1
+  name: Task<RestResponse>
+  nameWithType: Task<RestResponse>
+  fullName: Task<Gfycat.Rest.RestResponse>
+  nameWithType.vb: Task(Of RestResponse)
+  fullName.vb: Task(Of Gfycat.Rest.RestResponse)
+  name.vb: Task(Of RestResponse)
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Gfycat.Rest.RestResponse
+    name: RestResponse
+    nameWithType: RestResponse
+    fullName: Gfycat.Rest.RestResponse
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Gfycat.Rest.RestResponse
+    name: RestResponse
+    nameWithType: RestResponse
+    fullName: Gfycat.Rest.RestResponse
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Task`1
+  isExternal: true
+  name: Task<>
+  nameWithType: Task<>
+  fullName: Task<>
+  nameWithType.vb: Task(Of )
+  fullName.vb: Task(Of )
+  name.vb: Task(Of )
+  spec.csharp:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Task`1
+    name: Task
+    nameWithType: Task
+    fullName: Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Stream
+  isExternal: true
+  name: Stream
+  nameWithType: Stream
+  fullName: Stream
+- uid: IDictionary{System.String,System.Object}
+  commentId: '!:IDictionary{System.String,System.Object}'
+  definition: IDictionary`2
+  name: IDictionary<String, Object>
+  nameWithType: IDictionary<String, Object>
+  fullName: IDictionary<System.String, System.Object>
+  nameWithType.vb: IDictionary(Of String, Object)
+  fullName.vb: IDictionary(Of System.String, System.Object)
+  name.vb: IDictionary(Of String, Object)
+  spec.csharp:
+  - uid: IDictionary`2
+    name: IDictionary
+    nameWithType: IDictionary
+    fullName: IDictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IDictionary`2
+    name: IDictionary
+    nameWithType: IDictionary
+    fullName: IDictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IDictionary`2
+  commentId: '!:IDictionary`2'
+  isExternal: true
+  name: IDictionary<, >
+  nameWithType: IDictionary<, >
+  fullName: IDictionary<, >
+  nameWithType.vb: IDictionary(Of , )
+  fullName.vb: IDictionary(Of , )
+  name.vb: IDictionary(Of , )
+  spec.csharp:
+  - uid: IDictionary`2
+    name: IDictionary
+    nameWithType: IDictionary
+    fullName: IDictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IDictionary`2
+    name: IDictionary
+    nameWithType: IDictionary
+    fullName: IDictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )

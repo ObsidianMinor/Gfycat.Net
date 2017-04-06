@@ -1,0 +1,730 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.Rest.RestResponse
+  commentId: T:Gfycat.Rest.RestResponse
+  id: RestResponse
+  parent: Gfycat.Rest
+  children:
+  - Gfycat.Rest.RestResponse.#ctor(HttpStatusCode,Dictionary{System.String,System.String},Stream,HttpMethod,Uri)
+  - Gfycat.Rest.RestResponse.Content
+  - Gfycat.Rest.RestResponse.Headers
+  - Gfycat.Rest.RestResponse.RequestMethod
+  - Gfycat.Rest.RestResponse.RequestUri
+  - Gfycat.Rest.RestResponse.Status
+  langs:
+  - csharp
+  - vb
+  name: RestResponse
+  nameWithType: RestResponse
+  fullName: Gfycat.Rest.RestResponse
+  type: Class
+  source:
+    id: RestResponse
+    path: ''
+    startLine: 6202
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Rest
+  summary: "\nRepresents a response from a REST endpoint\n"
+  example: []
+  syntax:
+    content: public class RestResponse
+    content.vb: Public Class RestResponse
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Gfycat.Rest.RestResponse.Status
+  commentId: P:Gfycat.Rest.RestResponse.Status
+  id: Status
+  parent: Gfycat.Rest.RestResponse
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: RestResponse.Status
+  fullName: Gfycat.Rest.RestResponse.Status
+  type: Property
+  source:
+    id: Status
+    path: ''
+    startLine: 6207
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Rest
+  summary: "\nThe status returned from the endpoint\n"
+  example: []
+  syntax:
+    content: public HttpStatusCode Status { get; }
+    parameters: []
+    return:
+      type: HttpStatusCode
+    content.vb: Public ReadOnly Property Status As HttpStatusCode
+  overload: Gfycat.Rest.RestResponse.Status*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Rest.RestResponse.Headers
+  commentId: P:Gfycat.Rest.RestResponse.Headers
+  id: Headers
+  parent: Gfycat.Rest.RestResponse
+  langs:
+  - csharp
+  - vb
+  name: Headers
+  nameWithType: RestResponse.Headers
+  fullName: Gfycat.Rest.RestResponse.Headers
+  type: Property
+  source:
+    id: Headers
+    path: ''
+    startLine: 6211
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Rest
+  summary: "\nThe headers returned from the endpoint\n"
+  example: []
+  syntax:
+    content: public Dictionary<string, string> Headers { get; }
+    parameters: []
+    return:
+      type: Dictionary{System.String,System.String}
+    content.vb: Public ReadOnly Property Headers As Dictionary(Of String, String)
+  overload: Gfycat.Rest.RestResponse.Headers*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Rest.RestResponse.Content
+  commentId: P:Gfycat.Rest.RestResponse.Content
+  id: Content
+  parent: Gfycat.Rest.RestResponse
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: RestResponse.Content
+  fullName: Gfycat.Rest.RestResponse.Content
+  type: Property
+  source:
+    id: Content
+    path: ''
+    startLine: 6215
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Rest
+  summary: "\nThe content returned from the endpoint\n"
+  example: []
+  syntax:
+    content: public Stream Content { get; }
+    parameters: []
+    return:
+      type: Stream
+    content.vb: Public ReadOnly Property Content As Stream
+  overload: Gfycat.Rest.RestResponse.Content*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Rest.RestResponse.RequestMethod
+  commentId: P:Gfycat.Rest.RestResponse.RequestMethod
+  id: RequestMethod
+  parent: Gfycat.Rest.RestResponse
+  langs:
+  - csharp
+  - vb
+  name: RequestMethod
+  nameWithType: RestResponse.RequestMethod
+  fullName: Gfycat.Rest.RestResponse.RequestMethod
+  type: Property
+  source:
+    id: RequestMethod
+    path: ''
+    startLine: 6219
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Rest
+  summary: "\nThe method used in the request to the endpoint\n"
+  example: []
+  syntax:
+    content: public HttpMethod RequestMethod { get; }
+    parameters: []
+    return:
+      type: HttpMethod
+    content.vb: Public ReadOnly Property RequestMethod As HttpMethod
+  overload: Gfycat.Rest.RestResponse.RequestMethod*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Rest.RestResponse.RequestUri
+  commentId: P:Gfycat.Rest.RestResponse.RequestUri
+  id: RequestUri
+  parent: Gfycat.Rest.RestResponse
+  langs:
+  - csharp
+  - vb
+  name: RequestUri
+  nameWithType: RestResponse.RequestUri
+  fullName: Gfycat.Rest.RestResponse.RequestUri
+  type: Property
+  source:
+    id: RequestUri
+    path: ''
+    startLine: 6223
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Rest
+  summary: "\nThe URI endpoint used in the request\n"
+  example: []
+  syntax:
+    content: public Uri RequestUri { get; }
+    parameters: []
+    return:
+      type: Uri
+    content.vb: Public ReadOnly Property RequestUri As Uri
+  overload: Gfycat.Rest.RestResponse.RequestUri*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Gfycat.Rest.RestResponse.#ctor(HttpStatusCode,Dictionary{System.String,System.String},Stream,HttpMethod,Uri)
+  commentId: M:Gfycat.Rest.RestResponse.#ctor(HttpStatusCode,Dictionary{System.String,System.String},Stream,HttpMethod,Uri)
+  id: '#ctor(HttpStatusCode,Dictionary{System.String,System.String},Stream,HttpMethod,Uri)'
+  parent: Gfycat.Rest.RestResponse
+  langs:
+  - csharp
+  - vb
+  name: RestResponse(HttpStatusCode, Dictionary<String, String>, Stream, HttpMethod, Uri)
+  nameWithType: RestResponse.RestResponse(HttpStatusCode, Dictionary<String, String>, Stream, HttpMethod, Uri)
+  fullName: Gfycat.Rest.RestResponse.RestResponse(HttpStatusCode, Dictionary<System.String, System.String>, Stream, HttpMethod, Uri)
+  type: Constructor
+  source:
+    id: .ctor
+    path: ''
+    startLine: 6233
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Rest
+  summary: "\nCreates a new <xref href=\"Gfycat.Rest.RestResponse\" data-throw-if-not-resolved=\"false\"></xref> with the specified status, headers, content, method, and request URI\n"
+  example: []
+  syntax:
+    content: public RestResponse(HttpStatusCode status, Dictionary<string, string> headers, Stream content, HttpMethod method, Uri requestUri)
+    parameters:
+    - id: status
+      type: HttpStatusCode
+      description: ''
+    - id: headers
+      type: Dictionary{System.String,System.String}
+      description: ''
+    - id: content
+      type: Stream
+      description: ''
+    - id: method
+      type: HttpMethod
+      description: ''
+    - id: requestUri
+      type: Uri
+      description: ''
+    content.vb: Public Sub New(status As HttpStatusCode, headers As Dictionary(Of String, String), content As Stream, method As HttpMethod, requestUri As Uri)
+  overload: Gfycat.Rest.RestResponse.#ctor*
+  nameWithType.vb: RestResponse.RestResponse(HttpStatusCode, Dictionary(Of String, String), Stream, HttpMethod, Uri)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Gfycat.Rest.RestResponse.RestResponse(HttpStatusCode, Dictionary(Of System.String, System.String), Stream, HttpMethod, Uri)
+  name.vb: RestResponse(HttpStatusCode, Dictionary(Of String, String), Stream, HttpMethod, Uri)
+references:
+- uid: Gfycat.Rest
+  commentId: N:Gfycat.Rest
+  isExternal: false
+  name: Gfycat.Rest
+  nameWithType: Gfycat.Rest
+  fullName: Gfycat.Rest
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Gfycat.Rest.RestResponse.Status*
+  commentId: Overload:Gfycat.Rest.RestResponse.Status
+  isExternal: false
+  name: Status
+  nameWithType: RestResponse.Status
+  fullName: Gfycat.Rest.RestResponse.Status
+- uid: HttpStatusCode
+  isExternal: true
+  name: HttpStatusCode
+  nameWithType: HttpStatusCode
+  fullName: HttpStatusCode
+- uid: Gfycat.Rest.RestResponse.Headers*
+  commentId: Overload:Gfycat.Rest.RestResponse.Headers
+  isExternal: false
+  name: Headers
+  nameWithType: RestResponse.Headers
+  fullName: Gfycat.Rest.RestResponse.Headers
+- uid: Dictionary{System.String,System.String}
+  commentId: '!:Dictionary{System.String,System.String}'
+  definition: Dictionary`2
+  name: Dictionary<String, String>
+  nameWithType: Dictionary<String, String>
+  fullName: Dictionary<System.String, System.String>
+  nameWithType.vb: Dictionary(Of String, String)
+  fullName.vb: Dictionary(Of System.String, System.String)
+  name.vb: Dictionary(Of String, String)
+  spec.csharp:
+  - uid: Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Dictionary`2
+  isExternal: true
+  name: Dictionary<, >
+  nameWithType: Dictionary<, >
+  fullName: Dictionary<, >
+  nameWithType.vb: Dictionary(Of , )
+  fullName.vb: Dictionary(Of , )
+  name.vb: Dictionary(Of , )
+  spec.csharp:
+  - uid: Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Gfycat.Rest.RestResponse.Content*
+  commentId: Overload:Gfycat.Rest.RestResponse.Content
+  isExternal: false
+  name: Content
+  nameWithType: RestResponse.Content
+  fullName: Gfycat.Rest.RestResponse.Content
+- uid: Stream
+  isExternal: true
+  name: Stream
+  nameWithType: Stream
+  fullName: Stream
+- uid: Gfycat.Rest.RestResponse.RequestMethod*
+  commentId: Overload:Gfycat.Rest.RestResponse.RequestMethod
+  isExternal: false
+  name: RequestMethod
+  nameWithType: RestResponse.RequestMethod
+  fullName: Gfycat.Rest.RestResponse.RequestMethod
+- uid: HttpMethod
+  isExternal: true
+  name: HttpMethod
+  nameWithType: HttpMethod
+  fullName: HttpMethod
+- uid: Gfycat.Rest.RestResponse.RequestUri*
+  commentId: Overload:Gfycat.Rest.RestResponse.RequestUri
+  isExternal: false
+  name: RequestUri
+  nameWithType: RestResponse.RequestUri
+  fullName: Gfycat.Rest.RestResponse.RequestUri
+- uid: Uri
+  isExternal: true
+  name: Uri
+  nameWithType: Uri
+  fullName: Uri
+- uid: Gfycat.Rest.RestResponse
+  commentId: T:Gfycat.Rest.RestResponse
+  isExternal: false
+  name: RestResponse
+  nameWithType: RestResponse
+  fullName: Gfycat.Rest.RestResponse
+- uid: Gfycat.Rest.RestResponse.#ctor*
+  commentId: Overload:Gfycat.Rest.RestResponse.#ctor
+  isExternal: false
+  name: RestResponse
+  nameWithType: RestResponse.RestResponse
+  fullName: Gfycat.Rest.RestResponse.RestResponse

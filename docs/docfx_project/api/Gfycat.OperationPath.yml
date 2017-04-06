@@ -1,0 +1,305 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.OperationPath
+  commentId: T:Gfycat.OperationPath
+  id: OperationPath
+  parent: Gfycat
+  children:
+  - Gfycat.OperationPath.Description
+  - Gfycat.OperationPath.DomainWhitelist
+  - Gfycat.OperationPath.Email
+  - Gfycat.OperationPath.GeoWhitelist
+  - Gfycat.OperationPath.IframeImageVisible
+  - Gfycat.OperationPath.Name
+  - Gfycat.OperationPath.Password
+  - Gfycat.OperationPath.ProfileUrl
+  - Gfycat.OperationPath.UploadNotices
+  langs:
+  - csharp
+  - vb
+  name: OperationPath
+  nameWithType: OperationPath
+  fullName: Gfycat.OperationPath
+  type: Enum
+  source:
+    id: OperationPath
+    path: ''
+    startLine: 2967
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: public enum OperationPath
+    content.vb: Public Enum OperationPath
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Gfycat.OperationPath.Name
+  commentId: F:Gfycat.OperationPath.Name
+  id: Name
+  parent: Gfycat.OperationPath
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: OperationPath.Name
+  fullName: Gfycat.OperationPath.Name
+  type: Field
+  source:
+    id: Name
+    path: ''
+    startLine: 2969
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: Name = 0
+    return:
+      type: Gfycat.OperationPath
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.OperationPath.Email
+  commentId: F:Gfycat.OperationPath.Email
+  id: Email
+  parent: Gfycat.OperationPath
+  langs:
+  - csharp
+  - vb
+  name: Email
+  nameWithType: OperationPath.Email
+  fullName: Gfycat.OperationPath.Email
+  type: Field
+  source:
+    id: Email
+    path: ''
+    startLine: 2970
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: Email = 1
+    return:
+      type: Gfycat.OperationPath
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.OperationPath.Password
+  commentId: F:Gfycat.OperationPath.Password
+  id: Password
+  parent: Gfycat.OperationPath
+  langs:
+  - csharp
+  - vb
+  name: Password
+  nameWithType: OperationPath.Password
+  fullName: Gfycat.OperationPath.Password
+  type: Field
+  source:
+    id: Password
+    path: ''
+    startLine: 2971
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: Password = 2
+    return:
+      type: Gfycat.OperationPath
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.OperationPath.ProfileUrl
+  commentId: F:Gfycat.OperationPath.ProfileUrl
+  id: ProfileUrl
+  parent: Gfycat.OperationPath
+  langs:
+  - csharp
+  - vb
+  name: ProfileUrl
+  nameWithType: OperationPath.ProfileUrl
+  fullName: Gfycat.OperationPath.ProfileUrl
+  type: Field
+  source:
+    id: ProfileUrl
+    path: ''
+    startLine: 2972
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: ProfileUrl = 3
+    return:
+      type: Gfycat.OperationPath
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.OperationPath.Description
+  commentId: F:Gfycat.OperationPath.Description
+  id: Description
+  parent: Gfycat.OperationPath
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: OperationPath.Description
+  fullName: Gfycat.OperationPath.Description
+  type: Field
+  source:
+    id: Description
+    path: ''
+    startLine: 2973
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: Description = 4
+    return:
+      type: Gfycat.OperationPath
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.OperationPath.UploadNotices
+  commentId: F:Gfycat.OperationPath.UploadNotices
+  id: UploadNotices
+  parent: Gfycat.OperationPath
+  langs:
+  - csharp
+  - vb
+  name: UploadNotices
+  nameWithType: OperationPath.UploadNotices
+  fullName: Gfycat.OperationPath.UploadNotices
+  type: Field
+  source:
+    id: UploadNotices
+    path: ''
+    startLine: 2974
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: UploadNotices = 5
+    return:
+      type: Gfycat.OperationPath
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.OperationPath.DomainWhitelist
+  commentId: F:Gfycat.OperationPath.DomainWhitelist
+  id: DomainWhitelist
+  parent: Gfycat.OperationPath
+  langs:
+  - csharp
+  - vb
+  name: DomainWhitelist
+  nameWithType: OperationPath.DomainWhitelist
+  fullName: Gfycat.OperationPath.DomainWhitelist
+  type: Field
+  source:
+    id: DomainWhitelist
+    path: ''
+    startLine: 2975
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: DomainWhitelist = 6
+    return:
+      type: Gfycat.OperationPath
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.OperationPath.GeoWhitelist
+  commentId: F:Gfycat.OperationPath.GeoWhitelist
+  id: GeoWhitelist
+  parent: Gfycat.OperationPath
+  langs:
+  - csharp
+  - vb
+  name: GeoWhitelist
+  nameWithType: OperationPath.GeoWhitelist
+  fullName: Gfycat.OperationPath.GeoWhitelist
+  type: Field
+  source:
+    id: GeoWhitelist
+    path: ''
+    startLine: 2976
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: GeoWhitelist = 7
+    return:
+      type: Gfycat.OperationPath
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Gfycat.OperationPath.IframeImageVisible
+  commentId: F:Gfycat.OperationPath.IframeImageVisible
+  id: IframeImageVisible
+  parent: Gfycat.OperationPath
+  langs:
+  - csharp
+  - vb
+  name: IframeImageVisible
+  nameWithType: OperationPath.IframeImageVisible
+  fullName: Gfycat.OperationPath.IframeImageVisible
+  type: Field
+  source:
+    id: IframeImageVisible
+    path: ''
+    startLine: 2977
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat
+  syntax:
+    content: IframeImageVisible = 8
+    return:
+      type: Gfycat.OperationPath
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Gfycat
+  commentId: N:Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Gfycat
+  fullName: Gfycat
+- uid: Gfycat.OperationPath
+  commentId: T:Gfycat.OperationPath
+  parent: Gfycat
+  isExternal: false
+  name: OperationPath
+  nameWithType: OperationPath
+  fullName: Gfycat.OperationPath

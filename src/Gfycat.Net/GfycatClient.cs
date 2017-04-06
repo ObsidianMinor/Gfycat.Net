@@ -349,7 +349,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<bool> GetUserExistsAsync(string username, RequestOptions options = null)
         {
-            return (await ApiClient.GetUsernameStatusAsync(username, options)) == HttpStatusCode.OK;
+            return (await ApiClient.GetUsernameStatusAsync(username, options)).IsSuccessfulStatus();
         }
 
         /// <summary>

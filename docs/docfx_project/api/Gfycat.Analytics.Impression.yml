@@ -1,0 +1,575 @@
+### YamlMime:ManagedReference
+items:
+- uid: Gfycat.Analytics.Impression
+  commentId: T:Gfycat.Analytics.Impression
+  id: Impression
+  parent: Gfycat.Analytics
+  children:
+  - Gfycat.Analytics.Impression.Context
+  - Gfycat.Analytics.Impression.Flow
+  - Gfycat.Analytics.Impression.Gfycat
+  - Gfycat.Analytics.Impression.Keyword
+  - Gfycat.Analytics.Impression.ViewTag
+  langs:
+  - csharp
+  - vb
+  name: Impression
+  nameWithType: Impression
+  fullName: Gfycat.Analytics.Impression
+  type: Class
+  source:
+    id: Impression
+    path: ''
+    startLine: 6684
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Analytics
+  summary: "\nRepresents an gfy impression\n"
+  example: []
+  syntax:
+    content: public class Impression
+    content.vb: Public Class Impression
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Gfycat.Analytics.Impression.Gfycat
+  commentId: P:Gfycat.Analytics.Impression.Gfycat
+  id: Gfycat
+  parent: Gfycat.Analytics.Impression
+  langs:
+  - csharp
+  - vb
+  name: Gfycat
+  nameWithType: Impression.Gfycat
+  fullName: Gfycat.Analytics.Impression.Gfycat
+  type: Property
+  source:
+    id: Gfycat
+    path: ''
+    startLine: 6689
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Analytics
+  summary: "\nSets the gfy this impression is for\n"
+  example: []
+  syntax:
+    content: public Gfy Gfycat { get; set; }
+    parameters: []
+    return:
+      type: Gfycat.Gfy
+    content.vb: Public Property Gfycat As Gfy
+  overload: Gfycat.Analytics.Impression.Gfycat*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Analytics.Impression.Context
+  commentId: P:Gfycat.Analytics.Impression.Context
+  id: Context
+  parent: Gfycat.Analytics.Impression
+  langs:
+  - csharp
+  - vb
+  name: Context
+  nameWithType: Impression.Context
+  fullName: Gfycat.Analytics.Impression.Context
+  type: Property
+  source:
+    id: Context
+    path: ''
+    startLine: 6693
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Analytics
+  summary: "\nSets the context of this impression\n"
+  example: []
+  syntax:
+    content: public ImpressionContext Context { get; set; }
+    parameters: []
+    return:
+      type: Gfycat.Analytics.ImpressionContext
+    content.vb: Public Property Context As ImpressionContext
+  overload: Gfycat.Analytics.Impression.Context*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Analytics.Impression.Keyword
+  commentId: P:Gfycat.Analytics.Impression.Keyword
+  id: Keyword
+  parent: Gfycat.Analytics.Impression
+  langs:
+  - csharp
+  - vb
+  name: Keyword
+  nameWithType: Impression.Keyword
+  fullName: Gfycat.Analytics.Impression.Keyword
+  type: Property
+  source:
+    id: Keyword
+    path: ''
+    startLine: 6697
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Analytics
+  summary: "\nSets the keyword of this impression\n"
+  example: []
+  syntax:
+    content: public string Keyword { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Keyword As String
+  overload: Gfycat.Analytics.Impression.Keyword*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Analytics.Impression.Flow
+  commentId: P:Gfycat.Analytics.Impression.Flow
+  id: Flow
+  parent: Gfycat.Analytics.Impression
+  langs:
+  - csharp
+  - vb
+  name: Flow
+  nameWithType: Impression.Flow
+  fullName: Gfycat.Analytics.Impression.Flow
+  type: Property
+  source:
+    id: Flow
+    path: ''
+    startLine: 6701
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Analytics
+  summary: "\nSets the flow of this impression\n"
+  example: []
+  syntax:
+    content: public ImpressionFlow Flow { get; set; }
+    parameters: []
+    return:
+      type: Gfycat.Analytics.ImpressionFlow
+    content.vb: Public Property Flow As ImpressionFlow
+  overload: Gfycat.Analytics.Impression.Flow*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Gfycat.Analytics.Impression.ViewTag
+  commentId: P:Gfycat.Analytics.Impression.ViewTag
+  id: ViewTag
+  parent: Gfycat.Analytics.Impression
+  langs:
+  - csharp
+  - vb
+  name: ViewTag
+  nameWithType: Impression.ViewTag
+  fullName: Gfycat.Analytics.Impression.ViewTag
+  type: Property
+  source:
+    id: ViewTag
+    path: ''
+    startLine: 6705
+  assemblies:
+  - cs.temp.dll
+  namespace: Gfycat.Analytics
+  summary: "\nSets the view tag of this impression\n"
+  example: []
+  syntax:
+    content: public string ViewTag { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ViewTag As String
+  overload: Gfycat.Analytics.Impression.ViewTag*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: Gfycat.Analytics
+  commentId: N:Gfycat.Analytics
+  isExternal: false
+  name: Gfycat.Analytics
+  nameWithType: Gfycat.Analytics
+  fullName: Gfycat.Analytics
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: false
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Gfycat.Analytics.Impression.Gfycat*
+  commentId: Overload:Gfycat.Analytics.Impression.Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Impression.Gfycat
+  fullName: Gfycat.Analytics.Impression.Gfycat
+- uid: Gfycat.Gfy
+  commentId: T:Gfycat.Gfy
+  parent: Gfycat
+  isExternal: false
+  name: Gfy
+  nameWithType: Gfy
+  fullName: Gfycat.Gfy
+- uid: Gfycat
+  commentId: N:Gfycat
+  isExternal: false
+  name: Gfycat
+  nameWithType: Gfycat
+  fullName: Gfycat
+- uid: Gfycat.Analytics.Impression.Context*
+  commentId: Overload:Gfycat.Analytics.Impression.Context
+  isExternal: false
+  name: Context
+  nameWithType: Impression.Context
+  fullName: Gfycat.Analytics.Impression.Context
+- uid: Gfycat.Analytics.ImpressionContext
+  commentId: T:Gfycat.Analytics.ImpressionContext
+  parent: Gfycat.Analytics
+  isExternal: false
+  name: ImpressionContext
+  nameWithType: ImpressionContext
+  fullName: Gfycat.Analytics.ImpressionContext
+- uid: Gfycat.Analytics.Impression.Keyword*
+  commentId: Overload:Gfycat.Analytics.Impression.Keyword
+  isExternal: false
+  name: Keyword
+  nameWithType: Impression.Keyword
+  fullName: Gfycat.Analytics.Impression.Keyword
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Gfycat.Analytics.Impression.Flow*
+  commentId: Overload:Gfycat.Analytics.Impression.Flow
+  isExternal: false
+  name: Flow
+  nameWithType: Impression.Flow
+  fullName: Gfycat.Analytics.Impression.Flow
+- uid: Gfycat.Analytics.ImpressionFlow
+  commentId: T:Gfycat.Analytics.ImpressionFlow
+  parent: Gfycat.Analytics
+  isExternal: false
+  name: ImpressionFlow
+  nameWithType: ImpressionFlow
+  fullName: Gfycat.Analytics.ImpressionFlow
+- uid: Gfycat.Analytics.Impression.ViewTag*
+  commentId: Overload:Gfycat.Analytics.Impression.ViewTag
+  isExternal: false
+  name: ViewTag
+  nameWithType: Impression.ViewTag
+  fullName: Gfycat.Analytics.Impression.ViewTag
