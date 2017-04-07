@@ -46,6 +46,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<bool> MoveNext(CancellationToken cancellationToken)
         {
+            cancellationToken.ThrowIfCancellationRequested();
+
             if (!_currentEnumerator.MoveNext())
             {
                 if (string.IsNullOrWhiteSpace(_currentFeed.Cursor))
