@@ -71,6 +71,11 @@ namespace Gfycat
             return returnedGfy;
         }
 
+        /// <summary>
+        /// Gets the share page URL for this Gfy
+        /// </summary>
+        public string Url => $"https://gfycat.com/{Name}";
+
         public long Number { get; private set; }
         /// <summary>
         /// Gets the webm url for this gfy
