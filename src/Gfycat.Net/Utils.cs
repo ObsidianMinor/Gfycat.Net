@@ -75,6 +75,24 @@ namespace Gfycat
             { ReactionLanguage.HanChinese, "zh-Ha" }
         };
 
+        internal static bool HasPartial(string value, HashSet<string> possibleValues, out string match)
+        {
+            string current = "";
+            for (int i = 0; i < value.Length; i++)
+            {
+                current = current + value[i];
+                if (possibleValues.Contains(current))
+                {
+                    match = current;
+                    return true;
+                }
+            }
+            match = null;
+            return false;
+        }
+        
+        internal static readonly int GfyFinalSegmentMaxLength = GfyAdjectives.Max(x => x.Length) * 2 + GfyAnimals.Max(x => x.Length);
+
         internal static readonly HashSet<string> GfyAdjectives = new HashSet<string>
         {
             "abandoned",

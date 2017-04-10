@@ -500,13 +500,48 @@ namespace Gfycat
         /// </summary>
         /// <param name="gfycatUrl">The gfycat url</param>
         /// <param name="options">Optional request parameters</param>
-        /// <returns>An awaitable Gfy</returns>
+        /// <returns>An awaitable task that returns a Gfy</returns>
         public async Task<Gfy> GetGfyFromUrlAsync(string gfycatUrl, RequestOptions options = null)
         {
-            if (!Uri.TryCreate(gfycatUrl, UriKind.Absolute, out Uri result) || result.Host != "gfycat.com" || result.LocalPath == "/")
+            if (!Uri.TryCreate(gfycatUrl, UriKind.Absolute, out Uri result) || !result.Scheme.Contains("http") || !result.Host.EndsWith("gfycat.com") || result.LocalPath == "/")
                 return null;
             else
-                return await GetGfyAsync(result.Segments.LastOrDefault(), options);
+            {
+                string lastSegment = result.Segments.LastOrDefault();
+                int fileExtensionPos = lastSegment.LastIndexOf('.');
+                if (fileExtensionPos != -1)
+                    lastSegment = lastSegment.Remove(fileExtensionPos);
+
+                if (lastSegment.Equals("BrutalSavageRekt", StringComparison.OrdinalIgnoreCase))
+                    return await GetGfyAsync("BrutalSavageRekt", options).ConfigureAwait(false);
+
+                if (lastSegment.Length > Utils.GfyFinalSegmentMaxLength)
+                    return null;
+
+                lastSegment = lastSegment.ToLowerInvariant();
+                //adjectives
+                string match;
+                if (Utils.HasPartial(lastSegment, Utils.GfyAdjectives, out match))
+                {
+                    var length = match.Length;
+                    if (Utils.HasPartial(result.OriginalString.Substring(match.Length), Utils.GfyAdjectives, out match))
+                    {
+                        if (Utils.HasPartial(result.OriginalString.Substring(match.Length + length), Utils.GfyAnimals, out match))
+                        {
+                            try
+                            {
+                                return await GetGfyAsync(lastSegment, options);
+                            }
+                            catch (GfycatException ex) when (ex.HttpCode == HttpStatusCode.NotFound)
+                            {
+                                return null;
+                            }
+                        }
+                    }
+                }
+
+                return null;
+            }
         }
 
         #region Creating Gfycats
