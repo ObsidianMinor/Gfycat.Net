@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using Gfycat.API.Models;
 using Model = Gfycat.API.Models.Gfy;
 
 namespace Gfycat
@@ -15,12 +16,17 @@ namespace Gfycat
     [DebuggerDisplay("{Name} : {Title}")]
     public class Gfy : Entity, IUpdatable
     {
+        bool _isFull;
+
         internal Gfy(GfycatClient client, string id) : base(client, id)
         {
         }
 
         internal void Update(Model model)
         {
+            FullGfy fullModel = model as FullGfy;
+            _isFull = fullModel is null;
+
             Number = model.Number;
             WebmUrl = model.WebmUrl;
             GifUrl = model.GifUrl;
@@ -52,7 +58,7 @@ namespace Gfycat
             Md5 = model.Md5;
             Views = model.Views;
             Tags = model.Tags.ToReadOnlyCollection();
-            UserTags = Enumerable.Empty<string>().ToReadOnlyCollection();
+            UserTags = _isFull ? fullModel.UserTags?.ToReadOnlyCollection() : Enumerable.Empty<string>().ToReadOnlyCollection();
             Username = model.Username;
             Name = model.Name;
             Title = model.Title;
@@ -63,8 +69,9 @@ namespace Gfycat
             RedditId = model.RedditId;
             RedditIdText = model.RedditIdText;
             DomainWhitelist = model.DomainWhitelist.ToReadOnlyCollection();
-            LikedByCurrentUser = false;
-            DislikedByCurrentUser = false;
+            LikedByCurrentUser = _isFull ? fullModel.LikeState == LikeState.Liked : false;
+            DislikedByCurrentUser = _isFull ? fullModel.LikeState == LikeState.Disliked : false;
+            BookmarkedByCurrentUser = _isFull ? fullModel.BookmarkState : false;
         }
 
         internal static Gfy Create(GfycatClient client, Model model)
@@ -237,6 +244,10 @@ namespace Gfycat
         /// Gets whether this gfy is disliked by the current user
         /// </summary>
         public bool DislikedByCurrentUser { get; private set; }
+        /// <summary>
+        /// Gets whether this gfy is bookmarked by the current user
+        /// </summary>
+        public bool BookmarkedByCurrentUser { get; private set; }
         
         /// <summary>
         /// Shares this gfy on twitter using the specified post status
@@ -455,7 +466,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task UpdateAsync(RequestOptions options = null)
         {
-            Update((await Client.ApiClient.GetGfyAsync(Id, options)).GfyItem);
+            Update(_isFull ? (await Client.ApiClient.GetFullGfyAsync(Id, options)).Gfy : (await Client.ApiClient.GetGfyAsync(Id, options)).GfyItem);
         }
 
         /// <summary>

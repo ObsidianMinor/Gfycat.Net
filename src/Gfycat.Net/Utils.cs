@@ -75,10 +75,16 @@ namespace Gfycat
             { ReactionLanguage.HanChinese, "zh-Ha" }
         };
 
-        internal static bool HasPartial(string value, HashSet<string> possibleValues, out string match)
+        internal static bool HasPartial(string value, HashSet<string> possibleValues, ref string match)
         {
+            int index = 0;
             string current = "";
-            for (int i = 0; i < value.Length; i++)
+            if (!String.IsNullOrEmpty(match))
+            {
+                index = match.Length;
+                current = match;
+            }
+            for (int i = index; i < value.Length; i++)
             {
                 current = current + value[i];
                 if (possibleValues.Contains(current))

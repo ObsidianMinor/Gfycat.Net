@@ -488,11 +488,22 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<Gfy> GetGfyAsync(string gfycat, RequestOptions options = null)
         {
-            GfyResponse response = await ApiClient.GetGfyAsync(gfycat, options);
-            if (response == null)
-                return null;
+            if (_clientAuth) // can I just say how much implicit auth is a pain the ass?
+            {
+                GfyResponse response = await ApiClient.GetGfyAsync(gfycat, options);
+                if (response == null)
+                    return null;
 
-            return Gfy.Create(this, response.GfyItem);
+                return Gfy.Create(this, response.GfyItem);
+            }
+            else
+            {
+                FullGfyResponse response = await ApiClient.GetFullGfyAsync(gfycat, options);
+                if (response == null)
+                    return null;
+
+                return Gfy.Create(this, response.Gfy);
+            }
         }
 
         /// <summary>
@@ -520,24 +531,25 @@ namespace Gfycat
 
                 lastSegment = lastSegment.ToLowerInvariant();
                 //adjectives
-                string match;
-                if (Utils.HasPartial(lastSegment, Utils.GfyAdjectives, out match))
+                string match1 = "";
+                string match2 = "";
+                string match3 = "";
+                // HAH, fuck you. Goto works here. And you can't stop me.
+                // actually jk someone else wrote and tested this in the C# discord.
+                // I'm also too lazy to write a new one without goto, wateva it works fast as fuck
+                begin:
+                if (Utils.HasPartial(lastSegment, Utils.GfyAdjectives, ref match1))
                 {
-                    var length = match.Length;
-                    if (Utils.HasPartial(result.OriginalString.Substring(match.Length), Utils.GfyAdjectives, out match))
+                    second:
+                    if (Utils.HasPartial(lastSegment.Substring(match1.Length), Utils.GfyAdjectives, ref match2))
                     {
-                        if (Utils.HasPartial(result.OriginalString.Substring(match.Length + length), Utils.GfyAnimals, out match))
-                        {
-                            try
-                            {
-                                return await GetGfyAsync(lastSegment, options);
-                            }
-                            catch (GfycatException ex) when (ex.HttpCode == HttpStatusCode.NotFound)
-                            {
-                                return null;
-                            }
-                        }
+                        if (Utils.HasPartial(lastSegment.Substring(match1.Length + match2.Length), Utils.GfyAnimals, ref match3))
+                            return await GetGfyAsync(lastSegment, options);
+                        else
+                            goto second;
                     }
+                    else
+                        goto begin;
                 }
 
                 return null;
