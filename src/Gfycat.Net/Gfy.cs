@@ -52,6 +52,7 @@ namespace Gfycat
             Md5 = model.Md5;
             Views = model.Views;
             Tags = model.Tags.ToReadOnlyCollection();
+            UserTags = Enumerable.Empty<string>().ToReadOnlyCollection();
             Username = model.Username;
             Name = model.Name;
             Title = model.Title;
@@ -62,7 +63,9 @@ namespace Gfycat
             RedditId = model.RedditId;
             RedditIdText = model.RedditIdText;
             DomainWhitelist = model.DomainWhitelist.ToReadOnlyCollection();
-    }
+            LikedByCurrentUser = false;
+            DislikedByCurrentUser = false;
+        }
 
         internal static Gfy Create(GfycatClient client, Model model)
         {
@@ -195,6 +198,10 @@ namespace Gfycat
         /// </summary>
         public IReadOnlyCollection<string> Tags { get; private set; }
         /// <summary>
+        /// Gets the user defined tags for this gfy
+        /// </summary>
+        public IReadOnlyCollection<string> UserTags { get; private set; }
+        /// <summary>
         /// Gets the username of the owner of this gfy
         /// </summary>
         public string Username { get; private set; }
@@ -222,6 +229,14 @@ namespace Gfycat
         /// Gets the whitelist of domains allowed to embed this gfy
         /// </summary>
         public IReadOnlyCollection<string> DomainWhitelist { get; private set; }
+        /// <summary>
+        /// Gets whether this gfy is liked by the current user
+        /// </summary>
+        public bool LikedByCurrentUser { get; private set; }
+        /// <summary>
+        /// Gets whether this gfy is disliked by the current user
+        /// </summary>
+        public bool DislikedByCurrentUser { get; private set; }
         
         /// <summary>
         /// Shares this gfy on twitter using the specified post status
@@ -418,6 +433,8 @@ namespace Gfycat
         public async Task BookmarkAsync(BookmarkFolder folder = null, RequestOptions options = null)
         {
             await Client.ApiClient.BookmarkGfyAsync(Id, folder?.Id, options);
+            await UpdateAsync();
+            await folder?.UpdateAsync();
         }
         /// <summary>
         /// Unbookmarks this gfy from the specified bookmark folder
@@ -428,6 +445,7 @@ namespace Gfycat
         public async Task UnbookmarkAsync(BookmarkFolder folder = null, RequestOptions options = null)
         {
             await Client.ApiClient.UnbookmarkGfyAsync(Id, folder?.Id, options);
+            await UpdateAsync();
         }
 
         /// <summary>
@@ -448,6 +466,11 @@ namespace Gfycat
         public async Task<User> GetUserAsync(RequestOptions options = null)
         {
             return (Username != "anonymous") ? await Client.GetUserAsync(Username, options) : null;
+        }
+
+        public async Task LikeAsync(RequestOptions options = null)
+        {
+            await Client.ApiClient.LikeGfyAsync(Id, options);
         }
     }
 }

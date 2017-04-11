@@ -379,7 +379,7 @@ namespace Gfycat.API
             RestResponse response = await SendAsync("GET", "me/album-folders", options).ConfigureAwait(false);
             return response.ReadAsJson<IEnumerable<Models.AlbumInfo>>(Config);
         }
-
+        
         internal async Task<IEnumerable<Models.AlbumInfo>> GetAlbumsForUserAsync(string userId, RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", $"users/{userId}/albums", options).ConfigureAwait(false);
@@ -485,6 +485,17 @@ namespace Gfycat.API
             return response.ReadAsJson<GfyResponse>(Config);
         }
 
+        public async Task<FullGfyResponse> GetFullGfyAsync(string gfyId, RequestOptions options)
+        {
+            options = options ?? RequestOptions.CreateFromDefaults(Config);
+            options.IgnoreCodes = Utils.Ignore404;
+            RestResponse response = await SendAsync("GET", $"me/gfycats/{gfyId}/full", options).ConfigureAwait(false);
+            if (response.Status == HttpStatusCode.NotFound)
+                return null;
+
+            return response.ReadAsJson<FullGfyResponse>(Config);
+        }
+
         #endregion
 
         #region Creating gfycats
@@ -586,6 +597,16 @@ namespace Gfycat.API
         internal async Task ModifyGfyNsfwSettingAsync(string gfyId, NsfwSetting newSetting, RequestOptions options)
         {
             RestResponse response = await SendJsonAsync("PUT", $"me/gfycats/{gfyId}/nsfw", new { value = newSetting }, options).ConfigureAwait(false);
+        }
+        
+        internal Task LikeGfyAsync(string gfyid, RequestOptions options)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal Task DislikeGfyAsync(string gfyid, RequestOptions options)
+        {
+            throw new NotImplementedException();
         }
 
         internal async Task DeleteGfyAsync(string gfyId, RequestOptions options)
