@@ -2789,6 +2789,18 @@ references:
   commentId: Overload:Gfycat.Gfy.BookmarkAsync
   fullName: Gfycat.Gfy.BookmarkAsync
   nameWithType: Gfy.BookmarkAsync
+- uid: Gfycat.Gfy.BookmarkedByCurrentUser
+  name: BookmarkedByCurrentUser
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_BookmarkedByCurrentUser
+  commentId: P:Gfycat.Gfy.BookmarkedByCurrentUser
+  fullName: Gfycat.Gfy.BookmarkedByCurrentUser
+  nameWithType: Gfy.BookmarkedByCurrentUser
+- uid: Gfycat.Gfy.BookmarkedByCurrentUser*
+  name: BookmarkedByCurrentUser
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_BookmarkedByCurrentUser_
+  commentId: Overload:Gfycat.Gfy.BookmarkedByCurrentUser
+  fullName: Gfycat.Gfy.BookmarkedByCurrentUser
+  nameWithType: Gfy.BookmarkedByCurrentUser
 - uid: Gfycat.Gfy.CreationDate
   name: CreationDate
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_CreationDate
@@ -2873,6 +2885,18 @@ references:
   commentId: Overload:Gfycat.Gfy.Description
   fullName: Gfycat.Gfy.Description
   nameWithType: Gfy.Description
+- uid: Gfycat.Gfy.DislikedByCurrentUser
+  name: DislikedByCurrentUser
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_DislikedByCurrentUser
+  commentId: P:Gfycat.Gfy.DislikedByCurrentUser
+  fullName: Gfycat.Gfy.DislikedByCurrentUser
+  nameWithType: Gfy.DislikedByCurrentUser
+- uid: Gfycat.Gfy.DislikedByCurrentUser*
+  name: DislikedByCurrentUser
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_DislikedByCurrentUser_
+  commentId: Overload:Gfycat.Gfy.DislikedByCurrentUser
+  fullName: Gfycat.Gfy.DislikedByCurrentUser
+  nameWithType: Gfy.DislikedByCurrentUser
 - uid: Gfycat.Gfy.Dislikes
   name: Dislikes
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Dislikes
@@ -3017,6 +3041,18 @@ references:
   commentId: Overload:Gfycat.Gfy.LanguageText
   fullName: Gfycat.Gfy.LanguageText
   nameWithType: Gfy.LanguageText
+- uid: Gfycat.Gfy.LikedByCurrentUser
+  name: LikedByCurrentUser
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_LikedByCurrentUser
+  commentId: P:Gfycat.Gfy.LikedByCurrentUser
+  fullName: Gfycat.Gfy.LikedByCurrentUser
+  nameWithType: Gfy.LikedByCurrentUser
+- uid: Gfycat.Gfy.LikedByCurrentUser*
+  name: LikedByCurrentUser
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_LikedByCurrentUser_
+  commentId: Overload:Gfycat.Gfy.LikedByCurrentUser
+  fullName: Gfycat.Gfy.LikedByCurrentUser
+  nameWithType: Gfy.LikedByCurrentUser
 - uid: Gfycat.Gfy.Likes
   name: Likes
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Likes
@@ -3125,6 +3161,18 @@ references:
   commentId: Overload:Gfycat.Gfy.ModifyDescriptionAsync
   fullName: Gfycat.Gfy.ModifyDescriptionAsync
   nameWithType: Gfy.ModifyDescriptionAsync
+- uid: Gfycat.Gfy.ModifyDislikedSettingAsync(System.Boolean,Gfycat.RequestOptions)
+  name: ModifyDislikedSettingAsync(Boolean, RequestOptions)
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_ModifyDislikedSettingAsync_System_Boolean_Gfycat_RequestOptions_
+  commentId: M:Gfycat.Gfy.ModifyDislikedSettingAsync(System.Boolean,Gfycat.RequestOptions)
+  fullName: Gfycat.Gfy.ModifyDislikedSettingAsync(System.Boolean, Gfycat.RequestOptions)
+  nameWithType: Gfy.ModifyDislikedSettingAsync(Boolean, RequestOptions)
+- uid: Gfycat.Gfy.ModifyDislikedSettingAsync*
+  name: ModifyDislikedSettingAsync
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_ModifyDislikedSettingAsync_
+  commentId: Overload:Gfycat.Gfy.ModifyDislikedSettingAsync
+  fullName: Gfycat.Gfy.ModifyDislikedSettingAsync
+  nameWithType: Gfy.ModifyDislikedSettingAsync
 - uid: Gfycat.Gfy.ModifyDomainWhitelistAsync(IEnumerable{System.String},Gfycat.RequestOptions)
   name: ModifyDomainWhitelistAsync(IEnumerable<String>, RequestOptions)
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_ModifyDomainWhitelistAsync_IEnumerable_System_String__Gfycat_RequestOptions_
@@ -3155,6 +3203,18 @@ references:
   commentId: Overload:Gfycat.Gfy.ModifyGeoWhitelistAsync
   fullName: Gfycat.Gfy.ModifyGeoWhitelistAsync
   nameWithType: Gfy.ModifyGeoWhitelistAsync
+- uid: Gfycat.Gfy.ModifyLikedSettingAsync(System.Boolean,Gfycat.RequestOptions)
+  name: ModifyLikedSettingAsync(Boolean, RequestOptions)
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_ModifyLikedSettingAsync_System_Boolean_Gfycat_RequestOptions_
+  commentId: M:Gfycat.Gfy.ModifyLikedSettingAsync(System.Boolean,Gfycat.RequestOptions)
+  fullName: Gfycat.Gfy.ModifyLikedSettingAsync(System.Boolean, Gfycat.RequestOptions)
+  nameWithType: Gfy.ModifyLikedSettingAsync(Boolean, RequestOptions)
+- uid: Gfycat.Gfy.ModifyLikedSettingAsync*
+  name: ModifyLikedSettingAsync
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_ModifyLikedSettingAsync_
+  commentId: Overload:Gfycat.Gfy.ModifyLikedSettingAsync
+  fullName: Gfycat.Gfy.ModifyLikedSettingAsync
+  nameWithType: Gfy.ModifyLikedSettingAsync
 - uid: Gfycat.Gfy.ModifyNsfwSettingAsync(Gfycat.NsfwSetting,Gfycat.RequestOptions)
   name: ModifyNsfwSettingAsync(NsfwSetting, RequestOptions)
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_ModifyNsfwSettingAsync_Gfycat_NsfwSetting_Gfycat_RequestOptions_
@@ -3452,6 +3512,18 @@ references:
   commentId: Overload:Gfycat.Gfy.UpdateAsync
   fullName: Gfycat.Gfy.UpdateAsync
   nameWithType: Gfy.UpdateAsync
+- uid: Gfycat.Gfy.Url
+  name: Url
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_Url
+  commentId: P:Gfycat.Gfy.Url
+  fullName: Gfycat.Gfy.Url
+  nameWithType: Gfy.Url
+- uid: Gfycat.Gfy.Url*
+  name: Url
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_Url_
+  commentId: Overload:Gfycat.Gfy.Url
+  fullName: Gfycat.Gfy.Url
+  nameWithType: Gfy.Url
 - uid: Gfycat.Gfy.Username
   name: Username
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Username
@@ -3464,6 +3536,18 @@ references:
   commentId: Overload:Gfycat.Gfy.Username
   fullName: Gfycat.Gfy.Username
   nameWithType: Gfy.Username
+- uid: Gfycat.Gfy.UserTags
+  name: UserTags
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_UserTags
+  commentId: P:Gfycat.Gfy.UserTags
+  fullName: Gfycat.Gfy.UserTags
+  nameWithType: Gfy.UserTags
+- uid: Gfycat.Gfy.UserTags*
+  name: UserTags
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_UserTags_
+  commentId: Overload:Gfycat.Gfy.UserTags
+  fullName: Gfycat.Gfy.UserTags
+  nameWithType: Gfy.UserTags
 - uid: Gfycat.Gfy.Views
   name: Views
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Views
@@ -3788,6 +3872,33 @@ references:
   commentId: Overload:Gfycat.GfycatClient.GetUserExistsAsync
   fullName: Gfycat.GfycatClient.GetUserExistsAsync
   nameWithType: GfycatClient.GetUserExistsAsync
+- uid: Gfycat.GfycatClient.IsValidGfyName(System.String)
+  name: IsValidGfyName(String)
+  href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_IsValidGfyName_System_String_
+  commentId: M:Gfycat.GfycatClient.IsValidGfyName(System.String)
+  fullName: Gfycat.GfycatClient.IsValidGfyName(System.String)
+  nameWithType: GfycatClient.IsValidGfyName(String)
+- uid: Gfycat.GfycatClient.IsValidGfyName*
+  name: IsValidGfyName
+  href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_IsValidGfyName_
+  commentId: Overload:Gfycat.GfycatClient.IsValidGfyName
+  fullName: Gfycat.GfycatClient.IsValidGfyName
+  nameWithType: GfycatClient.IsValidGfyName
+- uid: Gfycat.GfycatClient.IsValidGfyUrl(System.String,System.String@)
+  name: IsValidGfyUrl(String, out String)
+  href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_IsValidGfyUrl_System_String_System_String__
+  commentId: M:Gfycat.GfycatClient.IsValidGfyUrl(System.String,System.String@)
+  name.vb: IsValidGfyUrl(String, ByRef String)
+  fullName: Gfycat.GfycatClient.IsValidGfyUrl(System.String, out System.String)
+  fullName.vb: Gfycat.GfycatClient.IsValidGfyUrl(System.String, ByRef System.String)
+  nameWithType: GfycatClient.IsValidGfyUrl(String, out String)
+  nameWithType.vb: GfycatClient.IsValidGfyUrl(String, ByRef String)
+- uid: Gfycat.GfycatClient.IsValidGfyUrl*
+  name: IsValidGfyUrl
+  href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_IsValidGfyUrl_
+  commentId: Overload:Gfycat.GfycatClient.IsValidGfyUrl
+  fullName: Gfycat.GfycatClient.IsValidGfyUrl
+  nameWithType: GfycatClient.IsValidGfyUrl
 - uid: Gfycat.GfycatClient.RefreshToken
   name: RefreshToken
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_RefreshToken
