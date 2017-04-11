@@ -59,7 +59,7 @@ namespace Gfycat
             if (Task != UploadTask.Complete)
                 throw new InvalidOperationException("The Gfy's upload isn't complete!");
 
-            return await _client.GetGfyAsync(GfyName, options);
+            return await _client.GetGfyAsync(GfyName, false, options);
         }
 
         /// <summary>
