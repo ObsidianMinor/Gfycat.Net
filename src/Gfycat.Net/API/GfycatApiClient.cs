@@ -599,14 +599,24 @@ namespace Gfycat.API
             RestResponse response = await SendJsonAsync("PUT", $"me/gfycats/{gfyId}/nsfw", new { value = newSetting }, options).ConfigureAwait(false);
         }
         
-        internal Task LikeGfyAsync(string gfyid, RequestOptions options)
+        internal async Task LikeGfyAsync(string gfyid, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendJsonAsync("PUT", $"me/gfycats/{gfyid}/like", new { value = 1 }, options).ConfigureAwait(false);
         }
 
-        internal Task DislikeGfyAsync(string gfyid, RequestOptions options)
+        internal async Task RemoveLikeGfyAsync(string gfyId, RequestOptions options)
         {
-            throw new NotImplementedException();
+            RestResponse response = await SendJsonAsync("PUT", $"me/gfycats/{gfyId}/like", new { value = 0 }, options).ConfigureAwait(false);
+        }
+
+        internal async Task DislikeGfyAsync(string gfyid, RequestOptions options)
+        {
+            RestResponse response = await SendJsonAsync("PUT", $"me/gfycats/{gfyid}/dislike", new { value = 1 }, options).ConfigureAwait(false);
+        }
+
+        internal async Task RemoveDislikeGfyAsync(string gfyid, RequestOptions options)
+        {
+            RestResponse response = await SendJsonAsync("PUT", $"me/gfycats/{gfyid}/dislike", new { value = 0 }, options).ConfigureAwait(false);
         }
 
         internal async Task DeleteGfyAsync(string gfyId, RequestOptions options)

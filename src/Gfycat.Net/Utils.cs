@@ -10,6 +10,11 @@ namespace Gfycat
 {
     internal static class Utils
     {
+        static Utils()
+        {
+            GfyFinalSegmentMaxLength = GfyAdjectives.Max(x => x.Length) * 2 + GfyAnimals.Max(x => x.Length);
+        }
+
         internal static IEnumerable<HttpStatusCode> Ignore404 => new[] { HttpStatusCode.NotFound };
 
         [DebuggerStepThrough]
@@ -96,8 +101,8 @@ namespace Gfycat
             match = null;
             return false;
         }
-        
-        internal static readonly int GfyFinalSegmentMaxLength = GfyAdjectives.Max(x => x.Length) * 2 + GfyAnimals.Max(x => x.Length);
+
+        internal static readonly int GfyFinalSegmentMaxLength;
 
         internal static readonly HashSet<string> GfyAdjectives = new HashSet<string>
         {

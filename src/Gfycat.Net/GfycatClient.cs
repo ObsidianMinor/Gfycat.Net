@@ -488,6 +488,9 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<Gfy> GetGfyAsync(string gfycat, RequestOptions options = null)
         {
+            if (!IsValidGfyName(gfycat))
+                return null;
+
             if (_clientAuth) // can I just say how much implicit auth is a pain the ass?
             {
                 GfyResponse response = await ApiClient.GetGfyAsync(gfycat, options);
@@ -505,6 +508,76 @@ namespace Gfycat
                 return Gfy.Create(this, response.Gfy);
             }
         }
+        /// <summary>
+        /// Returns whether the provided url string is a valid Gfycat url pointing to a valid gfy name
+        /// </summary>
+        /// <param name="gfycatUrl"></param>
+        /// <param name="gfy"></param>
+        /// <returns></returns>
+        public static bool IsValidGfyUrl(string gfycatUrl, out string gfy)
+        {
+            if (gfycatUrl == null || !Uri.TryCreate(gfycatUrl, UriKind.Absolute, out Uri result) || !result.Scheme.Contains("http") || !result.Host.EndsWith("gfycat.com") || result.LocalPath == "/")
+            {
+                gfy = null;
+                return false;
+            }
+            else
+            {
+                string lastSegment = result.Segments.LastOrDefault();
+                int fileExtensionPos = lastSegment.LastIndexOf('.');
+                if (fileExtensionPos != -1)
+                    lastSegment = lastSegment.Remove(fileExtensionPos);
+                
+                bool valid = IsValidGfyName(lastSegment);
+                gfy = valid ? lastSegment : null;
+                return valid;
+            }
+        }
+        /// <summary>
+        /// Checks whether the provided gfy name is valid
+        /// </summary>
+        /// <param name="gfyName"></param>
+        /// <returns></returns>
+        public static bool IsValidGfyName(string gfyName)
+        {
+            if (gfyName.Equals("BrutalSavageRekt", StringComparison.OrdinalIgnoreCase))
+                return true;
+
+            if (gfyName.Length > Utils.GfyFinalSegmentMaxLength)
+                return false;
+
+            gfyName = gfyName.ToLowerInvariant();
+            //adjectives
+            string match1 = "";
+            string match2 = "";
+            string match3 = "";
+
+            while (Utils.HasPartial(gfyName, Utils.GfyAdjectives, ref match1))
+                while (Utils.HasPartial(gfyName.Substring(match1.Length), Utils.GfyAdjectives, ref match2))
+                    if (Utils.HasPartial(gfyName.Substring(match1.Length + match2.Length), Utils.GfyAnimals, ref match3))
+                        return true;
+
+            return false;
+            
+            /* there's always a way to do it without goto, I will now keep this code here as a warning to not use goto
+            begin:
+            if (Utils.HasPartial(lastSegment, Utils.GfyAdjectives, ref match1))
+            {
+                second:
+                if (Utils.HasPartial(lastSegment.Substring(match1.Length), Utils.GfyAdjectives, ref match2))
+                {
+                    if (Utils.HasPartial(lastSegment.Substring(match1.Length + match2.Length), Utils.GfyAnimals, ref match3))
+                        return await GetGfyAsync(lastSegment, options);
+                    else
+                        goto second;
+                }
+                else 
+                    goto begin;
+            }
+
+            return null;
+            */
+        }
 
         /// <summary>
         /// Attempts to get info for a single Gfy using a url string. If the URI isn't in a valid format or the gfy does not exist, this returns null
@@ -514,46 +587,7 @@ namespace Gfycat
         /// <returns>An awaitable task that returns a Gfy</returns>
         public async Task<Gfy> GetGfyFromUrlAsync(string gfycatUrl, RequestOptions options = null)
         {
-            if (!Uri.TryCreate(gfycatUrl, UriKind.Absolute, out Uri result) || !result.Scheme.Contains("http") || !result.Host.EndsWith("gfycat.com") || result.LocalPath == "/")
-                return null;
-            else
-            {
-                string lastSegment = result.Segments.LastOrDefault();
-                int fileExtensionPos = lastSegment.LastIndexOf('.');
-                if (fileExtensionPos != -1)
-                    lastSegment = lastSegment.Remove(fileExtensionPos);
-
-                if (lastSegment.Equals("BrutalSavageRekt", StringComparison.OrdinalIgnoreCase))
-                    return await GetGfyAsync("BrutalSavageRekt", options).ConfigureAwait(false);
-
-                if (lastSegment.Length > Utils.GfyFinalSegmentMaxLength)
-                    return null;
-
-                lastSegment = lastSegment.ToLowerInvariant();
-                //adjectives
-                string match1 = "";
-                string match2 = "";
-                string match3 = "";
-                // HAH, fuck you. Goto works here. And you can't stop me.
-                // actually jk someone else wrote and tested this in the C# discord.
-                // I'm also too lazy to write a new one without goto, wateva it works fast as fuck
-                begin:
-                if (Utils.HasPartial(lastSegment, Utils.GfyAdjectives, ref match1))
-                {
-                    second:
-                    if (Utils.HasPartial(lastSegment.Substring(match1.Length), Utils.GfyAdjectives, ref match2))
-                    {
-                        if (Utils.HasPartial(lastSegment.Substring(match1.Length + match2.Length), Utils.GfyAnimals, ref match3))
-                            return await GetGfyAsync(lastSegment, options);
-                        else
-                            goto second;
-                    }
-                    else
-                        goto begin;
-                }
-
-                return null;
-            }
+            return IsValidGfyUrl(gfycatUrl, out string gfy) ? await GetGfyAsync(gfy, options) : null;
         }
 
         #region Creating Gfycats

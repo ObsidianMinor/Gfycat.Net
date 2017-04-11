@@ -25,7 +25,7 @@ namespace Gfycat
         internal void Update(Model model)
         {
             FullGfy fullModel = model as FullGfy;
-            _isFull = fullModel is null;
+            _isFull = fullModel != null;
 
             Number = model.Number;
             WebmUrl = model.WebmUrl;
@@ -478,10 +478,35 @@ namespace Gfycat
         {
             return (Username != "anonymous") ? await Client.GetUserAsync(Username, options) : null;
         }
-
-        public async Task LikeAsync(RequestOptions options = null)
+        /// <summary>
+        /// Changes whether the specified gfy is liked by the current user to the specified boolean
+        /// </summary>
+        /// <param name="liked"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public async Task ModifyLikedSettingAsync(bool liked, RequestOptions options = null)
         {
-            await Client.ApiClient.LikeGfyAsync(Id, options);
+            if (liked)
+                await Client.ApiClient.LikeGfyAsync(Id, options);
+            else
+                await Client.ApiClient.RemoveLikeGfyAsync(Id, options);
+
+            await UpdateAsync();
+        }
+        /// <summary>
+        /// Changes whether the specified gfy is disliked by the current user to the specified boolean
+        /// </summary>
+        /// <param name="disliked"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public async Task ModifyDislikedSettingAsync(bool disliked, RequestOptions options = null)
+        {
+            if (disliked)
+                await Client.ApiClient.DislikeGfyAsync(Id, options);
+            else
+                await Client.ApiClient.RemoveDislikeGfyAsync(Id, options);
+
+            await UpdateAsync();
         }
     }
 }
