@@ -513,13 +513,13 @@ namespace Gfycat
         /// Returns whether the provided url string is a valid Gfycat url pointing to a valid gfy name
         /// </summary>
         /// <param name="gfycatUrl"></param>
-        /// <param name="gfy"></param>
+        /// <param name="gfyName"></param>
         /// <returns></returns>
-        public static bool IsValidGfyUrl(string gfycatUrl, out string gfy)
+        public static bool IsValidGfyUrl(string gfycatUrl, out string gfyName)
         {
             if (gfycatUrl == null || !Uri.TryCreate(gfycatUrl, UriKind.Absolute, out Uri result) || !result.Scheme.Contains("http") || !result.Host.EndsWith("gfycat.com") || result.LocalPath == "/")
             {
-                gfy = null;
+                gfyName = null;
                 return false;
             }
             else
@@ -528,10 +528,12 @@ namespace Gfycat
                 int fileExtensionPos = lastSegment.LastIndexOf('.');
                 if (fileExtensionPos != -1)
                     lastSegment = lastSegment.Remove(fileExtensionPos);
+                int infoPos = lastSegment.LastIndexOf('-'); // get the position of the file info portion, for instance in the name YellowIdenticalEuropeanpolecat-poster.jpg
+                if (infoPos != -1)
+                    lastSegment = lastSegment.Remove(infoPos);
                 
-                bool valid = IsValidGfyName(lastSegment);
-                gfy = valid ? lastSegment : null;
-                return valid;
+                gfyName = IsValidGfyName(lastSegment) ? lastSegment : null;
+                return gfyName == null;
             }
         }
         /// <summary>
@@ -555,8 +557,9 @@ namespace Gfycat
 
             while (Utils.HasPartial(gfyName, Utils.GfyAdjectives, ref match1))
                 while (Utils.HasPartial(gfyName.Substring(match1.Length), Utils.GfyAdjectives, ref match2))
-                    if (Utils.HasPartial(gfyName.Substring(match1.Length + match2.Length), Utils.GfyAnimals, ref match3))
-                        return true;
+                    while (Utils.HasPartial(gfyName.Substring(match1.Length + match2.Length), Utils.GfyAnimals, ref match3))
+                        if (match1.Length + match2.Length + match3.Length == gfyName.Length)
+                            return true;
 
             return false;
             
