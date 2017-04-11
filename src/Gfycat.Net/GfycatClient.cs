@@ -484,11 +484,12 @@ namespace Gfycat
         /// Gets info for a single Gfy
         /// </summary>
         /// <param name="gfycat"></param>
+        /// <param name="overrideInvalidNameDetection">Forces the method to fetch the specified gfy even if it's detected as an invalid gfy name</param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task<Gfy> GetGfyAsync(string gfycat, RequestOptions options = null)
+        public async Task<Gfy> GetGfyAsync(string gfycat, bool overrideInvalidNameDetection = false, RequestOptions options = null)
         {
-            if (!IsValidGfyName(gfycat))
+            if (!overrideInvalidNameDetection && !IsValidGfyName(gfycat))
                 return null;
 
             if (_clientAuth) // can I just say how much implicit auth is a pain the ass?
@@ -583,11 +584,12 @@ namespace Gfycat
         /// Attempts to get info for a single Gfy using a url string. If the URI isn't in a valid format or the gfy does not exist, this returns null
         /// </summary>
         /// <param name="gfycatUrl">The gfycat url</param>
+        /// <param name="overrideInvalidNameDetection">Forces the method to fetch the specified gfy even if it's detected as an invalid gfy name</param>
         /// <param name="options">Optional request parameters</param>
         /// <returns>An awaitable task that returns a Gfy</returns>
-        public async Task<Gfy> GetGfyFromUrlAsync(string gfycatUrl, RequestOptions options = null)
+        public async Task<Gfy> GetGfyFromUrlAsync(string gfycatUrl, bool overrideInvalidNameDetection = false, RequestOptions options = null)
         {
-            return IsValidGfyUrl(gfycatUrl, out string gfy) ? await GetGfyAsync(gfy, options) : null;
+            return IsValidGfyUrl(gfycatUrl, out string gfy) ? await GetGfyAsync(gfy, overrideInvalidNameDetection, options) : null;
         }
 
         #region Creating Gfycats
