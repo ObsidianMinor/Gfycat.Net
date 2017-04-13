@@ -9,7 +9,7 @@
     <Copyright></Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>gfycat;netstandard</PackageTags>
-    <PackageReleaseNotes>See GitHub for release notes: https://github.com/ObsidianMinor/Gfycat.Net/releases/tag/v1.0.5</PackageReleaseNotes>
+    <PackageReleaseNotes>See GitHub for release notes: https://github.com/ObsidianMinor/Gfycat.Net/releases/tag/v1.0.6</PackageReleaseNotes>
     <DefineConstants>NETSTANDARD1_2;RELEASE</DefineConstants>
     <Optimize>False</Optimize>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -21,7 +21,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
     <AssemblyName>Gfycat.Net</AssemblyName>
-    <Version>1.0.5</Version>
+    <Version>1.0.6</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.2|AnyCPU'">
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>

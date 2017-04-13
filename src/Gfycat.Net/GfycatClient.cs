@@ -533,7 +533,7 @@ namespace Gfycat
                     lastSegment = lastSegment.Remove(infoPos);
                 
                 gfyName = IsValidGfyName(lastSegment) ? lastSegment : null;
-                return gfyName == null;
+                return gfyName != null;
             }
         }
         /// <summary>
