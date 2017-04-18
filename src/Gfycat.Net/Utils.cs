@@ -134,7 +134,7 @@ namespace Gfycat
             { ReactionLanguage.HanChinese, "zh-Ha" }
         };
 
-        internal static bool HasPartial(string value, HashSet<string> possibleValues, ref string match)
+        internal static bool HasPartial(string value, IEnumerable<string> possibleValues, ref string match)
         {
             int index = 0;
             string current = "";
@@ -158,7 +158,7 @@ namespace Gfycat
 
         internal static readonly int GfyFinalSegmentMaxLength;
 
-        internal static readonly HashSet<string> GfyAdjectives = new HashSet<string>
+        internal static readonly IEnumerable<string> GfyAdjectives = new List<string>
         {
             "abandoned",
             "able",
@@ -1663,7 +1663,7 @@ namespace Gfycat
             "yellowgreen",
         };
 
-        internal static readonly HashSet<string> GfyAnimals = new HashSet<string>
+        internal static readonly IEnumerable<string> GfyAnimals = new List<string>
         {
             "aardvark",
             "aardwolf",
