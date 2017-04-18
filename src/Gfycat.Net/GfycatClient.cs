@@ -61,6 +61,11 @@ namespace Gfycat
         /// </summary>
         public string RefreshToken { get; private set; }
 
+        /// <summary>
+        /// Gets the object representing the current user
+        /// </summary>
+        public CurrentUser CurrentUser { get; private set; }
+
         private IRestClient RestClient => ApiClient.RestClient;
 
         /// <summary>
@@ -99,6 +104,8 @@ namespace Gfycat
                 
                 AccessToken = auth.AccessToken;
                 RefreshToken = auth.RefreshToken;
+                options.UseAccessToken = true;
+                await CurrentUser.UpdateAsync(options);
                 return true;
             }
         }
@@ -125,6 +132,7 @@ namespace Gfycat
             ClientCredentialsAuthResponse auth = response.ReadAsJson<ClientCredentialsAuthResponse>(ApiClient.Config);
             
             AccessToken = auth.AccessToken;
+            CurrentUser = null;
             _clientAuth = true;
         }
 
@@ -156,6 +164,8 @@ namespace Gfycat
             
             AccessToken = auth.AccessToken;
             RefreshToken = auth.RefreshToken;
+            options.UseAccessToken = true;
+            CurrentUser = await GetCurrentUserAsync(options);
             _clientAuth = false;
         }
 
@@ -212,6 +222,8 @@ namespace Gfycat
                         
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
+                        options.UseAccessToken = true;
+                        CurrentUser = await GetCurrentUserAsync(options);
                     }
                     break;
                 case TokenType.FacebookAuthCode:
@@ -232,6 +244,8 @@ namespace Gfycat
                         
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
+                        options.UseAccessToken = true;
+                        CurrentUser = await GetCurrentUserAsync(options);
                     }
                     break;
                 default:
@@ -272,6 +286,8 @@ namespace Gfycat
                         
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
+                        options.UseAccessToken = true;
+                        CurrentUser = await GetCurrentUserAsync(options);
                     }
                     break;
                 case TokenType.TwitterTokenSecret:
@@ -293,6 +309,8 @@ namespace Gfycat
                         
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
+                        options.UseAccessToken = true;
+                        CurrentUser = await GetCurrentUserAsync(options);
                     }
                     break;
                 case TokenType.TwitterTokenVerifier:
@@ -314,6 +332,8 @@ namespace Gfycat
                         
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
+                        options.UseAccessToken = true;
+                        CurrentUser = await GetCurrentUserAsync(options);
                     }
                     break;
                 default:
@@ -326,15 +346,13 @@ namespace Gfycat
         /// Authenticates using an given access token
         /// </summary>
         /// <param name="accessToken"></param>
-        /// <param name="verifyToken"></param>
         /// <returns></returns>
         /// <exception cref="GfycatException">If verifyToken is true, this will attempt to get the current user which will return 401 unauthorized if the access token is invalid</exception>
-        public async Task AuthenticateAsync(string accessToken, bool verifyToken = true)
+        public async Task AuthenticateAsync(string accessToken)
         {
             AccessToken = accessToken;
 
-            if (verifyToken)
-                await GetCurrentUserAsync(); // throws if the access token is invalid
+            CurrentUser = await GetCurrentUserAsync();
         }
 
         #endregion
