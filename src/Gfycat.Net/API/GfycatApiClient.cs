@@ -55,35 +55,38 @@ namespace Gfycat.API
             return await SendInternalAsync(() => RestClient.SendAsync(method, endpoint, stream, options.CancellationToken), options).ConfigureAwait(false);
         }
 
-        private async Task<RestResponse> SendInternalAsync(Func<Task<RestResponse>> RestFunction, RequestOptions options)
+        private async Task<RestResponse> SendInternalAsync(Func<Task<RestResponse>> restFunction, RequestOptions options)
         {
             RestResponse response = null;
             RestClient.SetHeader("Authorization", options.UseAccessToken ? $"Bearer {Client.AccessToken}" : null);
             bool retry = true, first401 = true;
             while (retry)
             {
-                Task<RestResponse> taskResponse = RestFunction();
-                bool taskTimedout = !taskResponse.Wait(options.Timeout);
-                if (taskTimedout && options.RetryMode != RetryMode.RetryTimeouts) // the blocking wait call will complete the task, so in the following checks we can just access the result normally
-                    throw new TimeoutException($"The request timed out");
-                else if (taskResponse.Result.Status == HttpStatusCode.BadGateway && !options.RetryMode.HasFlag(RetryMode.Retry502))
-                    throw GfycatException.CreateFromResponse(taskResponse.Result);
-                else if (taskResponse.Result.Status == HttpStatusCode.Unauthorized)
+                try // create the task and run it
+                {
+                    Task<RestResponse> task = restFunction();
+                    response = await task.TimeoutAfter(options.Timeout).ConfigureAwait(false);
+                }
+                catch (TimeoutException) when (options.RetryMode.HasFlag(RetryMode.RetryTimeouts)) // catch the timeout if specified, then try again
+                {
+                    continue;
+                }
+                if (response.Status == HttpStatusCode.BadGateway && !options.RetryMode.HasFlag(RetryMode.Retry502))
+                    throw GfycatException.CreateFromResponse(response);
+                else if (response.Status == HttpStatusCode.Unauthorized)
                     if (options.UseAccessToken && (first401 && options.RetryMode.HasFlag(RetryMode.RetryFirst401))) // make sure we don't get in a refresh loop due to not having an access token when using an invalid client ID
                     {
                         await Client.RefreshTokenAsync();
                         RestClient.SetHeader("Authorization", options.UseAccessToken ? $"Bearer {Client.AccessToken}" : null);
                         first401 = false;
+                        continue;
                     }
                     else
-                        throw GfycatException.CreateFromResponse(taskResponse.Result);
+                        throw GfycatException.CreateFromResponse(response);
                 else
                 {
-                    response = taskResponse.Result;
                     if (!response.Status.IsSuccessfulStatus() && !(options.IgnoreCodes?.Any(code => code == response.Status) ?? false))
-                    {
                         throw GfycatException.CreateFromResponse(response);
-                    }
                     retry = false;
                 }
             }

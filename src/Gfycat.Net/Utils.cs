@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Gfycat
 {
@@ -56,6 +58,58 @@ namespace Gfycat
                 return AlbumInfo.Create(client, albumModel, ownerId);
             else
                 return AlbumFolder.Create(client, albumModel, ownerId);
+        }
+
+        // thnx Joe!
+        internal static Task<TResult> TimeoutAfter<TResult>(this Task<TResult> task, int millisecondsTimeout)
+        {
+            if (task.IsCompleted || millisecondsTimeout == Timeout.Infinite) // why are we here?
+                return task;
+
+            TaskCompletionSource<TResult> completionSource = new TaskCompletionSource<TResult>();
+
+            if (millisecondsTimeout == 0) // we already went boom
+            {
+                completionSource.SetException(new TimeoutException());
+                return completionSource.Task;
+            }
+
+            Timer timer = new Timer(state => ((TaskCompletionSource<TResult>)state).TrySetException(new TimeoutException()), 
+            completionSource,
+            millisecondsTimeout,
+            Timeout.Infinite);
+
+            task.ContinueWith((antecedent, state) =>
+            {
+                var tuple = (Tuple<Timer, TaskCompletionSource<TResult>>)state;
+                tuple.Item1.Dispose();
+                MarshalTaskResults(antecedent, tuple.Item2);
+            }, 
+            Tuple.Create(timer, completionSource),
+            CancellationToken.None,
+            TaskContinuationOptions.ExecuteSynchronously,
+            TaskScheduler.Default);
+
+            return completionSource.Task;
+        }
+
+        internal static void MarshalTaskResults<TResult>(Task source, TaskCompletionSource<TResult> proxy)
+        {
+            switch (source.Status)
+            {
+                case TaskStatus.Faulted:
+                    proxy.TrySetException(source.Exception);
+                    break;
+                case TaskStatus.Canceled:
+                    proxy.TrySetCanceled();
+                    break;
+                case TaskStatus.RanToCompletion:
+                    Task<TResult> castedSource = source as Task<TResult>;
+                    proxy.TrySetResult(
+                        castedSource == null ? default(TResult) :
+                            castedSource.Result);
+                    break;
+            }
         }
 
         internal static readonly Dictionary<ReactionLanguage, string> _reactionLangToString = new Dictionary<ReactionLanguage, string>
