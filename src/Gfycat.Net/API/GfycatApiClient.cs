@@ -67,11 +67,11 @@ namespace Gfycat.API
                     Task<RestResponse> task = restFunction();
                     response = await task.TimeoutAfter(options.Timeout).ConfigureAwait(false);
                 }
-                catch (TimeoutException) when (options.RetryMode.HasFlag(RetryMode.RetryTimeouts)) // catch the timeout if specified, then try again
+                catch (TimeoutException) when (options.RetryMode.HasFlag(RetryMode.RetryTimeouts)) // catch the timeout if specified, then try again by continuing
                 {
                     continue;
                 }
-                if (response.Status == HttpStatusCode.BadGateway && !options.RetryMode.HasFlag(RetryMode.Retry502))
+                if (response.Status == HttpStatusCode.BadGateway && !options.RetryMode.HasFlag(RetryMode.Retry502)) // if there was a bad gateway and we don't retry them, throw
                     throw GfycatException.CreateFromResponse(response);
                 else if (response.Status == HttpStatusCode.Unauthorized)
                     if (options.UseAccessToken && (first401 && options.RetryMode.HasFlag(RetryMode.RetryFirst401))) // make sure we don't get in a refresh loop due to not having an access token when using an invalid client ID
@@ -85,7 +85,7 @@ namespace Gfycat.API
                         throw GfycatException.CreateFromResponse(response);
                 else
                 {
-                    if (!response.Status.IsSuccessfulStatus() && !(options.IgnoreCodes?.Any(code => code == response.Status) ?? false))
+                    if (!response.Status.IsSuccessfulStatus() && !(options.IgnoreCodes?.Any(code => code == response.Status) ?? false)) // make sure the status, if an error, isn't ignored
                         throw GfycatException.CreateFromResponse(response);
                     retry = false;
                 }
