@@ -100,6 +100,10 @@ namespace Gfycat
         /// </summary>
         public string MobileUrl { get; private set; }
         /// <summary>
+        /// Gets the reversed mp4 url for this gfy
+        /// </summary>
+        public string ReverseMp4Url => Mp4Url.Insert(Mp4Url.LastIndexOf(".mp4"), "-reverse");
+        /// <summary>
         /// Gets the mobile cover image for this gfy
         /// </summary>
         public string MobilePosterUrl { get; private set; }
