@@ -13,8 +13,6 @@ namespace Gfycat.Rest
     {
         private readonly HttpClient _client;
         private readonly Uri _baseUri;
-        private CancellationTokenSource _tokenSource;
-        private CancellationToken _cancelToken, _parentToken;
 
         internal DefaultRestClient(Uri baseUri)
         {
@@ -23,9 +21,6 @@ namespace Gfycat.Rest
             {
                 UseProxy = false,
             });
-            _tokenSource = new CancellationTokenSource();
-            _cancelToken = CancellationToken.None;
-            _parentToken = CancellationToken.None;
         }
 
         public void Dispose()
@@ -77,9 +72,6 @@ namespace Gfycat.Rest
                         case Stream streamParam:
                             content.Add(new StreamContent(streamParam), param.Key);
                             break;
-                        case MultipartFile multipartFileParam:
-                            content.Add(new StreamContent(multipartFileParam.Stream), param.Key, multipartFileParam.FileName);
-                            break;
                         default:
                             throw new InvalidOperationException($"Invalid parameter type: {param.Value.GetType().Name}");
                     }
@@ -94,7 +86,6 @@ namespace Gfycat.Rest
             while (true)
             {
                 Debug.WriteLine($"{message.Method} {message.RequestUri}");
-                token = CancellationTokenSource.CreateLinkedTokenSource(_parentToken, token).Token;
                 
                 HttpResponseMessage response = await _client.SendAsync(message, token).ConfigureAwait(false);
 
@@ -103,12 +94,6 @@ namespace Gfycat.Rest
 
                 return new RestResponse(response.StatusCode, headers, contentStream, message.Method, message.RequestUri);
             }
-        }
-
-        public void SetCancellationToken(CancellationToken token)
-        {
-            _parentToken = token;
-            _cancelToken = CancellationTokenSource.CreateLinkedTokenSource(_parentToken, _tokenSource.Token).Token;
         }
 
         public void SetHeader(string key, string value)

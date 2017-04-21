@@ -44,7 +44,7 @@ namespace Gfycat.API
             Dictionary<string, object> content = new Dictionary<string, object>
             {
                 { "key", fileName },
-                { "file", new MultipartFile(stream, fileName) }
+                { "file", stream }
             };
             return await SendInternalAsync(() => RestClient.SendAsync(method, endpoint, content, options.CancellationToken), options).ConfigureAwait(false);
         }
