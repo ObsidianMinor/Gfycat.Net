@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using Gfycat.Net.Tests.RestFakes;
 
 namespace Gfycat.Net.Tests
 {
@@ -9,14 +8,14 @@ namespace Gfycat.Net.Tests
         const string clientId = "fakeClientId";
         const string clientSecret = "fakeClientSecret";
 
-        internal static (GfycatClient, MockRestClient) MakeClient()
+        internal static GfycatClient MakeClient()
         {
-            MockRestClient restClient = new MockRestClient();
+            MockRestClient restClient = new MockRestClient(new Uri(GfycatClientConfig.BaseUrl));
             GfycatClientConfig config = new GfycatClientConfig(clientId, clientSecret)
             {
                 RestClient = restClient
             };
-            return (new GfycatClient(config), restClient);
+            return new GfycatClient(config);
         }
     }
 }

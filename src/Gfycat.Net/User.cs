@@ -102,7 +102,7 @@ namespace Gfycat
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task UpdateAsync(RequestOptions options)
+        public async Task UpdateAsync(RequestOptions options = null)
         {
             Update(await Client.ApiClient.GetUserAsync(Id, options));
         }

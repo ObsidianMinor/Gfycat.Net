@@ -1,35 +1,36 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
+using Gfycat.Net.Tests.RestFakes;
+using static Gfycat.Net.Tests.RestFakes.Resources;
 
 namespace Gfycat.Net.Tests
 {
-    public class ClientConstruction
+    [Trait("Category", "Client construction")]
+    public class ClientConstructionTests
     {
-        const string clientId = "fakeClientId";
-        const string clientSecret = "fakeClientSecret";
-
-        [Fact(DisplayName = "Client info ctor")]
+        [Fact(DisplayName = "Provided ID and secret are correct")]
         public void CreateClientWithIdSecretCtor()
         {
-            GfycatClient client = new GfycatClient(clientId, clientSecret);
+            GfycatClient client = new GfycatClient(ClientId, ClientSecret);
 
-            Assert.Equal(clientId, client.ClientId);
-            Assert.Equal(clientSecret, client.ClientSecret);
+            Assert.Equal(ClientId, client.ClientId);
+            Assert.Equal(ClientSecret, client.ClientSecret);
         }
 
-        [Fact(DisplayName = "Client config ctor")]
+        [Fact(DisplayName = "Provided ID and secret are correct config provided")]
         public void CreateClientWithConfigCtor()
         {
-            GfycatClientConfig clientConfig = new GfycatClientConfig(clientId, clientSecret);
+            GfycatClientConfig clientConfig = new GfycatClientConfig(ClientId, ClientSecret);
             GfycatClient client = new GfycatClient(clientConfig);
 
-            Assert.Equal(clientId, client.ClientId);
-            Assert.Equal(clientSecret, client.ClientSecret);
+            Assert.Equal(ClientId, client.ClientId);
+            Assert.Equal(ClientSecret, client.ClientSecret);
         }
 
         [Fact(DisplayName = "Verify default config values")]
         public void CreateClientWithDefaultConfig()
         {
-            GfycatClientConfig clientConfig = new GfycatClientConfig(clientId, clientSecret);
+            GfycatClientConfig clientConfig = new GfycatClientConfig(ClientId, ClientSecret);
             GfycatClient client = new GfycatClient(clientConfig);
 
             Assert.Equal(client.ApiClient.Config.DefaultRetryMode, RetryMode.RetryFirst401);
@@ -40,11 +41,11 @@ namespace Gfycat.Net.Tests
         [Fact(DisplayName = "Verify modified config values")]
         public void CreateClientWithModifiedConfig()
         {
-            GfycatClientConfig clientConfig = new GfycatClientConfig(clientId, clientSecret)
+            GfycatClientConfig clientConfig = new GfycatClientConfig(ClientId, ClientSecret)
             {
                 DefaultRetryMode = RetryMode.AlwaysRetry,
                 DefaultTimeout = 3000,
-                RestClient = new MockRestClient()
+                RestClient = new MockRestClient(new Uri(GfycatClientConfig.BaseUrl))
             };
             GfycatClient client = new GfycatClient(clientConfig);
 

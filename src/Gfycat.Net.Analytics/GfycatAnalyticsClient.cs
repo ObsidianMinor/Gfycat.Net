@@ -45,30 +45,33 @@ namespace Gfycat.Analytics
             CurrentUserTrackingCookie = userTrackingCookie;
         }
         
-        private Task<RestResponse> SendInternalAsync(string method, string endpoint, RequestOptions options)
+        private async Task<RestResponse> SendInternalAsync(string method, string endpoint, RequestOptions options)
         {
             RestResponse response = null;
             bool retry = true;
             while (retry)
             {
-                Task<RestResponse> taskResponse = Config.RestClient.SendAsync(method, endpoint, options.CancellationToken);
-                bool taskTimedout = !taskResponse.Wait(options.Timeout);
-                if (taskTimedout && options.RetryMode != RetryMode.RetryTimeouts) // the blocking wait call will complete the task, so in the following checks we can just access the result normally
-                    throw new TimeoutException("The request timed out");
-                else if (taskResponse.Result.Status == HttpStatusCode.BadGateway && !options.RetryMode.HasFlag(RetryMode.Retry502))
-                    throw GfycatException.CreateFromResponse(taskResponse.Result);
+                try
+                {
+                    response = await Config.RestClient.SendAsync(method, endpoint, options.CancellationToken).TimeoutAfter(options.Timeout);
+                }
+                catch(TimeoutException) when (options.RetryMode == RetryMode.RetryTimeouts)
+                {
+                    continue;
+                }
+                if (response.Status == HttpStatusCode.BadGateway && !options.RetryMode.HasFlag(RetryMode.Retry502))
+                    throw await GfycatException.CreateFromResponseAsync(response);
                 else
                 {
-                    response = taskResponse.Result;
                     if (!response.Status.IsSuccessfulStatus() && !(options.IgnoreCodes?.Any(code => code == response.Status) ?? false))
                     {
-                        throw GfycatException.CreateFromResponse(response);
+                        throw await GfycatException.CreateFromResponseAsync(response);
                     }
                     retry = false;
                 }
             }
 
-            return Task.FromResult(response);
+            return response;
         }
 
         #region Impressions

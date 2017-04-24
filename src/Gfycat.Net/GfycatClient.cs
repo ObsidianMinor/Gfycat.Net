@@ -66,8 +66,6 @@ namespace Gfycat
         /// </summary>
         public CurrentUser CurrentUser { get; private set; }
 
-        private IRestClient RestClient => ApiClient.RestClient;
-
         /// <summary>
         /// Attempts to refresh the access token using the current refresh token or with a provided access token. If the current refresh token is null or an refresh token isn't provided, this will perform client credential authentication
         /// </summary>
@@ -100,7 +98,7 @@ namespace Gfycat
                         RefreshToken = RefreshToken
                     },
                     options).ConfigureAwait(false);
-                ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
+                ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config);
                 
                 AccessToken = auth.AccessToken;
                 RefreshToken = auth.RefreshToken;
@@ -129,7 +127,7 @@ namespace Gfycat
                     GrantType = "client_credentials"
                 },
                 options).ConfigureAwait(false);
-            ClientCredentialsAuthResponse auth = response.ReadAsJson<ClientCredentialsAuthResponse>(ApiClient.Config);
+            ClientCredentialsAuthResponse auth = await response.ReadAsJsonAsync<ClientCredentialsAuthResponse>(ApiClient.Config);
             
             AccessToken = auth.AccessToken;
             CurrentUser = null;
@@ -160,7 +158,7 @@ namespace Gfycat
                     Password = password
                 },
                 options).ConfigureAwait(false);
-            ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
+            ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config);
             
             AccessToken = auth.AccessToken;
             RefreshToken = auth.RefreshToken;
@@ -187,7 +185,7 @@ namespace Gfycat
                     provider = "twitter"
                 },
                 options).ConfigureAwait(false);
-            TwitterRequestTokenResponse auth = response.ReadAsJson<TwitterRequestTokenResponse>(ApiClient.Config);
+            TwitterRequestTokenResponse auth = await response.ReadAsJsonAsync<TwitterRequestTokenResponse>(ApiClient.Config);
             return auth.RequestToken;
         }
 
@@ -218,7 +216,7 @@ namespace Gfycat
                                 AuthCode = token
                             },
                             options).ConfigureAwait(false);
-                        ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
+                        ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config);
                         
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
@@ -240,7 +238,7 @@ namespace Gfycat
                                 Token = token
                             },
                             options).ConfigureAwait(false);
-                        ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
+                        ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config);
                         
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
@@ -282,7 +280,7 @@ namespace Gfycat
                                 RedirectUri = verifierSecretRedirectUri
                             },
                             options).ConfigureAwait(false);
-                        ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
+                        ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config);
                         
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
@@ -305,7 +303,7 @@ namespace Gfycat
                                 Verifier = verifierSecretRedirectUri
                             },
                             options).ConfigureAwait(false);
-                        ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
+                        ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config);
                         
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
@@ -328,7 +326,7 @@ namespace Gfycat
                                 Secret = verifierSecretRedirectUri
                             },
                             options).ConfigureAwait(false);
-                        ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
+                        ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config);
                         
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;

@@ -10,6 +10,66 @@ using Model = Gfycat.API.Models.Gfy;
 
 namespace Gfycat
 {
+    public enum GfyFormat
+    {
+        /// <summary>
+        /// Recommended for mobile. Ensures a wide compatibility with various smartphones and is the most efficient file to access over a mobile network or WiFi connection. Restrictions: 640px max width, 10-30fps framerate.
+        /// </summary>
+        Mp4,
+        /// <summary>
+        /// Recommended for mobile. Ensures a wide compatibility with various smartphones and is the most efficient file to access over a mobile network or WiFi connection. Restrictions: 320px max width, 10-30fps framerate.
+        /// </summary>
+        MobileMp4,
+        /// <summary>
+        /// Half the size of .mp4. Used in Gfycat Loops and other GIF keyboard apps. Restrictions: 360px width, 202px height
+        /// </summary>
+        MiniMp4,
+        /// <summary>
+        /// Source video is scaled and cropped to specific dimensions so that the entire area is filled with content. This format is used for the Gfycat frontpage thumbnails. Restrictions: 360px width, 202px height
+        /// </summary>
+        Thumb360,
+        /// <summary>
+        /// Same as <see cref="Mp4"/> and <see cref="MobileMp4"/> but reversed. Restrictions: 640px max width, 10-30fps framerate.
+        /// </summary>
+        ReverseMp4,
+        /// <summary>
+        /// WEBM is a video format created by Google specifically for internet streaming with slightly lower quality than MP4 but better compression. If a WEBM file is uploaded to Gfycat without any additional modifications, it will not be re-encoded. Restrictions: None.
+        /// </summary>
+        Webm,
+        /// <summary>
+        /// Newer video format recommended by Google as a GIF replacement. Good decoding support on many Android devices. Restrictions: 520px max width, 10fps framerate.
+        /// </summary>
+        Webp,
+        /// <summary>
+        /// Higher quality than .mp4 at the expense of file size. MJPEG compression is simpler than other video formats meaning older decoders may support it. Restrictions: 640px width, 15fps framerate.
+        /// </summary>
+        Mjpg,
+        /// <summary>
+        /// Not recommended for use since .gif files are typically large, lower color/quality, and may cause users to despair over long download times and high data usage. However, a large number of platforms support it. Restrictions: 14MB max size, unless originally uploaded as a gif.
+        /// </summary>
+        Gif,
+        /// <summary>
+        /// This GIF format was designed for sharing on Facebook since its restrictions allow the GIF to be autoplayed within Facebook. Restrictions: 5mb max size, min 250px per side
+        /// </summary>
+        SizeRestricted,
+        /// <summary>
+        /// This GIF format was designed for autoplay on Twitter. Restrictions: 14mb max size
+        /// </summary>
+        Max14mb,
+        /// <summary>
+        /// This GIF format was designed for autoplay on Tumblr. Restrictions: 2MB max size
+        /// </summary>
+        Small,
+        /// <summary>
+        /// This GIF format was designed for autoplay on WeChat. Restrictions: 1MB max size
+        /// </summary>
+        Max1mb,
+        /// <summary>
+        /// This GIF format was designed for use in Tango and other text messaging apps. Restrictions: 100px max width
+        /// </summary>
+        Max100pxWidth
+    }
+
     /// <summary>
     /// An object representation of a short, looped, soundless video moment
     /// </summary>
@@ -184,6 +244,10 @@ namespace Gfycat
         /// Gets the mp4 url of this gfy
         /// </summary>
         public string Mp4Url { get; private set; }
+        /// <summary>
+        /// Gets the webp url for this gfy
+        /// </summary>
+        public string WebpUrl { get; private set; }
         /// <summary>
         /// Gets the number of likes for this gfy
         /// </summary>
@@ -511,6 +575,48 @@ namespace Gfycat
                 await Client.ApiClient.RemoveDislikeGfyAsync(Id, options);
 
             await UpdateAsync();
+        }
+
+        /// <summary>
+        /// Gets the url specified by the provided <see cref="GfyFormat"/>
+        /// </summary>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        public string GetFormatUrl(GfyFormat format)
+        {
+            switch(format)
+            {
+                case GfyFormat.Gif:
+                    return GifUrl;
+                case GfyFormat.Max100pxWidth:
+                    return $"https://thumbs.gfycat.com/{Name}-100px.gif";
+                case GfyFormat.Max14mb:
+                    return $"https://thumbs.gfycat.com/{Name}-14mb.gif";
+                case GfyFormat.Max1mb:
+                    return Max1MbGif;
+                case GfyFormat.MiniMp4:
+                    return $"https://thumbs.gfycat.com/{Name}-mini.mp4";
+                case GfyFormat.Mjpg:
+                    return MjpgUrl;
+                case GfyFormat.MobileMp4:
+                    return MobileUrl;
+                case GfyFormat.Mp4:
+                    return Mp4Url;
+                case GfyFormat.ReverseMp4:
+                    return ReverseMp4Url;
+                case GfyFormat.SizeRestricted:
+                    return Max5MbGif;
+                case GfyFormat.Small:
+                    return Max2MbGif;
+                case GfyFormat.Thumb360:
+                    return Thumb360Url;
+                case GfyFormat.Webm:
+                    return WebmUrl;
+                case GfyFormat.Webp:
+                    return WebpUrl;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 }

@@ -39,8 +39,9 @@ namespace Gfycat.Rest
         public async Task<RestResponse> SendAsync(string method, string endpoint, string json, CancellationToken token)
         {
             using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), new Uri(_baseUri, endpoint)))
+            using (StringContent content = new StringContent(json, System.Text.Encoding.UTF8, "application/json"))
             {
-                request.Content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+                request.Content = content;
                 return await SendInternalAsync(request, token);
             }
         }
@@ -48,8 +49,9 @@ namespace Gfycat.Rest
         public async Task<RestResponse> SendAsync(string method, string endpoint, Stream stream, CancellationToken token)
         {
             using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), new Uri(_baseUri, endpoint)))
+            using (StreamContent content = new StreamContent(stream))
             {
-                request.Content = new StreamContent(stream);
+                request.Content = content;
                 return await SendInternalAsync(request, token);
             }
         }
@@ -57,11 +59,11 @@ namespace Gfycat.Rest
         public async Task<RestResponse> SendAsync(string method, string endpoint, IDictionary<string, object> multipart, CancellationToken token)
         {
             using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), new Uri(_baseUri, endpoint)))
+            using (MultipartFormDataContent content = new MultipartFormDataContent())
             {
-                MultipartFormDataContent content = new MultipartFormDataContent();
-                foreach(KeyValuePair<string, object> param in multipart)
+                foreach (KeyValuePair<string, object> param in multipart)
                 {
-                    switch(param.Value)
+                    switch (param.Value)
                     {
                         case string stringParam:
                             content.Add(new StringContent(stringParam), param.Key);
@@ -83,17 +85,13 @@ namespace Gfycat.Rest
 
         private async Task<RestResponse> SendInternalAsync(HttpRequestMessage message, CancellationToken token)
         {
-            while (true)
-            {
-                Debug.WriteLine($"{message.Method} {message.RequestUri}");
-                
-                HttpResponseMessage response = await _client.SendAsync(message, token).ConfigureAwait(false);
+            Debug.WriteLine($"{message.Method} {message.RequestUri}");
+            
+            HttpResponseMessage response = await _client.SendAsync(message, token).ConfigureAwait(false);
 
-                Dictionary<string, string> headers = response.Headers.ToDictionary(k => k.Key, k => k.Value.FirstOrDefault());
-                Stream contentStream = (message.Method != HttpMethod.Head) ? await response.Content.ReadAsStreamAsync().ConfigureAwait(false) : null;
+            Dictionary<string, string> headers = response.Headers.ToDictionary(k => k.Key, k => k.Value.FirstOrDefault());
 
-                return new RestResponse(response.StatusCode, headers, contentStream, message.Method, message.RequestUri);
-            }
+            return new RestResponse(response.StatusCode, headers, response.Content, message.Method, message.RequestUri);
         }
 
         public void SetHeader(string key, string value)
