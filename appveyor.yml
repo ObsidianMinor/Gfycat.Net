@@ -16,7 +16,7 @@ build:
   publish_nuget: true
 
 artifacts:
-  - path: 'src\**'
+  - path: '**'
     name: Nuget Packages
     type: NuGetPackage
 
