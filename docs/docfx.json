@@ -13,14 +13,14 @@
           "src": ".."
         }
       ],
-      "dest": "obj/api",
+      "dest": "api",
     }
   ],
   "build": {
     "content": [
       {
         "files": [
-          "**/api/**.yml",
+          "api/**.yml",
           "api/index.md"
         ],
         "dest":"api"
