@@ -20,9 +20,10 @@
     "content": [
       {
         "files": [
-          "obj/api/**.yml",
+          "**/api/**.yml",
           "api/index.md"
-        ]
+        ],
+        "dest":"api"
       },
       {
         "files": [
