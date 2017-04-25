@@ -16,9 +16,8 @@ build:
   publish_nuget: true
 
 artifacts:
-  - path: '**'
+  - path: '**/*.nupkg'
     name: Nuget Packages
-    type: NuGetPackage
 
 before_build:
   - ps: |
