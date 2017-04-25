@@ -15,6 +15,9 @@ build:
   verbosity: minimal
   publish_nuget: true
 
+artifacts:
+  '**/*.nupkg'
+
 before_build:
   - ps: |
         if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
