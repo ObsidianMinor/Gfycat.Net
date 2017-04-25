@@ -9,19 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
-		build.cmd = build.cmd
-		build.sh = build.sh
 		LICENSE.txt = LICENSE.txt
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D97AFB24-A86D-4B21-B3A7-0B943E48812C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gfycat.Net", "src\Gfycat.Net\Gfycat.Net.csproj", "{9628A5A8-0FCE-462E-A653-FDEE2EDFCE2F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gfycat.Net.Analytics", "src\Gfycat.Net.Analytics\Gfycat.Net.Analytics.csproj", "{416332F3-EC7A-4968-85DE-1D785DF7AD6A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gfycat.Net.Tests", "tests\Gfycat.Net.Tests\Gfycat.Net.Tests.csproj", "{8CD31222-5720-4A38-8660-B2D117C86D2C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gfycat.Net", "src\Gfycat.Net\Gfycat.Net.csproj", "{55AD348E-77DC-4C62-AFE2-24530057462C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,18 +31,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9628A5A8-0FCE-462E-A653-FDEE2EDFCE2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9628A5A8-0FCE-462E-A653-FDEE2EDFCE2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9628A5A8-0FCE-462E-A653-FDEE2EDFCE2F}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{9628A5A8-0FCE-462E-A653-FDEE2EDFCE2F}.Debug|x64.Build.0 = Debug|Any CPU
-		{9628A5A8-0FCE-462E-A653-FDEE2EDFCE2F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{9628A5A8-0FCE-462E-A653-FDEE2EDFCE2F}.Debug|x86.Build.0 = Debug|Any CPU
-		{9628A5A8-0FCE-462E-A653-FDEE2EDFCE2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9628A5A8-0FCE-462E-A653-FDEE2EDFCE2F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9628A5A8-0FCE-462E-A653-FDEE2EDFCE2F}.Release|x64.ActiveCfg = Release|Any CPU
-		{9628A5A8-0FCE-462E-A653-FDEE2EDFCE2F}.Release|x64.Build.0 = Release|Any CPU
-		{9628A5A8-0FCE-462E-A653-FDEE2EDFCE2F}.Release|x86.ActiveCfg = Release|Any CPU
-		{9628A5A8-0FCE-462E-A653-FDEE2EDFCE2F}.Release|x86.Build.0 = Release|Any CPU
 		{416332F3-EC7A-4968-85DE-1D785DF7AD6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{416332F3-EC7A-4968-85DE-1D785DF7AD6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{416332F3-EC7A-4968-85DE-1D785DF7AD6A}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -69,13 +55,25 @@ Global
 		{8CD31222-5720-4A38-8660-B2D117C86D2C}.Release|x64.Build.0 = Release|Any CPU
 		{8CD31222-5720-4A38-8660-B2D117C86D2C}.Release|x86.ActiveCfg = Release|Any CPU
 		{8CD31222-5720-4A38-8660-B2D117C86D2C}.Release|x86.Build.0 = Release|Any CPU
+		{55AD348E-77DC-4C62-AFE2-24530057462C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55AD348E-77DC-4C62-AFE2-24530057462C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55AD348E-77DC-4C62-AFE2-24530057462C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{55AD348E-77DC-4C62-AFE2-24530057462C}.Debug|x64.Build.0 = Debug|Any CPU
+		{55AD348E-77DC-4C62-AFE2-24530057462C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{55AD348E-77DC-4C62-AFE2-24530057462C}.Debug|x86.Build.0 = Debug|Any CPU
+		{55AD348E-77DC-4C62-AFE2-24530057462C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55AD348E-77DC-4C62-AFE2-24530057462C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55AD348E-77DC-4C62-AFE2-24530057462C}.Release|x64.ActiveCfg = Release|Any CPU
+		{55AD348E-77DC-4C62-AFE2-24530057462C}.Release|x64.Build.0 = Release|Any CPU
+		{55AD348E-77DC-4C62-AFE2-24530057462C}.Release|x86.ActiveCfg = Release|Any CPU
+		{55AD348E-77DC-4C62-AFE2-24530057462C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9628A5A8-0FCE-462E-A653-FDEE2EDFCE2F} = {BDAB359A-5EDD-4F7F-BC1B-8B42DF375420}
 		{416332F3-EC7A-4968-85DE-1D785DF7AD6A} = {BDAB359A-5EDD-4F7F-BC1B-8B42DF375420}
 		{8CD31222-5720-4A38-8660-B2D117C86D2C} = {D97AFB24-A86D-4B21-B3A7-0B943E48812C}
+		{55AD348E-77DC-4C62-AFE2-24530057462C} = {BDAB359A-5EDD-4F7F-BC1B-8B42DF375420}
 	EndGlobalSection
 EndGlobal
