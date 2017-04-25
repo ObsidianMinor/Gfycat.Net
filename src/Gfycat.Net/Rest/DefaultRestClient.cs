@@ -32,7 +32,7 @@ namespace Gfycat.Rest
         {
             using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), new Uri(_baseUri, endpoint)))
             {
-                return await SendInternalAsync(request, token);
+                return await SendInternalAsync(request, token).ConfigureAwait(false);
             }
         }
 
@@ -42,7 +42,7 @@ namespace Gfycat.Rest
             using (StringContent content = new StringContent(json, System.Text.Encoding.UTF8, "application/json"))
             {
                 request.Content = content;
-                return await SendInternalAsync(request, token);
+                return await SendInternalAsync(request, token).ConfigureAwait(false);
             }
         }
 
@@ -52,7 +52,7 @@ namespace Gfycat.Rest
             using (StreamContent content = new StreamContent(stream))
             {
                 request.Content = content;
-                return await SendInternalAsync(request, token);
+                return await SendInternalAsync(request, token).ConfigureAwait(false);
             }
         }
 
@@ -79,7 +79,7 @@ namespace Gfycat.Rest
                     }
                 }
                 request.Content = content;
-                return await SendInternalAsync(request, token);
+                return await SendInternalAsync(request, token).ConfigureAwait(false);
             }
         }
 

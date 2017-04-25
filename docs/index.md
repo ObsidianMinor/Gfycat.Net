@@ -1,4 +1,4 @@
-# Welcome to the documentation and samples for Gfycat.Net!
+# Welcome to the docs for Gfycat.Net!
 Gfycat.Net is an unofficial CLS compliant wrapper for the Gfycat API built with the .NET Standard v1.2
 
 Here you will find samples, walkthroughs, and API documentation for the entire library including Gfycat.Analytics
