@@ -4,15 +4,16 @@ environment:
   access_token:
     secure: 23ed162/PauWQ9VQ2cLGaJljAGKQbUMV9IJfBMOm1y+IrVJkZ4zIMF4GB/er3Bb5
 
-version: 1.0.7.{build}
+version: 1.0.{build}
 pull_requests:
   do_not_increment_build_number: true
 branches:
-  only:
-    - master
+  except:
+    - gh-pages
 image: Visual Studio 2017
 build:
   verbosity: minimal
+  publish_nuget: true
 
 before_build:
   - ps: |
@@ -25,7 +26,7 @@ before_build:
 build_script:
   - ps: |
         nuget restore Gfycat.Net.sln
-        dotnet build Gfycat.Net.sln
+        dotnet build Gfycat.Net.sln /p:Version=$env:APPVEYOR_BUILD_VERSION
 
 after_build:
 - ps: |
@@ -50,3 +51,8 @@ after_build:
 test_script:
 - ps: |
       dotnet test tests/Gfycat.Net.Tests/Gfycat.Net.Tests.csproj
+
+#deploy:
+#  provider: NuGet
+#  api_key:
+#    secure: 3iXTugTMw5kRARtHywAtSsM6+AHLO8CQ4IoKrDXkgqeeHzjhz3bopc0FLckjOPk3

@@ -8,17 +8,16 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.2</TargetFramework>
     <RootNamespace>Gfycat</RootNamespace>
-    <OutputTypeEx>Library</OutputTypeEx>
     <DebugType>embedded</DebugType>
     <DebugSymbols>True</DebugSymbols>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Gfycat.Net.xml</DocumentationFile>
-    <Version>1.0.7</Version>
-    <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/ObsidianMinor/Gfycat.Net.git</RepositoryUrl>
     <PackageTags>gfycat, netstandard</PackageTags>
     <PackageProjectUrl>https://github.com/ObsidianMinor/Gfycat.Net</PackageProjectUrl>
     <Description>A complete wrapper around the Gfycat API</Description>
+    <Summary>A complete wrapper around the Gfycat API</Summary>
+    <Title>Gfycat.Net</Title>
     <Authors>ObsidianMinor</Authors>
   </PropertyGroup>
 </Project>
