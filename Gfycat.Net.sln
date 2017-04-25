@@ -18,6 +18,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gfycat.Net.Analytics", "src\Gfycat.Net.Analytics\Gfycat.Net.Analytics.csproj", "{416332F3-EC7A-4968-85DE-1D785DF7AD6A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gfycat.Net.Tests", "tests\Gfycat.Net.Tests\Gfycat.Net.Tests.csproj", "{8CD31222-5720-4A38-8660-B2D117C86D2C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{55AD348E-77DC-4C62-AFE2-24530057462C} = {55AD348E-77DC-4C62-AFE2-24530057462C}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gfycat.Net", "src\Gfycat.Net\Gfycat.Net.csproj", "{55AD348E-77DC-4C62-AFE2-24530057462C}"
 EndProject

@@ -24,7 +24,7 @@ before_build:
 
 build_script:
   - ps: |
-        dotnet restore Gfycat.Net.sln
+        nuget restore Gfycat.Net.sln
         dotnet build Gfycat.Net.sln
 
 after_build:
