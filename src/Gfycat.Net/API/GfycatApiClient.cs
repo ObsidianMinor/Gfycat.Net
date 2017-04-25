@@ -71,21 +71,21 @@ namespace Gfycat.API
                     continue;
                 }
                 if (response.Status == HttpStatusCode.BadGateway && !options.RetryMode.HasFlag(RetryMode.Retry502)) // if there was a bad gateway and we don't retry them, throw
-                    throw await GfycatException.CreateFromResponseAsync(response);
+                    throw await GfycatException.CreateFromResponseAsync(response).ConfigureAwait(false);
                 else if (response.Status == HttpStatusCode.Unauthorized)
                     if (options.UseAccessToken && (first401 && options.RetryMode.HasFlag(RetryMode.RetryFirst401))) // make sure we don't get in a refresh loop due to not having an access token when using an invalid client ID
                     {
-                        await Client.RefreshTokenAsync();
+                        await Client.RefreshTokenAsync().ConfigureAwait(false);
                         Config.RestClient.SetHeader("Authorization", options.UseAccessToken ? $"Bearer {Client.AccessToken}" : null);
                         first401 = false;
                         continue;
                     }
                     else
-                        throw await GfycatException.CreateFromResponseAsync(response);
+                        throw await GfycatException.CreateFromResponseAsync(response).ConfigureAwait(false);
                 else
                 {
                     if (!response.Status.IsSuccessfulStatus() && !(options.IgnoreCodes?.Any(code => code == response.Status) ?? false)) // make sure the status, if an error, isn't ignored
-                        throw await GfycatException.CreateFromResponseAsync(response);
+                        throw await GfycatException.CreateFromResponseAsync(response).ConfigureAwait(false);
                     retry = false;
                 }
             }
@@ -126,13 +126,13 @@ namespace Gfycat.API
         internal async Task<Models.User> GetUserAsync(string userId, RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", $"users/{userId}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<Models.User>(Config);
+            return await response.ReadAsJsonAsync<Models.User>(Config).ConfigureAwait(false);
         }
 
         internal async Task<Models.CurrentUser> GetCurrentUserAsync(RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", "me", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<Models.CurrentUser>(Config);
+            return await response.ReadAsJsonAsync<Models.CurrentUser>(Config).ConfigureAwait(false);
         }
 
         internal async Task ModifyCurrentUserAsync(IEnumerable<GfycatOperation> operations, RequestOptions options)
@@ -153,13 +153,13 @@ namespace Gfycat.API
         internal async Task<GeoWhitelistShared> GetGeoWhitelistAsync(RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", "me/geo-whitelist", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<GeoWhitelistShared>(Config);
+            return await response.ReadAsJsonAsync<GeoWhitelistShared>(Config).ConfigureAwait(false);
         }
 
         internal async Task<DomainWhitelistShared> GetDomainWhitelistAsync(RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", "me/domain-whitelist", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<DomainWhitelistShared>(Config);
+            return await response.ReadAsJsonAsync<DomainWhitelistShared>(Config).ConfigureAwait(false);
         }
 
         internal async Task ModifyGeoWhitelistAsync(GeoWhitelistShared modified, RequestOptions options)
@@ -185,13 +185,13 @@ namespace Gfycat.API
         internal async Task<string> GetProfileUploadUrlAsync(RequestOptions options)
         {
             RestResponse response = await SendAsync("POST", "me/profile_image_url", options).ConfigureAwait(false);
-            return Regex.Unescape((await response.ReadAsStringAsync()).Trim('"'));
+            return Regex.Unescape((await response.ReadAsStringAsync().ConfigureAwait(false)).Trim('"'));
         }
 
         internal async Task<string> GetProfileUrlAsync(RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", "me/profile_image_url", options).ConfigureAwait(false);
-            return Regex.Unescape((await response.ReadAsStringAsync()).Trim('"'));
+            return Regex.Unescape((await response.ReadAsStringAsync().ConfigureAwait(false)).Trim('"'));
         }
 
         internal async Task UploadProfileImageAsync(string url, Stream picStream, RequestOptions options)
@@ -204,13 +204,13 @@ namespace Gfycat.API
         internal async Task<ProfileImageUploadStatus> GetProfileImageUploadStatusAsync(string ticket, RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", $"me/profile_image_url/status/{ticket}", options).ConfigureAwait(false);
-            return (ProfileImageUploadStatus)Enum.Parse(typeof(ProfileImageUploadStatus), (await response.ReadAsStringAsync()).Trim('"'), true);
+            return (ProfileImageUploadStatus)Enum.Parse(typeof(ProfileImageUploadStatus), (await response.ReadAsStringAsync().ConfigureAwait(false)).Trim('"'), true);
         }
 
         internal async Task<ClientAccountAuthResponse> CreateAccountAsync(AccountCreationRequest account, RequestOptions options)
         {
             RestResponse response = await SendJsonAsync("POST", "users", account, options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<ClientAccountAuthResponse>(Config);
+            return await response.ReadAsJsonAsync<ClientAccountAuthResponse>(Config).ConfigureAwait(false);
         }
 
         internal async Task FollowUserAsync(string userId, RequestOptions options)
@@ -234,13 +234,13 @@ namespace Gfycat.API
         internal async Task<FollowsResponse> GetFollowingsAsync(RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", "me/follows", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<FollowsResponse>(Config);
+            return await response.ReadAsJsonAsync<FollowsResponse>(Config).ConfigureAwait(false);
         }
 
         internal async Task<FollowersResponse> GetFollowersAsync(RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", "me/followers", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<FollowersResponse>(Config);
+            return await response.ReadAsJsonAsync<FollowersResponse>(Config).ConfigureAwait(false);
         }
 
         #endregion
@@ -251,21 +251,21 @@ namespace Gfycat.API
         {
             string query = Utils.CreateQueryString(( "cursor", cursor ));
             RestResponse response = await SendAsync("GET", $"users/{userId}/gfycats{query}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<Feed>(Config);
+            return await response.ReadAsJsonAsync<Feed>(Config).ConfigureAwait(false);
         }
 
         internal async Task<Feed> GetCurrentUserGfyFeedAsync(string cursor, RequestOptions options)
         {
             string query = Utils.CreateQueryString(("cursor",cursor));
             RestResponse response = await SendAsync("GET", $"me/gfycats{query}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<Feed>(Config);
+            return await response.ReadAsJsonAsync<Feed>(Config).ConfigureAwait(false);
         }
 
         internal async Task<Feed> GetFollowsGfyFeedAsync(string cursor, RequestOptions options)
         {
             string query = Utils.CreateQueryString(( "cursor", cursor ));
             RestResponse response = await SendAsync("GET", $"me/follows/gfycats{query}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<Feed>(Config);
+            return await response.ReadAsJsonAsync<Feed>(Config).ConfigureAwait(false);
         }
 
         #endregion
@@ -275,13 +275,13 @@ namespace Gfycat.API
         internal async Task<IEnumerable<Models.FolderInfo>> GetCurrentUserFoldersAsync(RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", "me/folders", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<IEnumerable<Models.FolderInfo>>(Config);
+            return await response.ReadAsJsonAsync<IEnumerable<Models.FolderInfo>>(Config).ConfigureAwait(false);
         }
 
         internal async Task<Models.Folder> GetFolderContentsAsync(string folderId, RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", $"me/folders/{folderId}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<Models.Folder>(Config);
+            return await response.ReadAsJsonAsync<Models.Folder>(Config).ConfigureAwait(false);
         }
         
         internal async Task DeleteFolderAsync(string folderId, RequestOptions options)
@@ -316,13 +316,13 @@ namespace Gfycat.API
         internal async Task<IEnumerable<Models.FolderInfo>> GetCurrentUserBookmarkFoldersAsync(RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", "me/bookmark-folders", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<IEnumerable<Models.FolderInfo>>(Config);
+            return await response.ReadAsJsonAsync<IEnumerable<Models.FolderInfo>>(Config).ConfigureAwait(false);
         }
 
         internal async Task<Models.Folder> GetBookmarkFolderContentsAsync(string folderId, RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", $"me/bookmark-folders/{folderId}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<Models.Folder>(Config);
+            return await response.ReadAsJsonAsync<Models.Folder>(Config).ConfigureAwait(false);
         }
 
         internal async Task DeleteBookmarkFolderAsync(string folderId, RequestOptions options)
@@ -353,7 +353,7 @@ namespace Gfycat.API
         internal async Task<BookmarkedResult> GetBookmarkedStatusAsync(string gfyId, RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", $"me/bookmark-folders/{gfyId}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<BookmarkedResult>(Config);
+            return await response.ReadAsJsonAsync<BookmarkedResult>(Config).ConfigureAwait(false);
         }
 
         internal async Task BookmarkGfyAsync(string gfyId, string folderId, RequestOptions options)
@@ -379,37 +379,37 @@ namespace Gfycat.API
         internal async Task<IEnumerable<Models.AlbumInfo>> GetAlbumsAsync(RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", "me/album-folders", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<IEnumerable<Models.AlbumInfo>>(Config);
+            return await response.ReadAsJsonAsync<IEnumerable<Models.AlbumInfo>>(Config).ConfigureAwait(false);
         }
         
         internal async Task<IEnumerable<Models.AlbumInfo>> GetAlbumsForUserAsync(string userId, RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", $"users/{userId}/albums", options).ConfigureAwait(false);
-            return (await response.ReadAsJsonAsync<UserAlbumsResponse>(Config)).Items;
+            return (await response.ReadAsJsonAsync<UserAlbumsResponse>(Config).ConfigureAwait(false)).Items;
         }
 
         internal async Task<Models.Album> GetAlbumContentsAsync(string albumId, RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", $"me/albums/{albumId}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<Models.Album>(Config);
+            return await response.ReadAsJsonAsync<Models.Album>(Config).ConfigureAwait(false);
         }
 
         internal async Task<Models.Album> GetAlbumContentsAsync(string userId, string albumId, RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", $"users/{userId}/albums/{albumId}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<Models.Album>(Config);
+            return await response.ReadAsJsonAsync<Models.Album>(Config).ConfigureAwait(false);
         }
 
         internal async Task<Models.Album> GetAlbumContentsByLinkTextAsync(string albumLinkText, RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", $"me/album_links/{albumLinkText}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<Models.Album>(Config);
+            return await response.ReadAsJsonAsync<Models.Album>(Config).ConfigureAwait(false);
         }
 
         internal async Task<Models.Album> GetAlbumContentsByLinkTextAsync(string userId, string albumLinkText, RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", $"users/{userId}/album_links/{albumLinkText}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<Models.Album>(Config);
+            return await response.ReadAsJsonAsync<Models.Album>(Config).ConfigureAwait(false);
         }
 
         internal async Task CreateAlbumAsync(string albumId, string name, RequestOptions options)
@@ -484,7 +484,7 @@ namespace Gfycat.API
             if (response.Status == HttpStatusCode.NotFound)
                 return null;
 
-            return await response.ReadAsJsonAsync<GfyResponse>(Config);
+            return await response.ReadAsJsonAsync<GfyResponse>(Config).ConfigureAwait(false);
         }
 
         public async Task<FullGfyResponse> GetFullGfyAsync(string gfyId, RequestOptions options)
@@ -495,7 +495,7 @@ namespace Gfycat.API
             if (response.Status == HttpStatusCode.NotFound)
                 return null;
 
-            return await response.ReadAsJsonAsync<FullGfyResponse>(Config);
+            return await response.ReadAsJsonAsync<FullGfyResponse>(Config).ConfigureAwait(false);
         }
 
         #endregion
@@ -511,7 +511,7 @@ namespace Gfycat.API
         internal async Task<Status> GetGfyStatusAsync(string gfyId, RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", $"gfycats/fetch/status/{gfyId}", options).ConfigureAwait(false);
-            Status tempStatus = await response.ReadAsJsonAsync<Status>(Config);
+            Status tempStatus = await response.ReadAsJsonAsync<Status>(Config).ConfigureAwait(false);
             if (tempStatus.GfyName is null)
                 tempStatus.GfyName = gfyId;
             return tempStatus;
@@ -520,7 +520,7 @@ namespace Gfycat.API
         internal async Task<UploadKey> GetUploadKeyAsync(GfyParameters parameters, RequestOptions options)
         {
             RestResponse response = await SendJsonAsync("POST", "gfycats", parameters, options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<UploadKey>(Config);
+            return await response.ReadAsJsonAsync<UploadKey>(Config).ConfigureAwait(false);
         }
 
         internal async Task PostGfyStreamAsync(UploadKey key, Stream stream, RequestOptions options)
@@ -552,7 +552,7 @@ namespace Gfycat.API
         internal async Task<IEnumerable<string>> GetGfyDomainWhitelistAsync(string gfyId, RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", $"me/gfycats/{gfyId}/domain-whitelist", options).ConfigureAwait(false);
-            return (await response.ReadAsJsonAsync<DomainWhitelistShared>(Config)).DomainWhitelist;
+            return (await response.ReadAsJsonAsync<DomainWhitelistShared>(Config).ConfigureAwait(false)).DomainWhitelist;
         }
 
         internal async Task ModifyGfyDomainWhitelistAsync(string gfyId, IEnumerable<string> newWhitelist, RequestOptions options)
@@ -568,7 +568,7 @@ namespace Gfycat.API
         internal async Task<IEnumerable<string>> GetGfyGeoWhitelistAsync(string gfyId, RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", $"me/gfycats/{gfyId}/geo-whitelist", options).ConfigureAwait(false);
-            return (await response.ReadAsJsonAsync<GeoWhitelistShared>(Config)).GeoWhitelist;
+            return (await response.ReadAsJsonAsync<GeoWhitelistShared>(Config).ConfigureAwait(false)).GeoWhitelist;
         }
         
         internal async Task ModifyGfyGeoWhitelistAsync(string gfyId, IEnumerable<string> newWhitelist, RequestOptions options)
@@ -583,7 +583,7 @@ namespace Gfycat.API
 
         internal async Task ModifyGfyDescriptionAsync(string gfyId, string newDescription, RequestOptions options)
         {
-            RestResponse response = await SendJsonAsync("PUT", $"me/gfycats/{gfyId}/description", new { value = newDescription } ,options);
+            RestResponse response = await SendJsonAsync("PUT", $"me/gfycats/{gfyId}/description", new { value = newDescription } ,options).ConfigureAwait(false);
         }
 
         internal async Task DeleteGfyDescriptionAsync(string gfyId, RequestOptions options)
@@ -643,7 +643,7 @@ namespace Gfycat.API
         {
             string query = Utils.CreateQueryString(("locale", Utils._reactionLangToString[lang]), ("cursor", cursor));
             RestResponse response = await SendAsync("GET", "reactions/populated" + query, options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<TrendingTagsFeed>(Config);
+            return await response.ReadAsJsonAsync<TrendingTagsFeed>(Config).ConfigureAwait(false);
         }
 
         #endregion
@@ -654,21 +654,21 @@ namespace Gfycat.API
         {
             string queryString = Utils.CreateQueryString(("tagName", tagName), ("cursor", cursor));
             RestResponse response = await SendAsync("GET", $"gfycats/trending{queryString}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<TrendingFeed>(Config);
+            return await response.ReadAsJsonAsync<TrendingFeed>(Config).ConfigureAwait(false);
         }
 
         internal async Task<IEnumerable<string>> GetTrendingTagsAsync(string cursor, RequestOptions options)
         {
             string queryString = Utils.CreateQueryString(("cursor", cursor));
             RestResponse response = await SendAsync("GET", $"tags/trending{queryString}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<IEnumerable<string>>(Config);
+            return await response.ReadAsJsonAsync<IEnumerable<string>>(Config).ConfigureAwait(false);
         }
 
         internal async Task<TrendingTagsFeed> GetTrendingTagsPopulatedAsync(string cursor, RequestOptions options)
         {
             string queryString = Utils.CreateQueryString(("cursor", cursor));
             RestResponse response = await SendAsync("GET", $"tags/trending/populated{queryString}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<TrendingTagsFeed>(Config);
+            return await response.ReadAsJsonAsync<TrendingTagsFeed>(Config).ConfigureAwait(false);
         }
 
         #endregion
@@ -679,14 +679,14 @@ namespace Gfycat.API
         {
             string queryString = Utils.CreateQueryString(("search_text", searchText), ("cursor", cursor));
             RestResponse response = await SendAsync("GET", $"gfycats/search{queryString}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<Feed>(Config);
+            return await response.ReadAsJsonAsync<Feed>(Config).ConfigureAwait(false);
         }
 
         internal async Task<Feed> SearchCurrentUserAsync(string searchText, string cursor, RequestOptions options)
         {
             string queryString = Utils.CreateQueryString(("search_text", searchText), ("cursor", cursor));
             RestResponse response = await SendAsync("GET", $"me/gfycats/search{queryString}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<Feed>(Config);
+            return await response.ReadAsJsonAsync<Feed>(Config).ConfigureAwait(false);
         }
 
         #endregion
@@ -696,7 +696,7 @@ namespace Gfycat.API
         internal async Task<IEnumerable<ApplicationInfo>> GetDeveloperKeysAsync(RequestOptions options)
         {
             RestResponse response = await SendAsync("GET", "me/api-credentials", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<IEnumerable<ApplicationInfo>>(Config);
+            return await response.ReadAsJsonAsync<IEnumerable<ApplicationInfo>>(Config).ConfigureAwait(false);
         }
 
         #endregion

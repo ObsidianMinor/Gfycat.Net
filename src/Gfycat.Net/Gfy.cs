@@ -325,7 +325,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ShareOnTwitterAsync(string postStatus, RequestOptions options = null)
         {
-            await Client.ApiClient.ShareGfyAsync(Id, new API.TwitterShareRequest() { Status = postStatus }, options);
+            await Client.ApiClient.ShareGfyAsync(Id, new API.TwitterShareRequest() { Status = postStatus }, options).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -338,7 +338,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ShareOnTwitterAsync(string postStatus, string verifier, string token, RequestOptions options = null)
         {
-            await Client.ApiClient.ShareGfyAsync(Id, new API.TwitterShareRequest() { Status = postStatus, Verifier = verifier, Token = token }, options);
+            await Client.ApiClient.ShareGfyAsync(Id, new API.TwitterShareRequest() { Status = postStatus, Verifier = verifier, Token = token }, options).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -349,8 +349,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyGfyTitleAsync(Id, newTitle, options);
-            await UpdateAsync();
+            await Client.ApiClient.ModifyGfyTitleAsync(Id, newTitle, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
         
         /// <summary>
@@ -360,8 +360,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task DeleteTitleAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.DeleteGfyTitleAsync(Id, options);
-            await UpdateAsync();
+            await Client.ApiClient.DeleteGfyTitleAsync(Id, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -375,8 +375,8 @@ namespace Gfycat
             if (tags.Count() > 20)
                 throw new ArgumentException("The number of tags provided exceeds the max value 20");
 
-            await Client.ApiClient.ModifyGfyTagsAsync(Id, tags, options);
-            await UpdateAsync();
+            await Client.ApiClient.ModifyGfyTagsAsync(Id, tags, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -386,7 +386,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<IEnumerable<string>> GetDomainWhitelistAsync(RequestOptions options = null)
         {
-            return await Client.ApiClient.GetGfyDomainWhitelistAsync(Id, options);
+            return await Client.ApiClient.GetGfyDomainWhitelistAsync(Id, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Changes the whitelist of domains allowed to embed this gfy to the new list
@@ -396,8 +396,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyDomainWhitelistAsync(IEnumerable<string> newWhitelist, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyGfyDomainWhitelistAsync(Id, newWhitelist, options);
-            await UpdateAsync();
+            await Client.ApiClient.ModifyGfyDomainWhitelistAsync(Id, newWhitelist, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -407,8 +407,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task DeleteDomainWhitelistAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.DeleteGfyDomainWhitelistAsync(Id, options);
-            await UpdateAsync();
+            await Client.ApiClient.DeleteGfyDomainWhitelistAsync(Id, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -418,7 +418,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<IEnumerable<RegionInfo>> GetGeoWhitelistAsync(RequestOptions options = null)
         {
-            return (await Client.ApiClient.GetGfyGeoWhitelistAsync(Id, options)).Select(s => new RegionInfo(s));
+            return (await Client.ApiClient.GetGfyGeoWhitelistAsync(Id, options).ConfigureAwait(false)).Select(s => new RegionInfo(s));
         }
         /// <summary>
         /// Changes the whitelist of regions allowed to embed this gfy to the new list
@@ -428,8 +428,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyGeoWhitelistAsync(IEnumerable<RegionInfo> newWhitelist, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyGfyGeoWhitelistAsync(Id, newWhitelist.Select(r => r.TwoLetterISORegionName), options);
-            await UpdateAsync();
+            await Client.ApiClient.ModifyGfyGeoWhitelistAsync(Id, newWhitelist.Select(r => r.TwoLetterISORegionName), options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes the whitelist of regions allowed to embed this gfy
@@ -438,8 +438,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task DeleteGeoWhitelistAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.DeleteGfyGeoWhitelistAsync(Id, options);
-            await UpdateAsync();
+            await Client.ApiClient.DeleteGfyGeoWhitelistAsync(Id, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
         /// <summary>
         /// Modifies the description of this gfy to the new value
@@ -449,8 +449,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyDescriptionAsync(string newDescription, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyGfyDescriptionAsync(Id, newDescription, options);
-            await UpdateAsync();
+            await Client.ApiClient.ModifyGfyDescriptionAsync(Id, newDescription, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes the description of this gfy
@@ -459,8 +459,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task DeleteDescriptionAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.DeleteGfyDescriptionAsync(Id, options);
-            await UpdateAsync();
+            await Client.ApiClient.DeleteGfyDescriptionAsync(Id, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
         /// <summary>
         /// Modifies the published setting of this gfy to the new value
@@ -470,8 +470,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyPublishSettingAsync(bool published, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyGfyPublishedSettingAsync(Id, published, options);
-            await UpdateAsync();
+            await Client.ApiClient.ModifyGfyPublishedSettingAsync(Id, published, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -482,8 +482,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyNsfwSettingAsync(NsfwSetting setting, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyGfyNsfwSettingAsync(Id, setting, options);
-            await UpdateAsync();
+            await Client.ApiClient.ModifyGfyNsfwSettingAsync(Id, setting, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes this gfy on Gfycat
@@ -492,7 +492,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task DeleteAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.DeleteGfyAsync(Id, options);
+            await Client.ApiClient.DeleteGfyAsync(Id, options).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -501,7 +501,7 @@ namespace Gfycat
         /// <returns>True if bookmarked, false otherwise</returns>
         public async Task<bool> GetBookmarkStatusAsync(RequestOptions options = null)
         {
-            return (await Client.ApiClient.GetBookmarkedStatusAsync(Id, options)).BookmarkStatus;
+            return (await Client.ApiClient.GetBookmarkedStatusAsync(Id, options).ConfigureAwait(false)).BookmarkStatus;
         }
         /// <summary>
         /// Bookmarks this gfy using the specified bookmark folder
@@ -511,9 +511,9 @@ namespace Gfycat
         /// <returns></returns>
         public async Task BookmarkAsync(BookmarkFolder folder = null, RequestOptions options = null)
         {
-            await Client.ApiClient.BookmarkGfyAsync(Id, folder?.Id, options);
-            await UpdateAsync();
-            await folder?.UpdateAsync();
+            await Client.ApiClient.BookmarkGfyAsync(Id, folder?.Id, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
+            await (folder?.UpdateAsync()).ConfigureAwait(false);
         }
         /// <summary>
         /// Unbookmarks this gfy from the specified bookmark folder
@@ -523,8 +523,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task UnbookmarkAsync(BookmarkFolder folder = null, RequestOptions options = null)
         {
-            await Client.ApiClient.UnbookmarkGfyAsync(Id, folder?.Id, options);
-            await UpdateAsync();
+            await Client.ApiClient.UnbookmarkGfyAsync(Id, folder?.Id, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -534,7 +534,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task UpdateAsync(RequestOptions options = null)
         {
-            Update(_isFull ? (await Client.ApiClient.GetFullGfyAsync(Id, options)).Gfy : (await Client.ApiClient.GetGfyAsync(Id, options)).GfyItem);
+            Update(_isFull ? (await Client.ApiClient.GetFullGfyAsync(Id, options).ConfigureAwait(false)).Gfy : (await Client.ApiClient.GetGfyAsync(Id, options).ConfigureAwait(false)).GfyItem);
         }
 
         /// <summary>
@@ -544,7 +544,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<User> GetUserAsync(RequestOptions options = null)
         {
-            return (Username != "anonymous") ? await Client.GetUserAsync(Username, options) : null;
+            return (Username != "anonymous") ? await Client.GetUserAsync(Username, options).ConfigureAwait(false) : null;
         }
         /// <summary>
         /// Changes whether the specified gfy is liked by the current user to the specified boolean
@@ -555,11 +555,11 @@ namespace Gfycat
         public async Task ModifyLikedSettingAsync(bool liked, RequestOptions options = null)
         {
             if (liked)
-                await Client.ApiClient.LikeGfyAsync(Id, options);
+                await Client.ApiClient.LikeGfyAsync(Id, options).ConfigureAwait(false);
             else
-                await Client.ApiClient.RemoveLikeGfyAsync(Id, options);
+                await Client.ApiClient.RemoveLikeGfyAsync(Id, options).ConfigureAwait(false);
 
-            await UpdateAsync();
+            await UpdateAsync().ConfigureAwait(false);
         }
         /// <summary>
         /// Changes whether the specified gfy is disliked by the current user to the specified boolean
@@ -570,11 +570,11 @@ namespace Gfycat
         public async Task ModifyDislikedSettingAsync(bool disliked, RequestOptions options = null)
         {
             if (disliked)
-                await Client.ApiClient.DislikeGfyAsync(Id, options);
+                await Client.ApiClient.DislikeGfyAsync(Id, options).ConfigureAwait(false);
             else
-                await Client.ApiClient.RemoveDislikeGfyAsync(Id, options);
+                await Client.ApiClient.RemoveDislikeGfyAsync(Id, options).ConfigureAwait(false);
 
-            await UpdateAsync();
+            await UpdateAsync().ConfigureAwait(false);
         }
 
         /// <summary>

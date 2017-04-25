@@ -36,7 +36,7 @@ namespace Gfycat
         /// </summary>
         public void Dispose()
         {
-            // we don't need to do anything
+            _currentEnumerator.Dispose();
         }
 
         /// <summary>
@@ -56,7 +56,8 @@ namespace Gfycat
                 RequestOptions newOptions = _options?.Clone() ?? RequestOptions.CreateFromDefaults(_client.ApiClient.Config);
                 newOptions.CancellationToken = cancellationToken;
 
-                _currentFeed = await _currentFeed.GetNextPageAsync(newOptions);
+                _currentFeed = await _currentFeed.GetNextPageAsync(newOptions).ConfigureAwait(false);
+                _currentEnumerator?.Dispose();
                 _currentEnumerator = _currentFeed.Content.GetEnumerator();
                 return _currentEnumerator.MoveNext();
             }

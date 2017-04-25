@@ -34,7 +34,7 @@ namespace Gfycat
         /// <returns></returns>
         public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
         {
-            return Create(_client, options, await _client.ApiClient.GetFollowsGfyFeedAsync(_cursor, options));
+            return Create(_client, options, await _client.ApiClient.GetFollowsGfyFeedAsync(_cursor, options).ConfigureAwait(false));
         }
     }
 }

@@ -38,7 +38,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<BookmarkFolder> GetContentsAsync(RequestOptions options = null)
         {
-            return BookmarkFolder.Create(Client, await Client.ApiClient.GetBookmarkFolderContentsAsync(Id, options));
+            return BookmarkFolder.Create(Client, await Client.ApiClient.GetBookmarkFolderContentsAsync(Id, options).ConfigureAwait(false));
         }
         /// <summary>
         /// Moves this album to another location in the folder tree
@@ -48,7 +48,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task MoveFolderAsync(BookmarkFolderInfo parent, RequestOptions options = null)
         {
-            await Client.ApiClient.MoveBookmarkFolderAsync(Id, parent.Id, options);
+            await Client.ApiClient.MoveBookmarkFolderAsync(Id, parent.Id, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new folder inside of this folder
@@ -58,7 +58,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task CreateNewFolderAsync(string folderName, RequestOptions options = null)
         {
-            await Client.ApiClient.CreateBookmarkFolderAsync(Id, folderName, options);
+            await Client.ApiClient.CreateBookmarkFolderAsync(Id, folderName, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Changes the title of this folder to the provided string
@@ -68,7 +68,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyBookmarkFolderTitleAsync(Id, newTitle, options);
+            await Client.ApiClient.ModifyBookmarkFolderTitleAsync(Id, newTitle, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes this folder on Gfycat
@@ -77,15 +77,15 @@ namespace Gfycat
         /// <returns></returns>
         public async Task DeleteAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.DeleteBookmarkFolderAsync(Id, options);
+            await Client.ApiClient.DeleteBookmarkFolderAsync(Id, options).ConfigureAwait(false);
         }
 
         #region Explicit IFolderInfo
 
         IReadOnlyCollection<IFolderInfo> IFolderInfo.Subfolders => Subfolders;
         async Task<IFolderContent> IFolderInfo.GetContentsAsync(RequestOptions options) 
-            => await GetContentsAsync(options);
-        async Task IFolderInfo.MoveFolderAsync(IFolderInfo parent, RequestOptions options) => await MoveFolderAsync(parent as BookmarkFolderInfo ?? throw new ArgumentException(), options);
+            => await GetContentsAsync(options).ConfigureAwait(false);
+        async Task IFolderInfo.MoveFolderAsync(IFolderInfo parent, RequestOptions options) => await MoveFolderAsync(parent as BookmarkFolderInfo ?? throw new ArgumentException(), options).ConfigureAwait(false);
 
         #endregion
     }

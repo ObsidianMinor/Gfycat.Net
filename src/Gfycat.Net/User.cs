@@ -104,7 +104,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task UpdateAsync(RequestOptions options = null)
         {
-            Update(await Client.ApiClient.GetUserAsync(Id, options));
+            Update(await Client.ApiClient.GetUserAsync(Id, options).ConfigureAwait(false));
         }
         /// <summary>
         /// Returns all public albums for this user
@@ -113,10 +113,10 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<IEnumerable<AlbumInfo>> GetAlbumsAsync(RequestOptions options = null)
         {
-            return (await Client.ApiClient.GetAlbumsForUserAsync(Id, options)).Select(album => AlbumInfo.Create(Client, album, Id));
+            return (await Client.ApiClient.GetAlbumsForUserAsync(Id, options).ConfigureAwait(false)).Select(album => AlbumInfo.Create(Client, album, Id));
         }
 
-        async Task<IEnumerable<IAlbumInfo>> IUser.GetAlbumsAsync(RequestOptions options) => await GetAlbumsAsync(options);
+        async Task<IEnumerable<IAlbumInfo>> IUser.GetAlbumsAsync(RequestOptions options) => await GetAlbumsAsync(options).ConfigureAwait(false);
         /// <summary>
         /// Returns the public gfy feed for this user
         /// </summary>
@@ -124,7 +124,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<GfyFeed> GetGfyFeedAsync(RequestOptions options = null)
         {
-            return UserGfyFeed.Create(Client, options, Id, await Client.ApiClient.GetUserGfyFeedAsync(Id, null, options));
+            return UserGfyFeed.Create(Client, options, Id, await Client.ApiClient.GetUserGfyFeedAsync(Id, null, options).ConfigureAwait(false));
         }
         /// <summary>
         /// Follows this user
@@ -133,7 +133,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task FollowAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.FollowUserAsync(Id, options);
+            await Client.ApiClient.FollowUserAsync(Id, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Unfollows this user
@@ -142,7 +142,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task UnfollowAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.UnfollowUserAsync(Id, options);
+            await Client.ApiClient.UnfollowUserAsync(Id, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets whether the current user is following this user
@@ -151,7 +151,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<bool> GetFollowingUser(RequestOptions options = null)
         {
-            return (await Client.ApiClient.GetFollowingUserAsync(Id, options)) == System.Net.HttpStatusCode.OK;
+            return (await Client.ApiClient.GetFollowingUserAsync(Id, options).ConfigureAwait(false)) == System.Net.HttpStatusCode.OK;
         }
     }
 }

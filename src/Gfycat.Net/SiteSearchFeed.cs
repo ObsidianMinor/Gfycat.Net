@@ -38,7 +38,7 @@ namespace Gfycat
         /// <returns></returns>
         public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
         {
-            return Create(_client, await _client.ApiClient.SearchSiteAsync(_searchText, _cursor, options), _searchText, options);
+            return Create(_client, await _client.ApiClient.SearchSiteAsync(_searchText, _cursor, options).ConfigureAwait(false), _searchText, options);
         }
     }
 }

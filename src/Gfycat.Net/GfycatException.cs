@@ -55,7 +55,7 @@ namespace Gfycat
                     return new GfycatException(gfyException.Value<string>("code"), gfyException.Value<string>("description"), restResponse.Status);
             }
 
-            string result = readAsString ?? await restResponse.ReadAsStringAsync();
+            string result = readAsString ?? await restResponse.ReadAsStringAsync().ConfigureAwait(false);
             if (!string.IsNullOrWhiteSpace(result) && !result.StartsWith("<"))
             {
                 JToken jsonObject = JToken.Parse(result);
