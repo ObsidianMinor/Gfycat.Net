@@ -16,7 +16,7 @@ build:
   publish_nuget: true
 
 artifacts:
-  - path: '**/*$env:APPVEYOR_BUILD_VERSION.nupkg'
+  - path: '**/*$(env:APPVEYOR_BUILD_VERSION).nupkg'
     name: Nuget Packages
 
 before_build:
