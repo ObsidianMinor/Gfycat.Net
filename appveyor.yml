@@ -61,7 +61,7 @@ test_script:
   branches:
   only:
       - master
-  version: $(version_numer).{build}
+  version: $(version_number).{build}
 
   configuration: Release
 
