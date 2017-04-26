@@ -90,7 +90,7 @@ test_script:
     - dev
     - gh-pages
 
-    build_script:
-      - ps: |
-            nuget restore Gfycat.Net.sln
-            dotnet build Gfycat.Net.sln /p:Version=$env:APPVEYOR_BUILD_VERSION-$env:APPVEYOR_REPO_BRANCH
+  build_script:
+    - ps: |
+          nuget restore Gfycat.Net.sln
+          dotnet build Gfycat.Net.sln /p:Version=$env:APPVEYOR_BUILD_VERSION-$env:APPVEYOR_REPO_BRANCH
