@@ -16,6 +16,25 @@ artifacts:
   - path: '**/*$(APPVEYOR_BUILD_VERSION)*.nupkg'
     name: Nuget Packages
 
+-
+  branches:
+  only:
+      - master
+  configuration: Release
+  deploy:
+    provider: NuGet
+    name: nugetmain
+    api_key:
+      secure: 3iXTugTMw5kRARtHywAtSsM6+AHLO8CQ4IoKrDXkgqeeHzjhz3bopc0FLckjOPk3
+    artifact: /.*\.nupkg/
+-
+  branches:
+  only:
+    - dev
+  configuration: Release
+-
+  configuration: Debug
+
 before_build:
   - ps: |
         if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE -or $env:APPVEYOR_REPO_BRANCH -eq "master")
@@ -52,20 +71,3 @@ after_build:
 test_script:
 - ps: |
       dotnet test tests/Gfycat.Net.Tests/Gfycat.Net.Tests.csproj
-
--
-  branches:
-  only:
-      - master
-      - dev
-
-  configuration: Release
-
-  deploy:
-    provider: NuGet
-    name: nugetmain
-    api_key:
-      secure: 3iXTugTMw5kRARtHywAtSsM6+AHLO8CQ4IoKrDXkgqeeHzjhz3bopc0FLckjOPk3
-    artifact: /.*\.nupkg/
--
-  configuration: Debug
