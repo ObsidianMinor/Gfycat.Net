@@ -27,6 +27,19 @@ before_build:
             cinst docfx -y
         }
 
+
+build_script:
+  - ps: |
+        nuget restore Gfycat.Net.sln
+        if($env:APPVEYOR_REPO_BRANCH -eq "master" || $env:APPVEYOR_REPO_BRANCH -eq "dev")
+        {
+          dotnet build Gfycat.Net.sln --configuration Release /p:Version=$env:APPVEYOR_BUILD_VERSION
+        }
+        else
+        {
+          dotnet build Gfycat.Net.sln /p:Version=$env:APPVEYOR_BUILD_VERSION-$env:APPVEYOR_REPO_BRANCH
+        }
+
 after_build:
 - ps: |
       if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
@@ -57,11 +70,6 @@ test_script:
   only:
       - master
 
-  build_script:
-    - ps: |
-          nuget restore Gfycat.Net.sln
-          dotnet build Gfycat.Net.sln --configuration Release /p:Version=$env:APPVEYOR_BUILD_VERSION
-
   build:
     publish_nuget: true
 
@@ -70,25 +78,8 @@ test_script:
     api_key:
       secure: 3iXTugTMw5kRARtHywAtSsM6+AHLO8CQ4IoKrDXkgqeeHzjhz3bopc0FLckjOPk3
 
-# All other branches just build, MyGet is hooked up to dev however
--
-  branches:
-  only:
-    - dev
-
-  build_script:
-    - ps: |
-          nuget restore Gfycat.Net.sln
-          dotnet build Gfycat.Net.sln --configuration Release /p:Version=$env:APPVEYOR_BUILD_VERSION
-
 -
   branches:
   except:
     - master
-    - dev
     - gh-pages
-
-  build_script:
-    - ps: |
-          nuget restore Gfycat.Net.sln
-          dotnet build Gfycat.Net.sln /p:Version=$env:APPVEYOR_BUILD_VERSION-$env:APPVEYOR_REPO_BRANCH
