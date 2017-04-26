@@ -13,8 +13,33 @@ environment:
   gp_build_user_email: obsidianminor@gmail.com
   access_token:
     secure: hbO0PhmlEaYZiDRbliEBxSbB8qQBnE0e4XxRvW7GhLRdlYO5/CGwbsaMgUBMov1N
-build:
-  verbosity: minimal
+build_script:
+
+- ps: >-
+    if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE -or $env:APPVEYOR_REPO_BRANCH -eq "master")
+    {
+        git checkout $env:APPVEYOR_REPO_BRANCH -q
+        cinst docfx -y
+    }
+    appveyor-retry dotnet restore Gfycat.Net.sln
+    dotnet build Gfycat.Net.sln --configuration Release /p:Version=$env:APPVEYOR_BUILD_VERSION-$env:APPVEYOR_REPO_BRANCH
+    if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE -or $env:APPVEYOR_REPO_BRANCH -eq "master")
+    {
+        CD docs
+        docfx docfx.json
+        git config --global credential.helper store
+        Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+        git config --global user.email $env:gp_build_user_email
+        git config --global user.name $env:gp_build_user
+
+        git clone https://github.com/ObsidianMinor/Gfycat.Net.git -b gh-pages origin_site
+        Copy-Item origin_site/.git _site -recurse
+        CD _site
+        git add .
+        git commit -m "CI Updates"
+        git push origin gh-pages
+        CD ..\..
+    }
 test_script:
 - ps: dotnet test tests/Gfycat.Net.Tests/Gfycat.Net.Tests.csproj
 artifacts:
