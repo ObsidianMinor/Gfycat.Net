@@ -18,7 +18,7 @@ artifacts:
 
 before_build:
   - ps: |
-        if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
+        if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE -or $env:APPVEYOR_REPO_BRANCH -eq "master")
         {
             git checkout $env:APPVEYOR_REPO_BRANCH -q
             cinst docfx -y
@@ -27,7 +27,7 @@ before_build:
 
 build_script:
   - ps: |
-          dotnet build Gfycat.Net.sln --configuration %CONFIGURATION% /p:Version=$env:APPVEYOR_BUILD_VERSION-$env:APPVEYOR_REPO_BRANCH
+          dotnet build Gfycat.Net.sln --configuration $env:CONFIGURATION /p:Version=$env:APPVEYOR_BUILD_VERSION-$env:APPVEYOR_REPO_BRANCH
 
 after_build:
 - ps: |
