@@ -14,7 +14,7 @@ environment:
     secure: hbO0PhmlEaYZiDRbliEBxSbB8qQBnE0e4XxRvW7GhLRdlYO5/CGwbsaMgUBMov1N
 build_script:
 - ps: >-
-    if((-Not $env:APPVEYOR_PULL_REQUEST_TITLE)) -and $env:APPVEYOR_REPO_BRANCH -eq "master")
+    if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE) -and $env:APPVEYOR_REPO_BRANCH -ne "master")
 
     {
         git checkout $env:APPVEYOR_REPO_BRANCH -q
@@ -39,7 +39,7 @@ build_script:
         dotnet build Gfycat.Net.sln --configuration Release /p:Version=$env:APPVEYOR_BUILD_VERSION
     }
 
-    if((-Not $env:APPVEYOR_PULL_REQUEST_TITLE) -and $env:APPVEYOR_REPO_BRANCH -eq "master")
+    if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE -and $env:APPVEYOR_REPO_BRANCH -ne "master")
 
     {
         CD docs
