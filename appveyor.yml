@@ -17,13 +17,18 @@ build_script:
 
 - ps: >-
     if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE -or $env:APPVEYOR_REPO_BRANCH -eq "master")
+
     {
         git checkout $env:APPVEYOR_REPO_BRANCH -q
         cinst docfx -y
     }
+
     appveyor-retry dotnet restore Gfycat.Net.sln
+
     dotnet build Gfycat.Net.sln --configuration Release /p:Version=$env:APPVEYOR_BUILD_VERSION-$env:APPVEYOR_REPO_BRANCH
+
     if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE -or $env:APPVEYOR_REPO_BRANCH -eq "master")
+
     {
         CD docs
         docfx docfx.json
