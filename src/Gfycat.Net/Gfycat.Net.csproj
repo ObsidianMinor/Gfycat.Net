@@ -17,6 +17,8 @@
     <PackageProjectUrl>https://github.com/ObsidianMinor/Gfycat.Net</PackageProjectUrl>
     <Description>A complete wrapper around the Gfycat API</Description>
     <Summary>A complete wrapper around the Gfycat API</Summary>
+    <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageReleaseNotes>Please see the latest GitHub release for release notes: https://github.com/ObsidianMinor/Gfycat.Net/releases/latest </PackageReleaseNotes>
     <Title>Gfycat.Net</Title>
     <Authors>ObsidianMinor</Authors>
   </PropertyGroup>

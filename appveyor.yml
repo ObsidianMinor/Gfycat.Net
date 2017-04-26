@@ -7,12 +7,15 @@ environment:
 pull_requests:
   do_not_increment_build_number: true
 
+version: 1.0.8.{build}
+skip_tags: true
+
 image: Visual Studio 2017
 build:
   verbosity: minimal
 
 artifacts:
-  - path: '**/*$(APPVEYOR_BUILD_VERSION).nupkg'
+  - path: '**/*$(APPVEYOR_BUILD_VERSION)*.nupkg'
     name: Nuget Packages
 
 nuget:
@@ -25,11 +28,6 @@ before_build:
             git checkout $env:APPVEYOR_REPO_BRANCH -q
             cinst docfx -y
         }
-
-build_script:
-  - ps: |
-        nuget restore Gfycat.Net.sln
-        dotnet build Gfycat.Net.sln /p:Version=$env:APPVEYOR_BUILD_VERSION
 
 after_build:
 - ps: |
@@ -60,21 +58,39 @@ test_script:
   branches:
   only:
       - master
-  version: 1.0.8.{build}
 
-  configuration: Release
+  build_script:
+    - ps: |
+          nuget restore Gfycat.Net.sln
+          dotnet build Gfycat.Net.sln --configuration Release /p:Version=$env:APPVEYOR_BUILD_VERSION
 
   build:
     publish_nuget: true
 
-#  deploy:
-#    provider: NuGet
-#    api_key:
-#      secure: 3iXTugTMw5kRARtHywAtSsM6+AHLO8CQ4IoKrDXkgqeeHzjhz3bopc0FLckjOPk3
+  deploy:
+    provider: NuGet
+    api_key:
+      secure: 3iXTugTMw5kRARtHywAtSsM6+AHLO8CQ4IoKrDXkgqeeHzjhz3bopc0FLckjOPk3
 
-# All other branches build with their own version system
+# All other branches just build, MyGet is hooked up to dev however
+-
+  branches:
+  only:
+    - dev
+
+  build_script:
+    - ps: |
+          nuget restore Gfycat.Net.sln
+          dotnet build Gfycat.Net.sln --configuration Release /p:Version=$env:APPVEYOR_BUILD_VERSION
+
 -
   branches:
   except:
     - master
-  version: 1.0.8.{build}-{branch}
+    - dev
+    - gh-pages
+
+    build_script:
+      - ps: |
+            nuget restore Gfycat.Net.sln
+            dotnet build Gfycat.Net.sln /p:Version=$env:APPVEYOR_BUILD_VERSION-$env:APPVEYOR_REPO_BRANCH
