@@ -102,7 +102,7 @@ namespace Gfycat.Analytics
         /// <param name="flow"></param>
         /// <param name="viewTag"></param>
         /// <param name="keyword"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task SendImpressionAsync(Gfy gfy, ImpressionContext context = ImpressionContext.None, ImpressionFlow flow = ImpressionFlow.None, string viewTag = null, string keyword = null, RequestOptions options = null)
         {
@@ -120,7 +120,7 @@ namespace Gfycat.Analytics
         /// Sends one impression to Gfycat impressions
         /// </summary>
         /// <param name="impression"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task SendImpressionAsync(Impression impression, RequestOptions options = null)
         {
@@ -131,7 +131,7 @@ namespace Gfycat.Analytics
         /// Sends multiple impressions to Gfycat impressions
         /// </summary>
         /// <param name="impressions"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task SendImpressionsBulkAsync(IEnumerable<Impression> impressions, RequestOptions options = null)
         {
@@ -172,7 +172,7 @@ namespace Gfycat.Analytics
         /// <summary>
         /// Sends a first launch event to Gfycat analytics
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task SendAppFirstLaunchEventAsync(RequestOptions options = null)
         {
@@ -182,7 +182,7 @@ namespace Gfycat.Analytics
         /// Sends a video share event to Gfycat analytics
         /// </summary>
         /// <param name="gfy"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task SendShareVideoEventAsync(Gfy gfy, RequestOptions options = null)
         {
@@ -195,7 +195,7 @@ namespace Gfycat.Analytics
         /// Sends a tap category event to Gfycat analytics
         /// </summary>
         /// <param name="keyword"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task SendTapCategoryEventAsync(string keyword, RequestOptions options = null)
         {
@@ -209,7 +209,7 @@ namespace Gfycat.Analytics
         /// </summary>
         /// <param name="videoLengthMilliseconds"></param>
         /// <param name="cameraDirection"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task SendCreateVideoEventAsync(int? videoLengthMilliseconds = null, CameraDirection? cameraDirection = null, RequestOptions options = null)
         {
@@ -220,7 +220,7 @@ namespace Gfycat.Analytics
         /// Sends a search videos event to Gfycat analytics
         /// </summary>
         /// <param name="keyword"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task SendSearchVideosEventAsync(string keyword, RequestOptions options = null)
         {
@@ -234,7 +234,7 @@ namespace Gfycat.Analytics
         /// Sends a scoll in categories event to Gfycat analytics
         /// </summary>
         /// <param name="count"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task SendScrollInCategoriesEventAsync(int count, RequestOptions options = null)
         {
@@ -247,7 +247,7 @@ namespace Gfycat.Analytics
         /// <param name="count"></param>
         /// <param name="context"></param>
         /// <param name="keyword"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task SendScrollInVideosEventAsync(int count, ImpressionContext context = ImpressionContext.None, string keyword = null, RequestOptions options = null)
         {
@@ -258,7 +258,7 @@ namespace Gfycat.Analytics
         /// Sends a video caption event to Gfycat analytics
         /// </summary>
         /// <param name="captionText"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task SendCaptionVideoEventAsync(string captionText, RequestOptions options = null)
         {
@@ -272,7 +272,7 @@ namespace Gfycat.Analytics
         /// Sends a copy link event to Gfycat analytics
         /// </summary>
         /// <param name="gfy"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task SendCopyLinkEventAsync(Gfy gfy, RequestOptions options = null)
         {
@@ -286,7 +286,7 @@ namespace Gfycat.Analytics
         /// Sends a download video event to Gfycat analytics
         /// </summary>
         /// <param name="gfy"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task SendDownloadVideoEventAsync(Gfy gfy, RequestOptions options = null)
         {
@@ -300,7 +300,7 @@ namespace Gfycat.Analytics
         /// Sends a bookmark video event to Gfycat analytics
         /// </summary>
         /// <param name="gfy"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task SendBookmarkVideoEventAsync(Gfy gfy, RequestOptions options = null)
         {

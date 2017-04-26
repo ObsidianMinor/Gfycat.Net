@@ -51,7 +51,7 @@ namespace Gfycat
         /// <summary>
         /// Updates this object with the latest server information
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task UpdateAsync(RequestOptions options = null)
             => Update(await Client.ApiClient.GetCurrentUserAsync(options).ConfigureAwait(false));
@@ -157,7 +157,7 @@ namespace Gfycat
         /// <summary>
         /// Gets whether the current user's email is verified
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns>True if the current user's email is verified, otherwise false</returns>
         public async Task<bool> GetEmailVerifiedAsync(RequestOptions options = null)
         {
@@ -167,7 +167,7 @@ namespace Gfycat
         /// <summary>
         /// Sends a verification email to the current user's email address
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task SendVerificationEmailAsync(RequestOptions options = null)
         {
@@ -178,7 +178,7 @@ namespace Gfycat
         /// Modifies the current user's profile pic
         /// </summary>
         /// <param name="profilePic"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         public async Task UploadProfilePictureAsync(Stream profilePic, RequestOptions options = null)
         {
             _currentUploadUrl = new Uri(await Client.ApiClient.GetProfileUploadUrlAsync(options).ConfigureAwait(false));
@@ -188,7 +188,7 @@ namespace Gfycat
         /// <summary>
         /// Gets the status of an uploading profile pic
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
         public async Task<ProfileImageUploadStatus> GetProfilePictureUploadStatusAsync(RequestOptions options = null)
@@ -207,7 +207,7 @@ namespace Gfycat
         /// Modifies the current user using the specified operations
         /// </summary>
         /// <param name="operations"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ModifyCurrentUserAsync(IEnumerable<GfycatOperation> operations, RequestOptions options = null)
         {
@@ -236,7 +236,7 @@ namespace Gfycat
         /// <summary>
         /// Returns an enumerable of the users the current user is following
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<IEnumerable<User>> GetFollowingUsersPopulatedAsync(RequestOptions options = null)
         {
@@ -246,7 +246,7 @@ namespace Gfycat
         /// <summary>
         /// Returns an enumerable of the users following the current user
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<IEnumerable<User>> GetFollowersPopulatedAsync(RequestOptions options = null)
         {
@@ -260,7 +260,7 @@ namespace Gfycat
         /// <summary>
         /// Gets the current user's private gfy feed
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<GfyFeed> GetGfyFeedAsync(RequestOptions options = null)
         {
@@ -270,7 +270,7 @@ namespace Gfycat
         /// <summary>
         /// Returns a timeline list of all published gfys in the users this user follows
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<GfyFeed> GetTimelineFeedAsync(RequestOptions options = null)
         {
@@ -294,7 +294,7 @@ namespace Gfycat
         /// Creates a folder for the current user using the specified name with a parent if specified
         /// </summary>
         /// <param name="folderName"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task CreateFolderAsync(string folderName, RequestOptions options = null)
         {
@@ -306,7 +306,7 @@ namespace Gfycat
         /// <summary>
         /// Gets a collection of all bookmark folders of the current user
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<IEnumerable<BookmarkFolderInfo>> GetBookmarkFoldersAsync(RequestOptions options = null)
         {
@@ -318,7 +318,7 @@ namespace Gfycat
         /// <summary>
         /// Get all album information for the current user
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<IEnumerable<IAlbumInfo>> GetAlbumsAsync(RequestOptions options = null)
         {
@@ -331,7 +331,7 @@ namespace Gfycat
         /// Searches the current user's gfys
         /// </summary>
         /// <param name="searchText"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<GfyFeed> SearchAsync(string searchText, RequestOptions options = null)
         {
@@ -342,7 +342,7 @@ namespace Gfycat
         /// </summary>
         /// <param name="verifier"></param>
         /// <param name="token"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task AddTwitterProviderAsync(string verifier, string token, RequestOptions options = null)
         {
@@ -351,7 +351,7 @@ namespace Gfycat
         /// <summary>
         /// Removes the current user's twitter provider
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task RemoveTwitterProviderAsync(RequestOptions options = null)
         {
@@ -360,7 +360,7 @@ namespace Gfycat
         /// <summary>
         /// Gets the whitelist of domains allowed to embed this user's content
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<IEnumerable<string>> GetDomainWhitelistAsync(RequestOptions options = null)
         {
@@ -370,7 +370,7 @@ namespace Gfycat
         /// Changes the whitelist of domains allowed to embed this user's content to the new whitelist
         /// </summary>
         /// <param name="newWhitelist"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ModifyDomainWhitelistAsync(IEnumerable<string> newWhitelist, RequestOptions options = null)
         {
@@ -380,7 +380,7 @@ namespace Gfycat
         /// <summary>
         /// Deletes the whitelist of domains allowed to embed this user's content
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task DeleteDomainWhitelistAsync(RequestOptions options = null)
         {
@@ -390,7 +390,7 @@ namespace Gfycat
         /// <summary>
         /// Gets the whitelist of regions allowed to embed this user's content
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<IEnumerable<RegionInfo>> GetGeoWhitelistAsync(RequestOptions options = null)
         {
@@ -400,7 +400,7 @@ namespace Gfycat
         /// Changes the whitelist of regions allowed to embed this user's content to the new whitelist
         /// </summary>
         /// <param name="newWhitelist"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ModifyGeoWhitelistAsync(IEnumerable<RegionInfo> newWhitelist, RequestOptions options = null)
         {
@@ -410,7 +410,7 @@ namespace Gfycat
         /// <summary>
         /// Deletes the whitelist of regions allowed to embed this user's content
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task DeleteGeoWhitelistAsync(RequestOptions options = null)
         {
@@ -423,7 +423,7 @@ namespace Gfycat
         /// <summary>
         /// Fetches the developer keys for the current user
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<IEnumerable<AppApiInfo>> GetApiCredentialsAsync(RequestOptions options = null)
         {
@@ -435,7 +435,7 @@ namespace Gfycat
         /// <summary>
         /// Follows this user
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         async Task IUser.FollowAsync(RequestOptions options)
         {
@@ -444,7 +444,7 @@ namespace Gfycat
         /// <summary>
         /// Unfollows this user
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         async Task IUser.UnfollowAsync(RequestOptions options)
         {
@@ -453,7 +453,7 @@ namespace Gfycat
         /// <summary>
         /// Gets whether the current user is following this user
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         async Task<bool> IUser.GetFollowingUser(RequestOptions options)
         {

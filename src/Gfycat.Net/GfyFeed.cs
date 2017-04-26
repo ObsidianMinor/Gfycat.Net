@@ -27,7 +27,7 @@ namespace Gfycat
         /// <summary>
         /// Returns the next page of this feed
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public abstract Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null);
         /// <summary>

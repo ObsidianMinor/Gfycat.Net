@@ -498,13 +498,6 @@ namespace Gfycat.API
             return await response.ReadAsJsonAsync<FullGfyResponse>(Config).ConfigureAwait(false);
         }
 
-        internal async Task<Stream> GetGfyStreamAsync(string gfyUrl, RequestOptions options)
-        {
-            options = options ?? RequestOptions.CreateFromDefaults(Config);
-            RestResponse response = await SendAsync("GET", gfyUrl, options).ConfigureAwait(false);
-            return await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-        }
-
         #endregion
 
         #region Creating gfycats
@@ -631,6 +624,11 @@ namespace Gfycat.API
         internal async Task DeleteGfyAsync(string gfyId, RequestOptions options)
         {
             RestResponse response = await SendAsync("DELETE", $"me/gfycats/{gfyId}", options).ConfigureAwait(false);
+        }
+
+        internal async Task ReportContentAsync(string gfyId, RequestOptions options)
+        {
+            RestResponse response = await SendAsync("OPTIONS", $"gfycats/{gfyId}/report-content", options).ConfigureAwait(false);
         }
 
         #endregion

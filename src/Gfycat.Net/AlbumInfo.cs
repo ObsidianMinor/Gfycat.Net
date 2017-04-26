@@ -137,7 +137,7 @@ namespace Gfycat
         /// <summary>
         /// Gets the contents of this album
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<Album> GetContentsAsync(RequestOptions options = null)
         {
@@ -147,7 +147,7 @@ namespace Gfycat
         /// Moves this album to another location in the folder tree
         /// </summary>
         /// <param name="parent"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task MoveFolderAsync(IAlbumInfo parent, RequestOptions options = null)
         {
@@ -157,7 +157,7 @@ namespace Gfycat
         /// Creates a new album folder inside this album
         /// </summary>
         /// <param name="folderName"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task CreateNewFolderAsync(string folderName, RequestOptions options = null)
         {
@@ -167,7 +167,7 @@ namespace Gfycat
         /// Creates a new album inside this album
         /// </summary>
         /// <param name="albumName"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task CreateNewAlbumAsync(string albumName, RequestOptions options = null)
         {
@@ -177,7 +177,7 @@ namespace Gfycat
         /// Changes the title of this folder to the provided string
         /// </summary>
         /// <param name="newTitle"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
@@ -186,7 +186,7 @@ namespace Gfycat
         /// <summary>
         /// Deletes this folder on Gfycat
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task DeleteAsync(RequestOptions options = null)
         {

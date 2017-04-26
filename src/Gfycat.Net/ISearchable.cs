@@ -11,7 +11,7 @@ namespace Gfycat
         /// Searches this type
         /// </summary>
         /// <param name="searchText"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         Task<GfyFeed> SearchAsync(string searchText, RequestOptions options = null);
     }

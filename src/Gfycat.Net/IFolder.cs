@@ -21,14 +21,14 @@ namespace Gfycat
         /// Changes the title of this folder to the provided string
         /// </summary>
         /// <param name="newTitle"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         Task ModifyTitleAsync(string newTitle, RequestOptions options = null);
 
         /// <summary>
         /// Deletes this folder on Gfycat
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         Task DeleteAsync(RequestOptions options = null);
     }

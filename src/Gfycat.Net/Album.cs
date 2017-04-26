@@ -71,7 +71,7 @@ namespace Gfycat
         /// Changes the title of the album on Gfycat to the specified string
         /// </summary>
         /// <param name="newTitle"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
@@ -82,7 +82,7 @@ namespace Gfycat
         /// Changes the NSFW (Not Safe For Work) setting of the album on Gfycat to the specified setting
         /// </summary>
         /// <param name="newSetting"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ModifyNsfwSettingAsync(NsfwSetting newSetting, RequestOptions options = null)
         {
@@ -94,7 +94,7 @@ namespace Gfycat
         /// Changes the published setting of the album on Gfycat to the specified setting
         /// </summary>
         /// <param name="published"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ModifyPublishSettingAsync(bool published, RequestOptions options = null)
         {
@@ -106,7 +106,7 @@ namespace Gfycat
         /// Adds the specified <see cref="Gfy"/>s to the album on Gfycat
         /// </summary>
         /// <param name="gfysToAdd"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task AddGfysAsync(IEnumerable<Gfy> gfysToAdd, RequestOptions options = null)
         {
@@ -119,7 +119,7 @@ namespace Gfycat
         /// </summary>
         /// <param name="folderToMoveTo"></param>
         /// <param name="gfysToMove"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task MoveGfysAsync(Album folderToMoveTo, IEnumerable<Gfy> gfysToMove, RequestOptions options = null)
         {
@@ -132,7 +132,7 @@ namespace Gfycat
         /// Removes the specified <see cref="Gfy"/>s from the album on Gfycat
         /// </summary>
         /// <param name="gfysToRemove"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task RemoveGfysAsync(IEnumerable<Gfy> gfysToRemove, RequestOptions options = null)
         {
@@ -143,7 +143,7 @@ namespace Gfycat
         /// <summary>
         /// Deletes the album on Gfycat
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task DeleteAsync(RequestOptions options = null)
         {
@@ -153,7 +153,7 @@ namespace Gfycat
         /// <summary>
         /// Updates this object with the data on Gfycat
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task UpdateAsync(RequestOptions options = null)
             => Update(await Client.ApiClient.GetAlbumContentsAsync(Id, options).ConfigureAwait(false));

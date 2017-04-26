@@ -69,31 +69,31 @@ namespace Gfycat
         /// <summary>
         /// Gets the albums of this user
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         Task<IEnumerable<IAlbumInfo>> GetAlbumsAsync(RequestOptions options = null);
         /// <summary>
         /// Gets the feed of gfys for this user
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         Task<GfyFeed> GetGfyFeedAsync(RequestOptions options = null);
         /// <summary>
         /// Follows this user
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         Task FollowAsync(RequestOptions options = null);
         /// <summary>
         /// Unfollows this user
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         Task UnfollowAsync(RequestOptions options = null);
         /// <summary>
         /// Gets if the current user is following this user
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         Task<bool> GetFollowingUser(RequestOptions options = null);
     }

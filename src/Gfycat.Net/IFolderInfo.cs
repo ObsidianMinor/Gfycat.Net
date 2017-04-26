@@ -16,21 +16,21 @@ namespace Gfycat
         /// <summary>
         /// Gets the contents of this folder
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         Task<IFolderContent> GetContentsAsync(RequestOptions options = null);
         /// <summary>
         /// Moves this folder to somewhere else in the folder tree
         /// </summary>
         /// <param name="parent"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         Task MoveFolderAsync(IFolderInfo parent, RequestOptions options = null);
         /// <summary>
         /// Creates a new folder inside this folder
         /// </summary>
         /// <param name="folderName"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         Task CreateNewFolderAsync(string folderName, RequestOptions options = null);
     }

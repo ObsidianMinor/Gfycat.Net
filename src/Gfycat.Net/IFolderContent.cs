@@ -21,7 +21,7 @@ namespace Gfycat
         /// </summary>
         /// <param name="folderToMoveTo"></param>
         /// <param name="gfysToMove"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         Task MoveGfysAsync(IFolderContent folderToMoveTo, IEnumerable<Gfy> gfysToMove, RequestOptions options = null);
     }

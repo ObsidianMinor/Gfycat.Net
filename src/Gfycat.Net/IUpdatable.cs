@@ -10,7 +10,7 @@ namespace Gfycat
         /// <summary>
         /// Updates the object with the most recent data from gfycat
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         Task UpdateAsync(RequestOptions options = null);
     }

@@ -323,7 +323,7 @@ namespace Gfycat
         /// Shares this gfy on twitter using the specified post status
         /// </summary>
         /// <param name="postStatus"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ShareOnTwitterAsync(string postStatus, RequestOptions options = null)
         {
@@ -336,7 +336,7 @@ namespace Gfycat
         /// <param name="postStatus"></param>
         /// <param name="verifier"></param>
         /// <param name="token"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ShareOnTwitterAsync(string postStatus, string verifier, string token, RequestOptions options = null)
         {
@@ -347,7 +347,7 @@ namespace Gfycat
         /// Modifies the title of this gfy
         /// </summary>
         /// <param name="newTitle"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
@@ -358,7 +358,7 @@ namespace Gfycat
         /// <summary>
         /// Deletes the title of this gfy
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task DeleteTitleAsync(RequestOptions options = null)
         {
@@ -370,7 +370,7 @@ namespace Gfycat
         /// Edits the tags of this gfy. Tag counts over twenty throw argument exceptions
         /// </summary>
         /// <param name="tags"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ModifyTagsAsync(IEnumerable<string> tags, RequestOptions options = null)
         {
@@ -384,7 +384,7 @@ namespace Gfycat
         /// <summary>
         /// Gets the whitelist of domains allowed to embed this gfy
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<IEnumerable<string>> GetDomainWhitelistAsync(RequestOptions options = null)
         {
@@ -394,7 +394,7 @@ namespace Gfycat
         /// Changes the whitelist of domains allowed to embed this gfy to the new list
         /// </summary>
         /// <param name="newWhitelist"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ModifyDomainWhitelistAsync(IEnumerable<string> newWhitelist, RequestOptions options = null)
         {
@@ -405,7 +405,7 @@ namespace Gfycat
         /// <summary>
         /// Deletes the whitelist of domains allowed to embed this gfy
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task DeleteDomainWhitelistAsync(RequestOptions options = null)
         {
@@ -416,7 +416,7 @@ namespace Gfycat
         /// <summary>
         /// Gets the whitelist of regions allowed to embed this gfy
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<IEnumerable<RegionInfo>> GetGeoWhitelistAsync(RequestOptions options = null)
         {
@@ -426,7 +426,7 @@ namespace Gfycat
         /// Changes the whitelist of regions allowed to embed this gfy to the new list
         /// </summary>
         /// <param name="newWhitelist"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ModifyGeoWhitelistAsync(IEnumerable<RegionInfo> newWhitelist, RequestOptions options = null)
         {
@@ -436,7 +436,7 @@ namespace Gfycat
         /// <summary>
         /// Deletes the whitelist of regions allowed to embed this gfy
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task DeleteGeoWhitelistAsync(RequestOptions options = null)
         {
@@ -447,7 +447,7 @@ namespace Gfycat
         /// Modifies the description of this gfy to the new value
         /// </summary>
         /// <param name="newDescription"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ModifyDescriptionAsync(string newDescription, RequestOptions options = null)
         {
@@ -457,7 +457,7 @@ namespace Gfycat
         /// <summary>
         /// Deletes the description of this gfy
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task DeleteDescriptionAsync(RequestOptions options = null)
         {
@@ -468,7 +468,7 @@ namespace Gfycat
         /// Modifies the published setting of this gfy to the new value
         /// </summary>
         /// <param name="published"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ModifyPublishSettingAsync(bool published, RequestOptions options = null)
         {
@@ -480,7 +480,7 @@ namespace Gfycat
         /// Modifies the NSFW setting of this gfy
         /// </summary>
         /// <param name="setting"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ModifyNsfwSettingAsync(NsfwSetting setting, RequestOptions options = null)
         {
@@ -490,7 +490,7 @@ namespace Gfycat
         /// <summary>
         /// Deletes this gfy on Gfycat
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task DeleteAsync(RequestOptions options = null)
         {
@@ -509,7 +509,7 @@ namespace Gfycat
         /// Bookmarks this gfy using the specified bookmark folder
         /// </summary>
         /// <param name="folder"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task BookmarkAsync(BookmarkFolder folder = null, RequestOptions options = null)
         {
@@ -521,7 +521,7 @@ namespace Gfycat
         /// Unbookmarks this gfy from the specified bookmark folder
         /// </summary>
         /// <param name="folder"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task UnbookmarkAsync(BookmarkFolder folder = null, RequestOptions options = null)
         {
@@ -532,7 +532,7 @@ namespace Gfycat
         /// <summary>
         /// Updates this gfy's info using the latest data from the server
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task UpdateAsync(RequestOptions options = null)
         {
@@ -542,7 +542,7 @@ namespace Gfycat
         /// <summary>
         /// Returns the creator of this <see cref="Gfy"/>. If it was uploaded or created anonymously, this returns null
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<User> GetUserAsync(RequestOptions options = null)
         {
@@ -552,7 +552,7 @@ namespace Gfycat
         /// Changes whether the specified gfy is liked by the current user to the specified boolean
         /// </summary>
         /// <param name="liked"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ModifyLikedSettingAsync(bool liked, RequestOptions options = null)
         {
@@ -567,7 +567,7 @@ namespace Gfycat
         /// Changes whether the specified gfy is disliked by the current user to the specified boolean
         /// </summary>
         /// <param name="disliked"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task ModifyDislikedSettingAsync(bool disliked, RequestOptions options = null)
         {
@@ -577,6 +577,16 @@ namespace Gfycat
                 await Client.ApiClient.RemoveDislikeGfyAsync(Id, options).ConfigureAwait(false);
 
             await UpdateAsync().ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Reports this gfy to Gfycat
+        /// </summary>
+        /// <param name="options">The options for this request</param>
+        /// <returns></returns>
+        public async Task ReportContentAsync(RequestOptions options = null)
+        {
+            await Client.ApiClient.ReportContentAsync(Id, options).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -619,11 +629,6 @@ namespace Gfycat
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-        }
-
-        public async Task<Stream> DownloadGfyAsync(GfyFormat format, RequestOptions options = null)
-        {
-            return await Client.ApiClient.GetGfyStreamAsync(GetFormatUrl(format), options).ConfigureAwait(false);
         }
     }
 }

@@ -139,7 +139,7 @@ namespace Gfycat
         /// </summary>
         /// <param name="username"></param>
         /// <param name="password"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns>An awaitable task</returns>
         public async Task AuthenticateAsync(string username, string password, RequestOptions options = null)
         {
@@ -170,7 +170,7 @@ namespace Gfycat
         /// <summary>
         /// Retrieves a Twitter request token for the Twitter Request token auth flow
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<string> GetTwitterRequestTokenAsync(RequestOptions options = null)
         {
@@ -194,7 +194,7 @@ namespace Gfycat
         /// </summary>
         /// <param name="type"></param>
         /// <param name="token"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task AuthenticateAsync(TokenType type, string token, RequestOptions options = null)
         {
@@ -258,7 +258,7 @@ namespace Gfycat
         /// <param name="type">The type of the provided tokens</param>
         /// <param name="tokenOrCode">A twitter token or browser auth code</param>
         /// <param name="verifierSecretRedirectUri">A twitter secret, verifier, or browser redirect uri</param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task AuthenticateAsync(TokenType type, string tokenOrCode, string verifierSecretRedirectUri, RequestOptions options = null)
         {
@@ -361,7 +361,7 @@ namespace Gfycat
         /// Returns a bool for whether or not a user account exists on that username
         /// </summary>
         /// <param name="username"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<bool> GetUserExistsAsync(string username, RequestOptions options = null)
         {
@@ -372,7 +372,7 @@ namespace Gfycat
         /// Sends a password reset email for the user with the specified username or email address
         /// </summary>
         /// <param name="usernameOrEmail"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task SendPasswordResetEmailAsync(string usernameOrEmail, RequestOptions options = null)
         {
@@ -383,7 +383,7 @@ namespace Gfycat
         /// Tries to get the user with the given Id. If the user isn't found, this throws a <see cref="GfycatException"/>
         /// </summary>
         /// <param name="userId"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         /// <exception cref="GfycatException"></exception>
         public async Task<User> GetUserAsync(string userId, RequestOptions options = null)
@@ -396,7 +396,7 @@ namespace Gfycat
         /// Tries to get the user with the given ID. If the user isn't found, this returns null
         /// </summary>
         /// <param name="userId"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<User> TryGetUserAsync(string userId, RequestOptions options = null) 
             => (await GetUserExistsAsync(userId, options).ConfigureAwait(false)) ? await GetUserAsync(userId, options).ConfigureAwait(false) : null;
@@ -404,7 +404,7 @@ namespace Gfycat
         /// <summary>
         /// Attempts to get the current user
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<CurrentUser> GetCurrentUserAsync(RequestOptions options = null)
         {
@@ -419,7 +419,7 @@ namespace Gfycat
         /// <param name="password"></param>
         /// <param name="email"></param>
         /// <param name="loginWhenComplete"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task CreateAccountAsync(string username, string password, string email = null, bool loginWhenComplete = true, RequestOptions options = null)
         {
@@ -446,7 +446,7 @@ namespace Gfycat
         /// <param name="password"></param>
         /// <param name="email"></param>
         /// <param name="loginWhenComplete"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task CreateAccountAsync(string username, AccountTokenType tokenType, string token, string password = null, string email = null, bool loginWhenComplete = true, RequestOptions options = null)
         {
@@ -501,7 +501,7 @@ namespace Gfycat
         /// </summary>
         /// <param name="gfycat"></param>
         /// <param name="overrideInvalidNameDetection">Forces the method to fetch the specified gfy even if it's detected as an invalid gfy name</param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<Gfy> GetGfyAsync(string gfycat, bool overrideInvalidNameDetection = false, RequestOptions options = null)
         {
@@ -618,7 +618,7 @@ namespace Gfycat
         /// </summary>
         /// <param name="remoteUrl"></param>
         /// <param name="parameters"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<GfyStatus> CreateGfyAsync(string remoteUrl, GfyCreationParameters parameters = null, RequestOptions options = null)
         {
@@ -631,7 +631,7 @@ namespace Gfycat
         /// Retrieves the upload status of the specified gfy
         /// </summary>
         /// <param name="gfycat"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<GfyStatus> GetGfyUploadStatusAsync(string gfycat, RequestOptions options = null)
         {
@@ -648,7 +648,7 @@ namespace Gfycat
         /// </summary>
         /// <param name="data"></param>
         /// <param name="parameters"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<GfyStatus> CreateGfyAsync(Stream data, GfyCreationParameters parameters = null, RequestOptions options = null)
         {
@@ -667,7 +667,7 @@ namespace Gfycat
         /// Retrieves trending gfys for the specified tag. If no tag is specified, the "Trending" tag is used
         /// </summary>
         /// <param name="tag"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<TaggedGfyFeed> GetTrendingGfysAsync(string tag = "Trending", RequestOptions options = null)
         {
@@ -677,7 +677,7 @@ namespace Gfycat
         /// <summary>
         /// Returns an enumerable of all trending tags
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<IEnumerable<string>> GetTrendingTagsAsync(RequestOptions options = null)
         {
@@ -687,7 +687,7 @@ namespace Gfycat
         /// <summary>
         /// Retrieves trending tags populated with gfys
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<PopulatedTagFeed> GetTrendingTagsPopulatedAsync(RequestOptions options = null)
         {
@@ -700,7 +700,7 @@ namespace Gfycat
         /// Retrieves a feed of all reaction tag feeds in the specified language. The default language is english
         /// </summary>
         /// <param name="language"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         public async Task<ReactionTagsFeed> GetReactionGfysAsync(ReactionLanguage language = ReactionLanguage.English, RequestOptions options = null)
         {
@@ -711,7 +711,7 @@ namespace Gfycat
         /// Searches the Gfycat website using the provided search text
         /// </summary>
         /// <param name="searchText"></param>
-        /// <param name="options"></param>
+        /// <param name="options">The options for this request</param>
         /// <returns></returns>
         // supposedly in testing. hhhhhhhhhhhhhhhhmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
         public async Task<GfyFeed> SearchAsync(string searchText, RequestOptions options = null)
