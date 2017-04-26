@@ -7,7 +7,6 @@ branches:
 image: Visual Studio 2017
 configuration:
 - Release
-- Debug
 environment:
   gp_build_user: ObsidianMinor
   gp_build_user_email: obsidianminor@gmail.com
