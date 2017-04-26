@@ -11,8 +11,6 @@ version: 1.0.8.{build}
 skip_tags: true
 
 image: Visual Studio 2017
-build:
-  verbosity: minimal
 
 artifacts:
   - path: '**/*$(APPVEYOR_BUILD_VERSION)*.nupkg'
