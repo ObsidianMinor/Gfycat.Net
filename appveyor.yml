@@ -18,7 +18,7 @@ build:
 test_script:
 - ps: dotnet test tests/Gfycat.Net.Tests/Gfycat.Net.Tests.csproj
 artifacts:
-- path: '**/*$(APPVEYOR_BUILD_VERSION)*.nupkg'
+- path: '**/Release/*$(APPVEYOR_BUILD_VERSION)*.nupkg'
   name: Nuget Packages
 deploy:
 - provider: NuGet
