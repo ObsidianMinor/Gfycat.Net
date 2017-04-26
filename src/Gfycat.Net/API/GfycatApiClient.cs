@@ -498,6 +498,13 @@ namespace Gfycat.API
             return await response.ReadAsJsonAsync<FullGfyResponse>(Config).ConfigureAwait(false);
         }
 
+        internal async Task<Stream> GetGfyStreamAsync(string gfyUrl, RequestOptions options)
+        {
+            options = options ?? RequestOptions.CreateFromDefaults(Config);
+            RestResponse response = await SendAsync("GET", gfyUrl, options).ConfigureAwait(false);
+            return await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        }
+
         #endregion
 
         #region Creating gfycats

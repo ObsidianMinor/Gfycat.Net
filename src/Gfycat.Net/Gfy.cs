@@ -7,6 +7,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Gfycat.API.Models;
 using Model = Gfycat.API.Models.Gfy;
+using System.IO;
+using System.Threading;
 
 namespace Gfycat
 {
@@ -617,6 +619,11 @@ namespace Gfycat
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        public async Task<Stream> DownloadGfyAsync(GfyFormat format, RequestOptions options = null)
+        {
+            return await Client.ApiClient.GetGfyStreamAsync(GetFormatUrl(format), options).ConfigureAwait(false);
         }
     }
 }
