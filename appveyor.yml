@@ -31,7 +31,7 @@ before_build:
 build_script:
   - ps: |
         nuget restore Gfycat.Net.sln
-        if($env:APPVEYOR_REPO_BRANCH -eq "master" || $env:APPVEYOR_REPO_BRANCH -eq "dev")
+        if($env:APPVEYOR_REPO_BRANCH -eq "master" -or $env:APPVEYOR_REPO_BRANCH -eq "dev")
         {
           dotnet build Gfycat.Net.sln --configuration Release /p:Version=$env:APPVEYOR_BUILD_VERSION
         }
