@@ -3,7 +3,7 @@ environment:
   gp_build_user_email: obsidianminor@gmail.com
   access_token:
     secure: 23ed162/PauWQ9VQ2cLGaJljAGKQbUMV9IJfBMOm1y+IrVJkZ4zIMF4GB/er3Bb5
-  version: 1.0.8
+  version_number: 1.0.8
 
 pull_requests:
   do_not_increment_build_number: true
@@ -61,7 +61,7 @@ test_script:
   branches:
     only:
       - master
-  version: $(version).{build}
+  version: $(version_numer).{build}
 
   configuration: Release
 
@@ -78,4 +78,4 @@ test_script:
   branches:
     except:
       - master
-  version: $(version).{build}-{branch}
+  version: $(version_number).{build}-{branch}
