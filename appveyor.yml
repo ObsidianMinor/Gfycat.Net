@@ -31,14 +31,19 @@ before_build:
 build_script:
   - ps: |
         nuget restore Gfycat.Net.sln
+        $env:NugetVersion=$
         if($env:APPVEYOR_REPO_BRANCH -eq "master" -or $env:APPVEYOR_REPO_BRANCH -eq "dev")
         {
-          dotnet build Gfycat.Net.sln --configuration Release /p:Version=$env:APPVEYOR_BUILD_VERSION
+          $env:PackageVersion=$env:APPVEYOR_BUILD_VERSION
+          dotnet build Gfycat.Net.sln --configuration Release /p:Version=$env:PackageVersion
         }
         else
         {
-          dotnet build Gfycat.Net.sln /p:Version=$env:APPVEYOR_BUILD_VERSION-$env:APPVEYOR_REPO_BRANCH
+          $env:PackageVersion=$env:APPVEYOR_BUILD_VERSION-$env:APPVEYOR_REPO_BRANCH
+          dotnet build Gfycat.Net.sln /p:Version=$env:PackageVersion
         }
+        appveyor PushArtifact artifacts/Gfycat.Net.$env:PackageVersion.nupkg
+        appveyor PushArtifact artifacts/Gfycat.Net.Analytics.$env:PackageVersion.nupkg
 
 after_build:
 - ps: |
