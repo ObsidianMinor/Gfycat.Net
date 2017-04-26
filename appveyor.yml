@@ -7,7 +7,7 @@ environment:
 pull_requests:
   do_not_increment_build_number: true
 
-version: 1.0.8.{build}
+version: '1.0.8.{build}'
 skip_tags: true
 
 image: Visual Studio 2017
@@ -31,7 +31,7 @@ build_script:
 
 after_build:
 - ps: |
-      if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
+      if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE -or $env:APPVEYOR_REPO_BRANCH -eq "master")
       {
           CD docs
           docfx docfx.json
@@ -53,16 +53,6 @@ test_script:
 - ps: |
       dotnet test tests/Gfycat.Net.Tests/Gfycat.Net.Tests.csproj
 
-
-deploy:
-  provider: NuGet
-  name: nugetmain
-  api_key:
-    secure: 3iXTugTMw5kRARtHywAtSsM6+AHLO8CQ4IoKrDXkgqeeHzjhz3bopc0FLckjOPk3
-  artifact: /.*\.nupkg/
-  on:
-    branch: master
-
 -
   branches:
   only:
@@ -70,5 +60,12 @@ deploy:
       - dev
 
   configuration: Release
+
+  deploy:
+    provider: NuGet
+    name: nugetmain
+    api_key:
+      secure: 3iXTugTMw5kRARtHywAtSsM6+AHLO8CQ4IoKrDXkgqeeHzjhz3bopc0FLckjOPk3
+    artifact: /.*\.nupkg/
 -
   configuration: Debug
