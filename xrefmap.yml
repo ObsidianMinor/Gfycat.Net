@@ -3056,6 +3056,18 @@ references:
   commentId: Overload:Gfycat.Gfy.DomainWhitelist
   fullName: Gfycat.Gfy.DomainWhitelist
   nameWithType: Gfy.DomainWhitelist
+- uid: Gfycat.Gfy.DownloadGfyAsync(Gfycat.GfyFormat,Gfycat.RequestOptions)
+  name: DownloadGfyAsync(GfyFormat, RequestOptions)
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_DownloadGfyAsync_Gfycat_GfyFormat_Gfycat_RequestOptions_
+  commentId: M:Gfycat.Gfy.DownloadGfyAsync(Gfycat.GfyFormat,Gfycat.RequestOptions)
+  fullName: Gfycat.Gfy.DownloadGfyAsync(Gfycat.GfyFormat, Gfycat.RequestOptions)
+  nameWithType: Gfy.DownloadGfyAsync(GfyFormat, RequestOptions)
+- uid: Gfycat.Gfy.DownloadGfyAsync*
+  name: DownloadGfyAsync
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_DownloadGfyAsync_
+  commentId: Overload:Gfycat.Gfy.DownloadGfyAsync
+  fullName: Gfycat.Gfy.DownloadGfyAsync
+  nameWithType: Gfy.DownloadGfyAsync
 - uid: Gfycat.Gfy.FrameRate
   name: FrameRate
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_FrameRate
