@@ -70,13 +70,11 @@ test_script:
   only:
       - master
 
-  build:
-    publish_nuget: true
-
   deploy:
     provider: NuGet
     api_key:
       secure: 3iXTugTMw5kRARtHywAtSsM6+AHLO8CQ4IoKrDXkgqeeHzjhz3bopc0FLckjOPk3
+    artifact: /.*\.nupkg/
 
 -
   branches:
