@@ -59,7 +59,7 @@ test_script:
 # Master branch builds and publishes directly to nuget
 -
   branches:
-    only:
+  only:
       - master
   version: $(version_numer).{build}
 
@@ -76,6 +76,6 @@ test_script:
 # All other branches build with their own version system
 -
   branches:
-    except:
-      - master
+  except:
+    - master
   version: $(version_number).{build}-{branch}
