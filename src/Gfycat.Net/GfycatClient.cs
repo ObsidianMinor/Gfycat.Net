@@ -87,23 +87,30 @@ namespace Gfycat
             else
             {
                 Debug.WriteLine("Refreshing token...");
-                RestResponse response = await ApiClient.SendJsonAsync(
-                    "POST",
-                    "oauth/token",
-                    new RefreshAuthRequest()
-                    {
-                        ClientId = ClientId,
-                        ClientSecret = ClientSecret,
-                        GrantType = "refresh",
-                        RefreshToken = RefreshToken
-                    },
-                    options).ConfigureAwait(false);
-                ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config).ConfigureAwait(false);
-                
-                AccessToken = auth.AccessToken;
-                RefreshToken = auth.RefreshToken;
-                options.UseAccessToken = true;
-                await CurrentUser.UpdateAsync(options).ConfigureAwait(false);
+                try
+                {
+                    RestResponse response = await ApiClient.SendJsonAsync(
+                        "POST",
+                        "oauth/token",
+                        new RefreshAuthRequest()
+                        {
+                            ClientId = ClientId,
+                            ClientSecret = ClientSecret,
+                            GrantType = "refresh",
+                            RefreshToken = RefreshToken
+                        },
+                        options).ConfigureAwait(false);
+                    ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config).ConfigureAwait(false);
+
+                    AccessToken = auth.AccessToken;
+                    RefreshToken = auth.RefreshToken;
+                    options.UseAccessToken = true;
+                    await CurrentUser.UpdateAsync(options).ConfigureAwait(false);
+                }
+                catch(GfycatException e) when (e.HttpCode == HttpStatusCode.Unauthorized && e.Code == "InvalidRefreshToken")
+                {
+                    return false;
+                }
                 return true;
             }
         }
