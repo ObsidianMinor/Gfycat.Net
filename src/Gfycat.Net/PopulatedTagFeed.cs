@@ -7,7 +7,7 @@ using Model = Gfycat.API.Models.TrendingTagsFeed;
 namespace Gfycat
 {
     /// <summary>
-    /// Returns a feed of <see cref="TaggedGfyFeed"/>s
+    /// Represents a feed of <see cref="TaggedGfyFeed"/>s
     /// </summary>
     [DebuggerDisplay("Tag count: {Content.Count}")]
     public class PopulatedTagFeed : IFeed<TaggedGfyFeed>
@@ -16,10 +16,14 @@ namespace Gfycat
         readonly GfycatClient _client;
         string IFeed<TaggedGfyFeed>.Cursor => _cursor;
         internal string _cursor { get; set; }
+        readonly int _gfyCount;
+        readonly int _tagCount;
 
-        internal PopulatedTagFeed(GfycatClient client,  RequestOptions defaultOptions)
+        internal PopulatedTagFeed(GfycatClient client, int gfyCount, int tagCount, RequestOptions defaultOptions)
         {
             _defaultOptions = defaultOptions;
+            _gfyCount = gfyCount;
+            _tagCount = tagCount;
             _client = client;
         }
         /// <summary>
@@ -27,11 +31,11 @@ namespace Gfycat
         /// </summary>
         public IReadOnlyCollection<TaggedGfyFeed> Content { get; private set; }
         
-        internal static PopulatedTagFeed Create(GfycatClient client, RequestOptions options, Model model)
+        internal static PopulatedTagFeed Create(GfycatClient client, int gfyCount, int tagCount, RequestOptions options, Model model)
         {
-            return new PopulatedTagFeed(client, options)
+            return new PopulatedTagFeed(client, gfyCount, tagCount, options)
             {
-                Content = model.Tags.Select(t => TaggedGfyFeed.Create(client, t, options)).ToReadOnlyCollection(),
+                Content = model.Tags.Select(t => TaggedGfyFeed.Create(client, gfyCount, t, options)).ToReadOnlyCollection(),
                 _cursor = model.Cursor
             };
         }
@@ -46,11 +50,15 @@ namespace Gfycat
         /// <summary>
         /// Returns the next page of this feed
         /// </summary>
+        /// <param name="count"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task<IFeed<TaggedGfyFeed>> GetNextPageAsync(RequestOptions options = null)
+        public async Task<IFeed<TaggedGfyFeed>> GetNextPageAsync(int count = GfycatClient.UseDefaultFeedCount, RequestOptions options = null)
         {
-            return Create(_client, options, await _client.ApiClient.GetTrendingTagsPopulatedAsync(_cursor, options).ConfigureAwait(false));
+            if (count == GfycatClient.UseDefaultFeedCount)
+                count = _tagCount;
+
+            return Create(_client, _gfyCount, count, options, await _client.ApiClient.GetTrendingTagsPopulatedAsync(_cursor, count, _gfyCount, options).ConfigureAwait(false));
         }
     }
 }

@@ -19,14 +19,14 @@ namespace Gfycat
         /// </summary>
         public string Tag { get; }
 
-        internal ReactionFeed(GfycatClient client, string searchText, RequestOptions options) : base(client, options)
+        internal ReactionFeed(GfycatClient client, int count, string searchText, RequestOptions options) : base(client, count, options)
         {
             Tag = searchText;
         }
 
-        internal static ReactionFeed Create(GfycatClient client, Model model, string searchText, RequestOptions options)
+        internal static ReactionFeed Create(GfycatClient client, int count, Model model, string searchText, RequestOptions options)
         {
-            return new ReactionFeed(client, searchText, options)
+            return new ReactionFeed(client, count, searchText, options)
             {
                 Content = model.Gfycats.Select(g => Gfy.Create(client, g)).ToReadOnlyCollection()
             };
@@ -42,11 +42,14 @@ namespace Gfycat
         /// <summary>
         /// Returns the next page of this feed
         /// </summary>
+        /// <param name="count"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
+        public async override Task<IFeed<Gfy>> GetNextPageAsync(int count = GfycatClient.UseDefaultFeedCount, RequestOptions options = null)
         {
-            return SiteSearchFeed.Create(_client, await _client.ApiClient.SearchSiteAsync(Tag, null, options).ConfigureAwait(false), Tag, options);
+            Utils.UseDefaultIfSpecified(ref count, _count);
+
+            return SiteSearchFeed.Create(_client, await _client.ApiClient.SearchSiteAsync(Tag, count, null, options).ConfigureAwait(false), count, Tag, options);
         }
     }
 }

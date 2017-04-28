@@ -26,29 +26,6 @@ Gfy completedGfy = await gfyStatus.GetGfyWhenCompleteAsync();
 // congrats, you now have a gfy
 ```
 
-### Feed guidelines
-Gfycat.Net uses the magic power of IAsyncEnumerable from Rx.Net. Using its magic it's extremely easy to accidentally loop through a whole feed of gfys (there's a lot of gfys out there so it might take a while and will probably get you banned from using the API).
-To prevent this, read feeds like this:
-```csharp
-IAsyncEnumerable<Gfy> gfySearchFeed = await client.SearchAsync("stop");
-gfySearchFeed.Take(20).ForEach(gfy => ...);
-```
-or
-```csharp
-IFeed<Gfy> gfySearchFeed = await client.SearchAsync("stop");
-foreach(Gfy gfy in gfySearchFeed.Content)
-{
-  // do something
-}
-IFeed<Gfy> nextPageGfySearchFeed = await gfySearchFeed.GetNextPageAsync();
-...
-```
-and not
-```csharp
-IAsyncEnumerable<Gfy> gfySearchFeed = await client.SearchAsync("stop");
-gfySearchFeed.ForEach(gfy => ...);
-```
-
 ### Using Analytics
 [![NuGet version](https://badge.fury.io/nu/Gfycat.Net.Analytics.svg)](https://badge.fury.io/nu/Gfycat.Net.Analytics)
 

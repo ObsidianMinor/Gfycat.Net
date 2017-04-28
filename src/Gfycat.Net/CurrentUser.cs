@@ -260,21 +260,25 @@ namespace Gfycat
         /// <summary>
         /// Gets the current user's private gfy feed
         /// </summary>
+        /// <param name="count"></param>
         /// <param name="options">The options for this request</param>
         /// <returns></returns>
-        public async Task<GfyFeed> GetGfyFeedAsync(RequestOptions options = null)
+        public async Task<GfyFeed> GetGfyFeedAsync(int count = GfycatClient.UseDefaultFeedCount, RequestOptions options = null)
         {
-            return CurrentUserGfyFeed.Create(Client, options, await Client.ApiClient.GetCurrentUserGfyFeedAsync(null, options).ConfigureAwait(false));
+            Utils.UseDefaultIfSpecified(ref count, Client.ApiClient.Config.DefaultFeedItemCount);
+            return CurrentUserGfyFeed.Create(Client, count, options, await Client.ApiClient.GetCurrentUserGfyFeedAsync(count, null, options).ConfigureAwait(false));
         }
 
         /// <summary>
         /// Returns a timeline list of all published gfys in the users this user follows
         /// </summary>
+        /// <param name="count"></param>
         /// <param name="options">The options for this request</param>
         /// <returns></returns>
-        public async Task<GfyFeed> GetTimelineFeedAsync(RequestOptions options = null)
+        public async Task<GfyFeed> GetTimelineFeedAsync(int count = GfycatClient.UseDefaultFeedCount, RequestOptions options = null)
         {
-            return CurrentUserTimelineFeed.Create(Client, options, await Client.ApiClient.GetFollowsGfyFeedAsync(null, options).ConfigureAwait(false));
+            Utils.UseDefaultIfSpecified(ref count, Client.ApiClient.Config.DefaultFeedItemCount);
+            return CurrentUserTimelineFeed.Create(Client, count, options, await Client.ApiClient.GetFollowsGfyFeedAsync(count, null, options).ConfigureAwait(false));
         }
 
         #endregion
@@ -330,12 +334,13 @@ namespace Gfycat
         /// <summary>
         /// Searches the current user's gfys
         /// </summary>
+        /// <param name="count"></param>
         /// <param name="searchText"></param>
         /// <param name="options">The options for this request</param>
         /// <returns></returns>
-        public async Task<GfyFeed> SearchAsync(string searchText, RequestOptions options = null)
+        public async Task<SearchFeed> SearchAsync(string searchText, int count = GfycatClient.UseDefaultFeedCount, RequestOptions options = null)
         {
-            return CurrentUserSearchFeed.Create(Client, await Client.ApiClient.SearchCurrentUserAsync(searchText, null, options).ConfigureAwait(false), searchText, options);
+            return CurrentUserSearchFeed.Create(Client, await Client.ApiClient.SearchCurrentUserAsync(searchText, count, null, options).ConfigureAwait(false), count, searchText, options);
         }
         /// <summary>
         /// Adds a twitter provider to this account using the specified verifier and token

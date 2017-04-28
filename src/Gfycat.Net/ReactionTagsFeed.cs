@@ -15,9 +15,11 @@ namespace Gfycat
         readonly ReactionLanguage _language;
         string IFeed<ReactionFeed>.Cursor => _cursor;
         internal string _cursor { get; set; }
+        readonly int _count;
 
-        internal ReactionTagsFeed(GfycatClient client, RequestOptions defaultOptions, ReactionLanguage language)
+        internal ReactionTagsFeed(GfycatClient client, int count, RequestOptions defaultOptions, ReactionLanguage language)
         {
+            _count = count;
             _defaultOptions = defaultOptions;
             _client = client;
             _language = language;
@@ -28,11 +30,11 @@ namespace Gfycat
         /// </summary>
         public IReadOnlyCollection<ReactionFeed> Content { get; private set; }
         
-        internal static ReactionTagsFeed Create(GfycatClient client, RequestOptions options, Model model, ReactionLanguage lang)
+        internal static ReactionTagsFeed Create(GfycatClient client, int count, RequestOptions options, Model model, ReactionLanguage lang)
         {
-            return new ReactionTagsFeed(client, options, lang)
+            return new ReactionTagsFeed(client, count, options, lang)
             {
-                Content = model.Tags.Select(t => ReactionFeed.Create(client, t, t.Tag, options)).ToReadOnlyCollection(),
+                Content = model.Tags.Select(t => ReactionFeed.Create(client, count, t, t.Tag, options)).ToReadOnlyCollection(),
                 _cursor = model.Cursor
             };
         }
@@ -48,11 +50,14 @@ namespace Gfycat
         /// <summary>
         /// Returns the next page of this feed
         /// </summary>
+        /// <param name="count"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task<IFeed<ReactionFeed>> GetNextPageAsync(RequestOptions options = null)
+        public async Task<IFeed<ReactionFeed>> GetNextPageAsync(int count = GfycatClient.UseDefaultFeedCount, RequestOptions options = null)
         {
-            return Create(_client, options, await _client.ApiClient.GetReactionGifsPopulatedAsync(_language, _cursor, options).ConfigureAwait(false), _language);
+            Utils.UseDefaultIfSpecified(ref count, _count);
+
+            return Create(_client, count, options, await _client.ApiClient.GetReactionGifsPopulatedAsync(_language, count, _cursor, options).ConfigureAwait(false), _language);
         }
     }
 }

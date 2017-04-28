@@ -9,7 +9,7 @@ namespace Gfycat
 {
     internal class CurrentUserGfyFeed : GfyFeed
     {
-        internal CurrentUserGfyFeed(GfycatClient client, RequestOptions defaultOptions) : base(client, defaultOptions)
+        internal CurrentUserGfyFeed(GfycatClient client, int count, RequestOptions defaultOptions) : base(client, count, defaultOptions)
         {
         }
         /// <summary>
@@ -21,9 +21,9 @@ namespace Gfycat
             return new FeedEnumerator<Gfy>(_client, this, _options);
         }
 
-        internal static CurrentUserGfyFeed Create(GfycatClient client, RequestOptions options, Feed feed)
+        internal static CurrentUserGfyFeed Create(GfycatClient client, int count, RequestOptions options, Feed feed)
         {
-            return new CurrentUserGfyFeed(client, options)
+            return new CurrentUserGfyFeed(client, count, options)
             {
                 Content = feed.Gfycats.Select(g => Gfy.Create(client, g)).ToReadOnlyCollection(),
                 _cursor = feed.Cursor
@@ -32,11 +32,15 @@ namespace Gfycat
         /// <summary>
         /// Returns the next page of this feed
         /// </summary>
+        /// <param name="count"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
+        public async override Task<IFeed<Gfy>> GetNextPageAsync(int count = GfycatClient.UseDefaultFeedCount, RequestOptions options = null)
         {
-            return Create(_client, options, await _client.ApiClient.GetCurrentUserGfyFeedAsync(_cursor, options).ConfigureAwait(false));
+            if (count <= GfycatClient.UseDefaultFeedCount)
+                count = _count;
+
+            return Create(_client, count, options, await _client.ApiClient.GetCurrentUserGfyFeedAsync(count, _cursor, options).ConfigureAwait(false));
         }
     }
 }

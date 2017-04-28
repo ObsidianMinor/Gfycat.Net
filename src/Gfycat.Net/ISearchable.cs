@@ -10,9 +10,10 @@ namespace Gfycat
         /// <summary>
         /// Searches this type
         /// </summary>
+        /// <param name="count"></param>
         /// <param name="searchText"></param>
         /// <param name="options">The options for this request</param>
         /// <returns></returns>
-        Task<GfyFeed> SearchAsync(string searchText, RequestOptions options = null);
+        Task<SearchFeed> SearchAsync(string searchText, int count = GfycatClient.UseDefaultFeedCount, RequestOptions options = null);
     }
 }

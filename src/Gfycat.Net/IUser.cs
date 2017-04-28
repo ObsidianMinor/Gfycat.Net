@@ -75,9 +75,10 @@ namespace Gfycat
         /// <summary>
         /// Gets the feed of gfys for this user
         /// </summary>
+        /// <param name="count"></param>
         /// <param name="options">The options for this request</param>
         /// <returns></returns>
-        Task<GfyFeed> GetGfyFeedAsync(RequestOptions options = null);
+        Task<GfyFeed> GetGfyFeedAsync(int count = GfycatClient.UseDefaultFeedCount, RequestOptions options = null);
         /// <summary>
         /// Follows this user
         /// </summary>

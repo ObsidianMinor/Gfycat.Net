@@ -19,6 +19,10 @@ namespace Gfycat
     {
         internal GfycatApiClient ApiClient { get; }
 
+        /// <summary>
+        /// Specifies the request for the feed should use the default value defined in the client config or the count used in the creation of this feed
+        /// </summary>
+        public const int UseDefaultFeedCount = -1;
         const string TwitterProvider = "twitter";
         const string FacebookProvider = "facebook";
         bool _clientAuth = true;
@@ -351,13 +355,14 @@ namespace Gfycat
         /// Authenticates using an given access token
         /// </summary>
         /// <param name="accessToken"></param>
+        /// <param name="options">Sets the options for this request</param>
         /// <returns></returns>
         /// <exception cref="GfycatException">If verifyToken is true, this will attempt to get the current user which will return 401 unauthorized if the access token is invalid</exception>
-        public async Task AuthenticateAsync(string accessToken)
+        public async Task AuthenticateAsync(string accessToken, RequestOptions options = null)
         {
             AccessToken = accessToken;
 
-            CurrentUser = await GetCurrentUserAsync().ConfigureAwait(false);
+            CurrentUser = await GetCurrentUserAsync(options).ConfigureAwait(false);
         }
 
         #endregion
@@ -673,12 +678,14 @@ namespace Gfycat
         /// <summary>
         /// Retrieves trending gfys for the specified tag. If no tag is specified, the "Trending" tag is used
         /// </summary>
+        /// <param name="count"></param>
         /// <param name="tag"></param>
         /// <param name="options">The options for this request</param>
         /// <returns></returns>
-        public async Task<TaggedGfyFeed> GetTrendingGfysAsync(string tag = "Trending", RequestOptions options = null)
+        public async Task<TaggedGfyFeed> GetTrendingGfysAsync(string tag = "Trending", int count = UseDefaultFeedCount, RequestOptions options = null)
         {
-            return TaggedGfyFeed.Create(this, (await ApiClient.GetTrendingFeedAsync(tag, null, options).ConfigureAwait(false)), options);
+            Utils.UseDefaultIfSpecified(ref count, ApiClient.Config.DefaultFeedItemCount);
+            return TaggedGfyFeed.Create(this, count, (await ApiClient.GetTrendingFeedAsync(tag, count, null, options).ConfigureAwait(false)), options);
         }
 
         /// <summary>
@@ -694,11 +701,15 @@ namespace Gfycat
         /// <summary>
         /// Retrieves trending tags populated with gfys
         /// </summary>
+        /// <param name="tagCount"></param>
+        /// <param name="gfyCount"></param>
         /// <param name="options">The options for this request</param>
         /// <returns></returns>
-        public async Task<PopulatedTagFeed> GetTrendingTagsPopulatedAsync(RequestOptions options = null)
+        public async Task<PopulatedTagFeed> GetTrendingTagsPopulatedAsync(int tagCount = UseDefaultFeedCount, int gfyCount = UseDefaultFeedCount, RequestOptions options = null)
         {
-            return PopulatedTagFeed.Create(this, options, await ApiClient.GetTrendingTagsPopulatedAsync(null, options).ConfigureAwait(false));
+            Utils.UseDefaultIfSpecified(ref tagCount, ApiClient.Config.DefaultFeedItemCount);
+            Utils.UseDefaultIfSpecified(ref gfyCount, ApiClient.Config.DefaultFeedItemCount);
+            return PopulatedTagFeed.Create(this, gfyCount, tagCount, options, await ApiClient.GetTrendingTagsPopulatedAsync(null, tagCount, gfyCount, options).ConfigureAwait(false));
         }
 
         #endregion
@@ -706,24 +717,27 @@ namespace Gfycat
         /// <summary>
         /// Retrieves a feed of all reaction tag feeds in the specified language. The default language is english
         /// </summary>
+        /// <param name="count"></param>
         /// <param name="language"></param>
         /// <param name="options">The options for this request</param>
         /// <returns></returns>
-        public async Task<ReactionTagsFeed> GetReactionGfysAsync(ReactionLanguage language = ReactionLanguage.English, RequestOptions options = null)
+        public async Task<ReactionTagsFeed> GetReactionGfysAsync(ReactionLanguage language = ReactionLanguage.English, int count = UseDefaultFeedCount, RequestOptions options = null)
         {
-            return ReactionTagsFeed.Create(this, options, await ApiClient.GetReactionGifsPopulatedAsync(language, null, options).ConfigureAwait(false), language);
+            Utils.UseDefaultIfSpecified(ref count, ApiClient.Config.DefaultFeedItemCount);
+            return ReactionTagsFeed.Create(this, count, options, await ApiClient.GetReactionGifsPopulatedAsync(language, count, null, options).ConfigureAwait(false), language);
         }
 
         /// <summary>
         /// Searches the Gfycat website using the provided search text
         /// </summary>
         /// <param name="searchText"></param>
+        /// <param name="count"></param>
         /// <param name="options">The options for this request</param>
         /// <returns></returns>
-        // supposedly in testing. hhhhhhhhhhhhhhhhmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
-        public async Task<GfyFeed> SearchAsync(string searchText, RequestOptions options = null)
+        public async Task<SearchFeed> SearchAsync(string searchText, int count = UseDefaultFeedCount, RequestOptions options = null)
         {
-            return SiteSearchFeed.Create(this, await ApiClient.SearchSiteAsync(searchText, null, options).ConfigureAwait(false), searchText, options);
+            Utils.UseDefaultIfSpecified(ref count, ApiClient.Config.DefaultFeedItemCount);
+            return SiteSearchFeed.Create(this, await ApiClient.SearchSiteAsync(searchText, count, null, options).ConfigureAwait(false), count, searchText, options);
         }
 
         #region Extras

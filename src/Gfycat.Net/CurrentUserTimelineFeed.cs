@@ -7,7 +7,7 @@ namespace Gfycat
 {
     internal class CurrentUserTimelineFeed : GfyFeed
     {
-        internal CurrentUserTimelineFeed(GfycatClient client, RequestOptions defaultOptions) : base(client, defaultOptions)
+        internal CurrentUserTimelineFeed(GfycatClient client, int count, RequestOptions defaultOptions) : base(client, count, defaultOptions)
         {
         }
         /// <summary>
@@ -19,9 +19,9 @@ namespace Gfycat
             return new FeedEnumerator<Gfy>(_client, this, _options);
         }
 
-        internal static CurrentUserTimelineFeed Create(GfycatClient client, RequestOptions defaultOptions, Feed feed)
+        internal static CurrentUserTimelineFeed Create(GfycatClient client, int count, RequestOptions defaultOptions, Feed feed)
         {
-            return new CurrentUserTimelineFeed(client, defaultOptions)
+            return new CurrentUserTimelineFeed(client, count, defaultOptions)
             {
                 Content = feed.Gfycats.Select(g => Gfy.Create(client, g)).ToReadOnlyCollection(),
                 _cursor = feed.Cursor
@@ -30,11 +30,13 @@ namespace Gfycat
         /// <summary>
         /// Returns the next page of this feed
         /// </summary>
+        /// <param name="count"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
+        public async override Task<IFeed<Gfy>> GetNextPageAsync(int count = GfycatClient.UseDefaultFeedCount, RequestOptions options = null)
         {
-            return Create(_client, options, await _client.ApiClient.GetFollowsGfyFeedAsync(_cursor, options).ConfigureAwait(false));
+            Utils.UseDefaultIfSpecified(ref count, _count);
+            return Create(_client, count, options, await _client.ApiClient.GetFollowsGfyFeedAsync(count, _cursor, options).ConfigureAwait(false));
         }
     }
 }

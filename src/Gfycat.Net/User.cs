@@ -120,11 +120,13 @@ namespace Gfycat
         /// <summary>
         /// Returns the public gfy feed for this user
         /// </summary>
+        /// <param name="count"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task<GfyFeed> GetGfyFeedAsync(RequestOptions options = null)
+        public async Task<GfyFeed> GetGfyFeedAsync(int count = GfycatClient.UseDefaultFeedCount, RequestOptions options = null)
         {
-            return UserGfyFeed.Create(Client, options, Id, await Client.ApiClient.GetUserGfyFeedAsync(Id, null, options).ConfigureAwait(false));
+            Utils.UseDefaultIfSpecified(ref count, Client.ApiClient.Config.DefaultFeedItemCount);
+            return UserGfyFeed.Create(Client, count, options, Id, await Client.ApiClient.GetUserGfyFeedAsync(Id, count, null, options).ConfigureAwait(false));
         }
         /// <summary>
         /// Follows this user

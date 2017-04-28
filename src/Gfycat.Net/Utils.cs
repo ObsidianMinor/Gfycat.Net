@@ -52,6 +52,12 @@ namespace Gfycat
         internal static IReadOnlyCollection<T> ToReadOnlyCollection<T>(this IEnumerable<T> enumerable)
             => new ReadOnlyCollection<T>(enumerable?.ToList() ?? new List<T>());
 
+        internal static void UseDefaultIfSpecified(ref int current, int newValue)
+        {
+            if (current <= GfycatClient.UseDefaultFeedCount)
+                current = newValue;
+        }
+
         internal static IAlbumInfo CreateAlbum(GfycatClient client, API.Models.AlbumInfo albumModel, string ownerId)
         {
             if (string.Equals(albumModel.FolderSubType, "Album", StringComparison.OrdinalIgnoreCase))

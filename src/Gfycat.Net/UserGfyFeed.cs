@@ -9,14 +9,14 @@ namespace Gfycat
     {
         readonly string _userId;
 
-        internal UserGfyFeed(GfycatClient client, RequestOptions defaultOptions, string userId) : base(client, defaultOptions)
+        internal UserGfyFeed(GfycatClient client, int count, RequestOptions defaultOptions, string userId) : base(client, count, defaultOptions)
         {
             _userId = userId;
         }
 
-        internal static UserGfyFeed Create(GfycatClient client, RequestOptions defaultOptions, string userId, API.Models.Feed feed)
+        internal static UserGfyFeed Create(GfycatClient client, int count, RequestOptions defaultOptions, string userId, API.Models.Feed feed)
         {
-            return new UserGfyFeed(client, defaultOptions, userId)
+            return new UserGfyFeed(client, count, defaultOptions, userId)
             {
                 Content = feed.Gfycats.Select(g => Gfy.Create(client, g)).ToReadOnlyCollection(),
                 _cursor = feed.Cursor
@@ -33,11 +33,14 @@ namespace Gfycat
         /// <summary>
         /// Returns the next page of this feed
         /// </summary>
+        /// <param name="count"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
+        public async override Task<IFeed<Gfy>> GetNextPageAsync(int count = GfycatClient.UseDefaultFeedCount, RequestOptions options = null)
         {
-            return Create(_client, options, _userId, await _client.ApiClient.GetUserGfyFeedAsync(_userId, _cursor, options).ConfigureAwait(false));
+            Utils.UseDefaultIfSpecified(ref count, _count);
+
+            return Create(_client, count, options, _userId, await _client.ApiClient.GetUserGfyFeedAsync(_userId, count, _cursor, options).ConfigureAwait(false));
         }
     }
 }

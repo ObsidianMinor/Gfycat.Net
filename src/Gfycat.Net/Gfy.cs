@@ -7,8 +7,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Gfycat.API.Models;
 using Model = Gfycat.API.Models.Gfy;
-using System.IO;
-using System.Threading;
 
 namespace Gfycat
 {

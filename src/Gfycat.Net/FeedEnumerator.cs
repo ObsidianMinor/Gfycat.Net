@@ -30,14 +30,11 @@ namespace Gfycat
         /// Gets the element in the collection at the current position of the enumerator
         /// </summary>
         public T Current => _currentEnumerator.Current;
-
+        
         /// <summary>
-        /// 
+        /// Defines the number of gfys to get with each request
         /// </summary>
-        public void Dispose()
-        {
-            _currentEnumerator.Dispose();
-        }
+        public int RequestCount { get; set; } = 10;
 
         /// <summary>
         /// Attempts to move to the next item in the current page of content. If there is no content in the current page, it retrieves the next page and returns the result of that content's move next
@@ -56,7 +53,7 @@ namespace Gfycat
                 RequestOptions newOptions = _options?.Clone() ?? RequestOptions.CreateFromDefaults(_client.ApiClient.Config);
                 newOptions.CancellationToken = cancellationToken;
 
-                _currentFeed = await _currentFeed.GetNextPageAsync(newOptions).ConfigureAwait(false);
+                _currentFeed = await _currentFeed.GetNextPageAsync(RequestCount, newOptions).ConfigureAwait(false);
                 _currentEnumerator?.Dispose();
                 _currentEnumerator = _currentFeed.Content.GetEnumerator();
                 return _currentEnumerator.MoveNext();
@@ -64,5 +61,34 @@ namespace Gfycat
 
             return true;
         }
+
+        #region IDisposable Support
+        private bool disposedValue = false;
+
+        /// <summary>
+        /// Disposes teh current feed's content enumerator
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    _currentEnumerator?.Dispose();
+                }
+
+                disposedValue = true;
+            }
+        }
+
+        /// <summary>
+        /// Disposes the current feed's content enumerator
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+        }
+        #endregion
     }
 }

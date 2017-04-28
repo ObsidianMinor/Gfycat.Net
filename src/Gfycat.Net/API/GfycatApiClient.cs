@@ -247,23 +247,23 @@ namespace Gfycat.API
 
         #region User feeds
 
-        internal async Task<Feed> GetUserGfyFeedAsync(string userId, string cursor, RequestOptions options)
+        internal async Task<Feed> GetUserGfyFeedAsync(string userId, int count, string cursor, RequestOptions options)
         {
-            string query = Utils.CreateQueryString(( "cursor", cursor ));
+            string query = Utils.CreateQueryString(("count", count), ( "cursor", cursor ));
             RestResponse response = await SendAsync("GET", $"users/{userId}/gfycats{query}", options).ConfigureAwait(false);
             return await response.ReadAsJsonAsync<Feed>(Config).ConfigureAwait(false);
         }
 
-        internal async Task<Feed> GetCurrentUserGfyFeedAsync(string cursor, RequestOptions options)
+        internal async Task<Feed> GetCurrentUserGfyFeedAsync(int count, string cursor, RequestOptions options)
         {
-            string query = Utils.CreateQueryString(("cursor",cursor));
+            string query = Utils.CreateQueryString(("count", count), ("cursor",cursor));
             RestResponse response = await SendAsync("GET", $"me/gfycats{query}", options).ConfigureAwait(false);
             return await response.ReadAsJsonAsync<Feed>(Config).ConfigureAwait(false);
         }
 
-        internal async Task<Feed> GetFollowsGfyFeedAsync(string cursor, RequestOptions options)
+        internal async Task<Feed> GetFollowsGfyFeedAsync(int count, string cursor, RequestOptions options)
         {
-            string query = Utils.CreateQueryString(( "cursor", cursor ));
+            string query = Utils.CreateQueryString(("count", count), ("cursor", cursor ));
             RestResponse response = await SendAsync("GET", $"me/follows/gfycats{query}", options).ConfigureAwait(false);
             return await response.ReadAsJsonAsync<Feed>(Config).ConfigureAwait(false);
         }
@@ -644,9 +644,12 @@ namespace Gfycat.API
 
         #region Reaction gifs
 
-        internal async Task<TrendingTagsFeed> GetReactionGifsPopulatedAsync(ReactionLanguage lang, string cursor, RequestOptions options)
+        internal async Task<TrendingTagsFeed> GetReactionGifsPopulatedAsync(ReactionLanguage lang, int gfyCount, string cursor, RequestOptions options)
         {
-            string query = Utils.CreateQueryString(("locale", Utils._reactionLangToString[lang]), ("cursor", cursor));
+            if (gfyCount <= GfycatClient.UseDefaultFeedCount)
+                gfyCount = Config.DefaultFeedItemCount;
+
+            string query = Utils.CreateQueryString(("locale", Utils._reactionLangToString[lang]), ("gfyCount", gfyCount), ("cursor", cursor));
             RestResponse response = await SendAsync("GET", "reactions/populated" + query, options).ConfigureAwait(false);
             return await response.ReadAsJsonAsync<TrendingTagsFeed>(Config).ConfigureAwait(false);
         }
@@ -655,9 +658,12 @@ namespace Gfycat.API
 
         #region Trending feeds
 
-        internal async Task<TrendingFeed> GetTrendingFeedAsync(string tagName,string cursor, RequestOptions options)
+        internal async Task<TrendingFeed> GetTrendingFeedAsync(string tagName, int count, string cursor, RequestOptions options)
         {
-            string queryString = Utils.CreateQueryString(("tagName", tagName), ("cursor", cursor));
+            if (count <= GfycatClient.UseDefaultFeedCount)
+                count = Config.DefaultFeedItemCount;
+
+            string queryString = Utils.CreateQueryString(("count", count), ("tagName", tagName), ("cursor", cursor));
             RestResponse response = await SendAsync("GET", $"gfycats/trending{queryString}", options).ConfigureAwait(false);
             return await response.ReadAsJsonAsync<TrendingFeed>(Config).ConfigureAwait(false);
         }
@@ -669,9 +675,15 @@ namespace Gfycat.API
             return await response.ReadAsJsonAsync<IEnumerable<string>>(Config).ConfigureAwait(false);
         }
 
-        internal async Task<TrendingTagsFeed> GetTrendingTagsPopulatedAsync(string cursor, RequestOptions options)
+        internal async Task<TrendingTagsFeed> GetTrendingTagsPopulatedAsync(string cursor, int tagCount, int gfyCount, RequestOptions options)
         {
-            string queryString = Utils.CreateQueryString(("cursor", cursor));
+            if (gfyCount <= GfycatClient.UseDefaultFeedCount)
+                gfyCount = Config.DefaultFeedItemCount;
+
+            if (tagCount <= GfycatClient.UseDefaultFeedCount)
+                tagCount = Config.DefaultFeedItemCount;
+
+            string queryString = Utils.CreateQueryString(("tagCount", tagCount), ("gfyCount", gfyCount), ("cursor", cursor));
             RestResponse response = await SendAsync("GET", $"tags/trending/populated{queryString}", options).ConfigureAwait(false);
             return await response.ReadAsJsonAsync<TrendingTagsFeed>(Config).ConfigureAwait(false);
         }
@@ -680,18 +692,24 @@ namespace Gfycat.API
 
         #region Search
 
-        internal async Task<Feed> SearchSiteAsync(string searchText, string cursor, RequestOptions options)
+        internal async Task<Models.SearchFeed> SearchSiteAsync(string searchText, int count, string cursor, RequestOptions options)
         {
-            string queryString = Utils.CreateQueryString(("search_text", searchText), ("cursor", cursor));
+            if (count <= GfycatClient.UseDefaultFeedCount)
+                count = Config.DefaultFeedItemCount;
+
+            string queryString = Utils.CreateQueryString(("search_text", searchText), ("count", count), ("cursor", cursor));
             RestResponse response = await SendAsync("GET", $"gfycats/search{queryString}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<Feed>(Config).ConfigureAwait(false);
+            return await response.ReadAsJsonAsync<Models.SearchFeed>(Config).ConfigureAwait(false);
         }
 
-        internal async Task<Feed> SearchCurrentUserAsync(string searchText, string cursor, RequestOptions options)
+        internal async Task<Models.SearchFeed> SearchCurrentUserAsync(string searchText, int count, string cursor, RequestOptions options)
         {
-            string queryString = Utils.CreateQueryString(("search_text", searchText), ("cursor", cursor));
+            if (count <= GfycatClient.UseDefaultFeedCount)
+                count = Config.DefaultFeedItemCount;
+
+            string queryString = Utils.CreateQueryString(("search_text", searchText), ("count", count), ("cursor", cursor));
             RestResponse response = await SendAsync("GET", $"me/gfycats/search{queryString}", options).ConfigureAwait(false);
-            return await response.ReadAsJsonAsync<Feed>(Config).ConfigureAwait(false);
+            return await response.ReadAsJsonAsync<Models.SearchFeed>(Config).ConfigureAwait(false);
         }
 
         #endregion

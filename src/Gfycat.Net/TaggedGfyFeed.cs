@@ -18,13 +18,13 @@ namespace Gfycat
         /// </summary>
         public string Tag { get; private set; }
 
-        internal TaggedGfyFeed(GfycatClient client, RequestOptions options) : base(client, options)
+        internal TaggedGfyFeed(GfycatClient client, int count, RequestOptions options) : base(client, count, options)
         {
         }
         
-        internal static TaggedGfyFeed Create(GfycatClient client, Model trendingFeed, RequestOptions options)
+        internal static TaggedGfyFeed Create(GfycatClient client, int count, Model trendingFeed, RequestOptions options)
         {
-            return new TaggedGfyFeed(client, options)
+            return new TaggedGfyFeed(client, count, options)
             {
                 Content = trendingFeed.Gfycats.Select(g => Gfy.Create(client, g)).ToReadOnlyCollection(),
                 Tag = trendingFeed.Tag,
@@ -42,11 +42,13 @@ namespace Gfycat
         /// <summary>
         /// Returns the next page of this gfy feed
         /// </summary>
+        /// <param name="count"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
+        public async override Task<IFeed<Gfy>> GetNextPageAsync(int count = GfycatClient.UseDefaultFeedCount, RequestOptions options = null)
         {
-            return Create(_client, await _client.ApiClient.GetTrendingFeedAsync(Tag, _cursor, options).ConfigureAwait(false), options);
+            Utils.UseDefaultIfSpecified(ref count, _count);
+            return Create(_client, count, await _client.ApiClient.GetTrendingFeedAsync(Tag, count, _cursor, options).ConfigureAwait(false), options);
         }
     }
 }

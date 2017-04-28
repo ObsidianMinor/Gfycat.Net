@@ -44,6 +44,10 @@ namespace Gfycat
         /// </summary>
         public int DefaultTimeout { get; set; } = -1;
         /// <summary>
+        /// Sets the default number of items to fetch in each feed
+        /// </summary>
+        public int DefaultFeedItemCount { get; set; } = 10;
+        /// <summary>
         /// Constructs a <see cref="GfycatClientConfig"/> using the specified client Id and client secret
         /// </summary>
         /// <param name="clientId"></param>

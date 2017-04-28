@@ -1,26 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Model = Gfycat.API.Models.Feed;
+using Model = Gfycat.API.Models.SearchFeed;
 
 namespace Gfycat
 {
-    internal class CurrentUserSearchFeed : GfyFeed
+    internal class CurrentUserSearchFeed : SearchFeed
     {
-        readonly string _searchText;
-
-        internal CurrentUserSearchFeed(GfycatClient client, string searchText, RequestOptions options) : base(client, options)
+        internal CurrentUserSearchFeed(GfycatClient client, int count, string searchText, RequestOptions options) : base(client, searchText, count, options)
         {
-            _searchText = searchText;
         }
 
-        internal static CurrentUserSearchFeed Create(GfycatClient client, Model model, string searchText, RequestOptions options)
+        internal static CurrentUserSearchFeed Create(GfycatClient client, Model model, int count, string searchText, RequestOptions options)
         {
-            return new CurrentUserSearchFeed(client, searchText, options)
+            return new CurrentUserSearchFeed(client, count, searchText, options)
             {
                 Content = model.Gfycats.Select(g => Gfy.Create(client, g)).ToReadOnlyCollection(),
-                _cursor = model.Cursor
+                _cursor = model.Cursor,
+                Count = model.Found
             };
         }
         /// <summary>
@@ -34,11 +31,13 @@ namespace Gfycat
         /// <summary>
         /// Returns the next page of this feed
         /// </summary>
+        /// <param name="count"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
+        public async override Task<IFeed<Gfy>> GetNextPageAsync(int count = GfycatClient.UseDefaultFeedCount, RequestOptions options = null)
         {
-            return Create(_client, await _client.ApiClient.SearchCurrentUserAsync(_searchText, _cursor, options).ConfigureAwait(false), _searchText, options);
+            Utils.UseDefaultIfSpecified(ref count, _count);
+            return Create(_client, await _client.ApiClient.SearchCurrentUserAsync(SearchText, count, _cursor, options).ConfigureAwait(false), count, SearchText, options);
         }
     }
 }
