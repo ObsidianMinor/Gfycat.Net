@@ -214,6 +214,15 @@ namespace Gfycat
             await Client.ApiClient.ModifyCurrentUserAsync(operations, options).ConfigureAwait(false);
             await UpdateAsync(options).ConfigureAwait(false);
         }
+
+        /// <summary>
+        /// Modifies the current user using the specified operations
+        /// </summary>
+        /// <param name="operations"></param>
+        /// <param name="options">The options for this request</param>
+        /// <returns></returns>
+        public Task ModifyCurrentUserAsync(RequestOptions options = null, params GfycatOperation[] operations)
+            => ModifyCurrentUserAsync(operations, options);
         
         /// <summary>
         /// Returns an enumerable user ids of the users the current user is following
