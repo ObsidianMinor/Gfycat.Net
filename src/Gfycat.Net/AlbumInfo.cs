@@ -141,7 +141,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<Album> GetContentsAsync(RequestOptions options = null)
         {
-            return Album.Create(Client, (_owner == null) ? await Client.ApiClient.GetAlbumContentsAsync(Id, options) : await Client.ApiClient.GetAlbumContentsAsync(_owner, Id, options));
+            return Album.Create(Client, (_owner == null) ? await Client.ApiClient.GetAlbumContentsAsync(Id, options).ConfigureAwait(false) : await Client.ApiClient.GetAlbumContentsAsync(_owner, Id, options).ConfigureAwait(false));
         }
         /// <summary>
         /// Moves this album to another location in the folder tree
@@ -151,7 +151,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task MoveFolderAsync(IAlbumInfo parent, RequestOptions options = null)
         {
-            await Client.ApiClient.MoveAlbumAsync(Id, parent.Id, options);
+            await Client.ApiClient.MoveAlbumAsync(Id, parent.Id, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new album folder inside this album
@@ -161,7 +161,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task CreateNewFolderAsync(string folderName, RequestOptions options = null)
         {
-            await Client.ApiClient.CreateAlbumInFolderAsync(Id, folderName, options);
+            await Client.ApiClient.CreateAlbumInFolderAsync(Id, folderName, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new album inside this album
@@ -171,7 +171,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task CreateNewAlbumAsync(string albumName, RequestOptions options = null)
         {
-            await Client.ApiClient.CreateAlbumAsync(Id, albumName, options);
+            await Client.ApiClient.CreateAlbumAsync(Id, albumName, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Changes the title of this folder to the provided string
@@ -181,7 +181,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyTitleAsync(Id, newTitle, options);
+            await Client.ApiClient.ModifyTitleAsync(Id, newTitle, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes this folder on Gfycat
@@ -190,14 +190,14 @@ namespace Gfycat
         /// <returns></returns>
         public async Task DeleteAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.DeleteAsync(Id, options);
+            await Client.ApiClient.DeleteAsync(Id, options).ConfigureAwait(false);
         }
 
         #region IFolderInfo explicits
 
         IReadOnlyCollection<IFolderInfo> IFolderInfo.Subfolders => Subfolders;
-        async Task<IFolderContent> IFolderInfo.GetContentsAsync(RequestOptions options) => await GetContentsAsync(options);
-        async Task IFolderInfo.MoveFolderAsync(IFolderInfo parent, RequestOptions options) => await MoveFolderAsync(parent as IAlbumInfo ?? throw new ArgumentException(), options);
+        async Task<IFolderContent> IFolderInfo.GetContentsAsync(RequestOptions options) => await GetContentsAsync(options).ConfigureAwait(false);
+        async Task IFolderInfo.MoveFolderAsync(IFolderInfo parent, RequestOptions options) => await MoveFolderAsync(parent as IAlbumInfo ?? throw new ArgumentException(), options).ConfigureAwait(false);
         
         #endregion
     }

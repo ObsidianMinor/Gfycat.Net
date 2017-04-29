@@ -17,7 +17,6 @@ namespace Gfycat.Rest
         /// <param name="key"></param>
         /// <param name="value"></param>
         void SetHeader(string key, string value);
-        void SetCancellationToken(CancellationToken token);
 
         /// <summary>
         /// Sends a request to the given endpoint

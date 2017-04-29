@@ -61,7 +61,10 @@ namespace Gfycat
         /// </summary>
         public string RefreshToken { get; private set; }
 
-        private IRestClient RestClient => ApiClient.RestClient;
+        /// <summary>
+        /// Gets the object representing the current user
+        /// </summary>
+        public CurrentUser CurrentUser { get; private set; }
 
         /// <summary>
         /// Attempts to refresh the access token using the current refresh token or with a provided access token. If the current refresh token is null or an refresh token isn't provided, this will perform client credential authentication
@@ -76,7 +79,7 @@ namespace Gfycat
             options.UseAccessToken = false;
             if (_clientAuth)
             {
-                await AuthenticateAsync(options);
+                await AuthenticateAsync(options).ConfigureAwait(false);
                 return true;
             }
             else if (RefreshToken == null)
@@ -95,10 +98,12 @@ namespace Gfycat
                         RefreshToken = RefreshToken
                     },
                     options).ConfigureAwait(false);
-                ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
+                ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config).ConfigureAwait(false);
                 
                 AccessToken = auth.AccessToken;
                 RefreshToken = auth.RefreshToken;
+                options.UseAccessToken = true;
+                await CurrentUser.UpdateAsync(options).ConfigureAwait(false);
                 return true;
             }
         }
@@ -122,9 +127,10 @@ namespace Gfycat
                     GrantType = "client_credentials"
                 },
                 options).ConfigureAwait(false);
-            ClientCredentialsAuthResponse auth = response.ReadAsJson<ClientCredentialsAuthResponse>(ApiClient.Config);
+            ClientCredentialsAuthResponse auth = await response.ReadAsJsonAsync<ClientCredentialsAuthResponse>(ApiClient.Config).ConfigureAwait(false);
             
             AccessToken = auth.AccessToken;
+            CurrentUser = null;
             _clientAuth = true;
         }
 
@@ -152,10 +158,12 @@ namespace Gfycat
                     Password = password
                 },
                 options).ConfigureAwait(false);
-            ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
+            ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config).ConfigureAwait(false);
             
             AccessToken = auth.AccessToken;
             RefreshToken = auth.RefreshToken;
+            options.UseAccessToken = true;
+            CurrentUser = await GetCurrentUserAsync(options).ConfigureAwait(false);
             _clientAuth = false;
         }
 
@@ -177,7 +185,7 @@ namespace Gfycat
                     provider = "twitter"
                 },
                 options).ConfigureAwait(false);
-            TwitterRequestTokenResponse auth = response.ReadAsJson<TwitterRequestTokenResponse>(ApiClient.Config);
+            TwitterRequestTokenResponse auth = await response.ReadAsJsonAsync<TwitterRequestTokenResponse>(ApiClient.Config).ConfigureAwait(false);
             return auth.RequestToken;
         }
 
@@ -208,10 +216,12 @@ namespace Gfycat
                                 AuthCode = token
                             },
                             options).ConfigureAwait(false);
-                        ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
+                        ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config).ConfigureAwait(false);
                         
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
+                        options.UseAccessToken = true;
+                        CurrentUser = await GetCurrentUserAsync(options).ConfigureAwait(false);
                     }
                     break;
                 case TokenType.FacebookAuthCode:
@@ -228,10 +238,12 @@ namespace Gfycat
                                 Token = token
                             },
                             options).ConfigureAwait(false);
-                        ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
+                        ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config).ConfigureAwait(false);
                         
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
+                        options.UseAccessToken = true;
+                        CurrentUser = await GetCurrentUserAsync(options).ConfigureAwait(false);
                     }
                     break;
                 default:
@@ -268,10 +280,12 @@ namespace Gfycat
                                 RedirectUri = verifierSecretRedirectUri
                             },
                             options).ConfigureAwait(false);
-                        ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
+                        ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config).ConfigureAwait(false);
                         
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
+                        options.UseAccessToken = true;
+                        CurrentUser = await GetCurrentUserAsync(options).ConfigureAwait(false);
                     }
                     break;
                 case TokenType.TwitterTokenSecret:
@@ -289,10 +303,12 @@ namespace Gfycat
                                 Verifier = verifierSecretRedirectUri
                             },
                             options).ConfigureAwait(false);
-                        ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
+                        ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config).ConfigureAwait(false);
                         
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
+                        options.UseAccessToken = true;
+                        CurrentUser = await GetCurrentUserAsync(options).ConfigureAwait(false);
                     }
                     break;
                 case TokenType.TwitterTokenVerifier:
@@ -310,10 +326,12 @@ namespace Gfycat
                                 Secret = verifierSecretRedirectUri
                             },
                             options).ConfigureAwait(false);
-                        ClientAccountAuthResponse auth = response.ReadAsJson<ClientAccountAuthResponse>(ApiClient.Config);
+                        ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config).ConfigureAwait(false);
                         
                         AccessToken = auth.AccessToken;
                         RefreshToken = auth.RefreshToken;
+                        options.UseAccessToken = true;
+                        CurrentUser = await GetCurrentUserAsync(options).ConfigureAwait(false);
                     }
                     break;
                 default:
@@ -326,15 +344,13 @@ namespace Gfycat
         /// Authenticates using an given access token
         /// </summary>
         /// <param name="accessToken"></param>
-        /// <param name="verifyToken"></param>
         /// <returns></returns>
         /// <exception cref="GfycatException">If verifyToken is true, this will attempt to get the current user which will return 401 unauthorized if the access token is invalid</exception>
-        public async Task AuthenticateAsync(string accessToken, bool verifyToken = true)
+        public async Task AuthenticateAsync(string accessToken)
         {
             AccessToken = accessToken;
 
-            if (verifyToken)
-                await GetCurrentUserAsync(); // throws if the access token is invalid
+            CurrentUser = await GetCurrentUserAsync().ConfigureAwait(false);
         }
 
         #endregion
@@ -349,7 +365,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<bool> GetUserExistsAsync(string username, RequestOptions options = null)
         {
-            return (await ApiClient.GetUsernameStatusAsync(username, options)) == HttpStatusCode.OK;
+            return (await ApiClient.GetUsernameStatusAsync(username, options).ConfigureAwait(false)).IsSuccessfulStatus();
         }
 
         /// <summary>
@@ -360,7 +376,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task SendPasswordResetEmailAsync(string usernameOrEmail, RequestOptions options = null)
         {
-            await ApiClient.SendPasswordResetEmailAsync(usernameOrEmail, options);
+            await ApiClient.SendPasswordResetEmailAsync(usernameOrEmail, options).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -372,7 +388,7 @@ namespace Gfycat
         /// <exception cref="GfycatException"></exception>
         public async Task<User> GetUserAsync(string userId, RequestOptions options = null)
         {
-            API.Models.User userModel = await ApiClient.GetUserAsync(userId, options);
+            API.Models.User userModel = await ApiClient.GetUserAsync(userId, options).ConfigureAwait(false);
             return User.Create(this, userModel);
         }
 
@@ -383,7 +399,7 @@ namespace Gfycat
         /// <param name="options"></param>
         /// <returns></returns>
         public async Task<User> TryGetUserAsync(string userId, RequestOptions options = null) 
-            => (await GetUserExistsAsync(userId, options)) ? await GetUserAsync(userId, options) : null;
+            => (await GetUserExistsAsync(userId, options).ConfigureAwait(false)) ? await GetUserAsync(userId, options).ConfigureAwait(false) : null;
 
         /// <summary>
         /// Attempts to get the current user
@@ -392,7 +408,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<CurrentUser> GetCurrentUserAsync(RequestOptions options = null)
         {
-            API.Models.CurrentUser currentUserModel = await ApiClient.GetCurrentUserAsync(options);
+            API.Models.CurrentUser currentUserModel = await ApiClient.GetCurrentUserAsync(options).ConfigureAwait(false);
             return CurrentUser.Create(this, currentUserModel);
         }
 
@@ -412,7 +428,7 @@ namespace Gfycat
                 Username = username,
                 Password = password,
                 Email = email
-            }, options);
+            }, options).ConfigureAwait(false);
 
             if (loginWhenComplete)
             {
@@ -469,7 +485,7 @@ namespace Gfycat
                     break;
             }
 
-            ClientAccountAuthResponse response = await ApiClient.CreateAccountAsync(request, options);
+            ClientAccountAuthResponse response = await ApiClient.CreateAccountAsync(request, options).ConfigureAwait(false);
 
             if (loginWhenComplete)
             {
@@ -484,29 +500,115 @@ namespace Gfycat
         /// Gets info for a single Gfy
         /// </summary>
         /// <param name="gfycat"></param>
+        /// <param name="overrideInvalidNameDetection">Forces the method to fetch the specified gfy even if it's detected as an invalid gfy name</param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public async Task<Gfy> GetGfyAsync(string gfycat, RequestOptions options = null)
+        public async Task<Gfy> GetGfyAsync(string gfycat, bool overrideInvalidNameDetection = false, RequestOptions options = null)
         {
-            GfyResponse response = await ApiClient.GetGfyAsync(gfycat, options);
-            if (response == null)
+            if (!overrideInvalidNameDetection && !IsValidGfyName(gfycat))
                 return null;
 
-            return Gfy.Create(this, response.GfyItem);
+            if (_clientAuth) // can I just say how much implicit auth is a pain the ass?
+            {
+                GfyResponse response = await ApiClient.GetGfyAsync(gfycat, options).ConfigureAwait(false);
+                if (response == null)
+                    return null;
+
+                return Gfy.Create(this, response.GfyItem);
+            }
+            else
+            {
+                FullGfyResponse response = await ApiClient.GetFullGfyAsync(gfycat, options).ConfigureAwait(false);
+                if (response == null)
+                    return null;
+
+                return Gfy.Create(this, response.Gfy);
+            }
+        }
+        /// <summary>
+        /// Returns whether the provided url string is a valid Gfycat url pointing to a valid gfy name
+        /// </summary>
+        /// <param name="gfycatUrl"></param>
+        /// <param name="gfyName"></param>
+        /// <returns></returns>
+        public static bool IsValidGfyUrl(string gfycatUrl, out string gfyName)
+        {
+            if (gfycatUrl == null || !Uri.TryCreate(gfycatUrl, UriKind.Absolute, out Uri result) || !result.Scheme.Contains("http") || !result.Host.EndsWith("gfycat.com") || result.LocalPath == "/")
+            {
+                gfyName = null;
+                return false;
+            }
+            else
+            {
+                string lastSegment = result.Segments.LastOrDefault();
+                int fileExtensionPos = lastSegment.LastIndexOf('.');
+                if (fileExtensionPos != -1)
+                    lastSegment = lastSegment.Remove(fileExtensionPos);
+                int infoPos = lastSegment.LastIndexOf('-'); // get the position of the file info portion, for instance in the name YellowIdenticalEuropeanpolecat-poster.jpg
+                if (infoPos != -1)
+                    lastSegment = lastSegment.Remove(infoPos);
+                
+                gfyName = IsValidGfyName(lastSegment) ? lastSegment : null;
+                return gfyName != null;
+            }
+        }
+        /// <summary>
+        /// Checks whether the provided gfy name is valid
+        /// </summary>
+        /// <param name="gfyName"></param>
+        /// <returns></returns>
+        public static bool IsValidGfyName(string gfyName)
+        {
+            if (gfyName.Equals("BrutalSavageRekt", StringComparison.OrdinalIgnoreCase))
+                return true;
+
+            if (gfyName.Length > Utils.GfyFinalSegmentMaxLength)
+                return false;
+
+            gfyName = gfyName.ToLowerInvariant();
+            //adjectives
+            string match1 = "";
+            string match2 = "";
+            string match3 = "";
+
+            while (Utils.HasPartial(gfyName, Utils.GfyAdjectives, ref match1))
+                while (Utils.HasPartial(gfyName.Substring(match1.Length), Utils.GfyAdjectives, ref match2))
+                    while (Utils.HasPartial(gfyName.Substring(match1.Length + match2.Length), Utils.GfyAnimals, ref match3))
+                        if (match1.Length + match2.Length + match3.Length == gfyName.Length)
+                            return true;
+
+            return false;
+            
+            /* there's always a way to do it without goto, I will now keep this code here as a warning to not use goto
+            begin:
+            if (Utils.HasPartial(lastSegment, Utils.GfyAdjectives, ref match1))
+            {
+                second:
+                if (Utils.HasPartial(lastSegment.Substring(match1.Length), Utils.GfyAdjectives, ref match2))
+                {
+                    if (Utils.HasPartial(lastSegment.Substring(match1.Length + match2.Length), Utils.GfyAnimals, ref match3))
+                        return await GetGfyAsync(lastSegment, options);
+                    else
+                        goto second;
+                }
+                else 
+                    goto begin;
+            }
+
+            return null;
+            */
         }
 
         /// <summary>
         /// Attempts to get info for a single Gfy using a url string. If the URI isn't in a valid format or the gfy does not exist, this returns null
         /// </summary>
         /// <param name="gfycatUrl">The gfycat url</param>
+        /// <param name="overrideInvalidNameDetection">Forces the method to fetch the specified gfy even if it's detected as an invalid gfy name</param>
         /// <param name="options">Optional request parameters</param>
-        /// <returns>An awaitable Gfy</returns>
-        public async Task<Gfy> GetGfyFromUrlAsync(string gfycatUrl, RequestOptions options = null)
+        /// <returns>An awaitable task that returns a Gfy</returns>
+        public async Task<Gfy> GetGfyFromUrlAsync(string gfycatUrl, bool overrideInvalidNameDetection = false, RequestOptions options = null)
         {
-            if (!Uri.TryCreate(gfycatUrl, UriKind.Absolute, out Uri result) || result.Host != "gfycat.com" || result.LocalPath == "/")
-                return null;
-            else
-                return await GetGfyAsync(result.Segments.LastOrDefault(), options);
+            return IsValidGfyUrl(gfycatUrl, out string gfy) ? await GetGfyAsync(gfy, overrideInvalidNameDetection, options).ConfigureAwait(false) : null;
         }
 
         #region Creating Gfycats
@@ -520,9 +622,9 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<GfyStatus> CreateGfyAsync(string remoteUrl, GfyCreationParameters parameters = null, RequestOptions options = null)
         {
-            UploadKey key = await ApiClient.CreateGfyFromFetchUrlAsync(remoteUrl, parameters ?? new GfyCreationParameters(), options);
-            await Task.Delay(500);
-            return await GetGfyUploadStatusAsync(key.Gfycat, options);
+            UploadKey key = await ApiClient.CreateGfyFromFetchUrlAsync(remoteUrl, parameters ?? new GfyCreationParameters(), options).ConfigureAwait(false);
+            await Task.Delay(500).ConfigureAwait(false);
+            return await GetGfyUploadStatusAsync(key.Gfycat, options).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -533,7 +635,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<GfyStatus> GetGfyUploadStatusAsync(string gfycat, RequestOptions options = null)
         {
-            Status status = await ApiClient.GetGfyStatusAsync(gfycat, options);
+            Status status = await ApiClient.GetGfyStatusAsync(gfycat, options).ConfigureAwait(false);
 
             if (status.Task == UploadTask.Error)
                 throw new GfycatException(status.ErrorDescription);
@@ -550,11 +652,11 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<GfyStatus> CreateGfyAsync(Stream data, GfyCreationParameters parameters = null, RequestOptions options = null)
         {
-            UploadKey uploadKey = await ApiClient.GetUploadKeyAsync(parameters.CreateModel(), options);
-            await ApiClient.PostGfyStreamAsync(uploadKey, data, options);
-            await Task.Delay(500);
+            UploadKey uploadKey = await ApiClient.GetUploadKeyAsync(parameters.CreateModel(), options).ConfigureAwait(false);
+            await ApiClient.PostGfyStreamAsync(uploadKey, data, options).ConfigureAwait(false);
+            await Task.Delay(500).ConfigureAwait(false);
 
-            return await GetGfyUploadStatusAsync(uploadKey.Gfycat, options);
+            return await GetGfyUploadStatusAsync(uploadKey.Gfycat, options).ConfigureAwait(false);
         }
 
         #endregion
@@ -569,7 +671,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<TaggedGfyFeed> GetTrendingGfysAsync(string tag = "Trending", RequestOptions options = null)
         {
-            return TaggedGfyFeed.Create(this, (await ApiClient.GetTrendingFeedAsync(tag, null, options)), options);
+            return TaggedGfyFeed.Create(this, (await ApiClient.GetTrendingFeedAsync(tag, null, options).ConfigureAwait(false)), options);
         }
 
         /// <summary>
@@ -579,7 +681,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<IEnumerable<string>> GetTrendingTagsAsync(RequestOptions options = null)
         {
-            return await ApiClient.GetTrendingTagsAsync(null, options);
+            return await ApiClient.GetTrendingTagsAsync(null, options).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -589,7 +691,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<PopulatedTagFeed> GetTrendingTagsPopulatedAsync(RequestOptions options = null)
         {
-            return PopulatedTagFeed.Create(this, options, await ApiClient.GetTrendingTagsPopulatedAsync(null, options));
+            return PopulatedTagFeed.Create(this, options, await ApiClient.GetTrendingTagsPopulatedAsync(null, options).ConfigureAwait(false));
         }
 
         #endregion
@@ -602,7 +704,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<ReactionTagsFeed> GetReactionGfysAsync(ReactionLanguage language = ReactionLanguage.English, RequestOptions options = null)
         {
-            return ReactionTagsFeed.Create(this, options, await ApiClient.GetReactionGifsPopulatedAsync(language, null, options), language);
+            return ReactionTagsFeed.Create(this, options, await ApiClient.GetReactionGifsPopulatedAsync(language, null, options).ConfigureAwait(false), language);
         }
 
         /// <summary>
@@ -614,7 +716,7 @@ namespace Gfycat
         // supposedly in testing. hhhhhhhhhhhhhhhhmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
         public async Task<GfyFeed> SearchAsync(string searchText, RequestOptions options = null)
         {
-            return SiteSearchFeed.Create(this, await ApiClient.SearchSiteAsync(searchText, null, options), searchText, options);
+            return SiteSearchFeed.Create(this, await ApiClient.SearchSiteAsync(searchText, null, options).ConfigureAwait(false), searchText, options);
         }
 
         #region Extras

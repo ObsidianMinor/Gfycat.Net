@@ -212,7 +212,7 @@ namespace Gfycat
         public async Task ModifyCurrentUserAsync(IEnumerable<GfycatOperation> operations, RequestOptions options = null)
         {
             await Client.ApiClient.ModifyCurrentUserAsync(operations, options).ConfigureAwait(false);
-            await UpdateAsync(options);
+            await UpdateAsync(options).ConfigureAwait(false);
         }
         
         /// <summary>
@@ -240,7 +240,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<IEnumerable<User>> GetFollowingUsersPopulatedAsync(RequestOptions options = null)
         {
-            return await Task.WhenAll((await GetFollowingUsersAsync(options)).Select(following => Client.GetUserAsync(following, options))).ConfigureAwait(false);
+            return await Task.WhenAll((await GetFollowingUsersAsync(options).ConfigureAwait(false)).Select(following => Client.GetUserAsync(following, options))).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -298,7 +298,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task CreateFolderAsync(string folderName, RequestOptions options = null)
         {
-            await Client.ApiClient.CreateFolderAsync(null, folderName, options);
+            await Client.ApiClient.CreateFolderAsync(null, folderName, options).ConfigureAwait(false);
         }
 
         #endregion
@@ -310,7 +310,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<IEnumerable<BookmarkFolderInfo>> GetBookmarkFoldersAsync(RequestOptions options = null)
         {
-            return (await Client.ApiClient.GetCurrentUserBookmarkFoldersAsync(options)).Select(folder => BookmarkFolderInfo.Create(Client, folder));
+            return (await Client.ApiClient.GetCurrentUserBookmarkFoldersAsync(options).ConfigureAwait(false)).Select(folder => BookmarkFolderInfo.Create(Client, folder));
         }
 
         #region Albums
@@ -322,7 +322,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<IEnumerable<IAlbumInfo>> GetAlbumsAsync(RequestOptions options = null)
         {
-            return (await Client.ApiClient.GetAlbumsAsync(options)).Select(album => Utils.CreateAlbum(Client, album, null));
+            return (await Client.ApiClient.GetAlbumsAsync(options).ConfigureAwait(false)).Select(album => Utils.CreateAlbum(Client, album, null));
         }
         
         #endregion
@@ -335,7 +335,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<GfyFeed> SearchAsync(string searchText, RequestOptions options = null)
         {
-            return CurrentUserSearchFeed.Create(Client, await Client.ApiClient.SearchCurrentUserAsync(searchText, null, options), searchText, options);
+            return CurrentUserSearchFeed.Create(Client, await Client.ApiClient.SearchCurrentUserAsync(searchText, null, options).ConfigureAwait(false), searchText, options);
         }
         /// <summary>
         /// Adds a twitter provider to this account using the specified verifier and token
@@ -346,7 +346,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task AddTwitterProviderAsync(string verifier, string token, RequestOptions options = null)
         {
-            await Client.ApiClient.AddProviderAsync(new API.AddProviderParameters() { Provider = "twitter", Token = token, Verifier = verifier }, options);
+            await Client.ApiClient.AddProviderAsync(new API.AddProviderParameters() { Provider = "twitter", Token = token, Verifier = verifier }, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Removes the current user's twitter provider
@@ -355,7 +355,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task RemoveTwitterProviderAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.RemoveProviderAsync("twitter", options);
+            await Client.ApiClient.RemoveProviderAsync("twitter", options).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets the whitelist of domains allowed to embed this user's content
@@ -364,7 +364,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<IEnumerable<string>> GetDomainWhitelistAsync(RequestOptions options = null)
         {
-            return (await Client.ApiClient.GetDomainWhitelistAsync(options)).DomainWhitelist;
+            return (await Client.ApiClient.GetDomainWhitelistAsync(options).ConfigureAwait(false)).DomainWhitelist;
         }
         /// <summary>
         /// Changes the whitelist of domains allowed to embed this user's content to the new whitelist
@@ -374,8 +374,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyDomainWhitelistAsync(IEnumerable<string> newWhitelist, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyDomainWhitelistAsync(new API.DomainWhitelistShared { DomainWhitelist = newWhitelist }, options);
-            await UpdateAsync(options);
+            await Client.ApiClient.ModifyDomainWhitelistAsync(new API.DomainWhitelistShared { DomainWhitelist = newWhitelist }, options).ConfigureAwait(false);
+            await UpdateAsync(options).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes the whitelist of domains allowed to embed this user's content
@@ -384,8 +384,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task DeleteDomainWhitelistAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.DeleteDomainWhitelistAsync(options);
-            await UpdateAsync(options);
+            await Client.ApiClient.DeleteDomainWhitelistAsync(options).ConfigureAwait(false);
+            await UpdateAsync(options).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets the whitelist of regions allowed to embed this user's content
@@ -394,7 +394,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<IEnumerable<RegionInfo>> GetGeoWhitelistAsync(RequestOptions options = null)
         {
-            return (await Client.ApiClient.GetGeoWhitelistAsync(options)).GeoWhitelist.Select(s => new RegionInfo(s));
+            return (await Client.ApiClient.GetGeoWhitelistAsync(options).ConfigureAwait(false)).GeoWhitelist.Select(s => new RegionInfo(s));
         }
         /// <summary>
         /// Changes the whitelist of regions allowed to embed this user's content to the new whitelist
@@ -404,8 +404,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyGeoWhitelistAsync(IEnumerable<RegionInfo> newWhitelist, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyGeoWhitelistAsync(new API.GeoWhitelistShared { GeoWhitelist = newWhitelist.Select(r => r.TwoLetterISORegionName) }, options);
-            await UpdateAsync(options);
+            await Client.ApiClient.ModifyGeoWhitelistAsync(new API.GeoWhitelistShared { GeoWhitelist = newWhitelist.Select(r => r.TwoLetterISORegionName) }, options).ConfigureAwait(false);
+            await UpdateAsync(options).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes the whitelist of regions allowed to embed this user's content
@@ -414,8 +414,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task DeleteGeoWhitelistAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.DeleteGeoWhitelistAsync(options);
-            await UpdateAsync(options);
+            await Client.ApiClient.DeleteGeoWhitelistAsync(options).ConfigureAwait(false);
+            await UpdateAsync(options).ConfigureAwait(false);
         }
 
         #region API Credentials
@@ -427,7 +427,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<IEnumerable<AppApiInfo>> GetApiCredentialsAsync(RequestOptions options = null)
         {
-            return (await Client.ApiClient.GetDeveloperKeysAsync(options)).Select(a => AppApiInfo.Create(Client, a));
+            return (await Client.ApiClient.GetDeveloperKeysAsync(options).ConfigureAwait(false)).Select(a => AppApiInfo.Create(Client, a));
         }
 
         #endregion
@@ -439,7 +439,7 @@ namespace Gfycat
         /// <returns></returns>
         async Task IUser.FollowAsync(RequestOptions options)
         {
-            await Client.ApiClient.FollowUserAsync(Id, options);
+            await Client.ApiClient.FollowUserAsync(Id, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Unfollows this user
@@ -448,7 +448,7 @@ namespace Gfycat
         /// <returns></returns>
         async Task IUser.UnfollowAsync(RequestOptions options)
         {
-            await Client.ApiClient.UnfollowUserAsync(Id, options);
+            await Client.ApiClient.UnfollowUserAsync(Id, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets whether the current user is following this user
@@ -457,7 +457,7 @@ namespace Gfycat
         /// <returns></returns>
         async Task<bool> IUser.GetFollowingUser(RequestOptions options)
         {
-            return (await Client.ApiClient.GetFollowingUserAsync(Id, options)) == HttpStatusCode.OK;
+            return (await Client.ApiClient.GetFollowingUserAsync(Id, options).ConfigureAwait(false)) == HttpStatusCode.OK;
         }
     }
 }

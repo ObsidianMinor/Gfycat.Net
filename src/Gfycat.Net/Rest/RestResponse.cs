@@ -22,7 +22,7 @@ namespace Gfycat.Rest
         /// <summary>
         /// The content returned from the endpoint
         /// </summary>
-        public Stream Content { get; }
+        public HttpContent Content { get; }
         /// <summary>
         /// The method used in the request to the endpoint
         /// </summary>
@@ -40,7 +40,7 @@ namespace Gfycat.Rest
         /// <param name="content"></param>
         /// <param name="method"></param>
         /// <param name="requestUri"></param>
-        public RestResponse(HttpStatusCode status, Dictionary<string, string> headers, Stream content, HttpMethod method, Uri requestUri)
+        public RestResponse(HttpStatusCode status, Dictionary<string, string> headers, HttpContent content, HttpMethod method, Uri requestUri)
         {
             Status = status;
             Headers = headers;

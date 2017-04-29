@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace Gfycat
 {
@@ -33,8 +34,8 @@ namespace Gfycat
         {
             HttpCode = status;
         }
-        
-        internal static Exception CreateFromResponse(RestResponse restResponse, string readAsString = null)
+
+        internal static async Task<Exception> CreateFromResponseAsync(RestResponse restResponse, string readAsString = null)
         {
             GfycatException ParseGfycatException(JToken gfyException)
             {
@@ -54,7 +55,7 @@ namespace Gfycat
                     return new GfycatException(gfyException.Value<string>("code"), gfyException.Value<string>("description"), restResponse.Status);
             }
 
-            string result = readAsString ?? restResponse.ReadAsString();
+            string result = readAsString ?? await restResponse.ReadAsStringAsync().ConfigureAwait(false);
             if (!string.IsNullOrWhiteSpace(result) && !result.StartsWith("<"))
             {
                 JToken jsonObject = JToken.Parse(result);

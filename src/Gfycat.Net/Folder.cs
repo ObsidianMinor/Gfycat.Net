@@ -48,7 +48,7 @@ namespace Gfycat
         /// <param name="options"></param>
         /// <returns></returns>
         public async Task UpdateAsync(RequestOptions options = null)
-            => Update(await Client.ApiClient.GetFolderContentsAsync(Id, options));
+            => Update(await Client.ApiClient.GetFolderContentsAsync(Id, options).ConfigureAwait(false));
         /// <summary>
         /// Changes the title of this folder to the provided string
         /// </summary>
@@ -57,8 +57,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyFolderTitleAsync(Id, newTitle, options);
-            await UpdateAsync();
+            await Client.ApiClient.ModifyFolderTitleAsync(Id, newTitle, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
         
         /// <summary>
@@ -70,9 +70,9 @@ namespace Gfycat
         /// <returns></returns>
         public async Task MoveGfysAsync(Folder folderToMoveTo, IEnumerable<Gfy> gfysToMove, RequestOptions options = null)
         {
-            await Client.ApiClient.MoveGfysAsync(Id, new API.GfyFolderAction() { Action = "move_contents", GfycatIds = gfysToMove.Select(g => g.Id), ParentId = folderToMoveTo.Id }, options);
-            await UpdateAsync();
-            await folderToMoveTo.UpdateAsync();
+            await Client.ApiClient.MoveGfysAsync(Id, new API.GfyFolderAction() { Action = "move_contents", GfycatIds = gfysToMove.Select(g => g.Id), ParentId = folderToMoveTo.Id }, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
+            await folderToMoveTo.UpdateAsync().ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes this folder on Gfycat
@@ -81,13 +81,13 @@ namespace Gfycat
         /// <returns></returns>
         public async Task DeleteAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.DeleteFolderAsync(Id, options);
+            await Client.ApiClient.DeleteFolderAsync(Id, options).ConfigureAwait(false);
         }
         
         #region Expicit IFolder implimentation
         
         async Task IFolderContent.MoveGfysAsync(IFolderContent folderToMoveTo, IEnumerable<Gfy> gfysToMove, RequestOptions options)
-            => await MoveGfysAsync(folderToMoveTo as Folder ?? throw new ArgumentException($"Can't move gfys from a folder into {folderToMoveTo.GetType()}"), gfysToMove, options);
+            => await MoveGfysAsync(folderToMoveTo as Folder ?? throw new ArgumentException($"Can't move gfys from a folder into {folderToMoveTo.GetType()}"), gfysToMove, options).ConfigureAwait(false);
 
         #endregion
     }

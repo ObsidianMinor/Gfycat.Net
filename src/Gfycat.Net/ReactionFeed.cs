@@ -46,7 +46,7 @@ namespace Gfycat
         /// <returns></returns>
         public async override Task<IFeed<Gfy>> GetNextPageAsync(RequestOptions options = null)
         {
-            return SiteSearchFeed.Create(_client, await _client.ApiClient.SearchSiteAsync(Tag, null, options), Tag, options);
+            return SiteSearchFeed.Create(_client, await _client.ApiClient.SearchSiteAsync(Tag, null, options).ConfigureAwait(false), Tag, options);
         }
     }
 }

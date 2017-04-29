@@ -1,26 +1,26 @@
 ﻿using Newtonsoft.Json;
-using System.IO;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Gfycat.Rest
 {
     internal static class RestExtensions
     {
-        internal static T ReadAsJson<T>(this RestResponse response, GfycatClientConfig config)
+        internal static async Task<T> ReadAsJsonAsync<T>(this RestResponse response, GfycatClientConfig config)
         {
-            string responseContentAsString = response.ReadAsString();
+            string responseContentAsString = await response.ReadAsStringAsync().ConfigureAwait(false);
             if (GfycatException.ContainsError(responseContentAsString))
-                throw GfycatException.CreateFromResponse(response, responseContentAsString);
+                throw await GfycatException.CreateFromResponseAsync(response, responseContentAsString).ConfigureAwait(false);
 
             T resultObject = JsonConvert.DeserializeObject<T>(responseContentAsString, config.SerializerSettings);
             return resultObject;
         }
 
         [DebuggerStepThrough]
-        internal static string ReadAsString(this RestResponse response)
+        internal static async Task<string> ReadAsStringAsync(this RestResponse response)
         {
-            using (StreamReader reader = new StreamReader(response.Content))
-                return reader.ReadToEnd();
+            using (response.Content)
+                return await response.Content.ReadAsStringAsync().ConfigureAwait(false);
         }
     }
 }

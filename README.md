@@ -1,5 +1,10 @@
 # Gfycat.Net
 [![Gfycat.Net](https://badge.fury.io/nu/Gfycat.Net.svg)](https://badge.fury.io/nu/Gfycat.Net)
+[![Build status](https://ci.appveyor.com/api/projects/status/ker3kcw9oht360lf/branch/master?svg=true)](https://ci.appveyor.com/project/ObsidianMinor/gfycat-net/branch/master)
+
+[Dev  builds (package feed url)](https://www.myget.org/F/gfycat-net/api/v3/index.json)
+
+[Join us on Discord](https://discord.gg/spvBGyn)
 
 An unofficial wrapper around the Gfycat API written for .NET Standard 1.2
 

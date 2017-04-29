@@ -75,8 +75,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyTitleAsync(Id, newTitle, options);
-            await UpdateAsync();
+            await Client.ApiClient.ModifyTitleAsync(Id, newTitle, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
         /// <summary>
         /// Changes the NSFW (Not Safe For Work) setting of the album on Gfycat to the specified setting
@@ -86,8 +86,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyNsfwSettingAsync(NsfwSetting newSetting, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyNsfwSettingAsync(Id, newSetting, options);
-            await UpdateAsync();
+            await Client.ApiClient.ModifyNsfwSettingAsync(Id, newSetting, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -98,8 +98,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyPublishSettingAsync(bool published, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyPublishedSettingAsync(Id, published, options);
-            await UpdateAsync();
+            await Client.ApiClient.ModifyPublishedSettingAsync(Id, published, options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -110,8 +110,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task AddGfysAsync(IEnumerable<Gfy> gfysToAdd, RequestOptions options = null)
         {
-            await Client.ApiClient.AddGfysAsync(Id, gfysToAdd.Select(g => g.Id), options);
-            await UpdateAsync();
+            await Client.ApiClient.AddGfysAsync(Id, gfysToAdd.Select(g => g.Id), options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -123,9 +123,9 @@ namespace Gfycat
         /// <returns></returns>
         public async Task MoveGfysAsync(Album folderToMoveTo, IEnumerable<Gfy> gfysToMove, RequestOptions options = null)
         {
-            await Client.ApiClient.MoveGfysAsync(Id, folderToMoveTo.Id, gfysToMove.Select(g => g.Id), options);
-            await UpdateAsync();
-            await folderToMoveTo.UpdateAsync();
+            await Client.ApiClient.MoveGfysAsync(Id, folderToMoveTo.Id, gfysToMove.Select(g => g.Id), options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
+            await folderToMoveTo.UpdateAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -136,8 +136,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task RemoveGfysAsync(IEnumerable<Gfy> gfysToRemove, RequestOptions options = null)
         {
-            await Client.ApiClient.RemoveGfysAsync(Id, gfysToRemove.Select(g => g.Id), options);
-            await UpdateAsync();
+            await Client.ApiClient.RemoveGfysAsync(Id, gfysToRemove.Select(g => g.Id), options).ConfigureAwait(false);
+            await UpdateAsync().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -147,7 +147,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task DeleteAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.DeleteAsync(Id, options);
+            await Client.ApiClient.DeleteAsync(Id, options).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -156,9 +156,9 @@ namespace Gfycat
         /// <param name="options"></param>
         /// <returns></returns>
         public async Task UpdateAsync(RequestOptions options = null)
-            => Update(await Client.ApiClient.GetAlbumContentsAsync(Id, options));
+            => Update(await Client.ApiClient.GetAlbumContentsAsync(Id, options).ConfigureAwait(false));
 
         async Task IFolderContent.MoveGfysAsync(IFolderContent folderToMoveTo, IEnumerable<Gfy> gfysToMove, RequestOptions options)
-            => await MoveGfysAsync(folderToMoveTo as Album ?? throw new ArgumentException($"{nameof(folderToMoveTo)} must be an Album"), gfysToMove, options);
+            => await MoveGfysAsync(folderToMoveTo as Album ?? throw new ArgumentException($"{nameof(folderToMoveTo)} must be an Album"), gfysToMove, options).ConfigureAwait(false);
     }
 }

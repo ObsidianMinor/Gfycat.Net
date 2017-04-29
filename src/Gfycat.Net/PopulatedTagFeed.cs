@@ -50,7 +50,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<IFeed<TaggedGfyFeed>> GetNextPageAsync(RequestOptions options = null)
         {
-            return Create(_client, options, await _client.ApiClient.GetTrendingTagsPopulatedAsync(_cursor, options));
+            return Create(_client, options, await _client.ApiClient.GetTrendingTagsPopulatedAsync(_cursor, options).ConfigureAwait(false));
         }
     }
 }

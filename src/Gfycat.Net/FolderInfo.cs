@@ -39,7 +39,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<Folder> GetContentsAsync(RequestOptions options = null)
         {
-            return Folder.Create(Client, await Client.ApiClient.GetFolderContentsAsync(Id, options));
+            return Folder.Create(Client, await Client.ApiClient.GetFolderContentsAsync(Id, options).ConfigureAwait(false));
         }
         /// <summary>
         /// Moves this album to another location in the folder tree
@@ -49,7 +49,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task MoveFolderAsync(FolderInfo parent, RequestOptions options = null)
         {
-            await Client.ApiClient.MoveFolderAsync(Id, parent.Id, options);
+            await Client.ApiClient.MoveFolderAsync(Id, parent.Id, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new folder inside of this folder
@@ -59,7 +59,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task CreateNewFolderAsync(string folderName, RequestOptions options = null)
         {
-            await Client.ApiClient.CreateFolderAsync(Id, folderName, options);
+            await Client.ApiClient.CreateFolderAsync(Id, folderName, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Changes the title of this folder to the provided string
@@ -69,7 +69,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyFolderTitleAsync(Id, newTitle, options);
+            await Client.ApiClient.ModifyFolderTitleAsync(Id, newTitle, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes this folder on Gfycat
@@ -78,15 +78,15 @@ namespace Gfycat
         /// <returns></returns>
         public async Task DeleteAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.DeleteFolderAsync(Id, options);
+            await Client.ApiClient.DeleteFolderAsync(Id, options).ConfigureAwait(false);
         }
 
         #region Explicit IFolderInfo
 
         IReadOnlyCollection<IFolderInfo> IFolderInfo.Subfolders => Subfolders;
 
-        async Task<IFolderContent> IFolderInfo.GetContentsAsync(RequestOptions options) => await GetContentsAsync(options);
-        async Task IFolderInfo.MoveFolderAsync(IFolderInfo parent, RequestOptions options) => await MoveFolderAsync(parent as FolderInfo ?? throw new ArgumentException(), options);
+        async Task<IFolderContent> IFolderInfo.GetContentsAsync(RequestOptions options) => await GetContentsAsync(options).ConfigureAwait(false);
+        async Task IFolderInfo.MoveFolderAsync(IFolderInfo parent, RequestOptions options) => await MoveFolderAsync(parent as FolderInfo ?? throw new ArgumentException(), options).ConfigureAwait(false);
 
         #endregion
     }

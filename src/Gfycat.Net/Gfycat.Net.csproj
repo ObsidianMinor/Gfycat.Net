@@ -1,51 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFrameworks>netstandard1.2</TargetFrameworks>
-    <RootNamespace>Gfycat</RootNamespace>
-    <Authors>ObsidianMinor</Authors>
-    <Company>
-</Company>
-    <Description>A complete wrapper around the Gfycat API built for the .NET Standard</Description>
-    <Copyright></Copyright>
-    <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageTags>gfycat;netstandard</PackageTags>
-    <PackageReleaseNotes>Initial release. Supports all non-testing endpoints.</PackageReleaseNotes>
-    <DefineConstants>NETSTANDARD1_2;RELEASE</DefineConstants>
-    <Optimize>False</Optimize>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageId>Gfycat.Net</PackageId>
-    <Product>Gfycat.Net</Product>
-    <RepositoryUrl>git://github.com/ObsidianMinor/Gfycat.Net</RepositoryUrl>
-    <PackageIconUrl></PackageIconUrl>
-    <PackageProjectUrl>https://github.com/ObsidianMinor/Gfycat.Net</PackageProjectUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
-    <AssemblyName>Gfycat.Net</AssemblyName>
-    <Version>1.0.2</Version>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.2|AnyCPU'">
-	<GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <DocumentationFile>$(OutputPath)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-    <DebugType>embedded</DebugType>
-    <DebugSymbols>True</DebugSymbols>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard1.2|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard1.2\Gfycat.Net.xml</DocumentationFile>
-  </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Auth\**" />
-    <EmbeddedResource Remove="Auth\**" />
-    <None Remove="Auth\**" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='netstandard1.2'">
     <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Rest\RestExtensions.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="System.Interactive.Async" Version="3.1.1" />
     <PackageReference Include="System.Net.Http" Version="4.3.1" />
     <PackageReference Include="System.ValueTuple" Version="4.3.0" />
   </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard1.2</TargetFramework>
+    <RootNamespace>Gfycat</RootNamespace>
+    <DebugType>embedded</DebugType>
+    <DebugSymbols>True</DebugSymbols>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Gfycat.Net.xml</DocumentationFile>
+    <RepositoryUrl>git://github.com/ObsidianMinor/Gfycat.Net.git</RepositoryUrl>
+    <PackageTags>gfycat, netstandard</PackageTags>
+    <PackageProjectUrl>https://github.com/ObsidianMinor/Gfycat.Net</PackageProjectUrl>
+    <Description>A complete wrapper around the Gfycat API</Description>
+    <Summary>A complete wrapper around the Gfycat API</Summary>
+    <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageReleaseNotes>Please see the latest GitHub release for release notes: https://github.com/ObsidianMinor/Gfycat.Net/releases/latest </PackageReleaseNotes>
+    <Title>Gfycat.Net</Title>
+    <Authors>ObsidianMinor</Authors>
+    <PackageOutputPath>..\..\artifacts\$(Configuration)\</PackageOutputPath>
+  </PropertyGroup>
 </Project>

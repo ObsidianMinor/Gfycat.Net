@@ -46,7 +46,7 @@ namespace Gfycat
         /// <param name="options"></param>
         /// <returns></returns>
         public async Task UpdateAsync(RequestOptions options = null)
-            => Update(await _client.ApiClient.GetGfyStatusAsync(GfyName, options));
+            => Update(await _client.ApiClient.GetGfyStatusAsync(GfyName, options).ConfigureAwait(false));
 
         /// <summary>
         /// Gets the <see cref="Gfy"/> this status is checking if it's upload task is complete
@@ -59,7 +59,7 @@ namespace Gfycat
             if (Task != UploadTask.Complete)
                 throw new InvalidOperationException("The Gfy's upload isn't complete!");
 
-            return await _client.GetGfyAsync(GfyName, options);
+            return await _client.GetGfyAsync(GfyName, false, options).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -71,12 +71,12 @@ namespace Gfycat
         {
             while(Task == UploadTask.Encoding)
             {
-                await System.Threading.Tasks.Task.Delay(TimeSpan.FromSeconds(Time));
-                await UpdateAsync(options);
+                await System.Threading.Tasks.Task.Delay(TimeSpan.FromSeconds(Time)).ConfigureAwait(false);
+                await UpdateAsync(options).ConfigureAwait(false);
             }
 
             if (Task == UploadTask.Complete)
-                return await GetGfyAsync(options);
+                return await GetGfyAsync(options).ConfigureAwait(false);
             else
                 return null;
             

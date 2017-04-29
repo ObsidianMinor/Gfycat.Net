@@ -48,8 +48,8 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyBookmarkFolderTitleAsync(Id, newTitle, options);
-            await UpdateAsync(options);
+            await Client.ApiClient.ModifyBookmarkFolderTitleAsync(Id, newTitle, options).ConfigureAwait(false);
+            await UpdateAsync(options).ConfigureAwait(false);
         }
         /// <summary>
         /// Moves the specified gfys to another bookmark folder
@@ -60,9 +60,9 @@ namespace Gfycat
         /// <returns></returns>
         public async Task MoveGfysAsync(BookmarkFolder folderToMoveTo, IEnumerable<Gfy> gfysToMove, RequestOptions options = null)
         {
-            await Client.ApiClient.MoveBookmarkedGfysAsync(Id, new API.GfyFolderAction() { Action = "move_contents", GfycatIds = gfysToMove.Select(g => g.Id), ParentId = folderToMoveTo.Id }, options);
-            await UpdateAsync(options);
-            await folderToMoveTo.UpdateAsync();
+            await Client.ApiClient.MoveBookmarkedGfysAsync(Id, new API.GfyFolderAction() { Action = "move_contents", GfycatIds = gfysToMove.Select(g => g.Id), ParentId = folderToMoveTo.Id }, options).ConfigureAwait(false);
+            await UpdateAsync(options).ConfigureAwait(false);
+            await folderToMoveTo.UpdateAsync().ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes this bookmark folder on Gfycat
@@ -71,7 +71,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task DeleteAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.DeleteBookmarkFolderAsync(Id, options);
+            await Client.ApiClient.DeleteBookmarkFolderAsync(Id, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates this bookmark folder using the latest info from the server
@@ -79,7 +79,7 @@ namespace Gfycat
         /// <param name="options"></param>
         /// <returns></returns>
         public async Task UpdateAsync(RequestOptions options = null)
-            => Update(await Client.ApiClient.GetBookmarkFolderContentsAsync(Id, options));
+            => Update(await Client.ApiClient.GetBookmarkFolderContentsAsync(Id, options).ConfigureAwait(false));
 
         #region Explicit IFolder
         

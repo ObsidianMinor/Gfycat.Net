@@ -50,8 +50,8 @@ namespace Gfycat
         /// <param name="clientSecret"></param>
         public GfycatClientConfig(string clientId, string clientSecret)
         {
-            ClientId = clientId;
-            ClientSecret = clientSecret;
+            ClientId = clientId ?? throw new ArgumentNullException(nameof(clientId));
+            ClientSecret = clientSecret ?? throw new ArgumentNullException(nameof(clientSecret));
         }
     }
 }

@@ -52,7 +52,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<IFeed<ReactionFeed>> GetNextPageAsync(RequestOptions options = null)
         {
-            return Create(_client, options, await _client.ApiClient.GetReactionGifsPopulatedAsync(_language, _cursor, options), _language);
+            return Create(_client, options, await _client.ApiClient.GetReactionGifsPopulatedAsync(_language, _cursor, options).ConfigureAwait(false), _language);
         }
     }
 }

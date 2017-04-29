@@ -1,41 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputType>Library</OutputType>
-  </PropertyGroup>
-
   <PropertyGroup>
     <TargetFramework>netstandard1.2</TargetFramework>
     <RootNamespace>Gfycat.Analytics</RootNamespace>
-    <ApplicationIcon />
-    <OutputTypeEx>library</OutputTypeEx>
-    <StartupObject />
+    <DebugType>embedded</DebugType>
+    <DebugSymbols>True</DebugSymbols>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Gfycat.Net.Analytics.xml</DocumentationFile>
     <Authors>ObsidianMinor</Authors>
-    <Company />
     <Description>An unofficial wrapper around the Gfycat analytics API</Description>
     <PackageId>Gfycat.Net.Analytics</PackageId>
     <PackageProjectUrl>https://github.com/ObsidianMinor/Gfycat.Net</PackageProjectUrl>
-    <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/ObsidianMinor/Gfycat.Net</RepositoryUrl>
     <PackageTags>gfycat;netstandard;analytics</PackageTags>
     <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
-    <PackageReleaseNotes></PackageReleaseNotes>
-    <PackageIconUrl></PackageIconUrl>
-    <Version>1.0.2</Version>
+    <PackageReleaseNotes>Please see the latest GitHub release for release notes: https://github.com/ObsidianMinor/Gfycat.Net/releases/latest </PackageReleaseNotes>
+    <PackageOutputPath>..\..\artifacts\$(Configuration)\</PackageOutputPath>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard1.2\.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard1.2\Gfycat.Net.Analytics.xml</DocumentationFile>
-    <DefineConstants>RELEASE;NETSTANDARD1_2</DefineConstants>
-  </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Gfycat.Net\Gfycat.Net.csproj" />
   </ItemGroup>
-
 </Project>

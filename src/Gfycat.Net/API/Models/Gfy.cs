@@ -93,9 +93,5 @@ namespace Gfycat.API.Models
         internal string RedditIdText { get; set; }
         [JsonProperty("domainWhitelist")]
         internal IEnumerable<string> DomainWhitelist { get; set; }
-        [JsonProperty("likedByYou")]
-        internal bool LikedByYou { get; set; }
-        [JsonProperty("dislikedByYou")]
-        internal bool DislikedByYou { get; set; }
     }
 }

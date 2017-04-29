@@ -41,7 +41,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task MoveFolderAsync(IAlbumInfo parent, RequestOptions options = null)
         {
-            await Client.ApiClient.MoveAlbumAsync(Id, parent.Id, options);
+            await Client.ApiClient.MoveAlbumAsync(Id, parent.Id, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new album inside of this folder
@@ -51,7 +51,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task CreateNewAlbumAsync(string name, RequestOptions options = null)
         {
-            await Client.ApiClient.CreateAlbumInFolderAsync(Id, name, options);
+            await Client.ApiClient.CreateAlbumInFolderAsync(Id, name, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new album folder inside of this folder
@@ -61,7 +61,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task CreateNewFolderAsync(string name, RequestOptions options = null)
         {
-            await Client.ApiClient.CreateAlbumAsync(Id, name, options);
+            await Client.ApiClient.CreateAlbumAsync(Id, name, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Changes the title of this folder to the provided string
@@ -71,7 +71,7 @@ namespace Gfycat
         /// <returns></returns>
         public async Task ModifyTitleAsync(string newTitle, RequestOptions options = null)
         {
-            await Client.ApiClient.ModifyTitleAsync(Id, newTitle, options);
+            await Client.ApiClient.ModifyTitleAsync(Id, newTitle, options).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes this folder on Gfycat
@@ -80,10 +80,10 @@ namespace Gfycat
         /// <returns></returns>
         public async Task DeleteAsync(RequestOptions options = null)
         {
-            await Client.ApiClient.DeleteAsync(Id, options);
+            await Client.ApiClient.DeleteAsync(Id, options).ConfigureAwait(false);
         }
 
         IReadOnlyCollection<IFolderInfo> IFolderInfo.Subfolders => Subfolders;
-        async Task IFolderInfo.MoveFolderAsync(IFolderInfo folderInfo, RequestOptions options) => await MoveFolderAsync(folderInfo as IAlbumInfo ?? throw new ArgumentException(), options);
+        async Task IFolderInfo.MoveFolderAsync(IFolderInfo folderInfo, RequestOptions options) => await MoveFolderAsync(folderInfo as IAlbumInfo ?? throw new ArgumentException(), options).ConfigureAwait(false);
     }
 }
