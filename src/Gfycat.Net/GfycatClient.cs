@@ -76,19 +76,10 @@ namespace Gfycat
         /// <returns></returns>
         public async Task<bool> RefreshTokenAsync(string providedRefreshToken = null, RequestOptions options = null)
         {
-            if (!string.IsNullOrWhiteSpace(providedRefreshToken))
-                RefreshToken = providedRefreshToken;
-
             options = options ?? RequestOptions.CreateFromDefaults(ApiClient.Config);
             options.UseAccessToken = false;
-            if (_clientAuth)
-            {
-                await AuthenticateAsync(options).ConfigureAwait(false);
-                return true;
-            }
-            else if (RefreshToken == null)
-                return false;
-            else
+
+            async Task<bool> SendRefreshRequest(string token)
             {
                 Debug.WriteLine("Refreshing token...");
                 try
@@ -101,7 +92,7 @@ namespace Gfycat
                             ClientId = ClientId,
                             ClientSecret = ClientSecret,
                             GrantType = "refresh",
-                            RefreshToken = RefreshToken
+                            RefreshToken = token
                         },
                         options).ConfigureAwait(false);
                     ClientAccountAuthResponse auth = await response.ReadAsJsonAsync<ClientAccountAuthResponse>(ApiClient.Config).ConfigureAwait(false);
@@ -109,14 +100,33 @@ namespace Gfycat
                     AccessToken = auth.AccessToken;
                     RefreshToken = auth.RefreshToken;
                     options.UseAccessToken = true;
-                    await CurrentUser.UpdateAsync(options).ConfigureAwait(false);
+                    if (CurrentUser == null)
+                        CurrentUser = await GetCurrentUserAsync(options).ConfigureAwait(false);
+                    else
+                        await CurrentUser.UpdateAsync(options).ConfigureAwait(false);
                 }
-                catch(GfycatException e) when (e.HttpCode == HttpStatusCode.Unauthorized && e.Code == "InvalidRefreshToken")
+                catch (GfycatException e) when (e.HttpCode == HttpStatusCode.Unauthorized && e.Code == "InvalidRefreshToken")
                 {
                     return false;
                 }
                 return true;
             }
+
+            if (!string.IsNullOrWhiteSpace(providedRefreshToken))
+            {
+                return await SendRefreshRequest(providedRefreshToken);
+            }
+            else if (_clientAuth)
+            {
+                await AuthenticateAsync(options).ConfigureAwait(false);
+                return true;
+            }
+            else if (RefreshToken != null)
+            {
+                return await SendRefreshRequest(RefreshToken);
+            }
+            else
+                return false;
         }
 
         /// <summary>

@@ -1,13 +1,14 @@
-﻿using System;
+﻿using RichardSzalay.MockHttp;
 using Xunit;
-using Gfycat.Net.Tests.RestFakes;
-using static Gfycat.Net.Tests.RestFakes.Resources;
 
-namespace Gfycat.Net.Tests
+namespace Gfycat.Tests
 {
     [Trait("Category", "Client construction")]
     public class ClientConstructionTests
     {
+        const string ClientId = "clientId";
+        const string ClientSecret = "clientSecret";
+
         [Fact(DisplayName = "Provided ID and secret are correct")]
         public void CreateClientWithIdSecretCtor()
         {
@@ -30,12 +31,12 @@ namespace Gfycat.Net.Tests
         [Fact(DisplayName = "Verify default config values")]
         public void CreateClientWithDefaultConfig()
         {
-            GfycatClientConfig clientConfig = new GfycatClientConfig(ClientId, ClientSecret);
+            GfycatClientConfig clientConfig = new GfycatClientConfig(ClientId, ClientId);
             GfycatClient client = new GfycatClient(clientConfig);
 
-            Assert.Equal(client.ApiClient.Config.DefaultRetryMode, RetryMode.RetryFirst401);
-            Assert.Equal(client.ApiClient.Config.DefaultTimeout, -1);
-            Assert.Equal(client.ApiClient.Config.RestClient.GetType(), typeof(Rest.DefaultRestClient));
+            Assert.Equal(RetryMode.RetryFirst401, client.ApiClient.Config.DefaultRetryMode);
+            Assert.Equal(-1, client.ApiClient.Config.DefaultTimeout);
+            Assert.Equal(typeof(Rest.DefaultRestClient), client.ApiClient.Config.RestClient.GetType());
         }
 
         [Fact(DisplayName = "Verify modified config values")]
@@ -45,13 +46,13 @@ namespace Gfycat.Net.Tests
             {
                 DefaultRetryMode = RetryMode.AlwaysRetry,
                 DefaultTimeout = 3000,
-                RestClient = new MockRestClient(new Uri(GfycatClientConfig.BaseUrl))
+                RestClient = new MockMessageClient(new MockHttpMessageHandler())
             };
             GfycatClient client = new GfycatClient(clientConfig);
 
-            Assert.Equal(client.ApiClient.Config.DefaultRetryMode, RetryMode.AlwaysRetry);
-            Assert.Equal(client.ApiClient.Config.DefaultTimeout, 3000);
-            Assert.Equal(client.ApiClient.Config.RestClient.GetType(), typeof(MockRestClient));
+            Assert.Equal(RetryMode.AlwaysRetry, client.ApiClient.Config.DefaultRetryMode);
+            Assert.Equal(3000, client.ApiClient.Config.DefaultTimeout);
+            Assert.Equal(typeof(MockMessageClient), client.ApiClient.Config.RestClient.GetType());
         }
     }
 }
