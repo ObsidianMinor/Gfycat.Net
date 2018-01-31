@@ -42,7 +42,7 @@ namespace Gfycat.API.Models
         [JsonProperty("avgColor")]
         internal string AverageColor { get; set; }
         [JsonProperty("frameRate")]
-        internal int FrameRate { get; set; }
+        internal double FrameRate { get; set; }
         [JsonProperty("numFrames")]
         internal int NumberOfFrames { get; set; }
         [JsonProperty("mp4Size")]

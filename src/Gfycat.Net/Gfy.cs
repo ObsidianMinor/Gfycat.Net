@@ -214,7 +214,7 @@ namespace Gfycat
         /// <summary>
         /// Gets the framerate for this gfy
         /// </summary>
-        public int FrameRate { get; private set; }
+        public double FrameRate { get; private set; }
         /// <summary>
         /// Gets the number of frames for this gfy
         /// </summary>
