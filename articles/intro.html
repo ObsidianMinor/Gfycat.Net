@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title> is working on this </title>
+    <title>Intro </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content=" is working on this ">
-    <meta name="generator" content="docfx 2.16.7.0">
+    <meta name="title" content="Intro ">
+    <meta name="generator" content="docfx 2.31.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
+    
     <meta property="docfx:rel" content="../">
     
   </head>
@@ -74,10 +75,50 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-              <h1 id="markusgordathian-is-working-on-this">@MarkusGordathian is working on this</h1>
-              
+<h1 id="intro">Intro</h1>
 
-            </article>
+<h2 id="packages">Packages</h2>
+<p>There are two libraries in the Gfycat.Net project: Gfycat.Net and Gfycat.Net.Analytics.</p>
+<ul>
+<li>Gfycat.Net is the base library, it&#39;s the wrapper around the main API. You can read about the main API here: <a href="https://developers.gfycat.com/api">https://developers.gfycat.com/api</a></li>
+<li>Gfycat.Net.Analytics is the analytics wrapper. It wraps around the Gfycat analytics and impression API. You can read about the API here: <a href="https://developers.gfycat.com/analytics/">https://developers.gfycat.com/analytics/</a></li>
+</ul>
+<h2 id="installing">Installing</h2>
+<p>Gfycat.Net has two package sources: NuGet and MyGet</p>
+<ul>
+<li>NuGet contains the official release packages. It&#39;s pushed to when AppVeyor builds from master branch. It&#39;s the version of the library which builds the docs.</li>
+<li>MyGet contains the developer release packages. It contains new features which are stable however not fully tested.</li>
+</ul>
+<h4 id="nuget">NuGet</h4>
+<p>The standard release can be installed like any other package. Go to the &quot;Manage NuGet Packages&quot; page for you project and searh for and install &quot;Gfycat.Net&quot;. Gfycat.Net.Analytics can be install the same way.</p>
+<h4 id="myget">MyGet</h4>
+<p>MyGet requires a bit more work, to get dev builds, you must add the MyGet feed as a package source in Visual Studio.</p>
+<ol>
+<li>First, go to Tools -&gt; Options -&gt; NuGet Package Manager and select Package Sources.</li>
+<li>Click the green plus button in the top right to add a new source</li>
+<li>Near the bottom of the window, change the &quot;Name&quot; to something memorable, and change the &quot;Source&quot; to &quot;<a href="https://www.myget.org/F/gfycat-net/api/v3/index.json">https://www.myget.org/F/gfycat-net/api/v3/index.json</a>&quot;</li>
+<li>Click OK, then open your project&#39;s packages window and change the &quot;Source&quot; dropdown to the package source name you defined before.</li>
+<li>Search for Gfycat.Net like normal with &quot;Include prereleases&quot; checked</li>
+</ol>
+<h2 id="basics">Basics</h2>
+<h4 id="gfycatclient">GfycatClient</h4>
+<p>The GfycatClient contains all the main methods used get users, gfys, and feeds. It is constructed with either a GfycatClientConfig or a client ID and secret strings. You can get these on the <a href="https://developers.gfycat.com/signup">Gfycat developer site</a>.</p>
+<p>With client ID and secret</p>
+<pre><code class="lang-csharp">using Gfycat;
+...
+GfycatClient client = new GfycatClient(&quot;clientId&quot;, &quot;clientSecret&quot;);
+</code></pre><p>With client config</p>
+<pre><code class="lang-csharp">using Gfycat;
+...
+GfycatClientConfig config = new GfycatClientConfig(&quot;clientId&quot;, &quot;clientSecret&quot;);
+// make changes to client&#39;s default values
+GfycatClient client = new GfycatClient(config);
+</code></pre><h4 id="authentication">Authentication</h4>
+<p>All authentication falls under the method <code>AuthenticateAsync</code>. Depending on the provided parameters, different authentications are run. All method overloads and parameters are <a href="https://obsidianminor.github.io/Gfycat.Net/api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_AuthenticateAsync_Gfycat_RequestOptions_">documented here</a> and all authentication options explained on <a href="https://developers.gfycat.com/api/#authentication">the Gfycat docs</a>.</p>
+<p>In the event you get a 401 (unauthorized) status code, by default the client will try to refresh the access token before retrying the request. If the refresh token is somehow null or invalid (by leaving the program running doing nothing for 6 months) or implicit browser authentication was used, the access token will not be refreshed and the request will fail. If you want to refresh the access token yourself, you can by calling <code>await RefreshTokenAsync()</code>. If you want to save the refresh token for later, you can use the property GfycatClient.RefreshToken to get the current refresh token. To reuse the token again, run <code>await RefreshTokenAsync(refreshToken)</code> using the saved token.</p>
+<h4 id="feeds">Feeds</h4>
+<p>Feeds in Gfycat.Net allow enumeration through large collections of items in batches. They are all defined by the interface IFeed<t> where T is the type of item in the feed. This can be a Gfy or another feed. IFeed<t> inherits IAsyncEnumerable<t> which means you can use LINQ on whole feeds of gfys.<p>
+</t></t></t></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

@@ -2151,12 +2151,12 @@ references:
   commentId: Overload:Gfycat.CurrentUser.GetGeoWhitelistAsync
   fullName: Gfycat.CurrentUser.GetGeoWhitelistAsync
   nameWithType: CurrentUser.GetGeoWhitelistAsync
-- uid: Gfycat.CurrentUser.GetGfyFeedAsync(Gfycat.RequestOptions)
-  name: GetGfyFeedAsync(RequestOptions)
-  href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetGfyFeedAsync_Gfycat_RequestOptions_
-  commentId: M:Gfycat.CurrentUser.GetGfyFeedAsync(Gfycat.RequestOptions)
-  fullName: Gfycat.CurrentUser.GetGfyFeedAsync(Gfycat.RequestOptions)
-  nameWithType: CurrentUser.GetGfyFeedAsync(RequestOptions)
+- uid: Gfycat.CurrentUser.GetGfyFeedAsync(System.Int32,Gfycat.RequestOptions)
+  name: GetGfyFeedAsync(Int32, RequestOptions)
+  href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetGfyFeedAsync_System_Int32_Gfycat_RequestOptions_
+  commentId: M:Gfycat.CurrentUser.GetGfyFeedAsync(System.Int32,Gfycat.RequestOptions)
+  fullName: Gfycat.CurrentUser.GetGfyFeedAsync(System.Int32, Gfycat.RequestOptions)
+  nameWithType: CurrentUser.GetGfyFeedAsync(Int32, RequestOptions)
 - uid: Gfycat.CurrentUser.GetGfyFeedAsync*
   name: GetGfyFeedAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetGfyFeedAsync_
@@ -2175,12 +2175,12 @@ references:
   commentId: Overload:Gfycat.CurrentUser.GetProfilePictureUploadStatusAsync
   fullName: Gfycat.CurrentUser.GetProfilePictureUploadStatusAsync
   nameWithType: CurrentUser.GetProfilePictureUploadStatusAsync
-- uid: Gfycat.CurrentUser.GetTimelineFeedAsync(Gfycat.RequestOptions)
-  name: GetTimelineFeedAsync(RequestOptions)
-  href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetTimelineFeedAsync_Gfycat_RequestOptions_
-  commentId: M:Gfycat.CurrentUser.GetTimelineFeedAsync(Gfycat.RequestOptions)
-  fullName: Gfycat.CurrentUser.GetTimelineFeedAsync(Gfycat.RequestOptions)
-  nameWithType: CurrentUser.GetTimelineFeedAsync(RequestOptions)
+- uid: Gfycat.CurrentUser.GetTimelineFeedAsync(System.Int32,Gfycat.RequestOptions)
+  name: GetTimelineFeedAsync(Int32, RequestOptions)
+  href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetTimelineFeedAsync_System_Int32_Gfycat_RequestOptions_
+  commentId: M:Gfycat.CurrentUser.GetTimelineFeedAsync(System.Int32,Gfycat.RequestOptions)
+  fullName: Gfycat.CurrentUser.GetTimelineFeedAsync(System.Int32, Gfycat.RequestOptions)
+  nameWithType: CurrentUser.GetTimelineFeedAsync(Int32, RequestOptions)
 - uid: Gfycat.CurrentUser.GetTimelineFeedAsync*
   name: GetTimelineFeedAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetTimelineFeedAsync_
@@ -2247,6 +2247,15 @@ references:
   commentId: Overload:Gfycat.CurrentUser.IframeProfileImageVisible
   fullName: Gfycat.CurrentUser.IframeProfileImageVisible
   nameWithType: CurrentUser.IframeProfileImageVisible
+- uid: Gfycat.CurrentUser.ModifyCurrentUserAsync(Gfycat.RequestOptions,Gfycat.GfycatOperation[])
+  name: ModifyCurrentUserAsync(RequestOptions, GfycatOperation[])
+  href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_ModifyCurrentUserAsync_Gfycat_RequestOptions_Gfycat_GfycatOperation___
+  commentId: M:Gfycat.CurrentUser.ModifyCurrentUserAsync(Gfycat.RequestOptions,Gfycat.GfycatOperation[])
+  name.vb: ModifyCurrentUserAsync(RequestOptions, GfycatOperation())
+  fullName: Gfycat.CurrentUser.ModifyCurrentUserAsync(Gfycat.RequestOptions, Gfycat.GfycatOperation[])
+  fullName.vb: Gfycat.CurrentUser.ModifyCurrentUserAsync(Gfycat.RequestOptions, Gfycat.GfycatOperation())
+  nameWithType: CurrentUser.ModifyCurrentUserAsync(RequestOptions, GfycatOperation[])
+  nameWithType.vb: CurrentUser.ModifyCurrentUserAsync(RequestOptions, GfycatOperation())
 - uid: Gfycat.CurrentUser.ModifyCurrentUserAsync(System.Collections.Generic.IEnumerable{Gfycat.GfycatOperation},Gfycat.RequestOptions)
   name: ModifyCurrentUserAsync(IEnumerable<GfycatOperation>, RequestOptions)
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_ModifyCurrentUserAsync_System_Collections_Generic_IEnumerable_Gfycat_GfycatOperation__Gfycat_RequestOptions_
@@ -2364,12 +2373,12 @@ references:
   commentId: Overload:Gfycat.CurrentUser.RemoveTwitterProviderAsync
   fullName: Gfycat.CurrentUser.RemoveTwitterProviderAsync
   nameWithType: CurrentUser.RemoveTwitterProviderAsync
-- uid: Gfycat.CurrentUser.SearchAsync(System.String,Gfycat.RequestOptions)
-  name: SearchAsync(String, RequestOptions)
-  href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_SearchAsync_System_String_Gfycat_RequestOptions_
-  commentId: M:Gfycat.CurrentUser.SearchAsync(System.String,Gfycat.RequestOptions)
-  fullName: Gfycat.CurrentUser.SearchAsync(System.String, Gfycat.RequestOptions)
-  nameWithType: CurrentUser.SearchAsync(String, RequestOptions)
+- uid: Gfycat.CurrentUser.SearchAsync(System.String,System.Int32,Gfycat.RequestOptions)
+  name: SearchAsync(String, Int32, RequestOptions)
+  href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_SearchAsync_System_String_System_Int32_Gfycat_RequestOptions_
+  commentId: M:Gfycat.CurrentUser.SearchAsync(System.String,System.Int32,Gfycat.RequestOptions)
+  fullName: Gfycat.CurrentUser.SearchAsync(System.String, System.Int32, Gfycat.RequestOptions)
+  nameWithType: CurrentUser.SearchAsync(String, Int32, RequestOptions)
 - uid: Gfycat.CurrentUser.SearchAsync*
   name: SearchAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_SearchAsync_
@@ -2601,6 +2610,14 @@ references:
   fullName.vb: Gfycat.FeedEnumerator(Of T).Dispose()
   nameWithType: FeedEnumerator<T>.Dispose()
   nameWithType.vb: FeedEnumerator(Of T).Dispose()
+- uid: Gfycat.FeedEnumerator`1.Dispose(System.Boolean)
+  name: Dispose(Boolean)
+  href: api/Gfycat.FeedEnumerator-1.html#Gfycat_FeedEnumerator_1_Dispose_System_Boolean_
+  commentId: M:Gfycat.FeedEnumerator`1.Dispose(System.Boolean)
+  fullName: Gfycat.FeedEnumerator<T>.Dispose(System.Boolean)
+  fullName.vb: Gfycat.FeedEnumerator(Of T).Dispose(System.Boolean)
+  nameWithType: FeedEnumerator<T>.Dispose(Boolean)
+  nameWithType.vb: FeedEnumerator(Of T).Dispose(Boolean)
 - uid: Gfycat.FeedEnumerator`1.Dispose*
   name: Dispose
   href: api/Gfycat.FeedEnumerator-1.html#Gfycat_FeedEnumerator_1_Dispose_
@@ -2625,6 +2642,22 @@ references:
   fullName.vb: Gfycat.FeedEnumerator(Of T).MoveNext
   nameWithType: FeedEnumerator<T>.MoveNext
   nameWithType.vb: FeedEnumerator(Of T).MoveNext
+- uid: Gfycat.FeedEnumerator`1.RequestCount
+  name: RequestCount
+  href: api/Gfycat.FeedEnumerator-1.html#Gfycat_FeedEnumerator_1_RequestCount
+  commentId: P:Gfycat.FeedEnumerator`1.RequestCount
+  fullName: Gfycat.FeedEnumerator<T>.RequestCount
+  fullName.vb: Gfycat.FeedEnumerator(Of T).RequestCount
+  nameWithType: FeedEnumerator<T>.RequestCount
+  nameWithType.vb: FeedEnumerator(Of T).RequestCount
+- uid: Gfycat.FeedEnumerator`1.RequestCount*
+  name: RequestCount
+  href: api/Gfycat.FeedEnumerator-1.html#Gfycat_FeedEnumerator_1_RequestCount_
+  commentId: Overload:Gfycat.FeedEnumerator`1.RequestCount
+  fullName: Gfycat.FeedEnumerator<T>.RequestCount
+  fullName.vb: Gfycat.FeedEnumerator(Of T).RequestCount
+  nameWithType: FeedEnumerator<T>.RequestCount
+  nameWithType.vb: FeedEnumerator(Of T).RequestCount
 - uid: Gfycat.Folder
   name: Folder
   href: api/Gfycat.Folder.html
@@ -3533,6 +3566,18 @@ references:
   commentId: Overload:Gfycat.Gfy.RedditIdText
   fullName: Gfycat.Gfy.RedditIdText
   nameWithType: Gfy.RedditIdText
+- uid: Gfycat.Gfy.ReportContentAsync(Gfycat.RequestOptions)
+  name: ReportContentAsync(RequestOptions)
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_ReportContentAsync_Gfycat_RequestOptions_
+  commentId: M:Gfycat.Gfy.ReportContentAsync(Gfycat.RequestOptions)
+  fullName: Gfycat.Gfy.ReportContentAsync(Gfycat.RequestOptions)
+  nameWithType: Gfy.ReportContentAsync(RequestOptions)
+- uid: Gfycat.Gfy.ReportContentAsync*
+  name: ReportContentAsync
+  href: api/Gfycat.Gfy.html#Gfycat_Gfy_ReportContentAsync_
+  commentId: Overload:Gfycat.Gfy.ReportContentAsync
+  fullName: Gfycat.Gfy.ReportContentAsync
+  nameWithType: Gfy.ReportContentAsync
 - uid: Gfycat.Gfy.ReverseMp4Url
   name: ReverseMp4Url
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_ReverseMp4Url
@@ -3821,12 +3866,12 @@ references:
   commentId: M:Gfycat.GfycatClient.AuthenticateAsync(Gfycat.TokenType,System.String,System.String,Gfycat.RequestOptions)
   fullName: Gfycat.GfycatClient.AuthenticateAsync(Gfycat.TokenType, System.String, System.String, Gfycat.RequestOptions)
   nameWithType: GfycatClient.AuthenticateAsync(TokenType, String, String, RequestOptions)
-- uid: Gfycat.GfycatClient.AuthenticateAsync(System.String)
-  name: AuthenticateAsync(String)
-  href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_AuthenticateAsync_System_String_
-  commentId: M:Gfycat.GfycatClient.AuthenticateAsync(System.String)
-  fullName: Gfycat.GfycatClient.AuthenticateAsync(System.String)
-  nameWithType: GfycatClient.AuthenticateAsync(String)
+- uid: Gfycat.GfycatClient.AuthenticateAsync(System.String,Gfycat.RequestOptions)
+  name: AuthenticateAsync(String, RequestOptions)
+  href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_AuthenticateAsync_System_String_Gfycat_RequestOptions_
+  commentId: M:Gfycat.GfycatClient.AuthenticateAsync(System.String,Gfycat.RequestOptions)
+  fullName: Gfycat.GfycatClient.AuthenticateAsync(System.String, Gfycat.RequestOptions)
+  nameWithType: GfycatClient.AuthenticateAsync(String, RequestOptions)
 - uid: Gfycat.GfycatClient.AuthenticateAsync(System.String,System.String,Gfycat.RequestOptions)
   name: AuthenticateAsync(String, String, RequestOptions)
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_AuthenticateAsync_System_String_System_String_Gfycat_RequestOptions_
@@ -3959,24 +4004,24 @@ references:
   commentId: Overload:Gfycat.GfycatClient.GetGfyUploadStatusAsync
   fullName: Gfycat.GfycatClient.GetGfyUploadStatusAsync
   nameWithType: GfycatClient.GetGfyUploadStatusAsync
-- uid: Gfycat.GfycatClient.GetReactionGfysAsync(Gfycat.ReactionLanguage,Gfycat.RequestOptions)
-  name: GetReactionGfysAsync(ReactionLanguage, RequestOptions)
-  href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetReactionGfysAsync_Gfycat_ReactionLanguage_Gfycat_RequestOptions_
-  commentId: M:Gfycat.GfycatClient.GetReactionGfysAsync(Gfycat.ReactionLanguage,Gfycat.RequestOptions)
-  fullName: Gfycat.GfycatClient.GetReactionGfysAsync(Gfycat.ReactionLanguage, Gfycat.RequestOptions)
-  nameWithType: GfycatClient.GetReactionGfysAsync(ReactionLanguage, RequestOptions)
+- uid: Gfycat.GfycatClient.GetReactionGfysAsync(Gfycat.ReactionLanguage,System.Int32,Gfycat.RequestOptions)
+  name: GetReactionGfysAsync(ReactionLanguage, Int32, RequestOptions)
+  href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetReactionGfysAsync_Gfycat_ReactionLanguage_System_Int32_Gfycat_RequestOptions_
+  commentId: M:Gfycat.GfycatClient.GetReactionGfysAsync(Gfycat.ReactionLanguage,System.Int32,Gfycat.RequestOptions)
+  fullName: Gfycat.GfycatClient.GetReactionGfysAsync(Gfycat.ReactionLanguage, System.Int32, Gfycat.RequestOptions)
+  nameWithType: GfycatClient.GetReactionGfysAsync(ReactionLanguage, Int32, RequestOptions)
 - uid: Gfycat.GfycatClient.GetReactionGfysAsync*
   name: GetReactionGfysAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetReactionGfysAsync_
   commentId: Overload:Gfycat.GfycatClient.GetReactionGfysAsync
   fullName: Gfycat.GfycatClient.GetReactionGfysAsync
   nameWithType: GfycatClient.GetReactionGfysAsync
-- uid: Gfycat.GfycatClient.GetTrendingGfysAsync(System.String,Gfycat.RequestOptions)
-  name: GetTrendingGfysAsync(String, RequestOptions)
-  href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetTrendingGfysAsync_System_String_Gfycat_RequestOptions_
-  commentId: M:Gfycat.GfycatClient.GetTrendingGfysAsync(System.String,Gfycat.RequestOptions)
-  fullName: Gfycat.GfycatClient.GetTrendingGfysAsync(System.String, Gfycat.RequestOptions)
-  nameWithType: GfycatClient.GetTrendingGfysAsync(String, RequestOptions)
+- uid: Gfycat.GfycatClient.GetTrendingGfysAsync(System.String,System.Int32,Gfycat.RequestOptions)
+  name: GetTrendingGfysAsync(String, Int32, RequestOptions)
+  href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetTrendingGfysAsync_System_String_System_Int32_Gfycat_RequestOptions_
+  commentId: M:Gfycat.GfycatClient.GetTrendingGfysAsync(System.String,System.Int32,Gfycat.RequestOptions)
+  fullName: Gfycat.GfycatClient.GetTrendingGfysAsync(System.String, System.Int32, Gfycat.RequestOptions)
+  nameWithType: GfycatClient.GetTrendingGfysAsync(String, Int32, RequestOptions)
 - uid: Gfycat.GfycatClient.GetTrendingGfysAsync*
   name: GetTrendingGfysAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetTrendingGfysAsync_
@@ -3995,12 +4040,12 @@ references:
   commentId: Overload:Gfycat.GfycatClient.GetTrendingTagsAsync
   fullName: Gfycat.GfycatClient.GetTrendingTagsAsync
   nameWithType: GfycatClient.GetTrendingTagsAsync
-- uid: Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync(Gfycat.RequestOptions)
-  name: GetTrendingTagsPopulatedAsync(RequestOptions)
-  href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetTrendingTagsPopulatedAsync_Gfycat_RequestOptions_
-  commentId: M:Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync(Gfycat.RequestOptions)
-  fullName: Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync(Gfycat.RequestOptions)
-  nameWithType: GfycatClient.GetTrendingTagsPopulatedAsync(RequestOptions)
+- uid: Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync(System.Int32,System.Int32,Gfycat.RequestOptions)
+  name: GetTrendingTagsPopulatedAsync(Int32, Int32, RequestOptions)
+  href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetTrendingTagsPopulatedAsync_System_Int32_System_Int32_Gfycat_RequestOptions_
+  commentId: M:Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync(System.Int32,System.Int32,Gfycat.RequestOptions)
+  fullName: Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync(System.Int32, System.Int32, Gfycat.RequestOptions)
+  nameWithType: GfycatClient.GetTrendingTagsPopulatedAsync(Int32, Int32, RequestOptions)
 - uid: Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync*
   name: GetTrendingTagsPopulatedAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetTrendingTagsPopulatedAsync_
@@ -4106,12 +4151,12 @@ references:
   commentId: Overload:Gfycat.GfycatClient.RefreshTokenAsync
   fullName: Gfycat.GfycatClient.RefreshTokenAsync
   nameWithType: GfycatClient.RefreshTokenAsync
-- uid: Gfycat.GfycatClient.SearchAsync(System.String,Gfycat.RequestOptions)
-  name: SearchAsync(String, RequestOptions)
-  href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_SearchAsync_System_String_Gfycat_RequestOptions_
-  commentId: M:Gfycat.GfycatClient.SearchAsync(System.String,Gfycat.RequestOptions)
-  fullName: Gfycat.GfycatClient.SearchAsync(System.String, Gfycat.RequestOptions)
-  nameWithType: GfycatClient.SearchAsync(String, RequestOptions)
+- uid: Gfycat.GfycatClient.SearchAsync(System.String,System.Int32,Gfycat.RequestOptions)
+  name: SearchAsync(String, Int32, RequestOptions)
+  href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_SearchAsync_System_String_System_Int32_Gfycat_RequestOptions_
+  commentId: M:Gfycat.GfycatClient.SearchAsync(System.String,System.Int32,Gfycat.RequestOptions)
+  fullName: Gfycat.GfycatClient.SearchAsync(System.String, System.Int32, Gfycat.RequestOptions)
+  nameWithType: GfycatClient.SearchAsync(String, Int32, RequestOptions)
 - uid: Gfycat.GfycatClient.SearchAsync*
   name: SearchAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_SearchAsync_
@@ -4142,6 +4187,12 @@ references:
   commentId: Overload:Gfycat.GfycatClient.TryGetUserAsync
   fullName: Gfycat.GfycatClient.TryGetUserAsync
   nameWithType: GfycatClient.TryGetUserAsync
+- uid: Gfycat.GfycatClient.UseDefaultFeedCount
+  name: UseDefaultFeedCount
+  href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_UseDefaultFeedCount
+  commentId: F:Gfycat.GfycatClient.UseDefaultFeedCount
+  fullName: Gfycat.GfycatClient.UseDefaultFeedCount
+  nameWithType: GfycatClient.UseDefaultFeedCount
 - uid: Gfycat.GfycatClientConfig
   name: GfycatClientConfig
   href: api/Gfycat.GfycatClientConfig.html
@@ -4196,6 +4247,18 @@ references:
   commentId: Overload:Gfycat.GfycatClientConfig.ClientSecret
   fullName: Gfycat.GfycatClientConfig.ClientSecret
   nameWithType: GfycatClientConfig.ClientSecret
+- uid: Gfycat.GfycatClientConfig.DefaultFeedItemCount
+  name: DefaultFeedItemCount
+  href: api/Gfycat.GfycatClientConfig.html#Gfycat_GfycatClientConfig_DefaultFeedItemCount
+  commentId: P:Gfycat.GfycatClientConfig.DefaultFeedItemCount
+  fullName: Gfycat.GfycatClientConfig.DefaultFeedItemCount
+  nameWithType: GfycatClientConfig.DefaultFeedItemCount
+- uid: Gfycat.GfycatClientConfig.DefaultFeedItemCount*
+  name: DefaultFeedItemCount
+  href: api/Gfycat.GfycatClientConfig.html#Gfycat_GfycatClientConfig_DefaultFeedItemCount_
+  commentId: Overload:Gfycat.GfycatClientConfig.DefaultFeedItemCount
+  fullName: Gfycat.GfycatClientConfig.DefaultFeedItemCount
+  nameWithType: GfycatClientConfig.DefaultFeedItemCount
 - uid: Gfycat.GfycatClientConfig.DefaultRetryMode
   name: DefaultRetryMode
   href: api/Gfycat.GfycatClientConfig.html#Gfycat_GfycatClientConfig_DefaultRetryMode
@@ -4520,12 +4583,12 @@ references:
   commentId: Overload:Gfycat.GfyFeed.GetEnumerator
   fullName: Gfycat.GfyFeed.GetEnumerator
   nameWithType: GfyFeed.GetEnumerator
-- uid: Gfycat.GfyFeed.GetNextPageAsync(Gfycat.RequestOptions)
-  name: GetNextPageAsync(RequestOptions)
-  href: api/Gfycat.GfyFeed.html#Gfycat_GfyFeed_GetNextPageAsync_Gfycat_RequestOptions_
-  commentId: M:Gfycat.GfyFeed.GetNextPageAsync(Gfycat.RequestOptions)
-  fullName: Gfycat.GfyFeed.GetNextPageAsync(Gfycat.RequestOptions)
-  nameWithType: GfyFeed.GetNextPageAsync(RequestOptions)
+- uid: Gfycat.GfyFeed.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
+  name: GetNextPageAsync(Int32, RequestOptions)
+  href: api/Gfycat.GfyFeed.html#Gfycat_GfyFeed_GetNextPageAsync_System_Int32_Gfycat_RequestOptions_
+  commentId: M:Gfycat.GfyFeed.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
+  fullName: Gfycat.GfyFeed.GetNextPageAsync(System.Int32, Gfycat.RequestOptions)
+  nameWithType: GfyFeed.GetNextPageAsync(Int32, RequestOptions)
 - uid: Gfycat.GfyFeed.GetNextPageAsync*
   name: GetNextPageAsync
   href: api/Gfycat.GfyFeed.html#Gfycat_GfyFeed_GetNextPageAsync_
@@ -4787,14 +4850,14 @@ references:
   fullName.vb: Gfycat.IFeed(Of T).Cursor
   nameWithType: IFeed<T>.Cursor
   nameWithType.vb: IFeed(Of T).Cursor
-- uid: Gfycat.IFeed`1.GetNextPageAsync(Gfycat.RequestOptions)
-  name: GetNextPageAsync(RequestOptions)
-  href: api/Gfycat.IFeed-1.html#Gfycat_IFeed_1_GetNextPageAsync_Gfycat_RequestOptions_
-  commentId: M:Gfycat.IFeed`1.GetNextPageAsync(Gfycat.RequestOptions)
-  fullName: Gfycat.IFeed<T>.GetNextPageAsync(Gfycat.RequestOptions)
-  fullName.vb: Gfycat.IFeed(Of T).GetNextPageAsync(Gfycat.RequestOptions)
-  nameWithType: IFeed<T>.GetNextPageAsync(RequestOptions)
-  nameWithType.vb: IFeed(Of T).GetNextPageAsync(RequestOptions)
+- uid: Gfycat.IFeed`1.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
+  name: GetNextPageAsync(Int32, RequestOptions)
+  href: api/Gfycat.IFeed-1.html#Gfycat_IFeed_1_GetNextPageAsync_System_Int32_Gfycat_RequestOptions_
+  commentId: M:Gfycat.IFeed`1.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
+  fullName: Gfycat.IFeed<T>.GetNextPageAsync(System.Int32, Gfycat.RequestOptions)
+  fullName.vb: Gfycat.IFeed(Of T).GetNextPageAsync(System.Int32, Gfycat.RequestOptions)
+  nameWithType: IFeed<T>.GetNextPageAsync(Int32, RequestOptions)
+  nameWithType.vb: IFeed(Of T).GetNextPageAsync(Int32, RequestOptions)
 - uid: Gfycat.IFeed`1.GetNextPageAsync*
   name: GetNextPageAsync
   href: api/Gfycat.IFeed-1.html#Gfycat_IFeed_1_GetNextPageAsync_
@@ -5064,12 +5127,12 @@ references:
   commentId: T:Gfycat.ISearchable
   fullName: Gfycat.ISearchable
   nameWithType: ISearchable
-- uid: Gfycat.ISearchable.SearchAsync(System.String,Gfycat.RequestOptions)
-  name: SearchAsync(String, RequestOptions)
-  href: api/Gfycat.ISearchable.html#Gfycat_ISearchable_SearchAsync_System_String_Gfycat_RequestOptions_
-  commentId: M:Gfycat.ISearchable.SearchAsync(System.String,Gfycat.RequestOptions)
-  fullName: Gfycat.ISearchable.SearchAsync(System.String, Gfycat.RequestOptions)
-  nameWithType: ISearchable.SearchAsync(String, RequestOptions)
+- uid: Gfycat.ISearchable.SearchAsync(System.String,System.Int32,Gfycat.RequestOptions)
+  name: SearchAsync(String, Int32, RequestOptions)
+  href: api/Gfycat.ISearchable.html#Gfycat_ISearchable_SearchAsync_System_String_System_Int32_Gfycat_RequestOptions_
+  commentId: M:Gfycat.ISearchable.SearchAsync(System.String,System.Int32,Gfycat.RequestOptions)
+  fullName: Gfycat.ISearchable.SearchAsync(System.String, System.Int32, Gfycat.RequestOptions)
+  nameWithType: ISearchable.SearchAsync(String, Int32, RequestOptions)
 - uid: Gfycat.ISearchable.SearchAsync*
   name: SearchAsync
   href: api/Gfycat.ISearchable.html#Gfycat_ISearchable_SearchAsync_
@@ -5184,12 +5247,12 @@ references:
   commentId: Overload:Gfycat.IUser.GetFollowingUser
   fullName: Gfycat.IUser.GetFollowingUser
   nameWithType: IUser.GetFollowingUser
-- uid: Gfycat.IUser.GetGfyFeedAsync(Gfycat.RequestOptions)
-  name: GetGfyFeedAsync(RequestOptions)
-  href: api/Gfycat.IUser.html#Gfycat_IUser_GetGfyFeedAsync_Gfycat_RequestOptions_
-  commentId: M:Gfycat.IUser.GetGfyFeedAsync(Gfycat.RequestOptions)
-  fullName: Gfycat.IUser.GetGfyFeedAsync(Gfycat.RequestOptions)
-  nameWithType: IUser.GetGfyFeedAsync(RequestOptions)
+- uid: Gfycat.IUser.GetGfyFeedAsync(System.Int32,Gfycat.RequestOptions)
+  name: GetGfyFeedAsync(Int32, RequestOptions)
+  href: api/Gfycat.IUser.html#Gfycat_IUser_GetGfyFeedAsync_System_Int32_Gfycat_RequestOptions_
+  commentId: M:Gfycat.IUser.GetGfyFeedAsync(System.Int32,Gfycat.RequestOptions)
+  fullName: Gfycat.IUser.GetGfyFeedAsync(System.Int32, Gfycat.RequestOptions)
+  nameWithType: IUser.GetGfyFeedAsync(Int32, RequestOptions)
 - uid: Gfycat.IUser.GetGfyFeedAsync*
   name: GetGfyFeedAsync
   href: api/Gfycat.IUser.html#Gfycat_IUser_GetGfyFeedAsync_
@@ -5466,12 +5529,12 @@ references:
   commentId: Overload:Gfycat.PopulatedTagFeed.GetEnumerator
   fullName: Gfycat.PopulatedTagFeed.GetEnumerator
   nameWithType: PopulatedTagFeed.GetEnumerator
-- uid: Gfycat.PopulatedTagFeed.GetNextPageAsync(Gfycat.RequestOptions)
-  name: GetNextPageAsync(RequestOptions)
-  href: api/Gfycat.PopulatedTagFeed.html#Gfycat_PopulatedTagFeed_GetNextPageAsync_Gfycat_RequestOptions_
-  commentId: M:Gfycat.PopulatedTagFeed.GetNextPageAsync(Gfycat.RequestOptions)
-  fullName: Gfycat.PopulatedTagFeed.GetNextPageAsync(Gfycat.RequestOptions)
-  nameWithType: PopulatedTagFeed.GetNextPageAsync(RequestOptions)
+- uid: Gfycat.PopulatedTagFeed.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
+  name: GetNextPageAsync(Int32, RequestOptions)
+  href: api/Gfycat.PopulatedTagFeed.html#Gfycat_PopulatedTagFeed_GetNextPageAsync_System_Int32_Gfycat_RequestOptions_
+  commentId: M:Gfycat.PopulatedTagFeed.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
+  fullName: Gfycat.PopulatedTagFeed.GetNextPageAsync(System.Int32, Gfycat.RequestOptions)
+  nameWithType: PopulatedTagFeed.GetNextPageAsync(Int32, RequestOptions)
 - uid: Gfycat.PopulatedTagFeed.GetNextPageAsync*
   name: GetNextPageAsync
   href: api/Gfycat.PopulatedTagFeed.html#Gfycat_PopulatedTagFeed_GetNextPageAsync_
@@ -5548,12 +5611,12 @@ references:
   commentId: Overload:Gfycat.ReactionFeed.GetEnumerator
   fullName: Gfycat.ReactionFeed.GetEnumerator
   nameWithType: ReactionFeed.GetEnumerator
-- uid: Gfycat.ReactionFeed.GetNextPageAsync(Gfycat.RequestOptions)
-  name: GetNextPageAsync(RequestOptions)
-  href: api/Gfycat.ReactionFeed.html#Gfycat_ReactionFeed_GetNextPageAsync_Gfycat_RequestOptions_
-  commentId: M:Gfycat.ReactionFeed.GetNextPageAsync(Gfycat.RequestOptions)
-  fullName: Gfycat.ReactionFeed.GetNextPageAsync(Gfycat.RequestOptions)
-  nameWithType: ReactionFeed.GetNextPageAsync(RequestOptions)
+- uid: Gfycat.ReactionFeed.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
+  name: GetNextPageAsync(Int32, RequestOptions)
+  href: api/Gfycat.ReactionFeed.html#Gfycat_ReactionFeed_GetNextPageAsync_System_Int32_Gfycat_RequestOptions_
+  commentId: M:Gfycat.ReactionFeed.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
+  fullName: Gfycat.ReactionFeed.GetNextPageAsync(System.Int32, Gfycat.RequestOptions)
+  nameWithType: ReactionFeed.GetNextPageAsync(Int32, RequestOptions)
 - uid: Gfycat.ReactionFeed.GetNextPageAsync*
   name: GetNextPageAsync
   href: api/Gfycat.ReactionFeed.html#Gfycat_ReactionFeed_GetNextPageAsync_
@@ -5716,12 +5779,12 @@ references:
   commentId: Overload:Gfycat.ReactionTagsFeed.GetEnumerator
   fullName: Gfycat.ReactionTagsFeed.GetEnumerator
   nameWithType: ReactionTagsFeed.GetEnumerator
-- uid: Gfycat.ReactionTagsFeed.GetNextPageAsync(Gfycat.RequestOptions)
-  name: GetNextPageAsync(RequestOptions)
-  href: api/Gfycat.ReactionTagsFeed.html#Gfycat_ReactionTagsFeed_GetNextPageAsync_Gfycat_RequestOptions_
-  commentId: M:Gfycat.ReactionTagsFeed.GetNextPageAsync(Gfycat.RequestOptions)
-  fullName: Gfycat.ReactionTagsFeed.GetNextPageAsync(Gfycat.RequestOptions)
-  nameWithType: ReactionTagsFeed.GetNextPageAsync(RequestOptions)
+- uid: Gfycat.ReactionTagsFeed.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
+  name: GetNextPageAsync(Int32, RequestOptions)
+  href: api/Gfycat.ReactionTagsFeed.html#Gfycat_ReactionTagsFeed_GetNextPageAsync_System_Int32_Gfycat_RequestOptions_
+  commentId: M:Gfycat.ReactionTagsFeed.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
+  fullName: Gfycat.ReactionTagsFeed.GetNextPageAsync(System.Int32, Gfycat.RequestOptions)
+  nameWithType: ReactionTagsFeed.GetNextPageAsync(Int32, RequestOptions)
 - uid: Gfycat.ReactionTagsFeed.GetNextPageAsync*
   name: GetNextPageAsync
   href: api/Gfycat.ReactionTagsFeed.html#Gfycat_ReactionTagsFeed_GetNextPageAsync_
@@ -5960,6 +6023,36 @@ references:
   commentId: F:Gfycat.RetryMode.RetryTimeouts
   fullName: Gfycat.RetryMode.RetryTimeouts
   nameWithType: RetryMode.RetryTimeouts
+- uid: Gfycat.SearchFeed
+  name: SearchFeed
+  href: api/Gfycat.SearchFeed.html
+  commentId: T:Gfycat.SearchFeed
+  fullName: Gfycat.SearchFeed
+  nameWithType: SearchFeed
+- uid: Gfycat.SearchFeed.Count
+  name: Count
+  href: api/Gfycat.SearchFeed.html#Gfycat_SearchFeed_Count
+  commentId: P:Gfycat.SearchFeed.Count
+  fullName: Gfycat.SearchFeed.Count
+  nameWithType: SearchFeed.Count
+- uid: Gfycat.SearchFeed.Count*
+  name: Count
+  href: api/Gfycat.SearchFeed.html#Gfycat_SearchFeed_Count_
+  commentId: Overload:Gfycat.SearchFeed.Count
+  fullName: Gfycat.SearchFeed.Count
+  nameWithType: SearchFeed.Count
+- uid: Gfycat.SearchFeed.SearchText
+  name: SearchText
+  href: api/Gfycat.SearchFeed.html#Gfycat_SearchFeed_SearchText
+  commentId: P:Gfycat.SearchFeed.SearchText
+  fullName: Gfycat.SearchFeed.SearchText
+  nameWithType: SearchFeed.SearchText
+- uid: Gfycat.SearchFeed.SearchText*
+  name: SearchText
+  href: api/Gfycat.SearchFeed.html#Gfycat_SearchFeed_SearchText_
+  commentId: Overload:Gfycat.SearchFeed.SearchText
+  fullName: Gfycat.SearchFeed.SearchText
+  nameWithType: SearchFeed.SearchText
 - uid: Gfycat.TaggedGfyFeed
   name: TaggedGfyFeed
   href: api/Gfycat.TaggedGfyFeed.html
@@ -5978,12 +6071,12 @@ references:
   commentId: Overload:Gfycat.TaggedGfyFeed.GetEnumerator
   fullName: Gfycat.TaggedGfyFeed.GetEnumerator
   nameWithType: TaggedGfyFeed.GetEnumerator
-- uid: Gfycat.TaggedGfyFeed.GetNextPageAsync(Gfycat.RequestOptions)
-  name: GetNextPageAsync(RequestOptions)
-  href: api/Gfycat.TaggedGfyFeed.html#Gfycat_TaggedGfyFeed_GetNextPageAsync_Gfycat_RequestOptions_
-  commentId: M:Gfycat.TaggedGfyFeed.GetNextPageAsync(Gfycat.RequestOptions)
-  fullName: Gfycat.TaggedGfyFeed.GetNextPageAsync(Gfycat.RequestOptions)
-  nameWithType: TaggedGfyFeed.GetNextPageAsync(RequestOptions)
+- uid: Gfycat.TaggedGfyFeed.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
+  name: GetNextPageAsync(Int32, RequestOptions)
+  href: api/Gfycat.TaggedGfyFeed.html#Gfycat_TaggedGfyFeed_GetNextPageAsync_System_Int32_Gfycat_RequestOptions_
+  commentId: M:Gfycat.TaggedGfyFeed.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
+  fullName: Gfycat.TaggedGfyFeed.GetNextPageAsync(System.Int32, Gfycat.RequestOptions)
+  nameWithType: TaggedGfyFeed.GetNextPageAsync(Int32, RequestOptions)
 - uid: Gfycat.TaggedGfyFeed.GetNextPageAsync*
   name: GetNextPageAsync
   href: api/Gfycat.TaggedGfyFeed.html#Gfycat_TaggedGfyFeed_GetNextPageAsync_
@@ -6164,12 +6257,12 @@ references:
   commentId: Overload:Gfycat.User.GetFollowingUser
   fullName: Gfycat.User.GetFollowingUser
   nameWithType: User.GetFollowingUser
-- uid: Gfycat.User.GetGfyFeedAsync(Gfycat.RequestOptions)
-  name: GetGfyFeedAsync(RequestOptions)
-  href: api/Gfycat.User.html#Gfycat_User_GetGfyFeedAsync_Gfycat_RequestOptions_
-  commentId: M:Gfycat.User.GetGfyFeedAsync(Gfycat.RequestOptions)
-  fullName: Gfycat.User.GetGfyFeedAsync(Gfycat.RequestOptions)
-  nameWithType: User.GetGfyFeedAsync(RequestOptions)
+- uid: Gfycat.User.GetGfyFeedAsync(System.Int32,Gfycat.RequestOptions)
+  name: GetGfyFeedAsync(Int32, RequestOptions)
+  href: api/Gfycat.User.html#Gfycat_User_GetGfyFeedAsync_System_Int32_Gfycat_RequestOptions_
+  commentId: M:Gfycat.User.GetGfyFeedAsync(System.Int32,Gfycat.RequestOptions)
+  fullName: Gfycat.User.GetGfyFeedAsync(System.Int32, Gfycat.RequestOptions)
+  nameWithType: User.GetGfyFeedAsync(Int32, RequestOptions)
 - uid: Gfycat.User.GetGfyFeedAsync*
   name: GetGfyFeedAsync
   href: api/Gfycat.User.html#Gfycat_User_GetGfyFeedAsync_
