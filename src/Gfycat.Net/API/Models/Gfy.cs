@@ -44,7 +44,7 @@ namespace Gfycat.API.Models
         [JsonProperty("frameRate")]
         internal double FrameRate { get; set; }
         [JsonProperty("numFrames")]
-        internal int NumberOfFrames { get; set; }
+        internal double NumberOfFrames { get; set; }
         [JsonProperty("mp4Size")]
         internal int Mp4Size { get; set; }
         [JsonProperty("webmSize")]

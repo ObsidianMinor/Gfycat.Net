@@ -218,7 +218,7 @@ namespace Gfycat
         /// <summary>
         /// Gets the number of frames for this gfy
         /// </summary>
-        public int NumberOfFrames { get; private set; }
+        public double NumberOfFrames { get; private set; }
         /// <summary>
         /// Gets the size of the mp4 version of this gfy in megabytes
         /// </summary>
