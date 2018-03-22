@@ -68,6 +68,7 @@ references:
   name: AddGfysAsync
   href: api/Gfycat.Album.html#Gfycat_Album_AddGfysAsync_
   commentId: Overload:Gfycat.Album.AddGfysAsync
+  isSpec: "True"
   fullName: Gfycat.Album.AddGfysAsync
   nameWithType: Album.AddGfysAsync
 - uid: Gfycat.Album.Content
@@ -80,6 +81,7 @@ references:
   name: Content
   href: api/Gfycat.Album.html#Gfycat_Album_Content_
   commentId: Overload:Gfycat.Album.Content
+  isSpec: "True"
   fullName: Gfycat.Album.Content
   nameWithType: Album.Content
 - uid: Gfycat.Album.Count
@@ -92,6 +94,7 @@ references:
   name: Count
   href: api/Gfycat.Album.html#Gfycat_Album_Count_
   commentId: Overload:Gfycat.Album.Count
+  isSpec: "True"
   fullName: Gfycat.Album.Count
   nameWithType: Album.Count
 - uid: Gfycat.Album.CoverImageUrl
@@ -104,6 +107,7 @@ references:
   name: CoverImageUrl
   href: api/Gfycat.Album.html#Gfycat_Album_CoverImageUrl_
   commentId: Overload:Gfycat.Album.CoverImageUrl
+  isSpec: "True"
   fullName: Gfycat.Album.CoverImageUrl
   nameWithType: Album.CoverImageUrl
 - uid: Gfycat.Album.CoverImageUrlMobile
@@ -116,6 +120,7 @@ references:
   name: CoverImageUrlMobile
   href: api/Gfycat.Album.html#Gfycat_Album_CoverImageUrlMobile_
   commentId: Overload:Gfycat.Album.CoverImageUrlMobile
+  isSpec: "True"
   fullName: Gfycat.Album.CoverImageUrlMobile
   nameWithType: Album.CoverImageUrlMobile
 - uid: Gfycat.Album.DeleteAsync(Gfycat.RequestOptions)
@@ -128,6 +133,7 @@ references:
   name: DeleteAsync
   href: api/Gfycat.Album.html#Gfycat_Album_DeleteAsync_
   commentId: Overload:Gfycat.Album.DeleteAsync
+  isSpec: "True"
   fullName: Gfycat.Album.DeleteAsync
   nameWithType: Album.DeleteAsync
 - uid: Gfycat.Album.Gfycat#IFolderContent#MoveGfysAsync(Gfycat.IFolderContent,System.Collections.Generic.IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
@@ -143,6 +149,7 @@ references:
   name: IFolderContent.MoveGfysAsync
   href: api/Gfycat.Album.html#Gfycat_Album_Gfycat_IFolderContent_MoveGfysAsync_
   commentId: Overload:Gfycat.Album.Gfycat#IFolderContent#MoveGfysAsync
+  isSpec: "True"
   name.vb: Gfycat.IFolderContent.MoveGfysAsync
   fullName: Gfycat.Album.Gfycat.IFolderContent.MoveGfysAsync
   nameWithType: Album.IFolderContent.MoveGfysAsync
@@ -157,6 +164,7 @@ references:
   name: ModifyNsfwSettingAsync
   href: api/Gfycat.Album.html#Gfycat_Album_ModifyNsfwSettingAsync_
   commentId: Overload:Gfycat.Album.ModifyNsfwSettingAsync
+  isSpec: "True"
   fullName: Gfycat.Album.ModifyNsfwSettingAsync
   nameWithType: Album.ModifyNsfwSettingAsync
 - uid: Gfycat.Album.ModifyPublishSettingAsync(System.Boolean,Gfycat.RequestOptions)
@@ -169,6 +177,7 @@ references:
   name: ModifyPublishSettingAsync
   href: api/Gfycat.Album.html#Gfycat_Album_ModifyPublishSettingAsync_
   commentId: Overload:Gfycat.Album.ModifyPublishSettingAsync
+  isSpec: "True"
   fullName: Gfycat.Album.ModifyPublishSettingAsync
   nameWithType: Album.ModifyPublishSettingAsync
 - uid: Gfycat.Album.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
@@ -181,6 +190,7 @@ references:
   name: ModifyTitleAsync
   href: api/Gfycat.Album.html#Gfycat_Album_ModifyTitleAsync_
   commentId: Overload:Gfycat.Album.ModifyTitleAsync
+  isSpec: "True"
   fullName: Gfycat.Album.ModifyTitleAsync
   nameWithType: Album.ModifyTitleAsync
 - uid: Gfycat.Album.MoveGfysAsync(Gfycat.Album,System.Collections.Generic.IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
@@ -196,6 +206,7 @@ references:
   name: MoveGfysAsync
   href: api/Gfycat.Album.html#Gfycat_Album_MoveGfysAsync_
   commentId: Overload:Gfycat.Album.MoveGfysAsync
+  isSpec: "True"
   fullName: Gfycat.Album.MoveGfysAsync
   nameWithType: Album.MoveGfysAsync
 - uid: Gfycat.Album.NsfwSetting
@@ -208,6 +219,7 @@ references:
   name: NsfwSetting
   href: api/Gfycat.Album.html#Gfycat_Album_NsfwSetting_
   commentId: Overload:Gfycat.Album.NsfwSetting
+  isSpec: "True"
   fullName: Gfycat.Album.NsfwSetting
   nameWithType: Album.NsfwSetting
 - uid: Gfycat.Album.Order
@@ -220,6 +232,7 @@ references:
   name: Order
   href: api/Gfycat.Album.html#Gfycat_Album_Order_
   commentId: Overload:Gfycat.Album.Order
+  isSpec: "True"
   fullName: Gfycat.Album.Order
   nameWithType: Album.Order
 - uid: Gfycat.Album.Published
@@ -232,6 +245,7 @@ references:
   name: Published
   href: api/Gfycat.Album.html#Gfycat_Album_Published_
   commentId: Overload:Gfycat.Album.Published
+  isSpec: "True"
   fullName: Gfycat.Album.Published
   nameWithType: Album.Published
 - uid: Gfycat.Album.RemoveGfysAsync(System.Collections.Generic.IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
@@ -247,6 +261,7 @@ references:
   name: RemoveGfysAsync
   href: api/Gfycat.Album.html#Gfycat_Album_RemoveGfysAsync_
   commentId: Overload:Gfycat.Album.RemoveGfysAsync
+  isSpec: "True"
   fullName: Gfycat.Album.RemoveGfysAsync
   nameWithType: Album.RemoveGfysAsync
 - uid: Gfycat.Album.Title
@@ -259,6 +274,7 @@ references:
   name: Title
   href: api/Gfycat.Album.html#Gfycat_Album_Title_
   commentId: Overload:Gfycat.Album.Title
+  isSpec: "True"
   fullName: Gfycat.Album.Title
   nameWithType: Album.Title
 - uid: Gfycat.Album.UpdateAsync(Gfycat.RequestOptions)
@@ -271,6 +287,7 @@ references:
   name: UpdateAsync
   href: api/Gfycat.Album.html#Gfycat_Album_UpdateAsync_
   commentId: Overload:Gfycat.Album.UpdateAsync
+  isSpec: "True"
   fullName: Gfycat.Album.UpdateAsync
   nameWithType: Album.UpdateAsync
 - uid: Gfycat.AlbumFolder
@@ -289,6 +306,7 @@ references:
   name: CreateNewAlbumAsync
   href: api/Gfycat.AlbumFolder.html#Gfycat_AlbumFolder_CreateNewAlbumAsync_
   commentId: Overload:Gfycat.AlbumFolder.CreateNewAlbumAsync
+  isSpec: "True"
   fullName: Gfycat.AlbumFolder.CreateNewAlbumAsync
   nameWithType: AlbumFolder.CreateNewAlbumAsync
 - uid: Gfycat.AlbumFolder.CreateNewFolderAsync(System.String,Gfycat.RequestOptions)
@@ -301,6 +319,7 @@ references:
   name: CreateNewFolderAsync
   href: api/Gfycat.AlbumFolder.html#Gfycat_AlbumFolder_CreateNewFolderAsync_
   commentId: Overload:Gfycat.AlbumFolder.CreateNewFolderAsync
+  isSpec: "True"
   fullName: Gfycat.AlbumFolder.CreateNewFolderAsync
   nameWithType: AlbumFolder.CreateNewFolderAsync
 - uid: Gfycat.AlbumFolder.DeleteAsync(Gfycat.RequestOptions)
@@ -313,6 +332,7 @@ references:
   name: DeleteAsync
   href: api/Gfycat.AlbumFolder.html#Gfycat_AlbumFolder_DeleteAsync_
   commentId: Overload:Gfycat.AlbumFolder.DeleteAsync
+  isSpec: "True"
   fullName: Gfycat.AlbumFolder.DeleteAsync
   nameWithType: AlbumFolder.DeleteAsync
 - uid: Gfycat.AlbumFolder.Gfycat#IAlbumInfo#Published
@@ -327,6 +347,7 @@ references:
   name: IAlbumInfo.Published
   href: api/Gfycat.AlbumFolder.html#Gfycat_AlbumFolder_Gfycat_IAlbumInfo_Published_
   commentId: Overload:Gfycat.AlbumFolder.Gfycat#IAlbumInfo#Published
+  isSpec: "True"
   name.vb: Gfycat.IAlbumInfo.Published
   fullName: Gfycat.AlbumFolder.Gfycat.IAlbumInfo.Published
   nameWithType: AlbumFolder.IAlbumInfo.Published
@@ -343,6 +364,7 @@ references:
   name: IFolderInfo.GetContentsAsync
   href: api/Gfycat.AlbumFolder.html#Gfycat_AlbumFolder_Gfycat_IFolderInfo_GetContentsAsync_
   commentId: Overload:Gfycat.AlbumFolder.Gfycat#IFolderInfo#GetContentsAsync
+  isSpec: "True"
   name.vb: Gfycat.IFolderInfo.GetContentsAsync
   fullName: Gfycat.AlbumFolder.Gfycat.IFolderInfo.GetContentsAsync
   nameWithType: AlbumFolder.IFolderInfo.GetContentsAsync
@@ -359,6 +381,7 @@ references:
   name: IFolderInfo.MoveFolderAsync
   href: api/Gfycat.AlbumFolder.html#Gfycat_AlbumFolder_Gfycat_IFolderInfo_MoveFolderAsync_
   commentId: Overload:Gfycat.AlbumFolder.Gfycat#IFolderInfo#MoveFolderAsync
+  isSpec: "True"
   name.vb: Gfycat.IFolderInfo.MoveFolderAsync
   fullName: Gfycat.AlbumFolder.Gfycat.IFolderInfo.MoveFolderAsync
   nameWithType: AlbumFolder.IFolderInfo.MoveFolderAsync
@@ -375,6 +398,7 @@ references:
   name: IFolderInfo.Subfolders
   href: api/Gfycat.AlbumFolder.html#Gfycat_AlbumFolder_Gfycat_IFolderInfo_Subfolders_
   commentId: Overload:Gfycat.AlbumFolder.Gfycat#IFolderInfo#Subfolders
+  isSpec: "True"
   name.vb: Gfycat.IFolderInfo.Subfolders
   fullName: Gfycat.AlbumFolder.Gfycat.IFolderInfo.Subfolders
   nameWithType: AlbumFolder.IFolderInfo.Subfolders
@@ -389,6 +413,7 @@ references:
   name: ModifyTitleAsync
   href: api/Gfycat.AlbumFolder.html#Gfycat_AlbumFolder_ModifyTitleAsync_
   commentId: Overload:Gfycat.AlbumFolder.ModifyTitleAsync
+  isSpec: "True"
   fullName: Gfycat.AlbumFolder.ModifyTitleAsync
   nameWithType: AlbumFolder.ModifyTitleAsync
 - uid: Gfycat.AlbumFolder.MoveFolderAsync(Gfycat.IAlbumInfo,Gfycat.RequestOptions)
@@ -401,6 +426,7 @@ references:
   name: MoveFolderAsync
   href: api/Gfycat.AlbumFolder.html#Gfycat_AlbumFolder_MoveFolderAsync_
   commentId: Overload:Gfycat.AlbumFolder.MoveFolderAsync
+  isSpec: "True"
   fullName: Gfycat.AlbumFolder.MoveFolderAsync
   nameWithType: AlbumFolder.MoveFolderAsync
 - uid: Gfycat.AlbumFolder.Subfolders
@@ -413,6 +439,7 @@ references:
   name: Subfolders
   href: api/Gfycat.AlbumFolder.html#Gfycat_AlbumFolder_Subfolders_
   commentId: Overload:Gfycat.AlbumFolder.Subfolders
+  isSpec: "True"
   fullName: Gfycat.AlbumFolder.Subfolders
   nameWithType: AlbumFolder.Subfolders
 - uid: Gfycat.AlbumFolder.Title
@@ -425,6 +452,7 @@ references:
   name: Title
   href: api/Gfycat.AlbumFolder.html#Gfycat_AlbumFolder_Title_
   commentId: Overload:Gfycat.AlbumFolder.Title
+  isSpec: "True"
   fullName: Gfycat.AlbumFolder.Title
   nameWithType: AlbumFolder.Title
 - uid: Gfycat.AlbumInfo
@@ -443,6 +471,7 @@ references:
   name: CoverImageUrl
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_CoverImageUrl_
   commentId: Overload:Gfycat.AlbumInfo.CoverImageUrl
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.CoverImageUrl
   nameWithType: AlbumInfo.CoverImageUrl
 - uid: Gfycat.AlbumInfo.CoverImageUrlMobile
@@ -455,6 +484,7 @@ references:
   name: CoverImageUrlMobile
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_CoverImageUrlMobile_
   commentId: Overload:Gfycat.AlbumInfo.CoverImageUrlMobile
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.CoverImageUrlMobile
   nameWithType: AlbumInfo.CoverImageUrlMobile
 - uid: Gfycat.AlbumInfo.CreateNewAlbumAsync(System.String,Gfycat.RequestOptions)
@@ -467,6 +497,7 @@ references:
   name: CreateNewAlbumAsync
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_CreateNewAlbumAsync_
   commentId: Overload:Gfycat.AlbumInfo.CreateNewAlbumAsync
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.CreateNewAlbumAsync
   nameWithType: AlbumInfo.CreateNewAlbumAsync
 - uid: Gfycat.AlbumInfo.CreateNewFolderAsync(System.String,Gfycat.RequestOptions)
@@ -479,6 +510,7 @@ references:
   name: CreateNewFolderAsync
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_CreateNewFolderAsync_
   commentId: Overload:Gfycat.AlbumInfo.CreateNewFolderAsync
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.CreateNewFolderAsync
   nameWithType: AlbumInfo.CreateNewFolderAsync
 - uid: Gfycat.AlbumInfo.DeleteAsync(Gfycat.RequestOptions)
@@ -491,6 +523,7 @@ references:
   name: DeleteAsync
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_DeleteAsync_
   commentId: Overload:Gfycat.AlbumInfo.DeleteAsync
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.DeleteAsync
   nameWithType: AlbumInfo.DeleteAsync
 - uid: Gfycat.AlbumInfo.GetContentsAsync(Gfycat.RequestOptions)
@@ -503,6 +536,7 @@ references:
   name: GetContentsAsync
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_GetContentsAsync_
   commentId: Overload:Gfycat.AlbumInfo.GetContentsAsync
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.GetContentsAsync
   nameWithType: AlbumInfo.GetContentsAsync
 - uid: Gfycat.AlbumInfo.Gfycat#IFolderInfo#GetContentsAsync(Gfycat.RequestOptions)
@@ -517,6 +551,7 @@ references:
   name: IFolderInfo.GetContentsAsync
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_Gfycat_IFolderInfo_GetContentsAsync_
   commentId: Overload:Gfycat.AlbumInfo.Gfycat#IFolderInfo#GetContentsAsync
+  isSpec: "True"
   name.vb: Gfycat.IFolderInfo.GetContentsAsync
   fullName: Gfycat.AlbumInfo.Gfycat.IFolderInfo.GetContentsAsync
   nameWithType: AlbumInfo.IFolderInfo.GetContentsAsync
@@ -533,6 +568,7 @@ references:
   name: IFolderInfo.MoveFolderAsync
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_Gfycat_IFolderInfo_MoveFolderAsync_
   commentId: Overload:Gfycat.AlbumInfo.Gfycat#IFolderInfo#MoveFolderAsync
+  isSpec: "True"
   name.vb: Gfycat.IFolderInfo.MoveFolderAsync
   fullName: Gfycat.AlbumInfo.Gfycat.IFolderInfo.MoveFolderAsync
   nameWithType: AlbumInfo.IFolderInfo.MoveFolderAsync
@@ -549,6 +585,7 @@ references:
   name: IFolderInfo.Subfolders
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_Gfycat_IFolderInfo_Subfolders_
   commentId: Overload:Gfycat.AlbumInfo.Gfycat#IFolderInfo#Subfolders
+  isSpec: "True"
   name.vb: Gfycat.IFolderInfo.Subfolders
   fullName: Gfycat.AlbumInfo.Gfycat.IFolderInfo.Subfolders
   nameWithType: AlbumInfo.IFolderInfo.Subfolders
@@ -563,6 +600,7 @@ references:
   name: GifUrl
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_GifUrl_
   commentId: Overload:Gfycat.AlbumInfo.GifUrl
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.GifUrl
   nameWithType: AlbumInfo.GifUrl
 - uid: Gfycat.AlbumInfo.Height
@@ -575,6 +613,7 @@ references:
   name: Height
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_Height_
   commentId: Overload:Gfycat.AlbumInfo.Height
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.Height
   nameWithType: AlbumInfo.Height
 - uid: Gfycat.AlbumInfo.Max2MbGif
@@ -587,6 +626,7 @@ references:
   name: Max2MbGif
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_Max2MbGif_
   commentId: Overload:Gfycat.AlbumInfo.Max2MbGif
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.Max2MbGif
   nameWithType: AlbumInfo.Max2MbGif
 - uid: Gfycat.AlbumInfo.Max5MbGif
@@ -599,6 +639,7 @@ references:
   name: Max5MbGif
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_Max5MbGif_
   commentId: Overload:Gfycat.AlbumInfo.Max5MbGif
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.Max5MbGif
   nameWithType: AlbumInfo.Max5MbGif
 - uid: Gfycat.AlbumInfo.MiniPosterUrl
@@ -611,6 +652,7 @@ references:
   name: MiniPosterUrl
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_MiniPosterUrl_
   commentId: Overload:Gfycat.AlbumInfo.MiniPosterUrl
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.MiniPosterUrl
   nameWithType: AlbumInfo.MiniPosterUrl
 - uid: Gfycat.AlbumInfo.MiniUrl
@@ -623,6 +665,7 @@ references:
   name: MiniUrl
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_MiniUrl_
   commentId: Overload:Gfycat.AlbumInfo.MiniUrl
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.MiniUrl
   nameWithType: AlbumInfo.MiniUrl
 - uid: Gfycat.AlbumInfo.MjpgUrl
@@ -635,6 +678,7 @@ references:
   name: MjpgUrl
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_MjpgUrl_
   commentId: Overload:Gfycat.AlbumInfo.MjpgUrl
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.MjpgUrl
   nameWithType: AlbumInfo.MjpgUrl
 - uid: Gfycat.AlbumInfo.MobilePosterUrl
@@ -647,6 +691,7 @@ references:
   name: MobilePosterUrl
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_MobilePosterUrl_
   commentId: Overload:Gfycat.AlbumInfo.MobilePosterUrl
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.MobilePosterUrl
   nameWithType: AlbumInfo.MobilePosterUrl
 - uid: Gfycat.AlbumInfo.MobileUrl
@@ -659,6 +704,7 @@ references:
   name: MobileUrl
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_MobileUrl_
   commentId: Overload:Gfycat.AlbumInfo.MobileUrl
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.MobileUrl
   nameWithType: AlbumInfo.MobileUrl
 - uid: Gfycat.AlbumInfo.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
@@ -671,6 +717,7 @@ references:
   name: ModifyTitleAsync
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_ModifyTitleAsync_
   commentId: Overload:Gfycat.AlbumInfo.ModifyTitleAsync
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.ModifyTitleAsync
   nameWithType: AlbumInfo.ModifyTitleAsync
 - uid: Gfycat.AlbumInfo.MoveFolderAsync(Gfycat.IAlbumInfo,Gfycat.RequestOptions)
@@ -683,6 +730,7 @@ references:
   name: MoveFolderAsync
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_MoveFolderAsync_
   commentId: Overload:Gfycat.AlbumInfo.MoveFolderAsync
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.MoveFolderAsync
   nameWithType: AlbumInfo.MoveFolderAsync
 - uid: Gfycat.AlbumInfo.Mp4Url
@@ -695,6 +743,7 @@ references:
   name: Mp4Url
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_Mp4Url_
   commentId: Overload:Gfycat.AlbumInfo.Mp4Url
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.Mp4Url
   nameWithType: AlbumInfo.Mp4Url
 - uid: Gfycat.AlbumInfo.PosterUrl
@@ -707,6 +756,7 @@ references:
   name: PosterUrl
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_PosterUrl_
   commentId: Overload:Gfycat.AlbumInfo.PosterUrl
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.PosterUrl
   nameWithType: AlbumInfo.PosterUrl
 - uid: Gfycat.AlbumInfo.Published
@@ -719,6 +769,7 @@ references:
   name: Published
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_Published_
   commentId: Overload:Gfycat.AlbumInfo.Published
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.Published
   nameWithType: AlbumInfo.Published
 - uid: Gfycat.AlbumInfo.Subfolders
@@ -731,6 +782,7 @@ references:
   name: Subfolders
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_Subfolders_
   commentId: Overload:Gfycat.AlbumInfo.Subfolders
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.Subfolders
   nameWithType: AlbumInfo.Subfolders
 - uid: Gfycat.AlbumInfo.Thumb100PosterUrl
@@ -743,6 +795,7 @@ references:
   name: Thumb100PosterUrl
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_Thumb100PosterUrl_
   commentId: Overload:Gfycat.AlbumInfo.Thumb100PosterUrl
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.Thumb100PosterUrl
   nameWithType: AlbumInfo.Thumb100PosterUrl
 - uid: Gfycat.AlbumInfo.Thumb360PosterUrl
@@ -755,6 +808,7 @@ references:
   name: Thumb360PosterUrl
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_Thumb360PosterUrl_
   commentId: Overload:Gfycat.AlbumInfo.Thumb360PosterUrl
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.Thumb360PosterUrl
   nameWithType: AlbumInfo.Thumb360PosterUrl
 - uid: Gfycat.AlbumInfo.Thumb360Url
@@ -767,6 +821,7 @@ references:
   name: Thumb360Url
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_Thumb360Url_
   commentId: Overload:Gfycat.AlbumInfo.Thumb360Url
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.Thumb360Url
   nameWithType: AlbumInfo.Thumb360Url
 - uid: Gfycat.AlbumInfo.Title
@@ -779,6 +834,7 @@ references:
   name: Title
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_Title_
   commentId: Overload:Gfycat.AlbumInfo.Title
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.Title
   nameWithType: AlbumInfo.Title
 - uid: Gfycat.AlbumInfo.WebmUrl
@@ -791,6 +847,7 @@ references:
   name: WebmUrl
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_WebmUrl_
   commentId: Overload:Gfycat.AlbumInfo.WebmUrl
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.WebmUrl
   nameWithType: AlbumInfo.WebmUrl
 - uid: Gfycat.AlbumInfo.WebpUrl
@@ -803,6 +860,7 @@ references:
   name: WebpUrl
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_WebpUrl_
   commentId: Overload:Gfycat.AlbumInfo.WebpUrl
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.WebpUrl
   nameWithType: AlbumInfo.WebpUrl
 - uid: Gfycat.AlbumInfo.Width
@@ -815,6 +873,7 @@ references:
   name: Width
   href: api/Gfycat.AlbumInfo.html#Gfycat_AlbumInfo_Width_
   commentId: Overload:Gfycat.AlbumInfo.Width
+  isSpec: "True"
   fullName: Gfycat.AlbumInfo.Width
   nameWithType: AlbumInfo.Width
 - uid: Gfycat.Analytics
@@ -869,6 +928,7 @@ references:
   name: GfycatAnalyticsClient
   href: api/Gfycat.Analytics.GfycatAnalyticsClient.html#Gfycat_Analytics_GfycatAnalyticsClient__ctor_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClient.#ctor
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClient.GfycatAnalyticsClient
   nameWithType: GfycatAnalyticsClient.GfycatAnalyticsClient
 - uid: Gfycat.Analytics.GfycatAnalyticsClient.CurrentUserTrackingCookie
@@ -881,6 +941,7 @@ references:
   name: CurrentUserTrackingCookie
   href: api/Gfycat.Analytics.GfycatAnalyticsClient.html#Gfycat_Analytics_GfycatAnalyticsClient_CurrentUserTrackingCookie_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClient.CurrentUserTrackingCookie
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClient.CurrentUserTrackingCookie
   nameWithType: GfycatAnalyticsClient.CurrentUserTrackingCookie
 - uid: Gfycat.Analytics.GfycatAnalyticsClient.SendAppFirstLaunchEventAsync(Gfycat.RequestOptions)
@@ -893,6 +954,7 @@ references:
   name: SendAppFirstLaunchEventAsync
   href: api/Gfycat.Analytics.GfycatAnalyticsClient.html#Gfycat_Analytics_GfycatAnalyticsClient_SendAppFirstLaunchEventAsync_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClient.SendAppFirstLaunchEventAsync
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClient.SendAppFirstLaunchEventAsync
   nameWithType: GfycatAnalyticsClient.SendAppFirstLaunchEventAsync
 - uid: Gfycat.Analytics.GfycatAnalyticsClient.SendBookmarkVideoEventAsync(Gfycat.Gfy,Gfycat.RequestOptions)
@@ -905,6 +967,7 @@ references:
   name: SendBookmarkVideoEventAsync
   href: api/Gfycat.Analytics.GfycatAnalyticsClient.html#Gfycat_Analytics_GfycatAnalyticsClient_SendBookmarkVideoEventAsync_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClient.SendBookmarkVideoEventAsync
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClient.SendBookmarkVideoEventAsync
   nameWithType: GfycatAnalyticsClient.SendBookmarkVideoEventAsync
 - uid: Gfycat.Analytics.GfycatAnalyticsClient.SendCaptionVideoEventAsync(System.String,Gfycat.RequestOptions)
@@ -917,6 +980,7 @@ references:
   name: SendCaptionVideoEventAsync
   href: api/Gfycat.Analytics.GfycatAnalyticsClient.html#Gfycat_Analytics_GfycatAnalyticsClient_SendCaptionVideoEventAsync_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClient.SendCaptionVideoEventAsync
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClient.SendCaptionVideoEventAsync
   nameWithType: GfycatAnalyticsClient.SendCaptionVideoEventAsync
 - uid: Gfycat.Analytics.GfycatAnalyticsClient.SendCopyLinkEventAsync(Gfycat.Gfy,Gfycat.RequestOptions)
@@ -929,6 +993,7 @@ references:
   name: SendCopyLinkEventAsync
   href: api/Gfycat.Analytics.GfycatAnalyticsClient.html#Gfycat_Analytics_GfycatAnalyticsClient_SendCopyLinkEventAsync_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClient.SendCopyLinkEventAsync
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClient.SendCopyLinkEventAsync
   nameWithType: GfycatAnalyticsClient.SendCopyLinkEventAsync
 - uid: Gfycat.Analytics.GfycatAnalyticsClient.SendCreateVideoEventAsync(System.Nullable{System.Int32},System.Nullable{Gfycat.Analytics.CameraDirection},Gfycat.RequestOptions)
@@ -944,6 +1009,7 @@ references:
   name: SendCreateVideoEventAsync
   href: api/Gfycat.Analytics.GfycatAnalyticsClient.html#Gfycat_Analytics_GfycatAnalyticsClient_SendCreateVideoEventAsync_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClient.SendCreateVideoEventAsync
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClient.SendCreateVideoEventAsync
   nameWithType: GfycatAnalyticsClient.SendCreateVideoEventAsync
 - uid: Gfycat.Analytics.GfycatAnalyticsClient.SendDownloadVideoEventAsync(Gfycat.Gfy,Gfycat.RequestOptions)
@@ -956,6 +1022,7 @@ references:
   name: SendDownloadVideoEventAsync
   href: api/Gfycat.Analytics.GfycatAnalyticsClient.html#Gfycat_Analytics_GfycatAnalyticsClient_SendDownloadVideoEventAsync_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClient.SendDownloadVideoEventAsync
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClient.SendDownloadVideoEventAsync
   nameWithType: GfycatAnalyticsClient.SendDownloadVideoEventAsync
 - uid: Gfycat.Analytics.GfycatAnalyticsClient.SendImpressionAsync(Gfycat.Analytics.Impression,Gfycat.RequestOptions)
@@ -974,6 +1041,7 @@ references:
   name: SendImpressionAsync
   href: api/Gfycat.Analytics.GfycatAnalyticsClient.html#Gfycat_Analytics_GfycatAnalyticsClient_SendImpressionAsync_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClient.SendImpressionAsync
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClient.SendImpressionAsync
   nameWithType: GfycatAnalyticsClient.SendImpressionAsync
 - uid: Gfycat.Analytics.GfycatAnalyticsClient.SendImpressionsBulkAsync(System.Collections.Generic.IEnumerable{Gfycat.Analytics.Impression},Gfycat.RequestOptions)
@@ -989,6 +1057,7 @@ references:
   name: SendImpressionsBulkAsync
   href: api/Gfycat.Analytics.GfycatAnalyticsClient.html#Gfycat_Analytics_GfycatAnalyticsClient_SendImpressionsBulkAsync_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClient.SendImpressionsBulkAsync
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClient.SendImpressionsBulkAsync
   nameWithType: GfycatAnalyticsClient.SendImpressionsBulkAsync
 - uid: Gfycat.Analytics.GfycatAnalyticsClient.SendScrollInCategoriesEventAsync(System.Int32,Gfycat.RequestOptions)
@@ -1001,6 +1070,7 @@ references:
   name: SendScrollInCategoriesEventAsync
   href: api/Gfycat.Analytics.GfycatAnalyticsClient.html#Gfycat_Analytics_GfycatAnalyticsClient_SendScrollInCategoriesEventAsync_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClient.SendScrollInCategoriesEventAsync
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClient.SendScrollInCategoriesEventAsync
   nameWithType: GfycatAnalyticsClient.SendScrollInCategoriesEventAsync
 - uid: Gfycat.Analytics.GfycatAnalyticsClient.SendScrollInVideosEventAsync(System.Int32,Gfycat.Analytics.ImpressionContext,System.String,Gfycat.RequestOptions)
@@ -1013,6 +1083,7 @@ references:
   name: SendScrollInVideosEventAsync
   href: api/Gfycat.Analytics.GfycatAnalyticsClient.html#Gfycat_Analytics_GfycatAnalyticsClient_SendScrollInVideosEventAsync_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClient.SendScrollInVideosEventAsync
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClient.SendScrollInVideosEventAsync
   nameWithType: GfycatAnalyticsClient.SendScrollInVideosEventAsync
 - uid: Gfycat.Analytics.GfycatAnalyticsClient.SendSearchVideosEventAsync(System.String,Gfycat.RequestOptions)
@@ -1025,6 +1096,7 @@ references:
   name: SendSearchVideosEventAsync
   href: api/Gfycat.Analytics.GfycatAnalyticsClient.html#Gfycat_Analytics_GfycatAnalyticsClient_SendSearchVideosEventAsync_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClient.SendSearchVideosEventAsync
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClient.SendSearchVideosEventAsync
   nameWithType: GfycatAnalyticsClient.SendSearchVideosEventAsync
 - uid: Gfycat.Analytics.GfycatAnalyticsClient.SendShareVideoEventAsync(Gfycat.Gfy,Gfycat.RequestOptions)
@@ -1037,6 +1109,7 @@ references:
   name: SendShareVideoEventAsync
   href: api/Gfycat.Analytics.GfycatAnalyticsClient.html#Gfycat_Analytics_GfycatAnalyticsClient_SendShareVideoEventAsync_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClient.SendShareVideoEventAsync
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClient.SendShareVideoEventAsync
   nameWithType: GfycatAnalyticsClient.SendShareVideoEventAsync
 - uid: Gfycat.Analytics.GfycatAnalyticsClient.SendTapCategoryEventAsync(System.String,Gfycat.RequestOptions)
@@ -1049,6 +1122,7 @@ references:
   name: SendTapCategoryEventAsync
   href: api/Gfycat.Analytics.GfycatAnalyticsClient.html#Gfycat_Analytics_GfycatAnalyticsClient_SendTapCategoryEventAsync_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClient.SendTapCategoryEventAsync
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClient.SendTapCategoryEventAsync
   nameWithType: GfycatAnalyticsClient.SendTapCategoryEventAsync
 - uid: Gfycat.Analytics.GfycatAnalyticsClientConfig
@@ -1073,6 +1147,7 @@ references:
   name: GfycatAnalyticsClientConfig
   href: api/Gfycat.Analytics.GfycatAnalyticsClientConfig.html#Gfycat_Analytics_GfycatAnalyticsClientConfig__ctor_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClientConfig.#ctor
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClientConfig.GfycatAnalyticsClientConfig
   nameWithType: GfycatAnalyticsClientConfig.GfycatAnalyticsClientConfig
 - uid: Gfycat.Analytics.GfycatAnalyticsClientConfig.AppId
@@ -1085,6 +1160,7 @@ references:
   name: AppId
   href: api/Gfycat.Analytics.GfycatAnalyticsClientConfig.html#Gfycat_Analytics_GfycatAnalyticsClientConfig_AppId_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClientConfig.AppId
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClientConfig.AppId
   nameWithType: GfycatAnalyticsClientConfig.AppId
 - uid: Gfycat.Analytics.GfycatAnalyticsClientConfig.AppName
@@ -1097,6 +1173,7 @@ references:
   name: AppName
   href: api/Gfycat.Analytics.GfycatAnalyticsClientConfig.html#Gfycat_Analytics_GfycatAnalyticsClientConfig_AppName_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClientConfig.AppName
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClientConfig.AppName
   nameWithType: GfycatAnalyticsClientConfig.AppName
 - uid: Gfycat.Analytics.GfycatAnalyticsClientConfig.AppVersion
@@ -1109,6 +1186,7 @@ references:
   name: AppVersion
   href: api/Gfycat.Analytics.GfycatAnalyticsClientConfig.html#Gfycat_Analytics_GfycatAnalyticsClientConfig_AppVersion_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClientConfig.AppVersion
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClientConfig.AppVersion
   nameWithType: GfycatAnalyticsClientConfig.AppVersion
 - uid: Gfycat.Analytics.GfycatAnalyticsClientConfig.BaseAnalyticsUrl
@@ -1133,6 +1211,7 @@ references:
   name: DefaultRetryMode
   href: api/Gfycat.Analytics.GfycatAnalyticsClientConfig.html#Gfycat_Analytics_GfycatAnalyticsClientConfig_DefaultRetryMode_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClientConfig.DefaultRetryMode
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClientConfig.DefaultRetryMode
   nameWithType: GfycatAnalyticsClientConfig.DefaultRetryMode
 - uid: Gfycat.Analytics.GfycatAnalyticsClientConfig.DefaultTimeout
@@ -1145,6 +1224,7 @@ references:
   name: DefaultTimeout
   href: api/Gfycat.Analytics.GfycatAnalyticsClientConfig.html#Gfycat_Analytics_GfycatAnalyticsClientConfig_DefaultTimeout_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClientConfig.DefaultTimeout
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClientConfig.DefaultTimeout
   nameWithType: GfycatAnalyticsClientConfig.DefaultTimeout
 - uid: Gfycat.Analytics.GfycatAnalyticsClientConfig.GenerateCookie
@@ -1157,6 +1237,7 @@ references:
   name: GenerateCookie
   href: api/Gfycat.Analytics.GfycatAnalyticsClientConfig.html#Gfycat_Analytics_GfycatAnalyticsClientConfig_GenerateCookie_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClientConfig.GenerateCookie
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClientConfig.GenerateCookie
   nameWithType: GfycatAnalyticsClientConfig.GenerateCookie
 - uid: Gfycat.Analytics.GfycatAnalyticsClientConfig.RestClient
@@ -1169,6 +1250,7 @@ references:
   name: RestClient
   href: api/Gfycat.Analytics.GfycatAnalyticsClientConfig.html#Gfycat_Analytics_GfycatAnalyticsClientConfig_RestClient_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClientConfig.RestClient
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClientConfig.RestClient
   nameWithType: GfycatAnalyticsClientConfig.RestClient
 - uid: Gfycat.Analytics.GfycatAnalyticsClientConfig.SessionId
@@ -1181,6 +1263,7 @@ references:
   name: SessionId
   href: api/Gfycat.Analytics.GfycatAnalyticsClientConfig.html#Gfycat_Analytics_GfycatAnalyticsClientConfig_SessionId_
   commentId: Overload:Gfycat.Analytics.GfycatAnalyticsClientConfig.SessionId
+  isSpec: "True"
   fullName: Gfycat.Analytics.GfycatAnalyticsClientConfig.SessionId
   nameWithType: GfycatAnalyticsClientConfig.SessionId
 - uid: Gfycat.Analytics.Impression
@@ -1199,6 +1282,7 @@ references:
   name: Context
   href: api/Gfycat.Analytics.Impression.html#Gfycat_Analytics_Impression_Context_
   commentId: Overload:Gfycat.Analytics.Impression.Context
+  isSpec: "True"
   fullName: Gfycat.Analytics.Impression.Context
   nameWithType: Impression.Context
 - uid: Gfycat.Analytics.Impression.Flow
@@ -1211,6 +1295,7 @@ references:
   name: Flow
   href: api/Gfycat.Analytics.Impression.html#Gfycat_Analytics_Impression_Flow_
   commentId: Overload:Gfycat.Analytics.Impression.Flow
+  isSpec: "True"
   fullName: Gfycat.Analytics.Impression.Flow
   nameWithType: Impression.Flow
 - uid: Gfycat.Analytics.Impression.Gfycat
@@ -1223,6 +1308,7 @@ references:
   name: Gfycat
   href: api/Gfycat.Analytics.Impression.html#Gfycat_Analytics_Impression_Gfycat_
   commentId: Overload:Gfycat.Analytics.Impression.Gfycat
+  isSpec: "True"
   fullName: Gfycat.Analytics.Impression.Gfycat
   nameWithType: Impression.Gfycat
 - uid: Gfycat.Analytics.Impression.Keyword
@@ -1235,6 +1321,7 @@ references:
   name: Keyword
   href: api/Gfycat.Analytics.Impression.html#Gfycat_Analytics_Impression_Keyword_
   commentId: Overload:Gfycat.Analytics.Impression.Keyword
+  isSpec: "True"
   fullName: Gfycat.Analytics.Impression.Keyword
   nameWithType: Impression.Keyword
 - uid: Gfycat.Analytics.Impression.ViewTag
@@ -1247,6 +1334,7 @@ references:
   name: ViewTag
   href: api/Gfycat.Analytics.Impression.html#Gfycat_Analytics_Impression_ViewTag_
   commentId: Overload:Gfycat.Analytics.Impression.ViewTag
+  isSpec: "True"
   fullName: Gfycat.Analytics.Impression.ViewTag
   nameWithType: Impression.ViewTag
 - uid: Gfycat.Analytics.ImpressionContext
@@ -1313,6 +1401,7 @@ references:
   name: AppName
   href: api/Gfycat.AppApiInfo.html#Gfycat_AppApiInfo_AppName_
   commentId: Overload:Gfycat.AppApiInfo.AppName
+  isSpec: "True"
   fullName: Gfycat.AppApiInfo.AppName
   nameWithType: AppApiInfo.AppName
 - uid: Gfycat.AppApiInfo.AppType
@@ -1325,6 +1414,7 @@ references:
   name: AppType
   href: api/Gfycat.AppApiInfo.html#Gfycat_AppApiInfo_AppType_
   commentId: Overload:Gfycat.AppApiInfo.AppType
+  isSpec: "True"
   fullName: Gfycat.AppApiInfo.AppType
   nameWithType: AppApiInfo.AppType
 - uid: Gfycat.AppApiInfo.Company
@@ -1337,6 +1427,7 @@ references:
   name: Company
   href: api/Gfycat.AppApiInfo.html#Gfycat_AppApiInfo_Company_
   commentId: Overload:Gfycat.AppApiInfo.Company
+  isSpec: "True"
   fullName: Gfycat.AppApiInfo.Company
   nameWithType: AppApiInfo.Company
 - uid: Gfycat.AppApiInfo.ContactName
@@ -1349,6 +1440,7 @@ references:
   name: ContactName
   href: api/Gfycat.AppApiInfo.html#Gfycat_AppApiInfo_ContactName_
   commentId: Overload:Gfycat.AppApiInfo.ContactName
+  isSpec: "True"
   fullName: Gfycat.AppApiInfo.ContactName
   nameWithType: AppApiInfo.ContactName
 - uid: Gfycat.AppApiInfo.CreationDate
@@ -1361,6 +1453,7 @@ references:
   name: CreationDate
   href: api/Gfycat.AppApiInfo.html#Gfycat_AppApiInfo_CreationDate_
   commentId: Overload:Gfycat.AppApiInfo.CreationDate
+  isSpec: "True"
   fullName: Gfycat.AppApiInfo.CreationDate
   nameWithType: AppApiInfo.CreationDate
 - uid: Gfycat.AppApiInfo.Email
@@ -1373,6 +1466,7 @@ references:
   name: Email
   href: api/Gfycat.AppApiInfo.html#Gfycat_AppApiInfo_Email_
   commentId: Overload:Gfycat.AppApiInfo.Email
+  isSpec: "True"
   fullName: Gfycat.AppApiInfo.Email
   nameWithType: AppApiInfo.Email
 - uid: Gfycat.AppApiInfo.RedirectUris
@@ -1385,6 +1479,7 @@ references:
   name: RedirectUris
   href: api/Gfycat.AppApiInfo.html#Gfycat_AppApiInfo_RedirectUris_
   commentId: Overload:Gfycat.AppApiInfo.RedirectUris
+  isSpec: "True"
   fullName: Gfycat.AppApiInfo.RedirectUris
   nameWithType: AppApiInfo.RedirectUris
 - uid: Gfycat.AppApiInfo.Username
@@ -1397,6 +1492,7 @@ references:
   name: Username
   href: api/Gfycat.AppApiInfo.html#Gfycat_AppApiInfo_Username_
   commentId: Overload:Gfycat.AppApiInfo.Username
+  isSpec: "True"
   fullName: Gfycat.AppApiInfo.Username
   nameWithType: AppApiInfo.Username
 - uid: Gfycat.AppApiInfo.WebUrl
@@ -1409,6 +1505,7 @@ references:
   name: WebUrl
   href: api/Gfycat.AppApiInfo.html#Gfycat_AppApiInfo_WebUrl_
   commentId: Overload:Gfycat.AppApiInfo.WebUrl
+  isSpec: "True"
   fullName: Gfycat.AppApiInfo.WebUrl
   nameWithType: AppApiInfo.WebUrl
 - uid: Gfycat.AppType
@@ -1445,6 +1542,7 @@ references:
   name: Content
   href: api/Gfycat.BookmarkFolder.html#Gfycat_BookmarkFolder_Content_
   commentId: Overload:Gfycat.BookmarkFolder.Content
+  isSpec: "True"
   fullName: Gfycat.BookmarkFolder.Content
   nameWithType: BookmarkFolder.Content
 - uid: Gfycat.BookmarkFolder.Count
@@ -1457,6 +1555,7 @@ references:
   name: Count
   href: api/Gfycat.BookmarkFolder.html#Gfycat_BookmarkFolder_Count_
   commentId: Overload:Gfycat.BookmarkFolder.Count
+  isSpec: "True"
   fullName: Gfycat.BookmarkFolder.Count
   nameWithType: BookmarkFolder.Count
 - uid: Gfycat.BookmarkFolder.DeleteAsync(Gfycat.RequestOptions)
@@ -1469,6 +1568,7 @@ references:
   name: DeleteAsync
   href: api/Gfycat.BookmarkFolder.html#Gfycat_BookmarkFolder_DeleteAsync_
   commentId: Overload:Gfycat.BookmarkFolder.DeleteAsync
+  isSpec: "True"
   fullName: Gfycat.BookmarkFolder.DeleteAsync
   nameWithType: BookmarkFolder.DeleteAsync
 - uid: Gfycat.BookmarkFolder.Gfycat#IFolderContent#MoveGfysAsync(Gfycat.IFolderContent,System.Collections.Generic.IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
@@ -1484,6 +1584,7 @@ references:
   name: IFolderContent.MoveGfysAsync
   href: api/Gfycat.BookmarkFolder.html#Gfycat_BookmarkFolder_Gfycat_IFolderContent_MoveGfysAsync_
   commentId: Overload:Gfycat.BookmarkFolder.Gfycat#IFolderContent#MoveGfysAsync
+  isSpec: "True"
   name.vb: Gfycat.IFolderContent.MoveGfysAsync
   fullName: Gfycat.BookmarkFolder.Gfycat.IFolderContent.MoveGfysAsync
   nameWithType: BookmarkFolder.IFolderContent.MoveGfysAsync
@@ -1498,6 +1599,7 @@ references:
   name: ModifyTitleAsync
   href: api/Gfycat.BookmarkFolder.html#Gfycat_BookmarkFolder_ModifyTitleAsync_
   commentId: Overload:Gfycat.BookmarkFolder.ModifyTitleAsync
+  isSpec: "True"
   fullName: Gfycat.BookmarkFolder.ModifyTitleAsync
   nameWithType: BookmarkFolder.ModifyTitleAsync
 - uid: Gfycat.BookmarkFolder.MoveGfysAsync(Gfycat.BookmarkFolder,System.Collections.Generic.IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
@@ -1513,6 +1615,7 @@ references:
   name: MoveGfysAsync
   href: api/Gfycat.BookmarkFolder.html#Gfycat_BookmarkFolder_MoveGfysAsync_
   commentId: Overload:Gfycat.BookmarkFolder.MoveGfysAsync
+  isSpec: "True"
   fullName: Gfycat.BookmarkFolder.MoveGfysAsync
   nameWithType: BookmarkFolder.MoveGfysAsync
 - uid: Gfycat.BookmarkFolder.Title
@@ -1525,6 +1628,7 @@ references:
   name: Title
   href: api/Gfycat.BookmarkFolder.html#Gfycat_BookmarkFolder_Title_
   commentId: Overload:Gfycat.BookmarkFolder.Title
+  isSpec: "True"
   fullName: Gfycat.BookmarkFolder.Title
   nameWithType: BookmarkFolder.Title
 - uid: Gfycat.BookmarkFolder.UpdateAsync(Gfycat.RequestOptions)
@@ -1537,6 +1641,7 @@ references:
   name: UpdateAsync
   href: api/Gfycat.BookmarkFolder.html#Gfycat_BookmarkFolder_UpdateAsync_
   commentId: Overload:Gfycat.BookmarkFolder.UpdateAsync
+  isSpec: "True"
   fullName: Gfycat.BookmarkFolder.UpdateAsync
   nameWithType: BookmarkFolder.UpdateAsync
 - uid: Gfycat.BookmarkFolderInfo
@@ -1555,6 +1660,7 @@ references:
   name: CreateNewFolderAsync
   href: api/Gfycat.BookmarkFolderInfo.html#Gfycat_BookmarkFolderInfo_CreateNewFolderAsync_
   commentId: Overload:Gfycat.BookmarkFolderInfo.CreateNewFolderAsync
+  isSpec: "True"
   fullName: Gfycat.BookmarkFolderInfo.CreateNewFolderAsync
   nameWithType: BookmarkFolderInfo.CreateNewFolderAsync
 - uid: Gfycat.BookmarkFolderInfo.DeleteAsync(Gfycat.RequestOptions)
@@ -1567,6 +1673,7 @@ references:
   name: DeleteAsync
   href: api/Gfycat.BookmarkFolderInfo.html#Gfycat_BookmarkFolderInfo_DeleteAsync_
   commentId: Overload:Gfycat.BookmarkFolderInfo.DeleteAsync
+  isSpec: "True"
   fullName: Gfycat.BookmarkFolderInfo.DeleteAsync
   nameWithType: BookmarkFolderInfo.DeleteAsync
 - uid: Gfycat.BookmarkFolderInfo.GetContentsAsync(Gfycat.RequestOptions)
@@ -1579,6 +1686,7 @@ references:
   name: GetContentsAsync
   href: api/Gfycat.BookmarkFolderInfo.html#Gfycat_BookmarkFolderInfo_GetContentsAsync_
   commentId: Overload:Gfycat.BookmarkFolderInfo.GetContentsAsync
+  isSpec: "True"
   fullName: Gfycat.BookmarkFolderInfo.GetContentsAsync
   nameWithType: BookmarkFolderInfo.GetContentsAsync
 - uid: Gfycat.BookmarkFolderInfo.Gfycat#IFolderInfo#GetContentsAsync(Gfycat.RequestOptions)
@@ -1593,6 +1701,7 @@ references:
   name: IFolderInfo.GetContentsAsync
   href: api/Gfycat.BookmarkFolderInfo.html#Gfycat_BookmarkFolderInfo_Gfycat_IFolderInfo_GetContentsAsync_
   commentId: Overload:Gfycat.BookmarkFolderInfo.Gfycat#IFolderInfo#GetContentsAsync
+  isSpec: "True"
   name.vb: Gfycat.IFolderInfo.GetContentsAsync
   fullName: Gfycat.BookmarkFolderInfo.Gfycat.IFolderInfo.GetContentsAsync
   nameWithType: BookmarkFolderInfo.IFolderInfo.GetContentsAsync
@@ -1609,6 +1718,7 @@ references:
   name: IFolderInfo.MoveFolderAsync
   href: api/Gfycat.BookmarkFolderInfo.html#Gfycat_BookmarkFolderInfo_Gfycat_IFolderInfo_MoveFolderAsync_
   commentId: Overload:Gfycat.BookmarkFolderInfo.Gfycat#IFolderInfo#MoveFolderAsync
+  isSpec: "True"
   name.vb: Gfycat.IFolderInfo.MoveFolderAsync
   fullName: Gfycat.BookmarkFolderInfo.Gfycat.IFolderInfo.MoveFolderAsync
   nameWithType: BookmarkFolderInfo.IFolderInfo.MoveFolderAsync
@@ -1625,6 +1735,7 @@ references:
   name: IFolderInfo.Subfolders
   href: api/Gfycat.BookmarkFolderInfo.html#Gfycat_BookmarkFolderInfo_Gfycat_IFolderInfo_Subfolders_
   commentId: Overload:Gfycat.BookmarkFolderInfo.Gfycat#IFolderInfo#Subfolders
+  isSpec: "True"
   name.vb: Gfycat.IFolderInfo.Subfolders
   fullName: Gfycat.BookmarkFolderInfo.Gfycat.IFolderInfo.Subfolders
   nameWithType: BookmarkFolderInfo.IFolderInfo.Subfolders
@@ -1639,6 +1750,7 @@ references:
   name: ModifyTitleAsync
   href: api/Gfycat.BookmarkFolderInfo.html#Gfycat_BookmarkFolderInfo_ModifyTitleAsync_
   commentId: Overload:Gfycat.BookmarkFolderInfo.ModifyTitleAsync
+  isSpec: "True"
   fullName: Gfycat.BookmarkFolderInfo.ModifyTitleAsync
   nameWithType: BookmarkFolderInfo.ModifyTitleAsync
 - uid: Gfycat.BookmarkFolderInfo.MoveFolderAsync(Gfycat.BookmarkFolderInfo,Gfycat.RequestOptions)
@@ -1651,6 +1763,7 @@ references:
   name: MoveFolderAsync
   href: api/Gfycat.BookmarkFolderInfo.html#Gfycat_BookmarkFolderInfo_MoveFolderAsync_
   commentId: Overload:Gfycat.BookmarkFolderInfo.MoveFolderAsync
+  isSpec: "True"
   fullName: Gfycat.BookmarkFolderInfo.MoveFolderAsync
   nameWithType: BookmarkFolderInfo.MoveFolderAsync
 - uid: Gfycat.BookmarkFolderInfo.Subfolders
@@ -1663,6 +1776,7 @@ references:
   name: Subfolders
   href: api/Gfycat.BookmarkFolderInfo.html#Gfycat_BookmarkFolderInfo_Subfolders_
   commentId: Overload:Gfycat.BookmarkFolderInfo.Subfolders
+  isSpec: "True"
   fullName: Gfycat.BookmarkFolderInfo.Subfolders
   nameWithType: BookmarkFolderInfo.Subfolders
 - uid: Gfycat.BookmarkFolderInfo.Title
@@ -1675,6 +1789,7 @@ references:
   name: Title
   href: api/Gfycat.BookmarkFolderInfo.html#Gfycat_BookmarkFolderInfo_Title_
   commentId: Overload:Gfycat.BookmarkFolderInfo.Title
+  isSpec: "True"
   fullName: Gfycat.BookmarkFolderInfo.Title
   nameWithType: BookmarkFolderInfo.Title
 - uid: Gfycat.Caption
@@ -1693,6 +1808,7 @@ references:
   name: Caption
   href: api/Gfycat.Caption.html#Gfycat_Caption__ctor_
   commentId: Overload:Gfycat.Caption.#ctor
+  isSpec: "True"
   fullName: Gfycat.Caption.Caption
   nameWithType: Caption.Caption
 - uid: Gfycat.Caption.Duration
@@ -1705,6 +1821,7 @@ references:
   name: Duration
   href: api/Gfycat.Caption.html#Gfycat_Caption_Duration_
   commentId: Overload:Gfycat.Caption.Duration
+  isSpec: "True"
   fullName: Gfycat.Caption.Duration
   nameWithType: Caption.Duration
 - uid: Gfycat.Caption.FontHeight
@@ -1717,6 +1834,7 @@ references:
   name: FontHeight
   href: api/Gfycat.Caption.html#Gfycat_Caption_FontHeight_
   commentId: Overload:Gfycat.Caption.FontHeight
+  isSpec: "True"
   fullName: Gfycat.Caption.FontHeight
   nameWithType: Caption.FontHeight
 - uid: Gfycat.Caption.RelativeFontHeight
@@ -1729,6 +1847,7 @@ references:
   name: RelativeFontHeight
   href: api/Gfycat.Caption.html#Gfycat_Caption_RelativeFontHeight_
   commentId: Overload:Gfycat.Caption.RelativeFontHeight
+  isSpec: "True"
   fullName: Gfycat.Caption.RelativeFontHeight
   nameWithType: Caption.RelativeFontHeight
 - uid: Gfycat.Caption.RelativeXPosition
@@ -1741,6 +1860,7 @@ references:
   name: RelativeXPosition
   href: api/Gfycat.Caption.html#Gfycat_Caption_RelativeXPosition_
   commentId: Overload:Gfycat.Caption.RelativeXPosition
+  isSpec: "True"
   fullName: Gfycat.Caption.RelativeXPosition
   nameWithType: Caption.RelativeXPosition
 - uid: Gfycat.Caption.RelativeYPosition
@@ -1753,6 +1873,7 @@ references:
   name: RelativeYPosition
   href: api/Gfycat.Caption.html#Gfycat_Caption_RelativeYPosition_
   commentId: Overload:Gfycat.Caption.RelativeYPosition
+  isSpec: "True"
   fullName: Gfycat.Caption.RelativeYPosition
   nameWithType: Caption.RelativeYPosition
 - uid: Gfycat.Caption.StartSeconds
@@ -1765,6 +1886,7 @@ references:
   name: StartSeconds
   href: api/Gfycat.Caption.html#Gfycat_Caption_StartSeconds_
   commentId: Overload:Gfycat.Caption.StartSeconds
+  isSpec: "True"
   fullName: Gfycat.Caption.StartSeconds
   nameWithType: Caption.StartSeconds
 - uid: Gfycat.Caption.Text
@@ -1777,6 +1899,7 @@ references:
   name: Text
   href: api/Gfycat.Caption.html#Gfycat_Caption_Text_
   commentId: Overload:Gfycat.Caption.Text
+  isSpec: "True"
   fullName: Gfycat.Caption.Text
   nameWithType: Caption.Text
 - uid: Gfycat.Caption.XPosition
@@ -1789,6 +1912,7 @@ references:
   name: XPosition
   href: api/Gfycat.Caption.html#Gfycat_Caption_XPosition_
   commentId: Overload:Gfycat.Caption.XPosition
+  isSpec: "True"
   fullName: Gfycat.Caption.XPosition
   nameWithType: Caption.XPosition
 - uid: Gfycat.Caption.YPosition
@@ -1801,6 +1925,7 @@ references:
   name: YPosition
   href: api/Gfycat.Caption.html#Gfycat_Caption_YPosition_
   commentId: Overload:Gfycat.Caption.YPosition
+  isSpec: "True"
   fullName: Gfycat.Caption.YPosition
   nameWithType: Caption.YPosition
 - uid: Gfycat.Crop
@@ -1819,6 +1944,7 @@ references:
   name: Crop
   href: api/Gfycat.Crop.html#Gfycat_Crop__ctor_
   commentId: Overload:Gfycat.Crop.#ctor
+  isSpec: "True"
   fullName: Gfycat.Crop.Crop
   nameWithType: Crop.Crop
 - uid: Gfycat.Crop.Height
@@ -1831,6 +1957,7 @@ references:
   name: Height
   href: api/Gfycat.Crop.html#Gfycat_Crop_Height_
   commentId: Overload:Gfycat.Crop.Height
+  isSpec: "True"
   fullName: Gfycat.Crop.Height
   nameWithType: Crop.Height
 - uid: Gfycat.Crop.Width
@@ -1843,6 +1970,7 @@ references:
   name: Width
   href: api/Gfycat.Crop.html#Gfycat_Crop_Width_
   commentId: Overload:Gfycat.Crop.Width
+  isSpec: "True"
   fullName: Gfycat.Crop.Width
   nameWithType: Crop.Width
 - uid: Gfycat.Crop.XPosition
@@ -1855,6 +1983,7 @@ references:
   name: XPosition
   href: api/Gfycat.Crop.html#Gfycat_Crop_XPosition_
   commentId: Overload:Gfycat.Crop.XPosition
+  isSpec: "True"
   fullName: Gfycat.Crop.XPosition
   nameWithType: Crop.XPosition
 - uid: Gfycat.Crop.YPosition
@@ -1867,6 +1996,7 @@ references:
   name: YPosition
   href: api/Gfycat.Crop.html#Gfycat_Crop_YPosition_
   commentId: Overload:Gfycat.Crop.YPosition
+  isSpec: "True"
   fullName: Gfycat.Crop.YPosition
   nameWithType: Crop.YPosition
 - uid: Gfycat.CurrentUser
@@ -1885,6 +2015,7 @@ references:
   name: AddTwitterProviderAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_AddTwitterProviderAsync_
   commentId: Overload:Gfycat.CurrentUser.AddTwitterProviderAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.AddTwitterProviderAsync
   nameWithType: CurrentUser.AddTwitterProviderAsync
 - uid: Gfycat.CurrentUser.CreateFolderAsync(System.String,Gfycat.RequestOptions)
@@ -1897,6 +2028,7 @@ references:
   name: CreateFolderAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_CreateFolderAsync_
   commentId: Overload:Gfycat.CurrentUser.CreateFolderAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.CreateFolderAsync
   nameWithType: CurrentUser.CreateFolderAsync
 - uid: Gfycat.CurrentUser.CreationDate
@@ -1909,6 +2041,7 @@ references:
   name: CreationDate
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_CreationDate_
   commentId: Overload:Gfycat.CurrentUser.CreationDate
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.CreationDate
   nameWithType: CurrentUser.CreationDate
 - uid: Gfycat.CurrentUser.DeleteDomainWhitelistAsync(Gfycat.RequestOptions)
@@ -1921,6 +2054,7 @@ references:
   name: DeleteDomainWhitelistAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_DeleteDomainWhitelistAsync_
   commentId: Overload:Gfycat.CurrentUser.DeleteDomainWhitelistAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.DeleteDomainWhitelistAsync
   nameWithType: CurrentUser.DeleteDomainWhitelistAsync
 - uid: Gfycat.CurrentUser.DeleteGeoWhitelistAsync(Gfycat.RequestOptions)
@@ -1933,6 +2067,7 @@ references:
   name: DeleteGeoWhitelistAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_DeleteGeoWhitelistAsync_
   commentId: Overload:Gfycat.CurrentUser.DeleteGeoWhitelistAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.DeleteGeoWhitelistAsync
   nameWithType: CurrentUser.DeleteGeoWhitelistAsync
 - uid: Gfycat.CurrentUser.Description
@@ -1945,6 +2080,7 @@ references:
   name: Description
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_Description_
   commentId: Overload:Gfycat.CurrentUser.Description
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.Description
   nameWithType: CurrentUser.Description
 - uid: Gfycat.CurrentUser.DomainWhitelist
@@ -1957,6 +2093,7 @@ references:
   name: DomainWhitelist
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_DomainWhitelist_
   commentId: Overload:Gfycat.CurrentUser.DomainWhitelist
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.DomainWhitelist
   nameWithType: CurrentUser.DomainWhitelist
 - uid: Gfycat.CurrentUser.Email
@@ -1969,6 +2106,7 @@ references:
   name: Email
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_Email_
   commentId: Overload:Gfycat.CurrentUser.Email
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.Email
   nameWithType: CurrentUser.Email
 - uid: Gfycat.CurrentUser.EmailVerified
@@ -1981,6 +2119,7 @@ references:
   name: EmailVerified
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_EmailVerified_
   commentId: Overload:Gfycat.CurrentUser.EmailVerified
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.EmailVerified
   nameWithType: CurrentUser.EmailVerified
 - uid: Gfycat.CurrentUser.Followers
@@ -1993,6 +2132,7 @@ references:
   name: Followers
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_Followers_
   commentId: Overload:Gfycat.CurrentUser.Followers
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.Followers
   nameWithType: CurrentUser.Followers
 - uid: Gfycat.CurrentUser.Following
@@ -2005,6 +2145,7 @@ references:
   name: Following
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_Following_
   commentId: Overload:Gfycat.CurrentUser.Following
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.Following
   nameWithType: CurrentUser.Following
 - uid: Gfycat.CurrentUser.GeoWhitelist
@@ -2017,6 +2158,7 @@ references:
   name: GeoWhitelist
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GeoWhitelist_
   commentId: Overload:Gfycat.CurrentUser.GeoWhitelist
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.GeoWhitelist
   nameWithType: CurrentUser.GeoWhitelist
 - uid: Gfycat.CurrentUser.GetAlbumsAsync(Gfycat.RequestOptions)
@@ -2029,6 +2171,7 @@ references:
   name: GetAlbumsAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetAlbumsAsync_
   commentId: Overload:Gfycat.CurrentUser.GetAlbumsAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.GetAlbumsAsync
   nameWithType: CurrentUser.GetAlbumsAsync
 - uid: Gfycat.CurrentUser.GetApiCredentialsAsync(Gfycat.RequestOptions)
@@ -2041,6 +2184,7 @@ references:
   name: GetApiCredentialsAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetApiCredentialsAsync_
   commentId: Overload:Gfycat.CurrentUser.GetApiCredentialsAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.GetApiCredentialsAsync
   nameWithType: CurrentUser.GetApiCredentialsAsync
 - uid: Gfycat.CurrentUser.GetBookmarkFoldersAsync(Gfycat.RequestOptions)
@@ -2053,6 +2197,7 @@ references:
   name: GetBookmarkFoldersAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetBookmarkFoldersAsync_
   commentId: Overload:Gfycat.CurrentUser.GetBookmarkFoldersAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.GetBookmarkFoldersAsync
   nameWithType: CurrentUser.GetBookmarkFoldersAsync
 - uid: Gfycat.CurrentUser.GetDomainWhitelistAsync(Gfycat.RequestOptions)
@@ -2065,6 +2210,7 @@ references:
   name: GetDomainWhitelistAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetDomainWhitelistAsync_
   commentId: Overload:Gfycat.CurrentUser.GetDomainWhitelistAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.GetDomainWhitelistAsync
   nameWithType: CurrentUser.GetDomainWhitelistAsync
 - uid: Gfycat.CurrentUser.GetEmailVerifiedAsync(Gfycat.RequestOptions)
@@ -2077,6 +2223,7 @@ references:
   name: GetEmailVerifiedAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetEmailVerifiedAsync_
   commentId: Overload:Gfycat.CurrentUser.GetEmailVerifiedAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.GetEmailVerifiedAsync
   nameWithType: CurrentUser.GetEmailVerifiedAsync
 - uid: Gfycat.CurrentUser.GetFoldersAsync(Gfycat.RequestOptions)
@@ -2089,6 +2236,7 @@ references:
   name: GetFoldersAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetFoldersAsync_
   commentId: Overload:Gfycat.CurrentUser.GetFoldersAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.GetFoldersAsync
   nameWithType: CurrentUser.GetFoldersAsync
 - uid: Gfycat.CurrentUser.GetFollowersAsync(Gfycat.RequestOptions)
@@ -2101,6 +2249,7 @@ references:
   name: GetFollowersAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetFollowersAsync_
   commentId: Overload:Gfycat.CurrentUser.GetFollowersAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.GetFollowersAsync
   nameWithType: CurrentUser.GetFollowersAsync
 - uid: Gfycat.CurrentUser.GetFollowersPopulatedAsync(Gfycat.RequestOptions)
@@ -2113,6 +2262,7 @@ references:
   name: GetFollowersPopulatedAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetFollowersPopulatedAsync_
   commentId: Overload:Gfycat.CurrentUser.GetFollowersPopulatedAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.GetFollowersPopulatedAsync
   nameWithType: CurrentUser.GetFollowersPopulatedAsync
 - uid: Gfycat.CurrentUser.GetFollowingUsersAsync(Gfycat.RequestOptions)
@@ -2125,6 +2275,7 @@ references:
   name: GetFollowingUsersAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetFollowingUsersAsync_
   commentId: Overload:Gfycat.CurrentUser.GetFollowingUsersAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.GetFollowingUsersAsync
   nameWithType: CurrentUser.GetFollowingUsersAsync
 - uid: Gfycat.CurrentUser.GetFollowingUsersPopulatedAsync(Gfycat.RequestOptions)
@@ -2137,6 +2288,7 @@ references:
   name: GetFollowingUsersPopulatedAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetFollowingUsersPopulatedAsync_
   commentId: Overload:Gfycat.CurrentUser.GetFollowingUsersPopulatedAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.GetFollowingUsersPopulatedAsync
   nameWithType: CurrentUser.GetFollowingUsersPopulatedAsync
 - uid: Gfycat.CurrentUser.GetGeoWhitelistAsync(Gfycat.RequestOptions)
@@ -2149,6 +2301,7 @@ references:
   name: GetGeoWhitelistAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetGeoWhitelistAsync_
   commentId: Overload:Gfycat.CurrentUser.GetGeoWhitelistAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.GetGeoWhitelistAsync
   nameWithType: CurrentUser.GetGeoWhitelistAsync
 - uid: Gfycat.CurrentUser.GetGfyFeedAsync(System.Int32,Gfycat.RequestOptions)
@@ -2161,6 +2314,7 @@ references:
   name: GetGfyFeedAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetGfyFeedAsync_
   commentId: Overload:Gfycat.CurrentUser.GetGfyFeedAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.GetGfyFeedAsync
   nameWithType: CurrentUser.GetGfyFeedAsync
 - uid: Gfycat.CurrentUser.GetProfilePictureUploadStatusAsync(Gfycat.RequestOptions)
@@ -2173,6 +2327,7 @@ references:
   name: GetProfilePictureUploadStatusAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetProfilePictureUploadStatusAsync_
   commentId: Overload:Gfycat.CurrentUser.GetProfilePictureUploadStatusAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.GetProfilePictureUploadStatusAsync
   nameWithType: CurrentUser.GetProfilePictureUploadStatusAsync
 - uid: Gfycat.CurrentUser.GetTimelineFeedAsync(System.Int32,Gfycat.RequestOptions)
@@ -2185,6 +2340,7 @@ references:
   name: GetTimelineFeedAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_GetTimelineFeedAsync_
   commentId: Overload:Gfycat.CurrentUser.GetTimelineFeedAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.GetTimelineFeedAsync
   nameWithType: CurrentUser.GetTimelineFeedAsync
 - uid: Gfycat.CurrentUser.Gfycat#IUser#FollowAsync(Gfycat.RequestOptions)
@@ -2199,6 +2355,7 @@ references:
   name: IUser.FollowAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_Gfycat_IUser_FollowAsync_
   commentId: Overload:Gfycat.CurrentUser.Gfycat#IUser#FollowAsync
+  isSpec: "True"
   name.vb: Gfycat.IUser.FollowAsync
   fullName: Gfycat.CurrentUser.Gfycat.IUser.FollowAsync
   nameWithType: CurrentUser.IUser.FollowAsync
@@ -2215,6 +2372,7 @@ references:
   name: IUser.GetFollowingUser
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_Gfycat_IUser_GetFollowingUser_
   commentId: Overload:Gfycat.CurrentUser.Gfycat#IUser#GetFollowingUser
+  isSpec: "True"
   name.vb: Gfycat.IUser.GetFollowingUser
   fullName: Gfycat.CurrentUser.Gfycat.IUser.GetFollowingUser
   nameWithType: CurrentUser.IUser.GetFollowingUser
@@ -2231,6 +2389,7 @@ references:
   name: IUser.UnfollowAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_Gfycat_IUser_UnfollowAsync_
   commentId: Overload:Gfycat.CurrentUser.Gfycat#IUser#UnfollowAsync
+  isSpec: "True"
   name.vb: Gfycat.IUser.UnfollowAsync
   fullName: Gfycat.CurrentUser.Gfycat.IUser.UnfollowAsync
   nameWithType: CurrentUser.IUser.UnfollowAsync
@@ -2245,6 +2404,7 @@ references:
   name: IframeProfileImageVisible
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_IframeProfileImageVisible_
   commentId: Overload:Gfycat.CurrentUser.IframeProfileImageVisible
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.IframeProfileImageVisible
   nameWithType: CurrentUser.IframeProfileImageVisible
 - uid: Gfycat.CurrentUser.ModifyCurrentUserAsync(Gfycat.RequestOptions,Gfycat.GfycatOperation[])
@@ -2269,6 +2429,7 @@ references:
   name: ModifyCurrentUserAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_ModifyCurrentUserAsync_
   commentId: Overload:Gfycat.CurrentUser.ModifyCurrentUserAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.ModifyCurrentUserAsync
   nameWithType: CurrentUser.ModifyCurrentUserAsync
 - uid: Gfycat.CurrentUser.ModifyDomainWhitelistAsync(System.Collections.Generic.IEnumerable{System.String},Gfycat.RequestOptions)
@@ -2284,6 +2445,7 @@ references:
   name: ModifyDomainWhitelistAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_ModifyDomainWhitelistAsync_
   commentId: Overload:Gfycat.CurrentUser.ModifyDomainWhitelistAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.ModifyDomainWhitelistAsync
   nameWithType: CurrentUser.ModifyDomainWhitelistAsync
 - uid: Gfycat.CurrentUser.ModifyGeoWhitelistAsync(System.Collections.Generic.IEnumerable{System.Globalization.RegionInfo},Gfycat.RequestOptions)
@@ -2299,6 +2461,7 @@ references:
   name: ModifyGeoWhitelistAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_ModifyGeoWhitelistAsync_
   commentId: Overload:Gfycat.CurrentUser.ModifyGeoWhitelistAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.ModifyGeoWhitelistAsync
   nameWithType: CurrentUser.ModifyGeoWhitelistAsync
 - uid: Gfycat.CurrentUser.Name
@@ -2311,6 +2474,7 @@ references:
   name: Name
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_Name_
   commentId: Overload:Gfycat.CurrentUser.Name
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.Name
   nameWithType: CurrentUser.Name
 - uid: Gfycat.CurrentUser.ProfileImageUrl
@@ -2323,6 +2487,7 @@ references:
   name: ProfileImageUrl
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_ProfileImageUrl_
   commentId: Overload:Gfycat.CurrentUser.ProfileImageUrl
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.ProfileImageUrl
   nameWithType: CurrentUser.ProfileImageUrl
 - uid: Gfycat.CurrentUser.ProfileUrl
@@ -2335,6 +2500,7 @@ references:
   name: ProfileUrl
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_ProfileUrl_
   commentId: Overload:Gfycat.CurrentUser.ProfileUrl
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.ProfileUrl
   nameWithType: CurrentUser.ProfileUrl
 - uid: Gfycat.CurrentUser.PublishedAlbums
@@ -2347,6 +2513,7 @@ references:
   name: PublishedAlbums
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_PublishedAlbums_
   commentId: Overload:Gfycat.CurrentUser.PublishedAlbums
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.PublishedAlbums
   nameWithType: CurrentUser.PublishedAlbums
 - uid: Gfycat.CurrentUser.PublishedGfys
@@ -2359,6 +2526,7 @@ references:
   name: PublishedGfys
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_PublishedGfys_
   commentId: Overload:Gfycat.CurrentUser.PublishedGfys
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.PublishedGfys
   nameWithType: CurrentUser.PublishedGfys
 - uid: Gfycat.CurrentUser.RemoveTwitterProviderAsync(Gfycat.RequestOptions)
@@ -2371,6 +2539,7 @@ references:
   name: RemoveTwitterProviderAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_RemoveTwitterProviderAsync_
   commentId: Overload:Gfycat.CurrentUser.RemoveTwitterProviderAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.RemoveTwitterProviderAsync
   nameWithType: CurrentUser.RemoveTwitterProviderAsync
 - uid: Gfycat.CurrentUser.SearchAsync(System.String,System.Int32,Gfycat.RequestOptions)
@@ -2383,6 +2552,7 @@ references:
   name: SearchAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_SearchAsync_
   commentId: Overload:Gfycat.CurrentUser.SearchAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.SearchAsync
   nameWithType: CurrentUser.SearchAsync
 - uid: Gfycat.CurrentUser.SendVerificationEmailAsync(Gfycat.RequestOptions)
@@ -2395,6 +2565,7 @@ references:
   name: SendVerificationEmailAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_SendVerificationEmailAsync_
   commentId: Overload:Gfycat.CurrentUser.SendVerificationEmailAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.SendVerificationEmailAsync
   nameWithType: CurrentUser.SendVerificationEmailAsync
 - uid: Gfycat.CurrentUser.TotalAlbums
@@ -2407,6 +2578,7 @@ references:
   name: TotalAlbums
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_TotalAlbums_
   commentId: Overload:Gfycat.CurrentUser.TotalAlbums
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.TotalAlbums
   nameWithType: CurrentUser.TotalAlbums
 - uid: Gfycat.CurrentUser.TotalBookmarks
@@ -2419,6 +2591,7 @@ references:
   name: TotalBookmarks
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_TotalBookmarks_
   commentId: Overload:Gfycat.CurrentUser.TotalBookmarks
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.TotalBookmarks
   nameWithType: CurrentUser.TotalBookmarks
 - uid: Gfycat.CurrentUser.TotalGfys
@@ -2431,6 +2604,7 @@ references:
   name: TotalGfys
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_TotalGfys_
   commentId: Overload:Gfycat.CurrentUser.TotalGfys
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.TotalGfys
   nameWithType: CurrentUser.TotalGfys
 - uid: Gfycat.CurrentUser.UpdateAsync(Gfycat.RequestOptions)
@@ -2443,6 +2617,7 @@ references:
   name: UpdateAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_UpdateAsync_
   commentId: Overload:Gfycat.CurrentUser.UpdateAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.UpdateAsync
   nameWithType: CurrentUser.UpdateAsync
 - uid: Gfycat.CurrentUser.UploadNotices
@@ -2455,6 +2630,7 @@ references:
   name: UploadNotices
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_UploadNotices_
   commentId: Overload:Gfycat.CurrentUser.UploadNotices
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.UploadNotices
   nameWithType: CurrentUser.UploadNotices
 - uid: Gfycat.CurrentUser.UploadProfilePictureAsync(System.IO.Stream,Gfycat.RequestOptions)
@@ -2467,6 +2643,7 @@ references:
   name: UploadProfilePictureAsync
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_UploadProfilePictureAsync_
   commentId: Overload:Gfycat.CurrentUser.UploadProfilePictureAsync
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.UploadProfilePictureAsync
   nameWithType: CurrentUser.UploadProfilePictureAsync
 - uid: Gfycat.CurrentUser.Url
@@ -2479,6 +2656,7 @@ references:
   name: Url
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_Url_
   commentId: Overload:Gfycat.CurrentUser.Url
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.Url
   nameWithType: CurrentUser.Url
 - uid: Gfycat.CurrentUser.Username
@@ -2491,6 +2669,7 @@ references:
   name: Username
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_Username_
   commentId: Overload:Gfycat.CurrentUser.Username
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.Username
   nameWithType: CurrentUser.Username
 - uid: Gfycat.CurrentUser.Verified
@@ -2503,6 +2682,7 @@ references:
   name: Verified
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_Verified_
   commentId: Overload:Gfycat.CurrentUser.Verified
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.Verified
   nameWithType: CurrentUser.Verified
 - uid: Gfycat.CurrentUser.Views
@@ -2515,6 +2695,7 @@ references:
   name: Views
   href: api/Gfycat.CurrentUser.html#Gfycat_CurrentUser_Views_
   commentId: Overload:Gfycat.CurrentUser.Views
+  isSpec: "True"
   fullName: Gfycat.CurrentUser.Views
   nameWithType: CurrentUser.Views
 - uid: Gfycat.Cut
@@ -2533,6 +2714,7 @@ references:
   name: Cut
   href: api/Gfycat.Cut.html#Gfycat_Cut__ctor_
   commentId: Overload:Gfycat.Cut.#ctor
+  isSpec: "True"
   fullName: Gfycat.Cut.Cut
   nameWithType: Cut.Cut
 - uid: Gfycat.Cut.Duration
@@ -2545,6 +2727,7 @@ references:
   name: Duration
   href: api/Gfycat.Cut.html#Gfycat_Cut_Duration_
   commentId: Overload:Gfycat.Cut.Duration
+  isSpec: "True"
   fullName: Gfycat.Cut.Duration
   nameWithType: Cut.Duration
 - uid: Gfycat.Cut.Start
@@ -2557,6 +2740,7 @@ references:
   name: Start
   href: api/Gfycat.Cut.html#Gfycat_Cut_Start_
   commentId: Overload:Gfycat.Cut.Start
+  isSpec: "True"
   fullName: Gfycat.Cut.Start
   nameWithType: Cut.Start
 - uid: Gfycat.Entity
@@ -2575,6 +2759,7 @@ references:
   name: Id
   href: api/Gfycat.Entity.html#Gfycat_Entity_Id_
   commentId: Overload:Gfycat.Entity.Id
+  isSpec: "True"
   fullName: Gfycat.Entity.Id
   nameWithType: Entity.Id
 - uid: Gfycat.FeedEnumerator`1
@@ -2598,6 +2783,7 @@ references:
   name: Current
   href: api/Gfycat.FeedEnumerator-1.html#Gfycat_FeedEnumerator_1_Current_
   commentId: Overload:Gfycat.FeedEnumerator`1.Current
+  isSpec: "True"
   fullName: Gfycat.FeedEnumerator<T>.Current
   fullName.vb: Gfycat.FeedEnumerator(Of T).Current
   nameWithType: FeedEnumerator<T>.Current
@@ -2622,6 +2808,7 @@ references:
   name: Dispose
   href: api/Gfycat.FeedEnumerator-1.html#Gfycat_FeedEnumerator_1_Dispose_
   commentId: Overload:Gfycat.FeedEnumerator`1.Dispose
+  isSpec: "True"
   fullName: Gfycat.FeedEnumerator<T>.Dispose
   fullName.vb: Gfycat.FeedEnumerator(Of T).Dispose
   nameWithType: FeedEnumerator<T>.Dispose
@@ -2638,6 +2825,7 @@ references:
   name: MoveNext
   href: api/Gfycat.FeedEnumerator-1.html#Gfycat_FeedEnumerator_1_MoveNext_
   commentId: Overload:Gfycat.FeedEnumerator`1.MoveNext
+  isSpec: "True"
   fullName: Gfycat.FeedEnumerator<T>.MoveNext
   fullName.vb: Gfycat.FeedEnumerator(Of T).MoveNext
   nameWithType: FeedEnumerator<T>.MoveNext
@@ -2654,6 +2842,7 @@ references:
   name: RequestCount
   href: api/Gfycat.FeedEnumerator-1.html#Gfycat_FeedEnumerator_1_RequestCount_
   commentId: Overload:Gfycat.FeedEnumerator`1.RequestCount
+  isSpec: "True"
   fullName: Gfycat.FeedEnumerator<T>.RequestCount
   fullName.vb: Gfycat.FeedEnumerator(Of T).RequestCount
   nameWithType: FeedEnumerator<T>.RequestCount
@@ -2674,6 +2863,7 @@ references:
   name: Content
   href: api/Gfycat.Folder.html#Gfycat_Folder_Content_
   commentId: Overload:Gfycat.Folder.Content
+  isSpec: "True"
   fullName: Gfycat.Folder.Content
   nameWithType: Folder.Content
 - uid: Gfycat.Folder.Count
@@ -2686,6 +2876,7 @@ references:
   name: Count
   href: api/Gfycat.Folder.html#Gfycat_Folder_Count_
   commentId: Overload:Gfycat.Folder.Count
+  isSpec: "True"
   fullName: Gfycat.Folder.Count
   nameWithType: Folder.Count
 - uid: Gfycat.Folder.DeleteAsync(Gfycat.RequestOptions)
@@ -2698,6 +2889,7 @@ references:
   name: DeleteAsync
   href: api/Gfycat.Folder.html#Gfycat_Folder_DeleteAsync_
   commentId: Overload:Gfycat.Folder.DeleteAsync
+  isSpec: "True"
   fullName: Gfycat.Folder.DeleteAsync
   nameWithType: Folder.DeleteAsync
 - uid: Gfycat.Folder.Gfycat#IFolderContent#MoveGfysAsync(Gfycat.IFolderContent,System.Collections.Generic.IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
@@ -2713,6 +2905,7 @@ references:
   name: IFolderContent.MoveGfysAsync
   href: api/Gfycat.Folder.html#Gfycat_Folder_Gfycat_IFolderContent_MoveGfysAsync_
   commentId: Overload:Gfycat.Folder.Gfycat#IFolderContent#MoveGfysAsync
+  isSpec: "True"
   name.vb: Gfycat.IFolderContent.MoveGfysAsync
   fullName: Gfycat.Folder.Gfycat.IFolderContent.MoveGfysAsync
   nameWithType: Folder.IFolderContent.MoveGfysAsync
@@ -2727,6 +2920,7 @@ references:
   name: ModifyTitleAsync
   href: api/Gfycat.Folder.html#Gfycat_Folder_ModifyTitleAsync_
   commentId: Overload:Gfycat.Folder.ModifyTitleAsync
+  isSpec: "True"
   fullName: Gfycat.Folder.ModifyTitleAsync
   nameWithType: Folder.ModifyTitleAsync
 - uid: Gfycat.Folder.MoveGfysAsync(Gfycat.Folder,System.Collections.Generic.IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
@@ -2742,6 +2936,7 @@ references:
   name: MoveGfysAsync
   href: api/Gfycat.Folder.html#Gfycat_Folder_MoveGfysAsync_
   commentId: Overload:Gfycat.Folder.MoveGfysAsync
+  isSpec: "True"
   fullName: Gfycat.Folder.MoveGfysAsync
   nameWithType: Folder.MoveGfysAsync
 - uid: Gfycat.Folder.Title
@@ -2754,6 +2949,7 @@ references:
   name: Title
   href: api/Gfycat.Folder.html#Gfycat_Folder_Title_
   commentId: Overload:Gfycat.Folder.Title
+  isSpec: "True"
   fullName: Gfycat.Folder.Title
   nameWithType: Folder.Title
 - uid: Gfycat.Folder.UpdateAsync(Gfycat.RequestOptions)
@@ -2766,6 +2962,7 @@ references:
   name: UpdateAsync
   href: api/Gfycat.Folder.html#Gfycat_Folder_UpdateAsync_
   commentId: Overload:Gfycat.Folder.UpdateAsync
+  isSpec: "True"
   fullName: Gfycat.Folder.UpdateAsync
   nameWithType: Folder.UpdateAsync
 - uid: Gfycat.FolderExtensions
@@ -2778,6 +2975,7 @@ references:
   name: Flatten
   href: api/Gfycat.FolderExtensions.html#Gfycat_FolderExtensions_Flatten_
   commentId: Overload:Gfycat.FolderExtensions.Flatten
+  isSpec: "True"
   fullName: Gfycat.FolderExtensions.Flatten
   nameWithType: FolderExtensions.Flatten
 - uid: Gfycat.FolderExtensions.Flatten``1(``0)
@@ -2805,6 +3003,7 @@ references:
   name: CreateNewFolderAsync
   href: api/Gfycat.FolderInfo.html#Gfycat_FolderInfo_CreateNewFolderAsync_
   commentId: Overload:Gfycat.FolderInfo.CreateNewFolderAsync
+  isSpec: "True"
   fullName: Gfycat.FolderInfo.CreateNewFolderAsync
   nameWithType: FolderInfo.CreateNewFolderAsync
 - uid: Gfycat.FolderInfo.DeleteAsync(Gfycat.RequestOptions)
@@ -2817,6 +3016,7 @@ references:
   name: DeleteAsync
   href: api/Gfycat.FolderInfo.html#Gfycat_FolderInfo_DeleteAsync_
   commentId: Overload:Gfycat.FolderInfo.DeleteAsync
+  isSpec: "True"
   fullName: Gfycat.FolderInfo.DeleteAsync
   nameWithType: FolderInfo.DeleteAsync
 - uid: Gfycat.FolderInfo.GetContentsAsync(Gfycat.RequestOptions)
@@ -2829,6 +3029,7 @@ references:
   name: GetContentsAsync
   href: api/Gfycat.FolderInfo.html#Gfycat_FolderInfo_GetContentsAsync_
   commentId: Overload:Gfycat.FolderInfo.GetContentsAsync
+  isSpec: "True"
   fullName: Gfycat.FolderInfo.GetContentsAsync
   nameWithType: FolderInfo.GetContentsAsync
 - uid: Gfycat.FolderInfo.Gfycat#IFolderInfo#GetContentsAsync(Gfycat.RequestOptions)
@@ -2843,6 +3044,7 @@ references:
   name: IFolderInfo.GetContentsAsync
   href: api/Gfycat.FolderInfo.html#Gfycat_FolderInfo_Gfycat_IFolderInfo_GetContentsAsync_
   commentId: Overload:Gfycat.FolderInfo.Gfycat#IFolderInfo#GetContentsAsync
+  isSpec: "True"
   name.vb: Gfycat.IFolderInfo.GetContentsAsync
   fullName: Gfycat.FolderInfo.Gfycat.IFolderInfo.GetContentsAsync
   nameWithType: FolderInfo.IFolderInfo.GetContentsAsync
@@ -2859,6 +3061,7 @@ references:
   name: IFolderInfo.MoveFolderAsync
   href: api/Gfycat.FolderInfo.html#Gfycat_FolderInfo_Gfycat_IFolderInfo_MoveFolderAsync_
   commentId: Overload:Gfycat.FolderInfo.Gfycat#IFolderInfo#MoveFolderAsync
+  isSpec: "True"
   name.vb: Gfycat.IFolderInfo.MoveFolderAsync
   fullName: Gfycat.FolderInfo.Gfycat.IFolderInfo.MoveFolderAsync
   nameWithType: FolderInfo.IFolderInfo.MoveFolderAsync
@@ -2875,6 +3078,7 @@ references:
   name: IFolderInfo.Subfolders
   href: api/Gfycat.FolderInfo.html#Gfycat_FolderInfo_Gfycat_IFolderInfo_Subfolders_
   commentId: Overload:Gfycat.FolderInfo.Gfycat#IFolderInfo#Subfolders
+  isSpec: "True"
   name.vb: Gfycat.IFolderInfo.Subfolders
   fullName: Gfycat.FolderInfo.Gfycat.IFolderInfo.Subfolders
   nameWithType: FolderInfo.IFolderInfo.Subfolders
@@ -2889,6 +3093,7 @@ references:
   name: ModifyTitleAsync
   href: api/Gfycat.FolderInfo.html#Gfycat_FolderInfo_ModifyTitleAsync_
   commentId: Overload:Gfycat.FolderInfo.ModifyTitleAsync
+  isSpec: "True"
   fullName: Gfycat.FolderInfo.ModifyTitleAsync
   nameWithType: FolderInfo.ModifyTitleAsync
 - uid: Gfycat.FolderInfo.MoveFolderAsync(Gfycat.FolderInfo,Gfycat.RequestOptions)
@@ -2901,6 +3106,7 @@ references:
   name: MoveFolderAsync
   href: api/Gfycat.FolderInfo.html#Gfycat_FolderInfo_MoveFolderAsync_
   commentId: Overload:Gfycat.FolderInfo.MoveFolderAsync
+  isSpec: "True"
   fullName: Gfycat.FolderInfo.MoveFolderAsync
   nameWithType: FolderInfo.MoveFolderAsync
 - uid: Gfycat.FolderInfo.Subfolders
@@ -2913,6 +3119,7 @@ references:
   name: Subfolders
   href: api/Gfycat.FolderInfo.html#Gfycat_FolderInfo_Subfolders_
   commentId: Overload:Gfycat.FolderInfo.Subfolders
+  isSpec: "True"
   fullName: Gfycat.FolderInfo.Subfolders
   nameWithType: FolderInfo.Subfolders
 - uid: Gfycat.FolderInfo.Title
@@ -2925,6 +3132,7 @@ references:
   name: Title
   href: api/Gfycat.FolderInfo.html#Gfycat_FolderInfo_Title_
   commentId: Overload:Gfycat.FolderInfo.Title
+  isSpec: "True"
   fullName: Gfycat.FolderInfo.Title
   nameWithType: FolderInfo.Title
 - uid: Gfycat.Gfy
@@ -2943,6 +3151,7 @@ references:
   name: AverageColor
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_AverageColor_
   commentId: Overload:Gfycat.Gfy.AverageColor
+  isSpec: "True"
   fullName: Gfycat.Gfy.AverageColor
   nameWithType: Gfy.AverageColor
 - uid: Gfycat.Gfy.BookmarkAsync(Gfycat.BookmarkFolder,Gfycat.RequestOptions)
@@ -2955,6 +3164,7 @@ references:
   name: BookmarkAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_BookmarkAsync_
   commentId: Overload:Gfycat.Gfy.BookmarkAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.BookmarkAsync
   nameWithType: Gfy.BookmarkAsync
 - uid: Gfycat.Gfy.BookmarkedByCurrentUser
@@ -2967,6 +3177,7 @@ references:
   name: BookmarkedByCurrentUser
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_BookmarkedByCurrentUser_
   commentId: Overload:Gfycat.Gfy.BookmarkedByCurrentUser
+  isSpec: "True"
   fullName: Gfycat.Gfy.BookmarkedByCurrentUser
   nameWithType: Gfy.BookmarkedByCurrentUser
 - uid: Gfycat.Gfy.CreationDate
@@ -2979,6 +3190,7 @@ references:
   name: CreationDate
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_CreationDate_
   commentId: Overload:Gfycat.Gfy.CreationDate
+  isSpec: "True"
   fullName: Gfycat.Gfy.CreationDate
   nameWithType: Gfy.CreationDate
 - uid: Gfycat.Gfy.DeleteAsync(Gfycat.RequestOptions)
@@ -2991,6 +3203,7 @@ references:
   name: DeleteAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_DeleteAsync_
   commentId: Overload:Gfycat.Gfy.DeleteAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.DeleteAsync
   nameWithType: Gfy.DeleteAsync
 - uid: Gfycat.Gfy.DeleteDescriptionAsync(Gfycat.RequestOptions)
@@ -3003,6 +3216,7 @@ references:
   name: DeleteDescriptionAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_DeleteDescriptionAsync_
   commentId: Overload:Gfycat.Gfy.DeleteDescriptionAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.DeleteDescriptionAsync
   nameWithType: Gfy.DeleteDescriptionAsync
 - uid: Gfycat.Gfy.DeleteDomainWhitelistAsync(Gfycat.RequestOptions)
@@ -3015,6 +3229,7 @@ references:
   name: DeleteDomainWhitelistAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_DeleteDomainWhitelistAsync_
   commentId: Overload:Gfycat.Gfy.DeleteDomainWhitelistAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.DeleteDomainWhitelistAsync
   nameWithType: Gfy.DeleteDomainWhitelistAsync
 - uid: Gfycat.Gfy.DeleteGeoWhitelistAsync(Gfycat.RequestOptions)
@@ -3027,6 +3242,7 @@ references:
   name: DeleteGeoWhitelistAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_DeleteGeoWhitelistAsync_
   commentId: Overload:Gfycat.Gfy.DeleteGeoWhitelistAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.DeleteGeoWhitelistAsync
   nameWithType: Gfy.DeleteGeoWhitelistAsync
 - uid: Gfycat.Gfy.DeleteTitleAsync(Gfycat.RequestOptions)
@@ -3039,6 +3255,7 @@ references:
   name: DeleteTitleAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_DeleteTitleAsync_
   commentId: Overload:Gfycat.Gfy.DeleteTitleAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.DeleteTitleAsync
   nameWithType: Gfy.DeleteTitleAsync
 - uid: Gfycat.Gfy.Description
@@ -3051,6 +3268,7 @@ references:
   name: Description
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Description_
   commentId: Overload:Gfycat.Gfy.Description
+  isSpec: "True"
   fullName: Gfycat.Gfy.Description
   nameWithType: Gfy.Description
 - uid: Gfycat.Gfy.DislikedByCurrentUser
@@ -3063,6 +3281,7 @@ references:
   name: DislikedByCurrentUser
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_DislikedByCurrentUser_
   commentId: Overload:Gfycat.Gfy.DislikedByCurrentUser
+  isSpec: "True"
   fullName: Gfycat.Gfy.DislikedByCurrentUser
   nameWithType: Gfy.DislikedByCurrentUser
 - uid: Gfycat.Gfy.Dislikes
@@ -3075,6 +3294,7 @@ references:
   name: Dislikes
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Dislikes_
   commentId: Overload:Gfycat.Gfy.Dislikes
+  isSpec: "True"
   fullName: Gfycat.Gfy.Dislikes
   nameWithType: Gfy.Dislikes
 - uid: Gfycat.Gfy.DomainWhitelist
@@ -3087,6 +3307,7 @@ references:
   name: DomainWhitelist
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_DomainWhitelist_
   commentId: Overload:Gfycat.Gfy.DomainWhitelist
+  isSpec: "True"
   fullName: Gfycat.Gfy.DomainWhitelist
   nameWithType: Gfy.DomainWhitelist
 - uid: Gfycat.Gfy.FrameRate
@@ -3099,6 +3320,7 @@ references:
   name: FrameRate
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_FrameRate_
   commentId: Overload:Gfycat.Gfy.FrameRate
+  isSpec: "True"
   fullName: Gfycat.Gfy.FrameRate
   nameWithType: Gfy.FrameRate
 - uid: Gfycat.Gfy.GetBookmarkStatusAsync(Gfycat.RequestOptions)
@@ -3111,6 +3333,7 @@ references:
   name: GetBookmarkStatusAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_GetBookmarkStatusAsync_
   commentId: Overload:Gfycat.Gfy.GetBookmarkStatusAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.GetBookmarkStatusAsync
   nameWithType: Gfy.GetBookmarkStatusAsync
 - uid: Gfycat.Gfy.GetDomainWhitelistAsync(Gfycat.RequestOptions)
@@ -3123,6 +3346,7 @@ references:
   name: GetDomainWhitelistAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_GetDomainWhitelistAsync_
   commentId: Overload:Gfycat.Gfy.GetDomainWhitelistAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.GetDomainWhitelistAsync
   nameWithType: Gfy.GetDomainWhitelistAsync
 - uid: Gfycat.Gfy.GetFormatUrl(Gfycat.GfyFormat)
@@ -3135,6 +3359,7 @@ references:
   name: GetFormatUrl
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_GetFormatUrl_
   commentId: Overload:Gfycat.Gfy.GetFormatUrl
+  isSpec: "True"
   fullName: Gfycat.Gfy.GetFormatUrl
   nameWithType: Gfy.GetFormatUrl
 - uid: Gfycat.Gfy.GetGeoWhitelistAsync(Gfycat.RequestOptions)
@@ -3147,6 +3372,7 @@ references:
   name: GetGeoWhitelistAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_GetGeoWhitelistAsync_
   commentId: Overload:Gfycat.Gfy.GetGeoWhitelistAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.GetGeoWhitelistAsync
   nameWithType: Gfy.GetGeoWhitelistAsync
 - uid: Gfycat.Gfy.GetUserAsync(Gfycat.RequestOptions)
@@ -3159,6 +3385,7 @@ references:
   name: GetUserAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_GetUserAsync_
   commentId: Overload:Gfycat.Gfy.GetUserAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.GetUserAsync
   nameWithType: Gfy.GetUserAsync
 - uid: Gfycat.Gfy.GifSize
@@ -3171,6 +3398,7 @@ references:
   name: GifSize
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_GifSize_
   commentId: Overload:Gfycat.Gfy.GifSize
+  isSpec: "True"
   fullName: Gfycat.Gfy.GifSize
   nameWithType: Gfy.GifSize
 - uid: Gfycat.Gfy.GifUrl
@@ -3183,6 +3411,7 @@ references:
   name: GifUrl
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_GifUrl_
   commentId: Overload:Gfycat.Gfy.GifUrl
+  isSpec: "True"
   fullName: Gfycat.Gfy.GifUrl
   nameWithType: Gfy.GifUrl
 - uid: Gfycat.Gfy.Height
@@ -3195,6 +3424,7 @@ references:
   name: Height
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Height_
   commentId: Overload:Gfycat.Gfy.Height
+  isSpec: "True"
   fullName: Gfycat.Gfy.Height
   nameWithType: Gfy.Height
 - uid: Gfycat.Gfy.LanguageCategories
@@ -3207,6 +3437,7 @@ references:
   name: LanguageCategories
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_LanguageCategories_
   commentId: Overload:Gfycat.Gfy.LanguageCategories
+  isSpec: "True"
   fullName: Gfycat.Gfy.LanguageCategories
   nameWithType: Gfy.LanguageCategories
 - uid: Gfycat.Gfy.LanguageText
@@ -3219,6 +3450,7 @@ references:
   name: LanguageText
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_LanguageText_
   commentId: Overload:Gfycat.Gfy.LanguageText
+  isSpec: "True"
   fullName: Gfycat.Gfy.LanguageText
   nameWithType: Gfy.LanguageText
 - uid: Gfycat.Gfy.LikedByCurrentUser
@@ -3231,6 +3463,7 @@ references:
   name: LikedByCurrentUser
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_LikedByCurrentUser_
   commentId: Overload:Gfycat.Gfy.LikedByCurrentUser
+  isSpec: "True"
   fullName: Gfycat.Gfy.LikedByCurrentUser
   nameWithType: Gfy.LikedByCurrentUser
 - uid: Gfycat.Gfy.Likes
@@ -3243,6 +3476,7 @@ references:
   name: Likes
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Likes_
   commentId: Overload:Gfycat.Gfy.Likes
+  isSpec: "True"
   fullName: Gfycat.Gfy.Likes
   nameWithType: Gfy.Likes
 - uid: Gfycat.Gfy.Max1MbGif
@@ -3255,6 +3489,7 @@ references:
   name: Max1MbGif
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Max1MbGif_
   commentId: Overload:Gfycat.Gfy.Max1MbGif
+  isSpec: "True"
   fullName: Gfycat.Gfy.Max1MbGif
   nameWithType: Gfy.Max1MbGif
 - uid: Gfycat.Gfy.Max2MbGif
@@ -3267,6 +3502,7 @@ references:
   name: Max2MbGif
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Max2MbGif_
   commentId: Overload:Gfycat.Gfy.Max2MbGif
+  isSpec: "True"
   fullName: Gfycat.Gfy.Max2MbGif
   nameWithType: Gfy.Max2MbGif
 - uid: Gfycat.Gfy.Max5MbGif
@@ -3279,6 +3515,7 @@ references:
   name: Max5MbGif
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Max5MbGif_
   commentId: Overload:Gfycat.Gfy.Max5MbGif
+  isSpec: "True"
   fullName: Gfycat.Gfy.Max5MbGif
   nameWithType: Gfy.Max5MbGif
 - uid: Gfycat.Gfy.Md5
@@ -3291,6 +3528,7 @@ references:
   name: Md5
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Md5_
   commentId: Overload:Gfycat.Gfy.Md5
+  isSpec: "True"
   fullName: Gfycat.Gfy.Md5
   nameWithType: Gfy.Md5
 - uid: Gfycat.Gfy.MjpgUrl
@@ -3303,6 +3541,7 @@ references:
   name: MjpgUrl
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_MjpgUrl_
   commentId: Overload:Gfycat.Gfy.MjpgUrl
+  isSpec: "True"
   fullName: Gfycat.Gfy.MjpgUrl
   nameWithType: Gfy.MjpgUrl
 - uid: Gfycat.Gfy.MobilePosterUrl
@@ -3315,6 +3554,7 @@ references:
   name: MobilePosterUrl
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_MobilePosterUrl_
   commentId: Overload:Gfycat.Gfy.MobilePosterUrl
+  isSpec: "True"
   fullName: Gfycat.Gfy.MobilePosterUrl
   nameWithType: Gfy.MobilePosterUrl
 - uid: Gfycat.Gfy.MobileUrl
@@ -3327,6 +3567,7 @@ references:
   name: MobileUrl
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_MobileUrl_
   commentId: Overload:Gfycat.Gfy.MobileUrl
+  isSpec: "True"
   fullName: Gfycat.Gfy.MobileUrl
   nameWithType: Gfy.MobileUrl
 - uid: Gfycat.Gfy.ModifyDescriptionAsync(System.String,Gfycat.RequestOptions)
@@ -3339,6 +3580,7 @@ references:
   name: ModifyDescriptionAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_ModifyDescriptionAsync_
   commentId: Overload:Gfycat.Gfy.ModifyDescriptionAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.ModifyDescriptionAsync
   nameWithType: Gfy.ModifyDescriptionAsync
 - uid: Gfycat.Gfy.ModifyDislikedSettingAsync(System.Boolean,Gfycat.RequestOptions)
@@ -3351,6 +3593,7 @@ references:
   name: ModifyDislikedSettingAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_ModifyDislikedSettingAsync_
   commentId: Overload:Gfycat.Gfy.ModifyDislikedSettingAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.ModifyDislikedSettingAsync
   nameWithType: Gfy.ModifyDislikedSettingAsync
 - uid: Gfycat.Gfy.ModifyDomainWhitelistAsync(System.Collections.Generic.IEnumerable{System.String},Gfycat.RequestOptions)
@@ -3366,6 +3609,7 @@ references:
   name: ModifyDomainWhitelistAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_ModifyDomainWhitelistAsync_
   commentId: Overload:Gfycat.Gfy.ModifyDomainWhitelistAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.ModifyDomainWhitelistAsync
   nameWithType: Gfy.ModifyDomainWhitelistAsync
 - uid: Gfycat.Gfy.ModifyGeoWhitelistAsync(System.Collections.Generic.IEnumerable{System.Globalization.RegionInfo},Gfycat.RequestOptions)
@@ -3381,6 +3625,7 @@ references:
   name: ModifyGeoWhitelistAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_ModifyGeoWhitelistAsync_
   commentId: Overload:Gfycat.Gfy.ModifyGeoWhitelistAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.ModifyGeoWhitelistAsync
   nameWithType: Gfy.ModifyGeoWhitelistAsync
 - uid: Gfycat.Gfy.ModifyLikedSettingAsync(System.Boolean,Gfycat.RequestOptions)
@@ -3393,6 +3638,7 @@ references:
   name: ModifyLikedSettingAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_ModifyLikedSettingAsync_
   commentId: Overload:Gfycat.Gfy.ModifyLikedSettingAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.ModifyLikedSettingAsync
   nameWithType: Gfy.ModifyLikedSettingAsync
 - uid: Gfycat.Gfy.ModifyNsfwSettingAsync(Gfycat.NsfwSetting,Gfycat.RequestOptions)
@@ -3405,6 +3651,7 @@ references:
   name: ModifyNsfwSettingAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_ModifyNsfwSettingAsync_
   commentId: Overload:Gfycat.Gfy.ModifyNsfwSettingAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.ModifyNsfwSettingAsync
   nameWithType: Gfy.ModifyNsfwSettingAsync
 - uid: Gfycat.Gfy.ModifyPublishSettingAsync(System.Boolean,Gfycat.RequestOptions)
@@ -3417,6 +3664,7 @@ references:
   name: ModifyPublishSettingAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_ModifyPublishSettingAsync_
   commentId: Overload:Gfycat.Gfy.ModifyPublishSettingAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.ModifyPublishSettingAsync
   nameWithType: Gfy.ModifyPublishSettingAsync
 - uid: Gfycat.Gfy.ModifyTagsAsync(System.Collections.Generic.IEnumerable{System.String},Gfycat.RequestOptions)
@@ -3432,6 +3680,7 @@ references:
   name: ModifyTagsAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_ModifyTagsAsync_
   commentId: Overload:Gfycat.Gfy.ModifyTagsAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.ModifyTagsAsync
   nameWithType: Gfy.ModifyTagsAsync
 - uid: Gfycat.Gfy.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
@@ -3444,6 +3693,7 @@ references:
   name: ModifyTitleAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_ModifyTitleAsync_
   commentId: Overload:Gfycat.Gfy.ModifyTitleAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.ModifyTitleAsync
   nameWithType: Gfy.ModifyTitleAsync
 - uid: Gfycat.Gfy.Mp4Size
@@ -3456,6 +3706,7 @@ references:
   name: Mp4Size
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Mp4Size_
   commentId: Overload:Gfycat.Gfy.Mp4Size
+  isSpec: "True"
   fullName: Gfycat.Gfy.Mp4Size
   nameWithType: Gfy.Mp4Size
 - uid: Gfycat.Gfy.Mp4Url
@@ -3468,6 +3719,7 @@ references:
   name: Mp4Url
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Mp4Url_
   commentId: Overload:Gfycat.Gfy.Mp4Url
+  isSpec: "True"
   fullName: Gfycat.Gfy.Mp4Url
   nameWithType: Gfy.Mp4Url
 - uid: Gfycat.Gfy.Name
@@ -3480,6 +3732,7 @@ references:
   name: Name
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Name_
   commentId: Overload:Gfycat.Gfy.Name
+  isSpec: "True"
   fullName: Gfycat.Gfy.Name
   nameWithType: Gfy.Name
 - uid: Gfycat.Gfy.Nsfw
@@ -3492,6 +3745,7 @@ references:
   name: Nsfw
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Nsfw_
   commentId: Overload:Gfycat.Gfy.Nsfw
+  isSpec: "True"
   fullName: Gfycat.Gfy.Nsfw
   nameWithType: Gfy.Nsfw
 - uid: Gfycat.Gfy.Number
@@ -3504,6 +3758,7 @@ references:
   name: Number
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Number_
   commentId: Overload:Gfycat.Gfy.Number
+  isSpec: "True"
   fullName: Gfycat.Gfy.Number
   nameWithType: Gfy.Number
 - uid: Gfycat.Gfy.NumberOfFrames
@@ -3516,6 +3771,7 @@ references:
   name: NumberOfFrames
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_NumberOfFrames_
   commentId: Overload:Gfycat.Gfy.NumberOfFrames
+  isSpec: "True"
   fullName: Gfycat.Gfy.NumberOfFrames
   nameWithType: Gfy.NumberOfFrames
 - uid: Gfycat.Gfy.PosterUrl
@@ -3528,6 +3784,7 @@ references:
   name: PosterUrl
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_PosterUrl_
   commentId: Overload:Gfycat.Gfy.PosterUrl
+  isSpec: "True"
   fullName: Gfycat.Gfy.PosterUrl
   nameWithType: Gfy.PosterUrl
 - uid: Gfycat.Gfy.Published
@@ -3540,6 +3797,7 @@ references:
   name: Published
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Published_
   commentId: Overload:Gfycat.Gfy.Published
+  isSpec: "True"
   fullName: Gfycat.Gfy.Published
   nameWithType: Gfy.Published
 - uid: Gfycat.Gfy.RedditId
@@ -3552,6 +3810,7 @@ references:
   name: RedditId
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_RedditId_
   commentId: Overload:Gfycat.Gfy.RedditId
+  isSpec: "True"
   fullName: Gfycat.Gfy.RedditId
   nameWithType: Gfy.RedditId
 - uid: Gfycat.Gfy.RedditIdText
@@ -3564,6 +3823,7 @@ references:
   name: RedditIdText
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_RedditIdText_
   commentId: Overload:Gfycat.Gfy.RedditIdText
+  isSpec: "True"
   fullName: Gfycat.Gfy.RedditIdText
   nameWithType: Gfy.RedditIdText
 - uid: Gfycat.Gfy.ReportContentAsync(Gfycat.RequestOptions)
@@ -3576,6 +3836,7 @@ references:
   name: ReportContentAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_ReportContentAsync_
   commentId: Overload:Gfycat.Gfy.ReportContentAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.ReportContentAsync
   nameWithType: Gfy.ReportContentAsync
 - uid: Gfycat.Gfy.ReverseMp4Url
@@ -3588,6 +3849,7 @@ references:
   name: ReverseMp4Url
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_ReverseMp4Url_
   commentId: Overload:Gfycat.Gfy.ReverseMp4Url
+  isSpec: "True"
   fullName: Gfycat.Gfy.ReverseMp4Url
   nameWithType: Gfy.ReverseMp4Url
 - uid: Gfycat.Gfy.ShareOnTwitterAsync(System.String,Gfycat.RequestOptions)
@@ -3606,6 +3868,7 @@ references:
   name: ShareOnTwitterAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_ShareOnTwitterAsync_
   commentId: Overload:Gfycat.Gfy.ShareOnTwitterAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.ShareOnTwitterAsync
   nameWithType: Gfy.ShareOnTwitterAsync
 - uid: Gfycat.Gfy.Source
@@ -3618,6 +3881,7 @@ references:
   name: Source
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Source_
   commentId: Overload:Gfycat.Gfy.Source
+  isSpec: "True"
   fullName: Gfycat.Gfy.Source
   nameWithType: Gfy.Source
 - uid: Gfycat.Gfy.Subreddit
@@ -3630,6 +3894,7 @@ references:
   name: Subreddit
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Subreddit_
   commentId: Overload:Gfycat.Gfy.Subreddit
+  isSpec: "True"
   fullName: Gfycat.Gfy.Subreddit
   nameWithType: Gfy.Subreddit
 - uid: Gfycat.Gfy.Tags
@@ -3642,6 +3907,7 @@ references:
   name: Tags
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Tags_
   commentId: Overload:Gfycat.Gfy.Tags
+  isSpec: "True"
   fullName: Gfycat.Gfy.Tags
   nameWithType: Gfy.Tags
 - uid: Gfycat.Gfy.Thumb100PosterUrl
@@ -3654,6 +3920,7 @@ references:
   name: Thumb100PosterUrl
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Thumb100PosterUrl_
   commentId: Overload:Gfycat.Gfy.Thumb100PosterUrl
+  isSpec: "True"
   fullName: Gfycat.Gfy.Thumb100PosterUrl
   nameWithType: Gfy.Thumb100PosterUrl
 - uid: Gfycat.Gfy.Thumb360PosterUrl
@@ -3666,6 +3933,7 @@ references:
   name: Thumb360PosterUrl
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Thumb360PosterUrl_
   commentId: Overload:Gfycat.Gfy.Thumb360PosterUrl
+  isSpec: "True"
   fullName: Gfycat.Gfy.Thumb360PosterUrl
   nameWithType: Gfy.Thumb360PosterUrl
 - uid: Gfycat.Gfy.Thumb360Url
@@ -3678,6 +3946,7 @@ references:
   name: Thumb360Url
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Thumb360Url_
   commentId: Overload:Gfycat.Gfy.Thumb360Url
+  isSpec: "True"
   fullName: Gfycat.Gfy.Thumb360Url
   nameWithType: Gfy.Thumb360Url
 - uid: Gfycat.Gfy.Title
@@ -3690,6 +3959,7 @@ references:
   name: Title
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Title_
   commentId: Overload:Gfycat.Gfy.Title
+  isSpec: "True"
   fullName: Gfycat.Gfy.Title
   nameWithType: Gfy.Title
 - uid: Gfycat.Gfy.UnbookmarkAsync(Gfycat.BookmarkFolder,Gfycat.RequestOptions)
@@ -3702,6 +3972,7 @@ references:
   name: UnbookmarkAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_UnbookmarkAsync_
   commentId: Overload:Gfycat.Gfy.UnbookmarkAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.UnbookmarkAsync
   nameWithType: Gfy.UnbookmarkAsync
 - uid: Gfycat.Gfy.UpdateAsync(Gfycat.RequestOptions)
@@ -3714,6 +3985,7 @@ references:
   name: UpdateAsync
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_UpdateAsync_
   commentId: Overload:Gfycat.Gfy.UpdateAsync
+  isSpec: "True"
   fullName: Gfycat.Gfy.UpdateAsync
   nameWithType: Gfy.UpdateAsync
 - uid: Gfycat.Gfy.Url
@@ -3726,6 +3998,7 @@ references:
   name: Url
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Url_
   commentId: Overload:Gfycat.Gfy.Url
+  isSpec: "True"
   fullName: Gfycat.Gfy.Url
   nameWithType: Gfy.Url
 - uid: Gfycat.Gfy.Username
@@ -3738,6 +4011,7 @@ references:
   name: Username
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Username_
   commentId: Overload:Gfycat.Gfy.Username
+  isSpec: "True"
   fullName: Gfycat.Gfy.Username
   nameWithType: Gfy.Username
 - uid: Gfycat.Gfy.UserTags
@@ -3750,6 +4024,7 @@ references:
   name: UserTags
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_UserTags_
   commentId: Overload:Gfycat.Gfy.UserTags
+  isSpec: "True"
   fullName: Gfycat.Gfy.UserTags
   nameWithType: Gfy.UserTags
 - uid: Gfycat.Gfy.Views
@@ -3762,6 +4037,7 @@ references:
   name: Views
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Views_
   commentId: Overload:Gfycat.Gfy.Views
+  isSpec: "True"
   fullName: Gfycat.Gfy.Views
   nameWithType: Gfy.Views
 - uid: Gfycat.Gfy.WebmSize
@@ -3774,6 +4050,7 @@ references:
   name: WebmSize
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_WebmSize_
   commentId: Overload:Gfycat.Gfy.WebmSize
+  isSpec: "True"
   fullName: Gfycat.Gfy.WebmSize
   nameWithType: Gfy.WebmSize
 - uid: Gfycat.Gfy.WebmUrl
@@ -3786,6 +4063,7 @@ references:
   name: WebmUrl
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_WebmUrl_
   commentId: Overload:Gfycat.Gfy.WebmUrl
+  isSpec: "True"
   fullName: Gfycat.Gfy.WebmUrl
   nameWithType: Gfy.WebmUrl
 - uid: Gfycat.Gfy.WebpUrl
@@ -3798,6 +4076,7 @@ references:
   name: WebpUrl
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_WebpUrl_
   commentId: Overload:Gfycat.Gfy.WebpUrl
+  isSpec: "True"
   fullName: Gfycat.Gfy.WebpUrl
   nameWithType: Gfy.WebpUrl
 - uid: Gfycat.Gfy.Width
@@ -3810,6 +4089,7 @@ references:
   name: Width
   href: api/Gfycat.Gfy.html#Gfycat_Gfy_Width_
   commentId: Overload:Gfycat.Gfy.Width
+  isSpec: "True"
   fullName: Gfycat.Gfy.Width
   nameWithType: Gfy.Width
 - uid: Gfycat.GfycatClient
@@ -3834,6 +4114,7 @@ references:
   name: GfycatClient
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient__ctor_
   commentId: Overload:Gfycat.GfycatClient.#ctor
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.GfycatClient
   nameWithType: GfycatClient.GfycatClient
 - uid: Gfycat.GfycatClient.AccessToken
@@ -3846,6 +4127,7 @@ references:
   name: AccessToken
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_AccessToken_
   commentId: Overload:Gfycat.GfycatClient.AccessToken
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.AccessToken
   nameWithType: GfycatClient.AccessToken
 - uid: Gfycat.GfycatClient.AuthenticateAsync(Gfycat.RequestOptions)
@@ -3882,6 +4164,7 @@ references:
   name: AuthenticateAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_AuthenticateAsync_
   commentId: Overload:Gfycat.GfycatClient.AuthenticateAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.AuthenticateAsync
   nameWithType: GfycatClient.AuthenticateAsync
 - uid: Gfycat.GfycatClient.ClientId
@@ -3894,6 +4177,7 @@ references:
   name: ClientId
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_ClientId_
   commentId: Overload:Gfycat.GfycatClient.ClientId
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.ClientId
   nameWithType: GfycatClient.ClientId
 - uid: Gfycat.GfycatClient.CreateAccountAsync(System.String,Gfycat.AccountTokenType,System.String,System.String,System.String,System.Boolean,Gfycat.RequestOptions)
@@ -3912,6 +4196,7 @@ references:
   name: CreateAccountAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_CreateAccountAsync_
   commentId: Overload:Gfycat.GfycatClient.CreateAccountAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.CreateAccountAsync
   nameWithType: GfycatClient.CreateAccountAsync
 - uid: Gfycat.GfycatClient.CreateGfyAsync(System.IO.Stream,Gfycat.GfyCreationParameters,Gfycat.RequestOptions)
@@ -3930,6 +4215,7 @@ references:
   name: CreateGfyAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_CreateGfyAsync_
   commentId: Overload:Gfycat.GfycatClient.CreateGfyAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.CreateGfyAsync
   nameWithType: GfycatClient.CreateGfyAsync
 - uid: Gfycat.GfycatClient.CurrentUser
@@ -3942,6 +4228,7 @@ references:
   name: CurrentUser
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_CurrentUser_
   commentId: Overload:Gfycat.GfycatClient.CurrentUser
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.CurrentUser
   nameWithType: GfycatClient.CurrentUser
 - uid: Gfycat.GfycatClient.GetBrowserAuthUrl(System.String,System.String,System.Boolean)
@@ -3954,6 +4241,7 @@ references:
   name: GetBrowserAuthUrl
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetBrowserAuthUrl_
   commentId: Overload:Gfycat.GfycatClient.GetBrowserAuthUrl
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.GetBrowserAuthUrl
   nameWithType: GfycatClient.GetBrowserAuthUrl
 - uid: Gfycat.GfycatClient.GetCurrentUserAsync(Gfycat.RequestOptions)
@@ -3966,6 +4254,7 @@ references:
   name: GetCurrentUserAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetCurrentUserAsync_
   commentId: Overload:Gfycat.GfycatClient.GetCurrentUserAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.GetCurrentUserAsync
   nameWithType: GfycatClient.GetCurrentUserAsync
 - uid: Gfycat.GfycatClient.GetGfyAsync(System.String,System.Boolean,Gfycat.RequestOptions)
@@ -3978,6 +4267,7 @@ references:
   name: GetGfyAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetGfyAsync_
   commentId: Overload:Gfycat.GfycatClient.GetGfyAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.GetGfyAsync
   nameWithType: GfycatClient.GetGfyAsync
 - uid: Gfycat.GfycatClient.GetGfyFromUrlAsync(System.String,System.Boolean,Gfycat.RequestOptions)
@@ -3990,6 +4280,7 @@ references:
   name: GetGfyFromUrlAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetGfyFromUrlAsync_
   commentId: Overload:Gfycat.GfycatClient.GetGfyFromUrlAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.GetGfyFromUrlAsync
   nameWithType: GfycatClient.GetGfyFromUrlAsync
 - uid: Gfycat.GfycatClient.GetGfyUploadStatusAsync(System.String,Gfycat.RequestOptions)
@@ -4002,6 +4293,7 @@ references:
   name: GetGfyUploadStatusAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetGfyUploadStatusAsync_
   commentId: Overload:Gfycat.GfycatClient.GetGfyUploadStatusAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.GetGfyUploadStatusAsync
   nameWithType: GfycatClient.GetGfyUploadStatusAsync
 - uid: Gfycat.GfycatClient.GetReactionGfysAsync(Gfycat.ReactionLanguage,System.Int32,Gfycat.RequestOptions)
@@ -4014,6 +4306,7 @@ references:
   name: GetReactionGfysAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetReactionGfysAsync_
   commentId: Overload:Gfycat.GfycatClient.GetReactionGfysAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.GetReactionGfysAsync
   nameWithType: GfycatClient.GetReactionGfysAsync
 - uid: Gfycat.GfycatClient.GetTrendingGfysAsync(System.String,System.Int32,Gfycat.RequestOptions)
@@ -4026,6 +4319,7 @@ references:
   name: GetTrendingGfysAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetTrendingGfysAsync_
   commentId: Overload:Gfycat.GfycatClient.GetTrendingGfysAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.GetTrendingGfysAsync
   nameWithType: GfycatClient.GetTrendingGfysAsync
 - uid: Gfycat.GfycatClient.GetTrendingTagsAsync(Gfycat.RequestOptions)
@@ -4038,6 +4332,7 @@ references:
   name: GetTrendingTagsAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetTrendingTagsAsync_
   commentId: Overload:Gfycat.GfycatClient.GetTrendingTagsAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.GetTrendingTagsAsync
   nameWithType: GfycatClient.GetTrendingTagsAsync
 - uid: Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync(System.Int32,System.Int32,Gfycat.RequestOptions)
@@ -4050,6 +4345,7 @@ references:
   name: GetTrendingTagsPopulatedAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetTrendingTagsPopulatedAsync_
   commentId: Overload:Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.GetTrendingTagsPopulatedAsync
   nameWithType: GfycatClient.GetTrendingTagsPopulatedAsync
 - uid: Gfycat.GfycatClient.GetTwitterRequestTokenAsync(Gfycat.RequestOptions)
@@ -4062,6 +4358,7 @@ references:
   name: GetTwitterRequestTokenAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetTwitterRequestTokenAsync_
   commentId: Overload:Gfycat.GfycatClient.GetTwitterRequestTokenAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.GetTwitterRequestTokenAsync
   nameWithType: GfycatClient.GetTwitterRequestTokenAsync
 - uid: Gfycat.GfycatClient.GetTwitterRequestTokenUrl(System.String)
@@ -4074,6 +4371,7 @@ references:
   name: GetTwitterRequestTokenUrl
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetTwitterRequestTokenUrl_
   commentId: Overload:Gfycat.GfycatClient.GetTwitterRequestTokenUrl
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.GetTwitterRequestTokenUrl
   nameWithType: GfycatClient.GetTwitterRequestTokenUrl
 - uid: Gfycat.GfycatClient.GetUserAsync(System.String,Gfycat.RequestOptions)
@@ -4086,6 +4384,7 @@ references:
   name: GetUserAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetUserAsync_
   commentId: Overload:Gfycat.GfycatClient.GetUserAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.GetUserAsync
   nameWithType: GfycatClient.GetUserAsync
 - uid: Gfycat.GfycatClient.GetUserExistsAsync(System.String,Gfycat.RequestOptions)
@@ -4098,6 +4397,7 @@ references:
   name: GetUserExistsAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_GetUserExistsAsync_
   commentId: Overload:Gfycat.GfycatClient.GetUserExistsAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.GetUserExistsAsync
   nameWithType: GfycatClient.GetUserExistsAsync
 - uid: Gfycat.GfycatClient.IsValidGfyName(System.String)
@@ -4110,6 +4410,7 @@ references:
   name: IsValidGfyName
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_IsValidGfyName_
   commentId: Overload:Gfycat.GfycatClient.IsValidGfyName
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.IsValidGfyName
   nameWithType: GfycatClient.IsValidGfyName
 - uid: Gfycat.GfycatClient.IsValidGfyUrl(System.String,System.String@)
@@ -4125,6 +4426,7 @@ references:
   name: IsValidGfyUrl
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_IsValidGfyUrl_
   commentId: Overload:Gfycat.GfycatClient.IsValidGfyUrl
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.IsValidGfyUrl
   nameWithType: GfycatClient.IsValidGfyUrl
 - uid: Gfycat.GfycatClient.RefreshToken
@@ -4137,6 +4439,7 @@ references:
   name: RefreshToken
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_RefreshToken_
   commentId: Overload:Gfycat.GfycatClient.RefreshToken
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.RefreshToken
   nameWithType: GfycatClient.RefreshToken
 - uid: Gfycat.GfycatClient.RefreshTokenAsync(System.String,Gfycat.RequestOptions)
@@ -4149,6 +4452,7 @@ references:
   name: RefreshTokenAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_RefreshTokenAsync_
   commentId: Overload:Gfycat.GfycatClient.RefreshTokenAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.RefreshTokenAsync
   nameWithType: GfycatClient.RefreshTokenAsync
 - uid: Gfycat.GfycatClient.SearchAsync(System.String,System.Int32,Gfycat.RequestOptions)
@@ -4161,6 +4465,7 @@ references:
   name: SearchAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_SearchAsync_
   commentId: Overload:Gfycat.GfycatClient.SearchAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.SearchAsync
   nameWithType: GfycatClient.SearchAsync
 - uid: Gfycat.GfycatClient.SendPasswordResetEmailAsync(System.String,Gfycat.RequestOptions)
@@ -4173,6 +4478,7 @@ references:
   name: SendPasswordResetEmailAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_SendPasswordResetEmailAsync_
   commentId: Overload:Gfycat.GfycatClient.SendPasswordResetEmailAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.SendPasswordResetEmailAsync
   nameWithType: GfycatClient.SendPasswordResetEmailAsync
 - uid: Gfycat.GfycatClient.TryGetUserAsync(System.String,Gfycat.RequestOptions)
@@ -4185,6 +4491,7 @@ references:
   name: TryGetUserAsync
   href: api/Gfycat.GfycatClient.html#Gfycat_GfycatClient_TryGetUserAsync_
   commentId: Overload:Gfycat.GfycatClient.TryGetUserAsync
+  isSpec: "True"
   fullName: Gfycat.GfycatClient.TryGetUserAsync
   nameWithType: GfycatClient.TryGetUserAsync
 - uid: Gfycat.GfycatClient.UseDefaultFeedCount
@@ -4209,6 +4516,7 @@ references:
   name: GfycatClientConfig
   href: api/Gfycat.GfycatClientConfig.html#Gfycat_GfycatClientConfig__ctor_
   commentId: Overload:Gfycat.GfycatClientConfig.#ctor
+  isSpec: "True"
   fullName: Gfycat.GfycatClientConfig.GfycatClientConfig
   nameWithType: GfycatClientConfig.GfycatClientConfig
 - uid: Gfycat.GfycatClientConfig.ApiVersion
@@ -4233,6 +4541,7 @@ references:
   name: ClientId
   href: api/Gfycat.GfycatClientConfig.html#Gfycat_GfycatClientConfig_ClientId_
   commentId: Overload:Gfycat.GfycatClientConfig.ClientId
+  isSpec: "True"
   fullName: Gfycat.GfycatClientConfig.ClientId
   nameWithType: GfycatClientConfig.ClientId
 - uid: Gfycat.GfycatClientConfig.ClientSecret
@@ -4245,6 +4554,7 @@ references:
   name: ClientSecret
   href: api/Gfycat.GfycatClientConfig.html#Gfycat_GfycatClientConfig_ClientSecret_
   commentId: Overload:Gfycat.GfycatClientConfig.ClientSecret
+  isSpec: "True"
   fullName: Gfycat.GfycatClientConfig.ClientSecret
   nameWithType: GfycatClientConfig.ClientSecret
 - uid: Gfycat.GfycatClientConfig.DefaultFeedItemCount
@@ -4257,6 +4567,7 @@ references:
   name: DefaultFeedItemCount
   href: api/Gfycat.GfycatClientConfig.html#Gfycat_GfycatClientConfig_DefaultFeedItemCount_
   commentId: Overload:Gfycat.GfycatClientConfig.DefaultFeedItemCount
+  isSpec: "True"
   fullName: Gfycat.GfycatClientConfig.DefaultFeedItemCount
   nameWithType: GfycatClientConfig.DefaultFeedItemCount
 - uid: Gfycat.GfycatClientConfig.DefaultRetryMode
@@ -4269,6 +4580,7 @@ references:
   name: DefaultRetryMode
   href: api/Gfycat.GfycatClientConfig.html#Gfycat_GfycatClientConfig_DefaultRetryMode_
   commentId: Overload:Gfycat.GfycatClientConfig.DefaultRetryMode
+  isSpec: "True"
   fullName: Gfycat.GfycatClientConfig.DefaultRetryMode
   nameWithType: GfycatClientConfig.DefaultRetryMode
 - uid: Gfycat.GfycatClientConfig.DefaultTimeout
@@ -4281,6 +4593,7 @@ references:
   name: DefaultTimeout
   href: api/Gfycat.GfycatClientConfig.html#Gfycat_GfycatClientConfig_DefaultTimeout_
   commentId: Overload:Gfycat.GfycatClientConfig.DefaultTimeout
+  isSpec: "True"
   fullName: Gfycat.GfycatClientConfig.DefaultTimeout
   nameWithType: GfycatClientConfig.DefaultTimeout
 - uid: Gfycat.GfycatClientConfig.RestClient
@@ -4293,6 +4606,7 @@ references:
   name: RestClient
   href: api/Gfycat.GfycatClientConfig.html#Gfycat_GfycatClientConfig_RestClient_
   commentId: Overload:Gfycat.GfycatClientConfig.RestClient
+  isSpec: "True"
   fullName: Gfycat.GfycatClientConfig.RestClient
   nameWithType: GfycatClientConfig.RestClient
 - uid: Gfycat.GfycatException
@@ -4311,6 +4625,7 @@ references:
   name: Code
   href: api/Gfycat.GfycatException.html#Gfycat_GfycatException_Code_
   commentId: Overload:Gfycat.GfycatException.Code
+  isSpec: "True"
   fullName: Gfycat.GfycatException.Code
   nameWithType: GfycatException.Code
 - uid: Gfycat.GfycatException.Description
@@ -4323,6 +4638,7 @@ references:
   name: Description
   href: api/Gfycat.GfycatException.html#Gfycat_GfycatException_Description_
   commentId: Overload:Gfycat.GfycatException.Description
+  isSpec: "True"
   fullName: Gfycat.GfycatException.Description
   nameWithType: GfycatException.Description
 - uid: Gfycat.GfycatException.HttpCode
@@ -4335,6 +4651,7 @@ references:
   name: HttpCode
   href: api/Gfycat.GfycatException.html#Gfycat_GfycatException_HttpCode_
   commentId: Overload:Gfycat.GfycatException.HttpCode
+  isSpec: "True"
   fullName: Gfycat.GfycatException.HttpCode
   nameWithType: GfycatException.HttpCode
 - uid: Gfycat.GfycatOperation
@@ -4353,6 +4670,7 @@ references:
   name: GfycatOperation
   href: api/Gfycat.GfycatOperation.html#Gfycat_GfycatOperation__ctor_
   commentId: Overload:Gfycat.GfycatOperation.#ctor
+  isSpec: "True"
   fullName: Gfycat.GfycatOperation.GfycatOperation
   nameWithType: GfycatOperation.GfycatOperation
 - uid: Gfycat.GfycatOperation.Operation
@@ -4365,6 +4683,7 @@ references:
   name: Operation
   href: api/Gfycat.GfycatOperation.html#Gfycat_GfycatOperation_Operation_
   commentId: Overload:Gfycat.GfycatOperation.Operation
+  isSpec: "True"
   fullName: Gfycat.GfycatOperation.Operation
   nameWithType: GfycatOperation.Operation
 - uid: Gfycat.GfycatOperation.Path
@@ -4377,6 +4696,7 @@ references:
   name: Path
   href: api/Gfycat.GfycatOperation.html#Gfycat_GfycatOperation_Path_
   commentId: Overload:Gfycat.GfycatOperation.Path
+  isSpec: "True"
   fullName: Gfycat.GfycatOperation.Path
   nameWithType: GfycatOperation.Path
 - uid: Gfycat.GfycatOperation.Value
@@ -4389,6 +4709,7 @@ references:
   name: Value
   href: api/Gfycat.GfycatOperation.html#Gfycat_GfycatOperation_Value_
   commentId: Overload:Gfycat.GfycatOperation.Value
+  isSpec: "True"
   fullName: Gfycat.GfycatOperation.Value
   nameWithType: GfycatOperation.Value
 - uid: Gfycat.GfyCreationParameters
@@ -4407,6 +4728,7 @@ references:
   name: GfyCreationParameters
   href: api/Gfycat.GfyCreationParameters.html#Gfycat_GfyCreationParameters__ctor_
   commentId: Overload:Gfycat.GfyCreationParameters.#ctor
+  isSpec: "True"
   fullName: Gfycat.GfyCreationParameters.GfyCreationParameters
   nameWithType: GfyCreationParameters.GfyCreationParameters
 - uid: Gfycat.GfyCreationParameters.Captions
@@ -4419,6 +4741,7 @@ references:
   name: Captions
   href: api/Gfycat.GfyCreationParameters.html#Gfycat_GfyCreationParameters_Captions_
   commentId: Overload:Gfycat.GfyCreationParameters.Captions
+  isSpec: "True"
   fullName: Gfycat.GfyCreationParameters.Captions
   nameWithType: GfyCreationParameters.Captions
 - uid: Gfycat.GfyCreationParameters.Crop
@@ -4431,6 +4754,7 @@ references:
   name: Crop
   href: api/Gfycat.GfyCreationParameters.html#Gfycat_GfyCreationParameters_Crop_
   commentId: Overload:Gfycat.GfyCreationParameters.Crop
+  isSpec: "True"
   fullName: Gfycat.GfyCreationParameters.Crop
   nameWithType: GfyCreationParameters.Crop
 - uid: Gfycat.GfyCreationParameters.Cut
@@ -4443,6 +4767,7 @@ references:
   name: Cut
   href: api/Gfycat.GfyCreationParameters.html#Gfycat_GfyCreationParameters_Cut_
   commentId: Overload:Gfycat.GfyCreationParameters.Cut
+  isSpec: "True"
   fullName: Gfycat.GfyCreationParameters.Cut
   nameWithType: GfyCreationParameters.Cut
 - uid: Gfycat.GfyCreationParameters.Description
@@ -4455,6 +4780,7 @@ references:
   name: Description
   href: api/Gfycat.GfyCreationParameters.html#Gfycat_GfyCreationParameters_Description_
   commentId: Overload:Gfycat.GfyCreationParameters.Description
+  isSpec: "True"
   fullName: Gfycat.GfyCreationParameters.Description
   nameWithType: GfyCreationParameters.Description
 - uid: Gfycat.GfyCreationParameters.FetchHours
@@ -4467,6 +4793,7 @@ references:
   name: FetchHours
   href: api/Gfycat.GfyCreationParameters.html#Gfycat_GfyCreationParameters_FetchHours_
   commentId: Overload:Gfycat.GfyCreationParameters.FetchHours
+  isSpec: "True"
   fullName: Gfycat.GfyCreationParameters.FetchHours
   nameWithType: GfyCreationParameters.FetchHours
 - uid: Gfycat.GfyCreationParameters.FetchMinutes
@@ -4479,6 +4806,7 @@ references:
   name: FetchMinutes
   href: api/Gfycat.GfyCreationParameters.html#Gfycat_GfyCreationParameters_FetchMinutes_
   commentId: Overload:Gfycat.GfyCreationParameters.FetchMinutes
+  isSpec: "True"
   fullName: Gfycat.GfyCreationParameters.FetchMinutes
   nameWithType: GfyCreationParameters.FetchMinutes
 - uid: Gfycat.GfyCreationParameters.FetchSeconds
@@ -4491,6 +4819,7 @@ references:
   name: FetchSeconds
   href: api/Gfycat.GfyCreationParameters.html#Gfycat_GfyCreationParameters_FetchSeconds_
   commentId: Overload:Gfycat.GfyCreationParameters.FetchSeconds
+  isSpec: "True"
   fullName: Gfycat.GfyCreationParameters.FetchSeconds
   nameWithType: GfyCreationParameters.FetchSeconds
 - uid: Gfycat.GfyCreationParameters.NoMd5
@@ -4503,6 +4832,7 @@ references:
   name: NoMd5
   href: api/Gfycat.GfyCreationParameters.html#Gfycat_GfyCreationParameters_NoMd5_
   commentId: Overload:Gfycat.GfyCreationParameters.NoMd5
+  isSpec: "True"
   fullName: Gfycat.GfyCreationParameters.NoMd5
   nameWithType: GfyCreationParameters.NoMd5
 - uid: Gfycat.GfyCreationParameters.Nsfw
@@ -4515,6 +4845,7 @@ references:
   name: Nsfw
   href: api/Gfycat.GfyCreationParameters.html#Gfycat_GfyCreationParameters_Nsfw_
   commentId: Overload:Gfycat.GfyCreationParameters.Nsfw
+  isSpec: "True"
   fullName: Gfycat.GfyCreationParameters.Nsfw
   nameWithType: GfyCreationParameters.Nsfw
 - uid: Gfycat.GfyCreationParameters.Private
@@ -4527,6 +4858,7 @@ references:
   name: Private
   href: api/Gfycat.GfyCreationParameters.html#Gfycat_GfyCreationParameters_Private_
   commentId: Overload:Gfycat.GfyCreationParameters.Private
+  isSpec: "True"
   fullName: Gfycat.GfyCreationParameters.Private
   nameWithType: GfyCreationParameters.Private
 - uid: Gfycat.GfyCreationParameters.Tags
@@ -4539,6 +4871,7 @@ references:
   name: Tags
   href: api/Gfycat.GfyCreationParameters.html#Gfycat_GfyCreationParameters_Tags_
   commentId: Overload:Gfycat.GfyCreationParameters.Tags
+  isSpec: "True"
   fullName: Gfycat.GfyCreationParameters.Tags
   nameWithType: GfyCreationParameters.Tags
 - uid: Gfycat.GfyCreationParameters.Title
@@ -4551,6 +4884,7 @@ references:
   name: Title
   href: api/Gfycat.GfyCreationParameters.html#Gfycat_GfyCreationParameters_Title_
   commentId: Overload:Gfycat.GfyCreationParameters.Title
+  isSpec: "True"
   fullName: Gfycat.GfyCreationParameters.Title
   nameWithType: GfyCreationParameters.Title
 - uid: Gfycat.GfyFeed
@@ -4569,6 +4903,7 @@ references:
   name: Content
   href: api/Gfycat.GfyFeed.html#Gfycat_GfyFeed_Content_
   commentId: Overload:Gfycat.GfyFeed.Content
+  isSpec: "True"
   fullName: Gfycat.GfyFeed.Content
   nameWithType: GfyFeed.Content
 - uid: Gfycat.GfyFeed.GetEnumerator
@@ -4581,6 +4916,7 @@ references:
   name: GetEnumerator
   href: api/Gfycat.GfyFeed.html#Gfycat_GfyFeed_GetEnumerator_
   commentId: Overload:Gfycat.GfyFeed.GetEnumerator
+  isSpec: "True"
   fullName: Gfycat.GfyFeed.GetEnumerator
   nameWithType: GfyFeed.GetEnumerator
 - uid: Gfycat.GfyFeed.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
@@ -4593,6 +4929,7 @@ references:
   name: GetNextPageAsync
   href: api/Gfycat.GfyFeed.html#Gfycat_GfyFeed_GetNextPageAsync_
   commentId: Overload:Gfycat.GfyFeed.GetNextPageAsync
+  isSpec: "True"
   fullName: Gfycat.GfyFeed.GetNextPageAsync
   nameWithType: GfyFeed.GetNextPageAsync
 - uid: Gfycat.GfyFeed.Gfycat#IFeed{Gfycat#Gfy}#Cursor
@@ -4607,6 +4944,7 @@ references:
   name: IFeed<Gfy>.Cursor
   href: api/Gfycat.GfyFeed.html#Gfycat_GfyFeed_Gfycat_IFeed_Gfycat_Gfy__Cursor_
   commentId: Overload:Gfycat.GfyFeed.Gfycat#IFeed{Gfycat#Gfy}#Cursor
+  isSpec: "True"
   name.vb: Gfycat.IFeed<Gfycat.Gfy>.Cursor
   fullName: Gfycat.GfyFeed.Gfycat.IFeed<Gfycat.Gfy>.Cursor
   nameWithType: GfyFeed.IFeed<Gfy>.Cursor
@@ -4717,6 +5055,7 @@ references:
   name: GetGfyAsync
   href: api/Gfycat.GfyStatus.html#Gfycat_GfyStatus_GetGfyAsync_
   commentId: Overload:Gfycat.GfyStatus.GetGfyAsync
+  isSpec: "True"
   fullName: Gfycat.GfyStatus.GetGfyAsync
   nameWithType: GfyStatus.GetGfyAsync
 - uid: Gfycat.GfyStatus.GetGfyWhenCompleteAsync(Gfycat.RequestOptions)
@@ -4729,6 +5068,7 @@ references:
   name: GetGfyWhenCompleteAsync
   href: api/Gfycat.GfyStatus.html#Gfycat_GfyStatus_GetGfyWhenCompleteAsync_
   commentId: Overload:Gfycat.GfyStatus.GetGfyWhenCompleteAsync
+  isSpec: "True"
   fullName: Gfycat.GfyStatus.GetGfyWhenCompleteAsync
   nameWithType: GfyStatus.GetGfyWhenCompleteAsync
 - uid: Gfycat.GfyStatus.GfyName
@@ -4741,6 +5081,7 @@ references:
   name: GfyName
   href: api/Gfycat.GfyStatus.html#Gfycat_GfyStatus_GfyName_
   commentId: Overload:Gfycat.GfyStatus.GfyName
+  isSpec: "True"
   fullName: Gfycat.GfyStatus.GfyName
   nameWithType: GfyStatus.GfyName
 - uid: Gfycat.GfyStatus.Task
@@ -4753,6 +5094,7 @@ references:
   name: Task
   href: api/Gfycat.GfyStatus.html#Gfycat_GfyStatus_Task_
   commentId: Overload:Gfycat.GfyStatus.Task
+  isSpec: "True"
   fullName: Gfycat.GfyStatus.Task
   nameWithType: GfyStatus.Task
 - uid: Gfycat.GfyStatus.Time
@@ -4765,6 +5107,7 @@ references:
   name: Time
   href: api/Gfycat.GfyStatus.html#Gfycat_GfyStatus_Time_
   commentId: Overload:Gfycat.GfyStatus.Time
+  isSpec: "True"
   fullName: Gfycat.GfyStatus.Time
   nameWithType: GfyStatus.Time
 - uid: Gfycat.GfyStatus.UpdateAsync(Gfycat.RequestOptions)
@@ -4777,6 +5120,7 @@ references:
   name: UpdateAsync
   href: api/Gfycat.GfyStatus.html#Gfycat_GfyStatus_UpdateAsync_
   commentId: Overload:Gfycat.GfyStatus.UpdateAsync
+  isSpec: "True"
   fullName: Gfycat.GfyStatus.UpdateAsync
   nameWithType: GfyStatus.UpdateAsync
 - uid: Gfycat.IAlbumInfo
@@ -4795,6 +5139,7 @@ references:
   name: Published
   href: api/Gfycat.IAlbumInfo.html#Gfycat_IAlbumInfo_Published_
   commentId: Overload:Gfycat.IAlbumInfo.Published
+  isSpec: "True"
   fullName: Gfycat.IAlbumInfo.Published
   nameWithType: IAlbumInfo.Published
 - uid: Gfycat.IAlbumInfo.Subfolders
@@ -4807,6 +5152,7 @@ references:
   name: Subfolders
   href: api/Gfycat.IAlbumInfo.html#Gfycat_IAlbumInfo_Subfolders_
   commentId: Overload:Gfycat.IAlbumInfo.Subfolders
+  isSpec: "True"
   fullName: Gfycat.IAlbumInfo.Subfolders
   nameWithType: IAlbumInfo.Subfolders
 - uid: Gfycat.IFeed`1
@@ -4830,6 +5176,7 @@ references:
   name: Content
   href: api/Gfycat.IFeed-1.html#Gfycat_IFeed_1_Content_
   commentId: Overload:Gfycat.IFeed`1.Content
+  isSpec: "True"
   fullName: Gfycat.IFeed<T>.Content
   fullName.vb: Gfycat.IFeed(Of T).Content
   nameWithType: IFeed<T>.Content
@@ -4846,6 +5193,7 @@ references:
   name: Cursor
   href: api/Gfycat.IFeed-1.html#Gfycat_IFeed_1_Cursor_
   commentId: Overload:Gfycat.IFeed`1.Cursor
+  isSpec: "True"
   fullName: Gfycat.IFeed<T>.Cursor
   fullName.vb: Gfycat.IFeed(Of T).Cursor
   nameWithType: IFeed<T>.Cursor
@@ -4862,6 +5210,7 @@ references:
   name: GetNextPageAsync
   href: api/Gfycat.IFeed-1.html#Gfycat_IFeed_1_GetNextPageAsync_
   commentId: Overload:Gfycat.IFeed`1.GetNextPageAsync
+  isSpec: "True"
   fullName: Gfycat.IFeed<T>.GetNextPageAsync
   fullName.vb: Gfycat.IFeed(Of T).GetNextPageAsync
   nameWithType: IFeed<T>.GetNextPageAsync
@@ -4882,6 +5231,7 @@ references:
   name: DeleteAsync
   href: api/Gfycat.IFolder.html#Gfycat_IFolder_DeleteAsync_
   commentId: Overload:Gfycat.IFolder.DeleteAsync
+  isSpec: "True"
   fullName: Gfycat.IFolder.DeleteAsync
   nameWithType: IFolder.DeleteAsync
 - uid: Gfycat.IFolder.Id
@@ -4894,6 +5244,7 @@ references:
   name: Id
   href: api/Gfycat.IFolder.html#Gfycat_IFolder_Id_
   commentId: Overload:Gfycat.IFolder.Id
+  isSpec: "True"
   fullName: Gfycat.IFolder.Id
   nameWithType: IFolder.Id
 - uid: Gfycat.IFolder.ModifyTitleAsync(System.String,Gfycat.RequestOptions)
@@ -4906,6 +5257,7 @@ references:
   name: ModifyTitleAsync
   href: api/Gfycat.IFolder.html#Gfycat_IFolder_ModifyTitleAsync_
   commentId: Overload:Gfycat.IFolder.ModifyTitleAsync
+  isSpec: "True"
   fullName: Gfycat.IFolder.ModifyTitleAsync
   nameWithType: IFolder.ModifyTitleAsync
 - uid: Gfycat.IFolder.Title
@@ -4918,6 +5270,7 @@ references:
   name: Title
   href: api/Gfycat.IFolder.html#Gfycat_IFolder_Title_
   commentId: Overload:Gfycat.IFolder.Title
+  isSpec: "True"
   fullName: Gfycat.IFolder.Title
   nameWithType: IFolder.Title
 - uid: Gfycat.IFolderContent
@@ -4936,6 +5289,7 @@ references:
   name: Content
   href: api/Gfycat.IFolderContent.html#Gfycat_IFolderContent_Content_
   commentId: Overload:Gfycat.IFolderContent.Content
+  isSpec: "True"
   fullName: Gfycat.IFolderContent.Content
   nameWithType: IFolderContent.Content
 - uid: Gfycat.IFolderContent.Count
@@ -4948,6 +5302,7 @@ references:
   name: Count
   href: api/Gfycat.IFolderContent.html#Gfycat_IFolderContent_Count_
   commentId: Overload:Gfycat.IFolderContent.Count
+  isSpec: "True"
   fullName: Gfycat.IFolderContent.Count
   nameWithType: IFolderContent.Count
 - uid: Gfycat.IFolderContent.MoveGfysAsync(Gfycat.IFolderContent,System.Collections.Generic.IEnumerable{Gfycat.Gfy},Gfycat.RequestOptions)
@@ -4963,6 +5318,7 @@ references:
   name: MoveGfysAsync
   href: api/Gfycat.IFolderContent.html#Gfycat_IFolderContent_MoveGfysAsync_
   commentId: Overload:Gfycat.IFolderContent.MoveGfysAsync
+  isSpec: "True"
   fullName: Gfycat.IFolderContent.MoveGfysAsync
   nameWithType: IFolderContent.MoveGfysAsync
 - uid: Gfycat.IFolderInfo
@@ -4981,6 +5337,7 @@ references:
   name: CreateNewFolderAsync
   href: api/Gfycat.IFolderInfo.html#Gfycat_IFolderInfo_CreateNewFolderAsync_
   commentId: Overload:Gfycat.IFolderInfo.CreateNewFolderAsync
+  isSpec: "True"
   fullName: Gfycat.IFolderInfo.CreateNewFolderAsync
   nameWithType: IFolderInfo.CreateNewFolderAsync
 - uid: Gfycat.IFolderInfo.GetContentsAsync(Gfycat.RequestOptions)
@@ -4993,6 +5350,7 @@ references:
   name: GetContentsAsync
   href: api/Gfycat.IFolderInfo.html#Gfycat_IFolderInfo_GetContentsAsync_
   commentId: Overload:Gfycat.IFolderInfo.GetContentsAsync
+  isSpec: "True"
   fullName: Gfycat.IFolderInfo.GetContentsAsync
   nameWithType: IFolderInfo.GetContentsAsync
 - uid: Gfycat.IFolderInfo.MoveFolderAsync(Gfycat.IFolderInfo,Gfycat.RequestOptions)
@@ -5005,6 +5363,7 @@ references:
   name: MoveFolderAsync
   href: api/Gfycat.IFolderInfo.html#Gfycat_IFolderInfo_MoveFolderAsync_
   commentId: Overload:Gfycat.IFolderInfo.MoveFolderAsync
+  isSpec: "True"
   fullName: Gfycat.IFolderInfo.MoveFolderAsync
   nameWithType: IFolderInfo.MoveFolderAsync
 - uid: Gfycat.IFolderInfo.Subfolders
@@ -5017,6 +5376,7 @@ references:
   name: Subfolders
   href: api/Gfycat.IFolderInfo.html#Gfycat_IFolderInfo_Subfolders_
   commentId: Overload:Gfycat.IFolderInfo.Subfolders
+  isSpec: "True"
   fullName: Gfycat.IFolderInfo.Subfolders
   nameWithType: IFolderInfo.Subfolders
 - uid: Gfycat.InternalServerException
@@ -5035,6 +5395,7 @@ references:
   name: ErrorMessage
   href: api/Gfycat.InternalServerException.html#Gfycat_InternalServerException_ErrorMessage_
   commentId: Overload:Gfycat.InternalServerException.ErrorMessage
+  isSpec: "True"
   fullName: Gfycat.InternalServerException.ErrorMessage
   nameWithType: InternalServerException.ErrorMessage
 - uid: Gfycat.InternalServerException.ErrorType
@@ -5047,6 +5408,7 @@ references:
   name: ErrorType
   href: api/Gfycat.InternalServerException.html#Gfycat_InternalServerException_ErrorType_
   commentId: Overload:Gfycat.InternalServerException.ErrorType
+  isSpec: "True"
   fullName: Gfycat.InternalServerException.ErrorType
   nameWithType: InternalServerException.ErrorType
 - uid: Gfycat.InternalServerException.RequestMethod
@@ -5059,6 +5421,7 @@ references:
   name: RequestMethod
   href: api/Gfycat.InternalServerException.html#Gfycat_InternalServerException_RequestMethod_
   commentId: Overload:Gfycat.InternalServerException.RequestMethod
+  isSpec: "True"
   fullName: Gfycat.InternalServerException.RequestMethod
   nameWithType: InternalServerException.RequestMethod
 - uid: Gfycat.InternalServerException.RequestUri
@@ -5071,6 +5434,7 @@ references:
   name: RequestUri
   href: api/Gfycat.InternalServerException.html#Gfycat_InternalServerException_RequestUri_
   commentId: Overload:Gfycat.InternalServerException.RequestUri
+  isSpec: "True"
   fullName: Gfycat.InternalServerException.RequestUri
   nameWithType: InternalServerException.RequestUri
 - uid: Gfycat.InternalServerException.ServerStackTrace
@@ -5083,6 +5447,7 @@ references:
   name: ServerStackTrace
   href: api/Gfycat.InternalServerException.html#Gfycat_InternalServerException_ServerStackTrace_
   commentId: Overload:Gfycat.InternalServerException.ServerStackTrace
+  isSpec: "True"
   fullName: Gfycat.InternalServerException.ServerStackTrace
   nameWithType: InternalServerException.ServerStackTrace
 - uid: Gfycat.InternalServerException.ToString
@@ -5095,6 +5460,7 @@ references:
   name: ToString
   href: api/Gfycat.InternalServerException.html#Gfycat_InternalServerException_ToString_
   commentId: Overload:Gfycat.InternalServerException.ToString
+  isSpec: "True"
   fullName: Gfycat.InternalServerException.ToString
   nameWithType: InternalServerException.ToString
 - uid: Gfycat.InvalidResourceException
@@ -5119,6 +5485,7 @@ references:
   name: InvalidResourceException
   href: api/Gfycat.InvalidResourceException.html#Gfycat_InvalidResourceException__ctor_
   commentId: Overload:Gfycat.InvalidResourceException.#ctor
+  isSpec: "True"
   fullName: Gfycat.InvalidResourceException.InvalidResourceException
   nameWithType: InvalidResourceException.InvalidResourceException
 - uid: Gfycat.ISearchable
@@ -5137,6 +5504,7 @@ references:
   name: SearchAsync
   href: api/Gfycat.ISearchable.html#Gfycat_ISearchable_SearchAsync_
   commentId: Overload:Gfycat.ISearchable.SearchAsync
+  isSpec: "True"
   fullName: Gfycat.ISearchable.SearchAsync
   nameWithType: ISearchable.SearchAsync
 - uid: Gfycat.IUpdatable
@@ -5155,6 +5523,7 @@ references:
   name: UpdateAsync
   href: api/Gfycat.IUpdatable.html#Gfycat_IUpdatable_UpdateAsync_
   commentId: Overload:Gfycat.IUpdatable.UpdateAsync
+  isSpec: "True"
   fullName: Gfycat.IUpdatable.UpdateAsync
   nameWithType: IUpdatable.UpdateAsync
 - uid: Gfycat.IUser
@@ -5173,6 +5542,7 @@ references:
   name: CreationDate
   href: api/Gfycat.IUser.html#Gfycat_IUser_CreationDate_
   commentId: Overload:Gfycat.IUser.CreationDate
+  isSpec: "True"
   fullName: Gfycat.IUser.CreationDate
   nameWithType: IUser.CreationDate
 - uid: Gfycat.IUser.Description
@@ -5185,6 +5555,7 @@ references:
   name: Description
   href: api/Gfycat.IUser.html#Gfycat_IUser_Description_
   commentId: Overload:Gfycat.IUser.Description
+  isSpec: "True"
   fullName: Gfycat.IUser.Description
   nameWithType: IUser.Description
 - uid: Gfycat.IUser.FollowAsync(Gfycat.RequestOptions)
@@ -5197,6 +5568,7 @@ references:
   name: FollowAsync
   href: api/Gfycat.IUser.html#Gfycat_IUser_FollowAsync_
   commentId: Overload:Gfycat.IUser.FollowAsync
+  isSpec: "True"
   fullName: Gfycat.IUser.FollowAsync
   nameWithType: IUser.FollowAsync
 - uid: Gfycat.IUser.Followers
@@ -5209,6 +5581,7 @@ references:
   name: Followers
   href: api/Gfycat.IUser.html#Gfycat_IUser_Followers_
   commentId: Overload:Gfycat.IUser.Followers
+  isSpec: "True"
   fullName: Gfycat.IUser.Followers
   nameWithType: IUser.Followers
 - uid: Gfycat.IUser.Following
@@ -5221,6 +5594,7 @@ references:
   name: Following
   href: api/Gfycat.IUser.html#Gfycat_IUser_Following_
   commentId: Overload:Gfycat.IUser.Following
+  isSpec: "True"
   fullName: Gfycat.IUser.Following
   nameWithType: IUser.Following
 - uid: Gfycat.IUser.GetAlbumsAsync(Gfycat.RequestOptions)
@@ -5233,6 +5607,7 @@ references:
   name: GetAlbumsAsync
   href: api/Gfycat.IUser.html#Gfycat_IUser_GetAlbumsAsync_
   commentId: Overload:Gfycat.IUser.GetAlbumsAsync
+  isSpec: "True"
   fullName: Gfycat.IUser.GetAlbumsAsync
   nameWithType: IUser.GetAlbumsAsync
 - uid: Gfycat.IUser.GetFollowingUser(Gfycat.RequestOptions)
@@ -5245,6 +5620,7 @@ references:
   name: GetFollowingUser
   href: api/Gfycat.IUser.html#Gfycat_IUser_GetFollowingUser_
   commentId: Overload:Gfycat.IUser.GetFollowingUser
+  isSpec: "True"
   fullName: Gfycat.IUser.GetFollowingUser
   nameWithType: IUser.GetFollowingUser
 - uid: Gfycat.IUser.GetGfyFeedAsync(System.Int32,Gfycat.RequestOptions)
@@ -5257,6 +5633,7 @@ references:
   name: GetGfyFeedAsync
   href: api/Gfycat.IUser.html#Gfycat_IUser_GetGfyFeedAsync_
   commentId: Overload:Gfycat.IUser.GetGfyFeedAsync
+  isSpec: "True"
   fullName: Gfycat.IUser.GetGfyFeedAsync
   nameWithType: IUser.GetGfyFeedAsync
 - uid: Gfycat.IUser.IframeProfileImageVisible
@@ -5269,6 +5646,7 @@ references:
   name: IframeProfileImageVisible
   href: api/Gfycat.IUser.html#Gfycat_IUser_IframeProfileImageVisible_
   commentId: Overload:Gfycat.IUser.IframeProfileImageVisible
+  isSpec: "True"
   fullName: Gfycat.IUser.IframeProfileImageVisible
   nameWithType: IUser.IframeProfileImageVisible
 - uid: Gfycat.IUser.Name
@@ -5281,6 +5659,7 @@ references:
   name: Name
   href: api/Gfycat.IUser.html#Gfycat_IUser_Name_
   commentId: Overload:Gfycat.IUser.Name
+  isSpec: "True"
   fullName: Gfycat.IUser.Name
   nameWithType: IUser.Name
 - uid: Gfycat.IUser.ProfileImageUrl
@@ -5293,6 +5672,7 @@ references:
   name: ProfileImageUrl
   href: api/Gfycat.IUser.html#Gfycat_IUser_ProfileImageUrl_
   commentId: Overload:Gfycat.IUser.ProfileImageUrl
+  isSpec: "True"
   fullName: Gfycat.IUser.ProfileImageUrl
   nameWithType: IUser.ProfileImageUrl
 - uid: Gfycat.IUser.ProfileUrl
@@ -5305,6 +5685,7 @@ references:
   name: ProfileUrl
   href: api/Gfycat.IUser.html#Gfycat_IUser_ProfileUrl_
   commentId: Overload:Gfycat.IUser.ProfileUrl
+  isSpec: "True"
   fullName: Gfycat.IUser.ProfileUrl
   nameWithType: IUser.ProfileUrl
 - uid: Gfycat.IUser.PublishedAlbums
@@ -5317,6 +5698,7 @@ references:
   name: PublishedAlbums
   href: api/Gfycat.IUser.html#Gfycat_IUser_PublishedAlbums_
   commentId: Overload:Gfycat.IUser.PublishedAlbums
+  isSpec: "True"
   fullName: Gfycat.IUser.PublishedAlbums
   nameWithType: IUser.PublishedAlbums
 - uid: Gfycat.IUser.PublishedGfys
@@ -5329,6 +5711,7 @@ references:
   name: PublishedGfys
   href: api/Gfycat.IUser.html#Gfycat_IUser_PublishedGfys_
   commentId: Overload:Gfycat.IUser.PublishedGfys
+  isSpec: "True"
   fullName: Gfycat.IUser.PublishedGfys
   nameWithType: IUser.PublishedGfys
 - uid: Gfycat.IUser.UnfollowAsync(Gfycat.RequestOptions)
@@ -5341,6 +5724,7 @@ references:
   name: UnfollowAsync
   href: api/Gfycat.IUser.html#Gfycat_IUser_UnfollowAsync_
   commentId: Overload:Gfycat.IUser.UnfollowAsync
+  isSpec: "True"
   fullName: Gfycat.IUser.UnfollowAsync
   nameWithType: IUser.UnfollowAsync
 - uid: Gfycat.IUser.Url
@@ -5353,6 +5737,7 @@ references:
   name: Url
   href: api/Gfycat.IUser.html#Gfycat_IUser_Url_
   commentId: Overload:Gfycat.IUser.Url
+  isSpec: "True"
   fullName: Gfycat.IUser.Url
   nameWithType: IUser.Url
 - uid: Gfycat.IUser.Username
@@ -5365,6 +5750,7 @@ references:
   name: Username
   href: api/Gfycat.IUser.html#Gfycat_IUser_Username_
   commentId: Overload:Gfycat.IUser.Username
+  isSpec: "True"
   fullName: Gfycat.IUser.Username
   nameWithType: IUser.Username
 - uid: Gfycat.IUser.Verified
@@ -5377,6 +5763,7 @@ references:
   name: Verified
   href: api/Gfycat.IUser.html#Gfycat_IUser_Verified_
   commentId: Overload:Gfycat.IUser.Verified
+  isSpec: "True"
   fullName: Gfycat.IUser.Verified
   nameWithType: IUser.Verified
 - uid: Gfycat.IUser.Views
@@ -5389,6 +5776,7 @@ references:
   name: Views
   href: api/Gfycat.IUser.html#Gfycat_IUser_Views_
   commentId: Overload:Gfycat.IUser.Views
+  isSpec: "True"
   fullName: Gfycat.IUser.Views
   nameWithType: IUser.Views
 - uid: Gfycat.NsfwSetting
@@ -5515,6 +5903,7 @@ references:
   name: Content
   href: api/Gfycat.PopulatedTagFeed.html#Gfycat_PopulatedTagFeed_Content_
   commentId: Overload:Gfycat.PopulatedTagFeed.Content
+  isSpec: "True"
   fullName: Gfycat.PopulatedTagFeed.Content
   nameWithType: PopulatedTagFeed.Content
 - uid: Gfycat.PopulatedTagFeed.GetEnumerator
@@ -5527,6 +5916,7 @@ references:
   name: GetEnumerator
   href: api/Gfycat.PopulatedTagFeed.html#Gfycat_PopulatedTagFeed_GetEnumerator_
   commentId: Overload:Gfycat.PopulatedTagFeed.GetEnumerator
+  isSpec: "True"
   fullName: Gfycat.PopulatedTagFeed.GetEnumerator
   nameWithType: PopulatedTagFeed.GetEnumerator
 - uid: Gfycat.PopulatedTagFeed.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
@@ -5539,6 +5929,7 @@ references:
   name: GetNextPageAsync
   href: api/Gfycat.PopulatedTagFeed.html#Gfycat_PopulatedTagFeed_GetNextPageAsync_
   commentId: Overload:Gfycat.PopulatedTagFeed.GetNextPageAsync
+  isSpec: "True"
   fullName: Gfycat.PopulatedTagFeed.GetNextPageAsync
   nameWithType: PopulatedTagFeed.GetNextPageAsync
 - uid: Gfycat.PopulatedTagFeed.Gfycat#IFeed{Gfycat#TaggedGfyFeed}#Cursor
@@ -5553,6 +5944,7 @@ references:
   name: IFeed<TaggedGfyFeed>.Cursor
   href: api/Gfycat.PopulatedTagFeed.html#Gfycat_PopulatedTagFeed_Gfycat_IFeed_Gfycat_TaggedGfyFeed__Cursor_
   commentId: Overload:Gfycat.PopulatedTagFeed.Gfycat#IFeed{Gfycat#TaggedGfyFeed}#Cursor
+  isSpec: "True"
   name.vb: Gfycat.IFeed<Gfycat.TaggedGfyFeed>.Cursor
   fullName: Gfycat.PopulatedTagFeed.Gfycat.IFeed<Gfycat.TaggedGfyFeed>.Cursor
   nameWithType: PopulatedTagFeed.IFeed<TaggedGfyFeed>.Cursor
@@ -5597,6 +5989,7 @@ references:
   name: CoverGfy
   href: api/Gfycat.ReactionFeed.html#Gfycat_ReactionFeed_CoverGfy_
   commentId: Overload:Gfycat.ReactionFeed.CoverGfy
+  isSpec: "True"
   fullName: Gfycat.ReactionFeed.CoverGfy
   nameWithType: ReactionFeed.CoverGfy
 - uid: Gfycat.ReactionFeed.GetEnumerator
@@ -5609,6 +6002,7 @@ references:
   name: GetEnumerator
   href: api/Gfycat.ReactionFeed.html#Gfycat_ReactionFeed_GetEnumerator_
   commentId: Overload:Gfycat.ReactionFeed.GetEnumerator
+  isSpec: "True"
   fullName: Gfycat.ReactionFeed.GetEnumerator
   nameWithType: ReactionFeed.GetEnumerator
 - uid: Gfycat.ReactionFeed.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
@@ -5621,6 +6015,7 @@ references:
   name: GetNextPageAsync
   href: api/Gfycat.ReactionFeed.html#Gfycat_ReactionFeed_GetNextPageAsync_
   commentId: Overload:Gfycat.ReactionFeed.GetNextPageAsync
+  isSpec: "True"
   fullName: Gfycat.ReactionFeed.GetNextPageAsync
   nameWithType: ReactionFeed.GetNextPageAsync
 - uid: Gfycat.ReactionFeed.Tag
@@ -5633,6 +6028,7 @@ references:
   name: Tag
   href: api/Gfycat.ReactionFeed.html#Gfycat_ReactionFeed_Tag_
   commentId: Overload:Gfycat.ReactionFeed.Tag
+  isSpec: "True"
   fullName: Gfycat.ReactionFeed.Tag
   nameWithType: ReactionFeed.Tag
 - uid: Gfycat.ReactionLanguage
@@ -5765,6 +6161,7 @@ references:
   name: Content
   href: api/Gfycat.ReactionTagsFeed.html#Gfycat_ReactionTagsFeed_Content_
   commentId: Overload:Gfycat.ReactionTagsFeed.Content
+  isSpec: "True"
   fullName: Gfycat.ReactionTagsFeed.Content
   nameWithType: ReactionTagsFeed.Content
 - uid: Gfycat.ReactionTagsFeed.GetEnumerator
@@ -5777,6 +6174,7 @@ references:
   name: GetEnumerator
   href: api/Gfycat.ReactionTagsFeed.html#Gfycat_ReactionTagsFeed_GetEnumerator_
   commentId: Overload:Gfycat.ReactionTagsFeed.GetEnumerator
+  isSpec: "True"
   fullName: Gfycat.ReactionTagsFeed.GetEnumerator
   nameWithType: ReactionTagsFeed.GetEnumerator
 - uid: Gfycat.ReactionTagsFeed.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
@@ -5789,6 +6187,7 @@ references:
   name: GetNextPageAsync
   href: api/Gfycat.ReactionTagsFeed.html#Gfycat_ReactionTagsFeed_GetNextPageAsync_
   commentId: Overload:Gfycat.ReactionTagsFeed.GetNextPageAsync
+  isSpec: "True"
   fullName: Gfycat.ReactionTagsFeed.GetNextPageAsync
   nameWithType: ReactionTagsFeed.GetNextPageAsync
 - uid: Gfycat.ReactionTagsFeed.Gfycat#IFeed{Gfycat#ReactionFeed}#Cursor
@@ -5803,6 +6202,7 @@ references:
   name: IFeed<ReactionFeed>.Cursor
   href: api/Gfycat.ReactionTagsFeed.html#Gfycat_ReactionTagsFeed_Gfycat_IFeed_Gfycat_ReactionFeed__Cursor_
   commentId: Overload:Gfycat.ReactionTagsFeed.Gfycat#IFeed{Gfycat#ReactionFeed}#Cursor
+  isSpec: "True"
   name.vb: Gfycat.IFeed<Gfycat.ReactionFeed>.Cursor
   fullName: Gfycat.ReactionTagsFeed.Gfycat.IFeed<Gfycat.ReactionFeed>.Cursor
   nameWithType: ReactionTagsFeed.IFeed<ReactionFeed>.Cursor
@@ -5823,6 +6223,7 @@ references:
   name: CancellationToken
   href: api/Gfycat.RequestOptions.html#Gfycat_RequestOptions_CancellationToken_
   commentId: Overload:Gfycat.RequestOptions.CancellationToken
+  isSpec: "True"
   fullName: Gfycat.RequestOptions.CancellationToken
   nameWithType: RequestOptions.CancellationToken
 - uid: Gfycat.RequestOptions.RetryMode
@@ -5835,6 +6236,7 @@ references:
   name: RetryMode
   href: api/Gfycat.RequestOptions.html#Gfycat_RequestOptions_RetryMode_
   commentId: Overload:Gfycat.RequestOptions.RetryMode
+  isSpec: "True"
   fullName: Gfycat.RequestOptions.RetryMode
   nameWithType: RequestOptions.RetryMode
 - uid: Gfycat.RequestOptions.Timeout
@@ -5847,6 +6249,7 @@ references:
   name: Timeout
   href: api/Gfycat.RequestOptions.html#Gfycat_RequestOptions_Timeout_
   commentId: Overload:Gfycat.RequestOptions.Timeout
+  isSpec: "True"
   fullName: Gfycat.RequestOptions.Timeout
   nameWithType: RequestOptions.Timeout
 - uid: Gfycat.Rest
@@ -5892,6 +6295,7 @@ references:
   name: SendAsync
   href: api/Gfycat.Rest.IRestClient.html#Gfycat_Rest_IRestClient_SendAsync_
   commentId: Overload:Gfycat.Rest.IRestClient.SendAsync
+  isSpec: "True"
   fullName: Gfycat.Rest.IRestClient.SendAsync
   nameWithType: IRestClient.SendAsync
 - uid: Gfycat.Rest.IRestClient.SetHeader(System.String,System.String)
@@ -5904,6 +6308,7 @@ references:
   name: SetHeader
   href: api/Gfycat.Rest.IRestClient.html#Gfycat_Rest_IRestClient_SetHeader_
   commentId: Overload:Gfycat.Rest.IRestClient.SetHeader
+  isSpec: "True"
   fullName: Gfycat.Rest.IRestClient.SetHeader
   nameWithType: IRestClient.SetHeader
 - uid: Gfycat.Rest.RestResponse
@@ -5925,6 +6330,7 @@ references:
   name: RestResponse
   href: api/Gfycat.Rest.RestResponse.html#Gfycat_Rest_RestResponse__ctor_
   commentId: Overload:Gfycat.Rest.RestResponse.#ctor
+  isSpec: "True"
   fullName: Gfycat.Rest.RestResponse.RestResponse
   nameWithType: RestResponse.RestResponse
 - uid: Gfycat.Rest.RestResponse.Content
@@ -5937,6 +6343,7 @@ references:
   name: Content
   href: api/Gfycat.Rest.RestResponse.html#Gfycat_Rest_RestResponse_Content_
   commentId: Overload:Gfycat.Rest.RestResponse.Content
+  isSpec: "True"
   fullName: Gfycat.Rest.RestResponse.Content
   nameWithType: RestResponse.Content
 - uid: Gfycat.Rest.RestResponse.Headers
@@ -5949,6 +6356,7 @@ references:
   name: Headers
   href: api/Gfycat.Rest.RestResponse.html#Gfycat_Rest_RestResponse_Headers_
   commentId: Overload:Gfycat.Rest.RestResponse.Headers
+  isSpec: "True"
   fullName: Gfycat.Rest.RestResponse.Headers
   nameWithType: RestResponse.Headers
 - uid: Gfycat.Rest.RestResponse.RequestMethod
@@ -5961,6 +6369,7 @@ references:
   name: RequestMethod
   href: api/Gfycat.Rest.RestResponse.html#Gfycat_Rest_RestResponse_RequestMethod_
   commentId: Overload:Gfycat.Rest.RestResponse.RequestMethod
+  isSpec: "True"
   fullName: Gfycat.Rest.RestResponse.RequestMethod
   nameWithType: RestResponse.RequestMethod
 - uid: Gfycat.Rest.RestResponse.RequestUri
@@ -5973,6 +6382,7 @@ references:
   name: RequestUri
   href: api/Gfycat.Rest.RestResponse.html#Gfycat_Rest_RestResponse_RequestUri_
   commentId: Overload:Gfycat.Rest.RestResponse.RequestUri
+  isSpec: "True"
   fullName: Gfycat.Rest.RestResponse.RequestUri
   nameWithType: RestResponse.RequestUri
 - uid: Gfycat.Rest.RestResponse.Status
@@ -5985,6 +6395,7 @@ references:
   name: Status
   href: api/Gfycat.Rest.RestResponse.html#Gfycat_Rest_RestResponse_Status_
   commentId: Overload:Gfycat.Rest.RestResponse.Status
+  isSpec: "True"
   fullName: Gfycat.Rest.RestResponse.Status
   nameWithType: RestResponse.Status
 - uid: Gfycat.RetryMode
@@ -6039,6 +6450,7 @@ references:
   name: Count
   href: api/Gfycat.SearchFeed.html#Gfycat_SearchFeed_Count_
   commentId: Overload:Gfycat.SearchFeed.Count
+  isSpec: "True"
   fullName: Gfycat.SearchFeed.Count
   nameWithType: SearchFeed.Count
 - uid: Gfycat.SearchFeed.SearchText
@@ -6051,6 +6463,7 @@ references:
   name: SearchText
   href: api/Gfycat.SearchFeed.html#Gfycat_SearchFeed_SearchText_
   commentId: Overload:Gfycat.SearchFeed.SearchText
+  isSpec: "True"
   fullName: Gfycat.SearchFeed.SearchText
   nameWithType: SearchFeed.SearchText
 - uid: Gfycat.TaggedGfyFeed
@@ -6069,6 +6482,7 @@ references:
   name: GetEnumerator
   href: api/Gfycat.TaggedGfyFeed.html#Gfycat_TaggedGfyFeed_GetEnumerator_
   commentId: Overload:Gfycat.TaggedGfyFeed.GetEnumerator
+  isSpec: "True"
   fullName: Gfycat.TaggedGfyFeed.GetEnumerator
   nameWithType: TaggedGfyFeed.GetEnumerator
 - uid: Gfycat.TaggedGfyFeed.GetNextPageAsync(System.Int32,Gfycat.RequestOptions)
@@ -6081,6 +6495,7 @@ references:
   name: GetNextPageAsync
   href: api/Gfycat.TaggedGfyFeed.html#Gfycat_TaggedGfyFeed_GetNextPageAsync_
   commentId: Overload:Gfycat.TaggedGfyFeed.GetNextPageAsync
+  isSpec: "True"
   fullName: Gfycat.TaggedGfyFeed.GetNextPageAsync
   nameWithType: TaggedGfyFeed.GetNextPageAsync
 - uid: Gfycat.TaggedGfyFeed.Tag
@@ -6093,6 +6508,7 @@ references:
   name: Tag
   href: api/Gfycat.TaggedGfyFeed.html#Gfycat_TaggedGfyFeed_Tag_
   commentId: Overload:Gfycat.TaggedGfyFeed.Tag
+  isSpec: "True"
   fullName: Gfycat.TaggedGfyFeed.Tag
   nameWithType: TaggedGfyFeed.Tag
 - uid: Gfycat.TokenType
@@ -6183,6 +6599,7 @@ references:
   name: CreationDate
   href: api/Gfycat.User.html#Gfycat_User_CreationDate_
   commentId: Overload:Gfycat.User.CreationDate
+  isSpec: "True"
   fullName: Gfycat.User.CreationDate
   nameWithType: User.CreationDate
 - uid: Gfycat.User.Description
@@ -6195,6 +6612,7 @@ references:
   name: Description
   href: api/Gfycat.User.html#Gfycat_User_Description_
   commentId: Overload:Gfycat.User.Description
+  isSpec: "True"
   fullName: Gfycat.User.Description
   nameWithType: User.Description
 - uid: Gfycat.User.FollowAsync(Gfycat.RequestOptions)
@@ -6207,6 +6625,7 @@ references:
   name: FollowAsync
   href: api/Gfycat.User.html#Gfycat_User_FollowAsync_
   commentId: Overload:Gfycat.User.FollowAsync
+  isSpec: "True"
   fullName: Gfycat.User.FollowAsync
   nameWithType: User.FollowAsync
 - uid: Gfycat.User.Followers
@@ -6219,6 +6638,7 @@ references:
   name: Followers
   href: api/Gfycat.User.html#Gfycat_User_Followers_
   commentId: Overload:Gfycat.User.Followers
+  isSpec: "True"
   fullName: Gfycat.User.Followers
   nameWithType: User.Followers
 - uid: Gfycat.User.Following
@@ -6231,6 +6651,7 @@ references:
   name: Following
   href: api/Gfycat.User.html#Gfycat_User_Following_
   commentId: Overload:Gfycat.User.Following
+  isSpec: "True"
   fullName: Gfycat.User.Following
   nameWithType: User.Following
 - uid: Gfycat.User.GetAlbumsAsync(Gfycat.RequestOptions)
@@ -6243,6 +6664,7 @@ references:
   name: GetAlbumsAsync
   href: api/Gfycat.User.html#Gfycat_User_GetAlbumsAsync_
   commentId: Overload:Gfycat.User.GetAlbumsAsync
+  isSpec: "True"
   fullName: Gfycat.User.GetAlbumsAsync
   nameWithType: User.GetAlbumsAsync
 - uid: Gfycat.User.GetFollowingUser(Gfycat.RequestOptions)
@@ -6255,6 +6677,7 @@ references:
   name: GetFollowingUser
   href: api/Gfycat.User.html#Gfycat_User_GetFollowingUser_
   commentId: Overload:Gfycat.User.GetFollowingUser
+  isSpec: "True"
   fullName: Gfycat.User.GetFollowingUser
   nameWithType: User.GetFollowingUser
 - uid: Gfycat.User.GetGfyFeedAsync(System.Int32,Gfycat.RequestOptions)
@@ -6267,6 +6690,7 @@ references:
   name: GetGfyFeedAsync
   href: api/Gfycat.User.html#Gfycat_User_GetGfyFeedAsync_
   commentId: Overload:Gfycat.User.GetGfyFeedAsync
+  isSpec: "True"
   fullName: Gfycat.User.GetGfyFeedAsync
   nameWithType: User.GetGfyFeedAsync
 - uid: Gfycat.User.Gfycat#IUser#GetAlbumsAsync(Gfycat.RequestOptions)
@@ -6281,6 +6705,7 @@ references:
   name: IUser.GetAlbumsAsync
   href: api/Gfycat.User.html#Gfycat_User_Gfycat_IUser_GetAlbumsAsync_
   commentId: Overload:Gfycat.User.Gfycat#IUser#GetAlbumsAsync
+  isSpec: "True"
   name.vb: Gfycat.IUser.GetAlbumsAsync
   fullName: Gfycat.User.Gfycat.IUser.GetAlbumsAsync
   nameWithType: User.IUser.GetAlbumsAsync
@@ -6295,6 +6720,7 @@ references:
   name: IframeProfileImageVisible
   href: api/Gfycat.User.html#Gfycat_User_IframeProfileImageVisible_
   commentId: Overload:Gfycat.User.IframeProfileImageVisible
+  isSpec: "True"
   fullName: Gfycat.User.IframeProfileImageVisible
   nameWithType: User.IframeProfileImageVisible
 - uid: Gfycat.User.Name
@@ -6307,6 +6733,7 @@ references:
   name: Name
   href: api/Gfycat.User.html#Gfycat_User_Name_
   commentId: Overload:Gfycat.User.Name
+  isSpec: "True"
   fullName: Gfycat.User.Name
   nameWithType: User.Name
 - uid: Gfycat.User.ProfileImageUrl
@@ -6319,6 +6746,7 @@ references:
   name: ProfileImageUrl
   href: api/Gfycat.User.html#Gfycat_User_ProfileImageUrl_
   commentId: Overload:Gfycat.User.ProfileImageUrl
+  isSpec: "True"
   fullName: Gfycat.User.ProfileImageUrl
   nameWithType: User.ProfileImageUrl
 - uid: Gfycat.User.ProfileUrl
@@ -6331,6 +6759,7 @@ references:
   name: ProfileUrl
   href: api/Gfycat.User.html#Gfycat_User_ProfileUrl_
   commentId: Overload:Gfycat.User.ProfileUrl
+  isSpec: "True"
   fullName: Gfycat.User.ProfileUrl
   nameWithType: User.ProfileUrl
 - uid: Gfycat.User.PublishedAlbums
@@ -6343,6 +6772,7 @@ references:
   name: PublishedAlbums
   href: api/Gfycat.User.html#Gfycat_User_PublishedAlbums_
   commentId: Overload:Gfycat.User.PublishedAlbums
+  isSpec: "True"
   fullName: Gfycat.User.PublishedAlbums
   nameWithType: User.PublishedAlbums
 - uid: Gfycat.User.PublishedGfys
@@ -6355,6 +6785,7 @@ references:
   name: PublishedGfys
   href: api/Gfycat.User.html#Gfycat_User_PublishedGfys_
   commentId: Overload:Gfycat.User.PublishedGfys
+  isSpec: "True"
   fullName: Gfycat.User.PublishedGfys
   nameWithType: User.PublishedGfys
 - uid: Gfycat.User.UnfollowAsync(Gfycat.RequestOptions)
@@ -6367,6 +6798,7 @@ references:
   name: UnfollowAsync
   href: api/Gfycat.User.html#Gfycat_User_UnfollowAsync_
   commentId: Overload:Gfycat.User.UnfollowAsync
+  isSpec: "True"
   fullName: Gfycat.User.UnfollowAsync
   nameWithType: User.UnfollowAsync
 - uid: Gfycat.User.UpdateAsync(Gfycat.RequestOptions)
@@ -6379,6 +6811,7 @@ references:
   name: UpdateAsync
   href: api/Gfycat.User.html#Gfycat_User_UpdateAsync_
   commentId: Overload:Gfycat.User.UpdateAsync
+  isSpec: "True"
   fullName: Gfycat.User.UpdateAsync
   nameWithType: User.UpdateAsync
 - uid: Gfycat.User.Url
@@ -6391,6 +6824,7 @@ references:
   name: Url
   href: api/Gfycat.User.html#Gfycat_User_Url_
   commentId: Overload:Gfycat.User.Url
+  isSpec: "True"
   fullName: Gfycat.User.Url
   nameWithType: User.Url
 - uid: Gfycat.User.Username
@@ -6403,6 +6837,7 @@ references:
   name: Username
   href: api/Gfycat.User.html#Gfycat_User_Username_
   commentId: Overload:Gfycat.User.Username
+  isSpec: "True"
   fullName: Gfycat.User.Username
   nameWithType: User.Username
 - uid: Gfycat.User.Verified
@@ -6415,6 +6850,7 @@ references:
   name: Verified
   href: api/Gfycat.User.html#Gfycat_User_Verified_
   commentId: Overload:Gfycat.User.Verified
+  isSpec: "True"
   fullName: Gfycat.User.Verified
   nameWithType: User.Verified
 - uid: Gfycat.User.Views
@@ -6427,5 +6863,6 @@ references:
   name: Views
   href: api/Gfycat.User.html#Gfycat_User_Views_
   commentId: Overload:Gfycat.User.Views
+  isSpec: "True"
   fullName: Gfycat.User.Views
   nameWithType: User.Views
